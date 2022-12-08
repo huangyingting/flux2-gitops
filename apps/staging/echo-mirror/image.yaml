@@ -2,7 +2,6 @@ apiVersion: image.toolkit.fluxcd.io/v1beta1
 kind: ImageRepository
 metadata:
   name: echo
-  namespace: flux-system
 spec:
   image: ghcr.io/huangyingting/echo
   interval: 1m0s
@@ -11,7 +10,6 @@ apiVersion: image.toolkit.fluxcd.io/v1beta1
 kind: ImagePolicy
 metadata:
   name: echo
-  namespace: flux-system
 spec:
   imageRepositoryRef:
     name: echo
@@ -23,7 +21,6 @@ apiVersion: image.toolkit.fluxcd.io/v1beta1
 kind: ImageUpdateAutomation
 metadata:
   name: echo-mirror
-  namespace: flux-system
 spec:
   interval: 1m0s
   sourceRef:

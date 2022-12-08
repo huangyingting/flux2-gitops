@@ -1,0 +1,15 @@
+apiVersion: builtin
+kind: SuffixTransformer
+metadata:
+  name: name
+suffix: -mirror
+fieldSpecs:
+- path: metadata/name
+  kind: Service
+  create: true
+- path: metadata/name
+  kind: Ingress
+  create: true
+- path: metadata/name
+  kind: Deployment
+  create: true

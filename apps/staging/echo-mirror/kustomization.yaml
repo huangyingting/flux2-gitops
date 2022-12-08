@@ -3,10 +3,13 @@ kind: Kustomization
 namespace: echo
 bases:
   - ../../base/echo
-nameSuffix: -mirror
+# nameSuffix: -mirror
 transformers:
   - labels.yaml
+  - name.yaml
 patchesStrategicMerge:
   - ingress.enc.yaml
   - delete-ns.yaml
   - deployment.yaml
+resources:
+  - image.yaml
