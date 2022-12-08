@@ -76,6 +76,8 @@ spec:
 ### Automate image updates to Git
 This article [Automate image updates to Git](https://fluxcd.io/flux/guides/image-update/) provies detailed steps to configure image update, when creates `ImageUpdateAutomation` to write image update to Git repository, a few things need to take care
 
+- All three resources `ImageRepository`, `ImagePolicy` and `ImageUpdateAutomation` must be in same namespace, this is because currently ImageUpdateAutomation will only list ImagePolicy in same namespace.
+
 - Point `path` field to the manifest directory where the update is going to write. For example, GitRepository might point to ./cluster/staging, but the deployment.yaml file is at ./apps/staging/echo-mirror, the `path` field should set to ./apps/staging/echo-mirror.
 
 - Add `namespace` under `sourceRef` if `GitRepository` resource is created at different namespace. For example, `GitRepository` flux-system is created at flux-system namespace, while `ImageUpdateAutomation` echo-mirror is created at echo-mirror namespace, a `namespace` field has to be added so `ImageUpdateAutomation` can find `GitRepository` correctly.
