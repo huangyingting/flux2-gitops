@@ -12,6 +12,6 @@ patchesStrategicMerge:
 resources:
   - image.yaml
 images:
-- name: ghcr.io/huangyingting/echo
-  newName: ghcr.io/huangyingting/podinfo # {"$imagepolicy": "echo:echo:name"}
-  newTag: 0.0.1 # {"$imagepolicy": "echo:echo:tag"}
+  - name: ghcr.io/huangyingting/echo
+    newName: ghcr.io/huangyingting/echo # {"$imagepolicy": "echo:echo:name"}
+    newTag: 0.0.3 # {"$imagepolicy": "echo:echo:tag"}
