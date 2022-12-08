@@ -9,7 +9,7 @@ jobs:
     name: Open PR to main
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
       name: checkout
 
     - uses: repo-sync/pull-request@v2
@@ -17,7 +17,7 @@ jobs:
       with:
         destination_branch: "main"
         pr_title: "Pulling ${{ github.ref }} into main"
-        pr_body: "👑 *An Automated PR*"
+        pr_body: "👑 *Image Updates Auto-PR*"
         pr_reviewer: "huangyingting"
-        pr_draft: true
+        pr_draft: false
         github_token: ${{ secrets.GITHUB_TOKEN }}
