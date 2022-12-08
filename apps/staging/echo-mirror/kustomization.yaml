@@ -3,13 +3,15 @@ kind: Kustomization
 namespace: echo
 bases:
   - ../../base/echo
-# nameSuffix: -mirror
 transformers:
   - labels.yaml
   - name.yaml
 patchesStrategicMerge:
   - ingress.enc.yaml
   - delete-ns.yaml
-  - deployment.yaml
 resources:
   - image.yaml
+images:
+- name: ghcr.io/huangyingting/echo
+  newName: ghcr.io/huangyingting/podinfo # {"$imagepolicy": "echo:echo:name"}
+  newTag: 0.0.1 # {"$imagepolicy": "echo:echo:tag"}
