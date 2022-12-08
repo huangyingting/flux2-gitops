@@ -14,4 +14,4 @@ resources:
 images:
   - name: ghcr.io/huangyingting/echo
     newName: ghcr.io/huangyingting/echo # {"$imagepolicy": "echo:echo:name"}
-    newTag: 0.0.2 # {"$imagepolicy": "echo:echo:tag"}
+    newTag: 0.0.4 # {"$imagepolicy": "echo:echo:tag"}
