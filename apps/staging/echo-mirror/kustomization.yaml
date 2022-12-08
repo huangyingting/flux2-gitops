@@ -6,8 +6,6 @@ bases:
 nameSuffix: -mirror
 transformers:
   - labels.yaml
-resources:
-  - update-image.yaml
 patchesStrategicMerge:
   - ingress.enc.yaml
   - delete-ns.yaml
