@@ -11,17 +11,4 @@ resources:
 patchesStrategicMerge:
   - ingress.enc.yaml
   - delete-ns.yaml
-images:
-- name: ghcr.io/huangyingting/echo
-  newName: ghcr.io/huangyingting/echo # {"$imagepolicy": "flux-system:echo:name"}
-  newTag: 0.0.1 # {"$imagepolicy": "flux-system:echo:tag"}
-patchesJson6902:
-- target:
-    group: apps
-    version: v1
-    kind: Deployment
-    name: echo-mirror
-  patch: |-
-    - op: replace
-      path: /spec/template/spec/containers/0/env/0/value
-      value: mirror  
+  - deployment.yaml
