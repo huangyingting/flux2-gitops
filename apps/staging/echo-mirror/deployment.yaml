@@ -15,7 +15,7 @@ spec:
         app: echo
     spec:
       containers:
-      - image: ghcr.io/huangyingting/echo:0.0.1 # {"$imagepolicy": "echo:echo"}
+      - image: ghcr.io/huangyingting/echo:0.0.3 # {"$imagepolicy": "echo:echo"}
         imagePullPolicy: Always
         name: echo
         ports:
