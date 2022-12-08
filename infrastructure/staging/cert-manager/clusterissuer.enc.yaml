@@ -1,0 +1,45 @@
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+    name: letsencrypt
+spec:
+    acme:
+        email: ENC[AES256_GCM,data:OyzvWcxBBM+cFG5fgRa1H0gbVs/B,iv:hQM2t8b6SVrfsmez1vK2IctuKxQ7dhowAbwmfR25/HY=,tag:yUuMsdnaLEUb7Ju3P2xK6w==,type:str]
+        privateKeySecretRef:
+            name: letsencrypt
+        server: https://acme-v02.api.letsencrypt.org/directory
+        solvers:
+            - http01:
+                ingress:
+                    class: nginx
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2022-12-07T03:30:03Z"
+    mac: ENC[AES256_GCM,data:FaJmD55o3tJiUk1qmJx19he2G8ZxhSwGqHkeTCZV6nSPEfrSfIOUaVM1wPUrci13N9Ka2X+QsFjWHw6DxLI0Gegki4gflDL3Ey9hxK/xNoPrGAcgYULwqVmt/H7uv0FjDHgy/eCrdZULIj6Br30w2DQQHyVroKpuqHKhUC54R3E=,iv:nwx+Rch36Cs5KXpNzl5L/hhux/vD3UNFdPWacnleUi8=,tag:bERdsLSBQFQkeaSqo94UMQ==,type:str]
+    pgp:
+        - created_at: "2022-12-07T03:30:01Z"
+          enc: |
+            -----BEGIN PGP MESSAGE-----
+
+            hQIMA38T7Az157GMARAArfKwx4kW4zmZIv4Dwwr8Ab34IcEd6eoxSTl3cBiT2PKZ
+            djsSHh6Wd6B6dEIYFOocgrQhKkzeHLq+HpjZWq8g+2/Y+Zvfwf1Y42f49YrZYSfi
+            TUHPRatbdVCInlCMc0yybDhBxW6GsRbGTSJ8W1hM1Zcj0tdUNC2TnwnkAmKUVQsm
+            d8+bi7zqQUQDy5Nq7/kcRsb2cRLjKDHbXGwnruyH5rf/Wz3hNNaDyYcSPa0SfO9J
+            FiwU6bzqbGiSOUJ2QQ/08AlPJUmkVmEMRTIYy9gdy9JCCfMVevPGTvNAxSFBd7EF
+            UHvYl8nMUdTkmaVlrlp/zDvv8yDHC1lyWIllC3QVXeMattm/NyapjB6/6QbBNgcp
+            j9GR6uGZ2/oYlayjO+8JRVX2PvF5hOveESOeXyyixgKfC+ZLmZUkMDjIgydZ4JjN
+            ZzGBrIyI+NrYy5b56K2imzOPxWUmFifQ0jQgqo07PLhg+O1Ta4d7XTeJESwMklAs
+            IATDd2uIrQs7mgE+UU5Q6oGK5RASn1FZkF3X6sUvBL8a3bLcS4TMesVYgt9ejvc5
+            hbcVBNk4DXrqVc8BsbCWa/VubZQTDg0jh/57vecdBjqBMFa0a/9CFwxtA749cKSn
+            yB/lckyL6FxdGH5Ia215GHyPdiFs0hu9GV2RM2tz35rVehINZamnsXrl/znhNLzS
+            XgHZAng972TT2TkfF6vwWDaw6sHqrOOocCUC3+zqfjAJK3osgobMZDp/I8UCnKC3
+            Bu0AUMjRWOMheF9mHRqND1JHR/s9X4CehKJTdgcZP5u3J2sc5xSJ5/2PoawRJeo=
+            =sjTO
+            -----END PGP MESSAGE-----
+          fp: 129994A38E40322EE2A4FA6CB59C51DA13B1BF22
+    encrypted_regex: ^(email)$
+    version: 3.7.3

@@ -1,0 +1,58 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+    name: podinfo
+    labels:
+        app: podinfo
+    annotations:
+        cert-manager.io/cluster-issuer: letsencrypt
+        nginx.ingress.kubernetes.io/service-upstream: "true"
+        nginx.ingress.kubernetes.io/configuration-snippet: "proxy_set_header l5d-dst-override $service_name.$namespace.svc.cluster.local:9898;\nproxy_hide_header l5d-remote-ip;\nproxy_hide_header l5d-server-id;    \n"
+spec:
+    ingressClassName: nginx
+    rules:
+        - host: ENC[AES256_GCM,data:S+d+sqcLcF8sP5VDjQ3LmfcOVIemsc0=,iv:TBk+5UEc3XgbOYHDWxCu0rO84qjlFwtoYvthyhJVVAk=,tag:/fselOblZj63cRD/1zY1cA==,type:str]
+          http:
+            paths:
+                - backend:
+                    service:
+                        name: podinfo
+                        port:
+                            number: 9898
+                  path: /
+                  pathType: ImplementationSpecific
+    tls:
+        - hosts:
+            - ENC[AES256_GCM,data:pRdHqxXk4kRpjQCVBLdVBGmfbYMHO0w=,iv:gNcfpO7JRZyhFRNjejALQriQB779dVRCqNdUoFdsupA=,tag:y1rALs5JFZtzFDEDOGIGXA==,type:str]
+          secretName: podinfo-tls
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2022-12-06T13:34:07Z"
+    mac: ENC[AES256_GCM,data:V5a8phBYbMj08rpk10Wr818eL5nndfNusAG3cobUBV3pDDZtORSxFO0ZcMR6QDS5jqJM2pT7axVVk925qk3T1WjyjKZ5JOh0legkrSuwefppK32DF4m4QcCm9KGyWdLYdI5tcALEo3DTrwH4iZmXFeMX+Fjvj8u0fZtbSYestx4=,iv:mTCejOs09ek6nNCkf4sldxa5sAyny+HSXviX3/TgZio=,tag:aEhhuRgoIeHIt3+4XduW3g==,type:str]
+    pgp:
+        - created_at: "2022-12-06T13:34:05Z"
+          enc: |
+            -----BEGIN PGP MESSAGE-----
+
+            hQIMA38T7Az157GMARAAocYcj62A6Y7WXFQKMBM7TmP+/jtnA7iexEFEFh7OvEx0
+            9RIPzWyxtsOgxls1wvTtYz9qdESV+usa0mB+cpfUJpaE+vKikRZ+KgL3YoGkltMN
+            PXIZkLiLyN2uRzi9kJ8I5B/QrkLtsn74Co91KEirTv692k4Ht8BChPdMjBymgjKt
+            wnPUwJoSHekPTxgXR3INp191kFlKQoLt4iMljwLWomq4rvxzzTzFd0txFVV/H65Q
+            a+J7n0G+lDsXbOa2639xebANWG7Pl0qhvfH4LvM37VV8HpaWFigBZLoVDJiXREe7
+            33w8Hbz1McrsyYFvnIXPdjfQcfhRqmnVT66xzYxffJMUi1Na43U64zS54HYSbWcn
+            X8bHPwjdVB4K6mHs/4GvYTIBEk81lfK1EKBYxfSGvBClpXZqdK7/TF2x7oFH/hHr
+            FBvqCSMBepZ9BYSsbINITe1xZTw8Sg+acwDsg1BheAcgdLwF7iSu5MqQG/rtguGJ
+            Ru59OwiO8hkdg2y3NO3TuLdTVncNwBjDeZ6xHr4Wb/d7VhET3ao1a5fM45eve03F
+            GQ9D79iKruAkzCnXP2MNcmYBXirqvr8/Phyxs1TzpOojp0PY77VEa3uiWKMUXLkd
+            XqLziMfPd5F+vghCnjavzSMTs4wwvThfSQ4yzwrofF+T091kYQoTndsmADjx15DS
+            XgHcaFB1mOMIT65RExnrUTuioPOZbNnWbmkt9X3dN46/j0TW2QgMStJtSTa8GkSa
+            EPIR6ppK5CrA3OrGeac0jd0Dndbh+fC+XcX6YDqwAC4gwhQtt3YhxNxBlST8oRM=
+            =8rWB
+            -----END PGP MESSAGE-----
+          fp: 129994A38E40322EE2A4FA6CB59C51DA13B1BF22
+    encrypted_regex: ^(host|hosts)$
+    version: 3.7.3

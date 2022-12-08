@@ -1,0 +1,14 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: echo
+bases:
+  - ../../base/echo
+nameSuffix: -mirror
+transformers:
+  - labels.yaml
+resources:
+  - update-image.yaml
+patchesStrategicMerge:
+  - ingress.enc.yaml
+  - delete-ns.yaml
+  - deployment.yaml

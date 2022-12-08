@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: echo
+  name: echo
+spec:
+  selector:
+    matchLabels:
+      app: echo
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: echo
+    spec:
+      containers:
+      - image: ghcr.io/huangyingting/echo:latest
+        imagePullPolicy: Always
+        name: echo
+        ports:
+        - containerPort: 8080
+        env:
+          - name: ENVIRONMENT
+            value: none
