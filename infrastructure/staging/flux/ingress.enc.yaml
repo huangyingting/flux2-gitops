@@ -1,0 +1,54 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+    name: webhook-receiver
+    annotations:
+        cert-manager.io/cluster-issuer: letsencrypt
+spec:
+    ingressClassName: nginx
+    rules:
+        - host: ENC[AES256_GCM,data:OqP0i3YdL9XwF54JuhTyDcJYmi+PDKjCk41ZxQ==,iv:GPcBAKXxLJQezXQ50KfnCO1beRKqzKn91ZP5U6O4GEo=,tag:ou9xr3mOjTitoLi4a2n0hw==,type:str]
+          http:
+            paths:
+                - pathType: ImplementationSpecific
+                  path: /
+                  backend:
+                    service:
+                        name: webhook-receiver
+                        port:
+                            number: 80
+    tls:
+        - hosts:
+            - ENC[AES256_GCM,data:pSFGsefLoF6huYypVCWVSFRxkqY1YoaI4Bsi1g==,iv:NZXvUyJIdCT1vGvRXKLg833F4p2v8Bkq80FpF41oJWI=,tag:iEliDP4k5yIhWj5ICSb0SQ==,type:str]
+          secretName: flux-webhook-tls
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2022-12-08T05:58:33Z"
+    mac: ENC[AES256_GCM,data:xQtiMvtOZqY3cf3yXBWDiqb1lb7Ux8EmNfn5eHG9Mfec2mkFvz4KBQi1MI1avWP5CzjKvu6rlMvf3U/vpJ418h4KTBdiFwRbKhCKkYu+jTxPGQ3P4fyviuvcfsWiGQJjLGBx4imsw5YyY6HPWWONmrBHFBJ43VGoRfjjPNzNqSQ=,iv:KVRAO1VO9lCq8f1OTFFs6QLa8LWMA8XT73MpZ6iDp9c=,tag:rxxAGBMDtRoqL1ddJcXtbA==,type:str]
+    pgp:
+        - created_at: "2022-12-08T05:58:32Z"
+          enc: |
+            -----BEGIN PGP MESSAGE-----
+
+            hQIMA38T7Az157GMAQ//SE7P6EDxef0vBL98yWtDtbsLAhRczB0PuguCgZDnZQw1
+            EIHH6iMola4rkARYZnRcBCfMGHE/G9E/ZlM28SoAJAxTUn4SitdwgHZAaSFoEyGj
+            N4qQfCPvtyYJBWfrVd9TpDDmYuWrfPxQVZrqvnxK0qjeS8qFRnhWL3VtOteohDyj
+            LojerZeiIZG96ibJXCa4NyXo1SwdA/3Es/qVb7yalf88mM5CGlJvQJF5tXW3loVz
+            NJSpIGBKVbw0hnYnRr+PnDmLC7e8xusTlAm2ZWsJ++B/ohy4Er7RcsJJQnlKIyDc
+            eQFEaVFAwhuq5pQBQCdyU8FqE12H5o/f8jbXYlWhuAqsPyXVHKThcN2UOB6R/YCt
+            I+x5rM0z8Gw3j8sQqcjNES1zXQWfJNO/XwOmNwXWUV8E+EAFdMnhAIdBIPen3R7w
+            5PqNLVEzHb4YKM4kc+1BB9Ree8twURPjVUFO03Lt/f0t3eGiZ/Zx2Gi+o4PIgTmA
+            n9JwdACgsCQYFVGUaRO/gzaEmYfYMmjJfaANbl1QU84ycEk+diuia2SZ0twuZPVz
+            eYHzDXXXc+2QqzJtaFG6sC8d5pxJoNP048we87G5XuZjwEYhsZHSuMKLxHdVKw2v
+            FJu+Fu/mV8aMbd/KjVLpmh1R6FSKuBMyqDIzyNvnyKu+M4bNxV+8OuNzRFjBeyzS
+            XgF7jPkz3mobLLe10MINNJRfNzILO4ymj6Hpn1zrLBucYWW6TQfui8+lQemRgLiq
+            iji0vgUrIIhf+46zCOGwYlp+qYdWbW9mri9ts5dTXPqNUaKL5cSQaeSKLtZR7dw=
+            =lIVi
+            -----END PGP MESSAGE-----
+          fp: 129994A38E40322EE2A4FA6CB59C51DA13B1BF22
+    encrypted_regex: ^(address|channel|summary|host|hosts)$
+    version: 3.7.3

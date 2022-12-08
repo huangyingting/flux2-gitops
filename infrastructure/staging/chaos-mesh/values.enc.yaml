@@ -1,0 +1,66 @@
+# Default values
+# https://github.com/chaos-mesh/chaos-mesh/tree/master/helm/chaos-mesh
+controllerManager:
+    enableFilterNamespace: true
+chaosDaemon:
+    runtime: containerd
+    socketPath: /run/containerd/containerd.sock
+dashboard:
+    securityMode: false
+    persistentVolume:
+        size: 4Gi
+        storageClassName: default
+    env:
+        DATABASE_DRIVER: postgres
+        DATABASE_DATASOURCE: ENC[AES256_GCM,data:s9+q+2QDfgG5rBuBSxZr5ow7Aq1uY3FNTJs1OGYYgdijL2egSDv3gjfQU7Ka35xcrFOLsKdiKDQrLa14sbcS0FaIMCFgYiqy51guIgxjGioQlaxETQu/a1s=,iv:pS455Pm2FovsQzzpxQrJKNZVvU0I+OqWhQyTJzDGvv8=,tag:mWmBah6U3qkVbQK7PUq+Xw==,type:str]
+    ingress:
+        enabled: true
+        certManager: true
+        annotations:
+            cert-manager.io/cluster-issuer: letsencrypt
+            nginx.ingress.kubernetes.io/auth-url: ENC[AES256_GCM,data:03+tDKq3yqMIPUpvzVR6nvY4QBRkn9JaSzA0c2Xaida2rldYp+c+yA==,iv:zPQynW1qzmhSS9VOJJy1tDHKZrLrM9EMo2MiXLhWMWI=,tag:Z8yRq+kVskcoStCITGYGzw==,type:str]
+            nginx.ingress.kubernetes.io/auth-signin: ENC[AES256_GCM,data:oHUySWTIi8B9/sZYfKpcrW+jBuA5qTuRcN9Lw/jLETofcF3oHEAeKNZQiiXKtR+96hnTRFmimMjdr0cle0I0UXRIKCt9p8aw,iv:l3rr0XjOPIpMWiF0q0f3qBrWbkDi2wQe2Yj6JrNXHOw=,tag:1Gd1JiF+h+O6UmzbruQm6Q==,type:str]
+            nginx.ingress.kubernetes.io/auth-response-headers: X-Auth-Request-User, X-Auth-Request-Email, X-Auth-Request-Groups, X-Auth-Request-Preferred-Username
+            nginx.ingress.kubernetes.io/configuration-snippet: |
+                auth_request_set $access_token $upstream_http_x_auth_request_access_token;
+                proxy_set_header 'Authorization' 'Bearer $access_token';
+                auth_request_set $id_token $upstream_http_authorization;
+                proxy_set_header 'X-Forwarded-ID-Token' $id_token;
+        hosts:
+            - name: ENC[AES256_GCM,data:lrEBPOxoIJWqZPo03FheHjbTFONNf+Udxss=,iv:XsKyo9XO5PQ5X7LKjavHqNv84Pb4tHpiOokOsulNm1A=,tag:G1/r37S47EuaR4k6uWawzw==,type:str]
+              tls: true
+              tlsHosts:
+                - ENC[AES256_GCM,data:uEqMzii8JkpSXfPCwic2TO/oCA+o1r3BK/c=,iv:rYvB6sguRxWD3md8s/vWTC69zhn4l9+OQecCOy+Ecf4=,tag:5efmQeAJny4IEP1ASQEyTw==,type:str]
+              tlsSecret: chaos-mesh-tls
+        ingressClassName: nginx
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2022-12-06T11:30:41Z"
+    mac: ENC[AES256_GCM,data:UJCUlols7Ufg/8WEKr/a/iNqnTAtGC0tN/If8IHf8yFBn+ei37cBUfdXQW17LquYErPvwpqlDXzSejrmNWenB9NSQxsRdqt3aOSk/DRkLE9qUGw2UyCZbR9x8850mjDVpDq+MI7O+e85TX5KCMps0ehUT86F1bhDEjTHZRcYkT4=,iv:xduH1X8VLbdKdWrUnS62w4XB/SRHFAHOTU8jPVZz6N4=,tag:r6hdFEc4jQcVin/GOymesw==,type:str]
+    pgp:
+        - created_at: "2022-12-06T11:30:40Z"
+          enc: |
+            -----BEGIN PGP MESSAGE-----
+
+            hQIMA38T7Az157GMAQ//eKqn5wdHLxTY1Jti8yyyCuFAUS6GisDvd+XUHt7RtAUz
+            IrUCO6u8HURBnphOpXesfIMojLuhPygQzGFo+CAZNXbgWsSPioDzpk3ZI4Cmao0a
+            dmNcruZ/aU4m/JDDNvGJwCbe2j84N+vBwUGvTJS7XC4gxZiTAHWJ6z6pL+Jxc2yO
+            SYPtVjffMM8aNGSP5xLV+q1N2Ir8Ldh3gYPY5Kvj7fBBVfpyoIIufDkd9dQYKTnx
+            DAQjOTx76C1r49AAY8SetalLGMoXw/GTLJp91dSe+9OX1OAnwODiX3pkQymfX9s8
+            Df5CZne5LvKzLiE9pHQH+E3pqkTfE5z4GCP3etxxKLDYaflInFHcmNZvIMFA84Vq
+            pjJanBaXbAKFSMignn3zIJXjhLPgMwco85LR0usp1zHN2Qgb5F7xR+WlhJuB0yAL
+            FvPbL5fQiH0889aBTEA3+O3GTFNv8EABgbma/pxGHgNrgoIEIiR4pjn//3YS7QP6
+            yys9qPJ4Rg7NRW2vbgSQ/eAADQyOYSajxKBtz+O5PMYBJfFPa+JE5CjIhqXr3MaM
+            DuqQc9dGj+ipiieDLcwDjVtqsOId7wlWefgeVuYgCU3D6AQ3zOmtfDaWBXezidrr
+            Hg309C2KC2O/K+7uwUB2pPhKM607XX5BayKbb7t6sKsT2rVw4+FYxTArJM2vEsLS
+            XgFG2G6HKUqzqazozT0oOoI2UfcwoYITM/plpAzqDjN5KbN3yajZ+jTxokrHbIrZ
+            R2kppTDQO79GhOnnmT9ftExjfgyUtcNq3Mgp8S6w/4kden3woBr2CRxTVS3qICw=
+            =ets8
+            -----END PGP MESSAGE-----
+          fp: 129994A38E40322EE2A4FA6CB59C51DA13B1BF22
+    encrypted_regex: ^(DATABASE_DATASOURCE|name|tlsHosts|nginx\.ingress\.kubernetes\.io\/auth-url|nginx\.ingress\.kubernetes\.io\/auth-signin)$
+    version: 3.7.3

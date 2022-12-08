@@ -1,0 +1,57 @@
+# Default values
+# https://grafana.com/docs/loki/next/installation/helm/install-scalable/
+loki:
+    persistence:
+        enabled: true
+        storageClassName: default
+        size: 16Gi
+    config:
+        compactor:
+            shared_store: azure
+        schema_config:
+            configs:
+                - from: "2022-11-01"
+                  store: boltdb-shipper
+                  object_store: azure
+                  schema: v11
+                  index:
+                    prefix: index_
+                    period: 24h
+        storage_config:
+            azure:
+                container_name: ENC[AES256_GCM,data:3/Hs7g==,iv:pFRnHp7ub7lKeSHX6vi4C8PPGOZGNsGwYcUPnNMP3zg=,tag:cm8rzMxoTy4LEDw3klDpIg==,type:str]
+                account_name: ENC[AES256_GCM,data:sOgqwmos,iv:xqIx45L3pp22LWnyq4Px5hoYdvaH2kRcewhE2fbnpPw=,tag:Nbjw3Amm/h4BEi9CHpczQw==,type:str]
+                account_key: ENC[AES256_GCM,data:9sfz/Ayux5tKtzj5espP6lAr2ztTERVbW0XJmxtId+HT8aeR2jJ4+R6lTFiedbnkQiwZSt8dk5k91ti9rHBtOKtlu7el+vUGkFR3W0VyabcfQccD3FZITw==,iv:JevU2UHfY5mFlOnbemmkRRnLmkXPaSFZYUwKaIUHMvs=,tag:axvQmBp/cZ/UvODjukGy9A==,type:str]
+            boltdb_shipper:
+                shared_store: azure
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2022-12-06T11:22:15Z"
+    mac: ENC[AES256_GCM,data:XK11F3rklW4prJaIyBGDy3yF2UVC+GX969P95RI/mbC/W/uwWjz/Gny64UhjnlmZ6sfmJvZ+BARHhq1i9dwBcUWGL7Qf3ytyBEiJRNJdqnuJLQCvCsgSTIIWZrbFZhKc35lQBkCk5Sd+Zt17l0VfgJsg/bYbPeoDUJweRqYhEvw=,iv:FCYM+J/wjmhUdIRZyqn+xBTsmv07IhnElfo9nXDqado=,tag:p8MInbTFFAEdEKBwLJJgwA==,type:str]
+    pgp:
+        - created_at: "2022-12-06T11:22:14Z"
+          enc: |
+            -----BEGIN PGP MESSAGE-----
+
+            hQIMA38T7Az157GMAQ//T5QpbetjrAeg6YMfYrRyiffaWFfbuJlIbPATJTMobtOh
+            X6CWmHP8X5qpCFO1Sl6ury9cejJVc+59flQt+XvjNW8jPdqCat52nbXbValspVfI
+            /djBCaO78sDPtpC+lHuO1lJdtFlpXEh6Q3U06zhVA1oxgz77UCnb4VCF7KjA7ggE
+            LrVoWZpImSs0fDZSivpkH0Dh5UwpCk8wO2GbcwB5CwUQHxNje74jS1dhC7Xpluw9
+            sjJYvljR3CxAX9iNQtHacJmUaCxXCSxiTCwJJZelMDoOvmRQr1cVIPLt8EFgOhMA
+            Eiw6rG8D5onDD40aNOMQgxxbvCEGxPtwr9ZVO+wfH8psqbppP6MStaqI6Hp+8FQJ
+            hi/YrdzaVnfDSQ27Gk8ezQGgBUT/Haqp2FBRV6Yd34eCL5rbYO8u4rEOp6+LWRt3
+            nscKSUblY7/R7Csh2xJCf9yXHPlkLCkOkyj8LRst45e+VEvSq52JF2zKIpnLFd6M
+            NB0tSk7GOeSzeG/usy83dVi0qCeAWEPMa3QJIuCvS6TUZNFNqgjPgnz+yiicrTis
+            iFnb4JYrdgIzgqPBbsKB8msOhW2xrPmsMB13U2AO+LA6wKmwAu5XcnpaS6x2DNlF
+            /y5qT5D2XWR1GqGM5mpyaHgZZUD3KbpSp978SGnFh6raQ+ovoRu6Z+iuYh6PUubS
+            XgHCyYjsA9/PkZ1/ia/8fyXimWK/1L39TTOENIehO52OMJkMNEbeJFwPECXc/9Ed
+            43yj3aonPgypecG8Xa5//XZJRXZzWi1VgCsUxyxSGcwKgaje40EovLX9Iw8z9wA=
+            =7vBE
+            -----END PGP MESSAGE-----
+          fp: 129994A38E40322EE2A4FA6CB59C51DA13B1BF22
+    encrypted_regex: ^(azure)$
+    version: 3.7.3

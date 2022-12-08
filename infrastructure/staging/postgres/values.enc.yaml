@@ -1,0 +1,41 @@
+# Default values
+# https://artifacthub.io/packages/helm/bitnami/postgresql
+global:
+    storageClass: default
+    postgresql:
+        auth:
+            postgresPassword: ENC[AES256_GCM,data:QNmMBpeCkgk=,iv:Q1vKEWEGQbKSlsktuZp8R8QumpATSxb7C2mfXSAwK1o=,tag:i8GW90jzfM1HOhmmVZ07XQ==,type:str]
+            username: ENC[AES256_GCM,data:I7+PiMkIDWva,iv:YbDtWAanyiwDAUfE5i/n5fLqxfgXfjj6W5fDoKn0Nzo=,tag:ukbvWqKo8N18Pgu1O7H9iQ==,type:str]
+            password: ENC[AES256_GCM,data:mar76dqznds=,iv:kGI+LpKoClrAnempnSxJWF/eRjkqRhkkcHwe69uARUg=,tag:5IWRxohXFW37lpFknl4dCg==,type:str]
+            database: ENC[AES256_GCM,data:PpgmPfConXyD,iv:aQ6R+IZIJbFgYCgugYDIRYHDqsEC2O58TvqOHNXNpmw=,tag:dLvRLb5fuo5eAvUIQlG3gg==,type:str]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2022-12-06T11:12:45Z"
+    mac: ENC[AES256_GCM,data:vQ4MrPWOYAWbzst04UGohBGMR8S9lgfbSbcbNRotMBntcMxB/l/GQPKrfVcwXIum0YqkDCxEt0Q45VVHg118Ue22wvOQ3LUt8+pDmWZTwktqyxUTaeKaSTMAkDPRHEplioyle9LdDG0DjWu+8FItlb9CCer4lepuooHU1EEp7sg=,iv:r3auR/Uv32/9yqKXOUoTEHPU69WsSEQNrUt8KcTiHsg=,tag:VFyY/ncq1nmh4++eUuYlqg==,type:str]
+    pgp:
+        - created_at: "2022-12-06T11:12:44Z"
+          enc: |
+            -----BEGIN PGP MESSAGE-----
+
+            hQIMA38T7Az157GMAQ/9GNyjuQ5jIqi48e5ZdSX+aJjacT2joH6PiyDtlBXPUZu0
+            k6fTIkEOk8tsHHDL3ge/Le9KqRFJPXnTrg0Fw465t8t/hHsqwPsMwT/LD3Wv93QQ
+            puVPb627SUIdXUnFYSBau2jCgym4WDJh7iYDEWRpx9qlRDMOBopAY37j9CnPk3x/
+            68rDrjxuwQcNd0eNvDeNl0Psj1CpMU86XgaMnyB5yAe2yJat8SFIREzhCtTaLaWO
+            CBydan9iHuI5+1VIjZqyhhF359G3FbtKJ1rks32EI1kzuyBm2GOeNpYpjHZLufAG
+            ww9j5UUcNSO2H/Mo7a6LN33tZO+5727gkyVfMBPmbbjVADoJp8S/zfJucehgKg8L
+            BJhfUjK0ThfWW3vxM0HzgdM+lYPDiGP5Z3pvtvFnQ4c1cd2wU0dMi2uHUt7lueL5
+            YBXQ2BHRJakZMonnG64YmFt1FqpXW0rpIktIXKhiMwayU3ebpYtBbulrxu9L+GSB
+            fQHLX8WVzf7WuxzM7g5yA6BuQKvouhyRguzyIQdcl5GFmS/A9AsXTOncnfJibn6h
+            16T2ysQcB4E78/0fD0NLhHTZwGVN7/vccaU19x9EK6ewXVLx9E/rJxMcHmcDTc66
+            8SP/A966odxonPJrcT3aLU74BViAJ8Ipbw2mKG43f9w+mLr8NXogK9ZPTsgSGLzS
+            XgFSa1bvXHzr8a9YLMoDuAarO4aQ3qbcAbE0p9eTsehHtArU4PGDr4foCt8EQnCD
+            ajjf4icP35ukDjxa1y+2YXg5jhNsIHa/1e4latNXIeXSMDpItUXKpra3Asy9Vyk=
+            =QbSU
+            -----END PGP MESSAGE-----
+          fp: 129994A38E40322EE2A4FA6CB59C51DA13B1BF22
+    encrypted_regex: ^(auth)$
+    version: 3.7.3

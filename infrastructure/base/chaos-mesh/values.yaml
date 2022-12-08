@@ -1,0 +1,15 @@
+# Default values
+# https://github.com/chaos-mesh/chaos-mesh/tree/master/helm/chaos-mesh
+controllerManager:
+  enableFilterNamespace: true
+chaosDaemon:
+  runtime: containerd
+  socketPath: /run/containerd/containerd.sock
+dashboard:
+  securityMode: false
+  persistentVolume:
+    size: 4Gi
+    storageClassName: default
+  env:
+    DATABASE_DRIVER: postgres
+    DATABASE_DATASOURCE: postgres://username:password@fqdn:port/database?sslmode=disable

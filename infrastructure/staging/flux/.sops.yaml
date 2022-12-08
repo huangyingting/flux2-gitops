@@ -1,0 +1,6 @@
+creation_rules:
+  - path_regex: .*.yaml
+    encrypted_regex: ^(address|channel|summary|host|hosts)$
+    pgp: 129994A38E40322EE2A4FA6CB59C51DA13B1BF22
+  - path_regex: .*.env
+    pgp: 129994A38E40322EE2A4FA6CB59C51DA13B1BF22

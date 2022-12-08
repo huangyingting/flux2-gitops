@@ -1,0 +1,4 @@
+# Default values
+# https://artifacthub.io/packages/helm/flagger/flagger
+metricsServer: http://prometheus.linkerd-viz:9090
+meshProvider: linkerd

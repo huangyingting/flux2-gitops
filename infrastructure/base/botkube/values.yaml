@@ -1,0 +1,17 @@
+# Default values
+# https://github.com/kubeshop/botkube/tree/main/helm/botkube
+communications:
+  default-group:
+    socketSlack:
+      enabled: true
+      channels:
+        default:
+          name: CHANNEL_NAME
+      appToken: APP_TOKEN
+      botToken: BOT_TOKEN
+settings:
+  clusterName: CLUSTER_NAME
+executors:
+  kubectl-read-only:
+    kubectl:
+      enabled: true

@@ -1,0 +1,52 @@
+# Default values
+# https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack
+alertmanager:
+  alertmanagerSpec:
+    retention: 24h
+grafana:
+  persistence:
+    enabled: true
+    initChownData: true
+    storageClassName: default
+    accessModes:
+      - ReadWriteOnce
+    size: 1Gi
+  ingress:
+    enabled: true
+    ingressClassName: nginx
+    annotations: 
+      cert-manager.io/cluster-issuer: "letsencrypt"
+    hosts:
+      - grafana.example.com
+    path: /
+    tls:
+    - secretName: grafana-tls
+      hosts:
+      - grafana.example.com    
+  grafana.ini:
+    server:
+      domain: grafana.example.com
+      root_url: https://grafana.example.com/
+    auth:
+      disable_login_form: true
+      oauth_auto_login: true
+    auth.basic:
+      enabled: true
+    auth.azuread:
+      name: 'Azure AD'
+      enabled: true
+      allow_sign_up: true
+      client_id: CLIENT_ID
+      client_secret: CLIENT_SECRET
+      scopes: openid email profile
+      auth_url: https://auth.url
+      token_url: https://token.url
+    analytics:
+      check_for_updates: true
+    log:
+      mode: console
+    grafana_net:
+      url: https://grafana.net
+prometheus:
+  prometheusSpec:
+    retention: 1d    

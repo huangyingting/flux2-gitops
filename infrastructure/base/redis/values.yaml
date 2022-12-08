@@ -1,0 +1,14 @@
+# Default values
+# https://artifacthub.io/packages/helm/bitnami/redis
+architecture: standalone
+master:
+  persistence:
+    enabled: false
+metrics:
+  enabled: true
+  serviceMonitor:
+    enabled: true
+    additionalLabels:
+      release: prometheus
+auth:
+  password: PASSWORD

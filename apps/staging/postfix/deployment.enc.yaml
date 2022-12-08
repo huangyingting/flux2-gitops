@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: postfix
+    labels:
+        name: postfix
+spec:
+    replicas: 1
+    selector:
+        matchLabels:
+            app: postfix
+    template:
+        metadata:
+            labels:
+                app: postfix
+        spec:
+            restartPolicy: Always
+            containers:
+                - image: boky/postfix
+                  imagePullPolicy: IfNotPresent
+                  name: postfix
+                  env:
+                    - name: ALLOWED_SENDER_DOMAINS
+                      value: ENC[AES256_GCM,data:w9EIM6S/jY3nH587OTuw,iv:IyXuOeuBe+toWubWAiwpIMW312/syvLtcOY0nmTEjf4=,tag:o6Eox264GX/6u6DsVqlnWA==,type:str]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2022-12-06T13:41:26Z"
+    mac: ENC[AES256_GCM,data:zpAva6732AjaKlFTY5EciU9cFFiICLnyUxdJkJPPaL77Waqv05TkiVUloDQLXLXFo5qoTdGc8uKA2MePVUEBM2d+ekgHySb94qg69oajkwgQHMFkA97r2CKzHd0fCgSNB1gwTyf1le3eeXQ/D5vhsArYoDNLAvZbG3Wjgq+8IPQ=,iv:0ui9nzCuJmW5ccRL61uKF6QsObucwtK7mUvfudyR/dg=,tag:IyOYBctxSwpduHvnky7k3A==,type:str]
+    pgp:
+        - created_at: "2022-12-06T13:41:25Z"
+          enc: |
+            -----BEGIN PGP MESSAGE-----
+
+            hQIMA38T7Az157GMAQ/+MEWNKhh/tBnFHNSf0+HwSIul8N7gQc1QP7Poz5O/jyBH
+            svzQg4SCIJsCS8YLIDyoyGVQzm8lnEn8/DlBCh5ZZCFsTyprV5P2duaX8Y9nR8+X
+            +nvPZoLD7IZK+WGSOV0B6is4+UABXYgTFrtMIF7L5bcTXUXWxEL6tSQWN+pLMDTX
+            ueDfW+pXOmT9uobr2NZ6y5Hi6JL5zeUCc3Ccc0Q2QmiULPzu4zNA+SroDTFk0FC4
+            pRCmpsgQg6s4EOkXpSfhCLQ0lWgmdN4uhah7ytchNxUocfv2SP1VLpye8ILVZH6c
+            EytzLkjKHk6Eved6B19FRTmIZISiUTBtOAHCRLHuqAFB0KR9mLLN0OHabBae0tod
+            KgeSa1c/LMwCo7F7QL/f9rppAow22603x/4GcIlJgRKjHzfPe46S2DYOzxVZghn2
+            jTTkeHrKMpu1cCxBhbh1kh4gruMOdKAs2fESqV9dLGncGiAuOjVALCVKZfy7Fb1U
+            9t48WJSf82P6PW8JYjxiCmMG/79fb/meUf8dI82qr/NJdvSFnQ1MBt9CdKgxn7Ve
+            pN54SxZMoEE+f+VRzjJR23eogxBuxGZdzqGU/KpH+dIS4R7qI3JPSx0Q5XUPrOFG
+            2x55gJeSfIyZOymYJZ5plXGhyqouvD7TPvFU0kOCVjy+owa5N9bK2zi6EeL5vDrS
+            XAGhqSc55Wd1R/WhaHO3sCuiTgLDecb5RbZ4LoXAwzP6sJg6oGXTYyF5knncSEE/
+            sgOnZnocbmUDIgyc+bncIlmcfW51BxtJO2vxbP2JHBnwrIEHptxoMaEKm6gB
+            =/Dbs
+            -----END PGP MESSAGE-----
+          fp: 129994A38E40322EE2A4FA6CB59C51DA13B1BF22
+    encrypted_regex: ^(value)$
+    version: 3.7.3

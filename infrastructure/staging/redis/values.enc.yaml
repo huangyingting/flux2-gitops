@@ -1,0 +1,45 @@
+# Default values
+# https://artifacthub.io/packages/helm/bitnami/redis
+architecture: standalone
+master:
+    persistence:
+        enabled: false
+metrics:
+    enabled: true
+    serviceMonitor:
+        enabled: true
+        additionalLabels:
+            release: prometheus
+auth:
+    password: ENC[AES256_GCM,data:fx0v7iPhwgA=,iv:sbbbSVmgCHKo/x6N/D6XN7yMw5Nk17OqEwA0IwjvRys=,tag:RQFmonnMHFvFYLb6vl/7+Q==,type:str]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2022-12-06T10:56:14Z"
+    mac: ENC[AES256_GCM,data:lFYenkeUwNRPX04V1Yw0s1C24EKmBYIPW+SdUXpY9WZGGl+EEi8PTUZSKkWso75g3s7lqtG9L2U8ohpKBI3FCgx8U955s5YHkO/yVuD7ixAYTLpF/pA1ZNiy/B/jsZJ5fJWBQllKXynel1zaSm7KPXQGZ8oc58Ms959XuNLWgN8=,iv:1R5WvgWEcSWs4Mb16EC/PIhqkXqM8NbvF1fNeFtdrrc=,tag:o2nPmLomAjfcts2jLuDsEQ==,type:str]
+    pgp:
+        - created_at: "2022-12-06T10:56:13Z"
+          enc: |
+            -----BEGIN PGP MESSAGE-----
+
+            hQIMA38T7Az157GMAQ//d43yG+ZL0vHpKVy3m8WWXcLID3SQ+ji2Rjn90uyh1V5Q
+            hlNPbHRDBXS2aWr4Rmy0+F74M37Yi1h/w8tnxqDN4Flkk1aaD6O6BYNziZ/ARurR
+            agg8T7aESNSchXdqQsGHCO4gXCHU1AxzYtroyL1H5dD6hCkWFGUq7L7TUeH3Axq6
+            4fpc6EIihTQtrD2l2wWEAMkMlkd93esuicOHXcbqGozI1O/UxLyLCp/DIof9CAIl
+            Rd8+TnSkepXXbTqd4M9JSCh12oTUYsQddhZl3TmJ4Vmt9WuUbu7Z+cimOTR5HpSn
+            PP3fB4lsIalqQpqtH69BGaojkJK9kpxXTh3Tn7PBXICuMikDeFDVTxMY9MzdzZwd
+            7+QecDoG57udhYqD9CTCCTMQGwPWR9GXO0NW9QewW80oj+ereKRhCrQ8EmnIcxxr
+            7XMbiDcgeamRTpHeAnEv/GIPgUT98RvXMmgy1hx4uJKLR0IqJY10WYlRQUPoXuUf
+            GU7AyAZpNr0qxai6GmMvW7rNUqWWt8W/VVhOR4HAfM0G8a369oeylalD+ShHKjF5
+            St7R0ybDkBKDLFNWiwlsdvrz9U0VjAt8dRxgmoup/TxR5NyR3uplmf1kylAlxZaw
+            MJ6OmsdYiATdGDr+AmkB/pC+DmoGRALzoOGFb342XnOoHg06XSS3pzpAAC4m/WnS
+            XAHrkZ7r/csX1+20Ygpt+/7HQktHkef1qt4+mn18AP6IfQ2K6gEmPzscDPMZhvVT
+            mZv5tbjQ/Vmp3+NBnUsx4L+NYlfyFY3/CbNgAP71h28tAIY3TTKfzVITopIF
+            =c91R
+            -----END PGP MESSAGE-----
+          fp: 129994A38E40322EE2A4FA6CB59C51DA13B1BF22
+    encrypted_regex: ^(auth)$
+    version: 3.7.3

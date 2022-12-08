@@ -1,0 +1,103 @@
+# Default values
+# https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack
+alertmanager:
+    config:
+        route:
+            receiver: slack
+        receivers:
+            - name: "null"
+            - name: slack
+              slack_configs:
+                - api_url: ENC[AES256_GCM,data:VjCowRVq2dFKzKF2NaCuK18z2HLk5ML/MjQy+Uh30OHU6N3iwsLBkGHyl6sRVfbzcWKR24Sklh2YXBSg5iKMtLtu1cv4s2fT85KxJvHX/9ds,iv:a1gEl1oMntAz9jW2C5gOhmr+yjiV8rtdCJMgrUHEros=,tag:/LcAKHH2U4TADyUbkKTbNA==,type:str]
+                  channel: ENC[AES256_GCM,data:AF3LA2s8Xg==,iv:SEMGGXQxtKJgYZ0CutQVlZdnIM4DiYUTQc0HA5Kxd0A=,tag:DBoJypCj+BF4VTs9nxbsaQ==,type:str]
+                  username: ENC[AES256_GCM,data:4HPaRwd5L2++cg==,iv:oNrUDJtjZJsZfyXZKyDG0e4qcRHpMTd/R+dqN2web2Y=,tag:bmjel2yYy769L8XImYklQA==,type:str]
+                  send_resolved: true
+                  title: '[{{ .Status | toUpper }}{{ if eq .Status "firing" }}:{{ .Alerts.Firing | len }}{{ end }}] Monitoring Event Notification'
+                  text: |-
+                    {{ range .Alerts -}}
+                    *Alert:* {{ .Annotations.summary }}{{ if .Labels.severity }} - `{{ .Labels.severity }}`{{ end }}
+                    *Description:* {{ .Annotations.description }}
+                    *Details:*
+                    {{ range .Labels.SortedPairs }} - *{{ .Name }}:* `{{ .Value }}`
+                    {{ end }}
+                    {{ end }}
+    alertmanagerSpec:
+        retention: 24h
+grafana:
+    persistence:
+        enabled: true
+        initChownData: true
+        storageClassName: default
+        accessModes:
+            - ReadWriteOnce
+        size: 1Gi
+    ingress:
+        enabled: true
+        ingressClassName: nginx
+        annotations:
+            cert-manager.io/cluster-issuer: letsencrypt
+        hosts:
+            - ENC[AES256_GCM,data:qj4xkE1DV0/3XY/VBi+vVx1of1x9Qq0=,iv:fHX5HOkPfMyGIVpTxUrhq0xpa0Aj411TPagEPLfojAA=,tag:wv/LefOOqmhdZwX6PN/kOw==,type:str]
+        path: /
+        tls:
+            - secretName: grafana-tls
+              hosts:
+                - ENC[AES256_GCM,data:pUSQxjiKOkrUjAeQk+BJ7qThDPT8wxQ=,iv:NS09LiQxz3LHoaI4fK0ofbn0cuGhqdL3AevG8I993NA=,tag:V3HTymLKOn5UOqww/8e+ag==,type:str]
+    grafana.ini:
+        server:
+            domain: ENC[AES256_GCM,data:/gdk9wCS+RkwXIWeWAgZDK7X2gYrIvY=,iv:g1YNv3EJ+X7Rsj9FxCuqbMaDVcOgO/tNzuoUCWZJboI=,tag:Q+GQvNpe/pklbvO3x7MTTQ==,type:str]
+            root_url: ENC[AES256_GCM,data:nN5tDf4jpYTlWSAiyQVILbB6Kc7mvnlOstKHicAdu/c=,iv:5wxUNK6Vufg8RqlLq7vwzZ4WbMz8RHolJV3cNUKtdFE=,tag:3ESIkNaqPzVgUbExr/Vq7Q==,type:str]
+        auth:
+            disable_login_form: true
+            oauth_auto_login: true
+        auth.basic:
+            enabled: true
+        auth.azuread:
+            name: Azure AD
+            enabled: true
+            allow_sign_up: true
+            client_id: ENC[AES256_GCM,data:VdOo9PfU4F9LcwG/9D+WAQxOejqIp89tUDJJ/6TUpOIssyZC,iv:iN1LhL+XBOI22tdFQsVKJrBIsu7Pk972AsxIOFl7nqs=,tag:od9lLj7J5uO8Xn/4TnKSeg==,type:str]
+            client_secret: ENC[AES256_GCM,data:9lL1GLFeEhuXe5+ddXBAu0Y4zKcCLSQMO3DQO3LbwNZI5hfT580V3Q==,iv:zWfYNTwVWvooq+faVQSeyteXUkIHPNifezw+rAs2awA=,tag:1IWd6NWRo53uqDAB7aeDmA==,type:str]
+            scopes: openid email profile
+            auth_url: ENC[AES256_GCM,data:KPwdvh+/dRdl0fBOKEQAEZ8Rijcqn82mIlPB9zI6qg6mWcpWulKOb7AV+OUqcwbQ4lCrlhXakhkbJkmWivdAuejFD8xIswrmYALAmhL9ScPIjq/HRitH2FZAWqc=,iv:4/W1jrVt8pDyq5Qa8qfVOK8tUpQQfewU3BnXPB5wyPw=,tag:o7L2qDKcUJpsRuLzwMGbdA==,type:str]
+            token_url: ENC[AES256_GCM,data:vywP0cAUrFUhKS9TjgTGuIL8jOTDd3h313emoguPu+tm7sLjR43bgcg3B0KUlOVmggqb1OAqSEShUHoEqY/CdbrZThBP9WTcFGUOcVytAsCoFrb0pJ97KQ==,iv:ApbWn/mViYHGFfE6poLHfKvJeUW3Op0bfxfvA3S4vQM=,tag:Aqvx5r9FOk+f4P8Yo1/2qA==,type:str]
+        analytics:
+            check_for_updates: true
+        log:
+            mode: console
+        grafana_net:
+            url: https://grafana.net
+prometheus:
+    prometheusSpec:
+        retention: 1d
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2022-12-07T16:30:06Z"
+    mac: ENC[AES256_GCM,data:42EVyIfEDiuA7M4OmdIXeqGnGyBOkf11RrxhTr0y3/bmeHZ27diZGK2EUcE+tqJormlRIbWYtWEHOLO1pOzYtETsAFmP2MaF9s/7mYWgH5LVagR8trqFc2a9uET4LSBze90ft6V8DVhX2pHbgb9Uv4ihhVIl2VsXhMxyRnPES/Y=,iv:ifD49ptVVIWqmgRg3jeNN2Xg5UnxCWgQ7br8mA+eY/M=,tag:uMtCjoyegmX0SLVCkD2ZyA==,type:str]
+    pgp:
+        - created_at: "2022-12-07T16:30:05Z"
+          enc: |
+            -----BEGIN PGP MESSAGE-----
+
+            hQIMA38T7Az157GMARAApAeyRXEHkZfgLwNtBPxeAZsyzprSrMFj/Yr4HkD7RKsI
+            2N58UfHJvsQjVfJY/lYzQFC5LkhxWvTfMEQIF4gTvA6s4Ew0FdUKwrfTEyvLJ7+0
+            uOFdnfjYT2PDzVlqZjWBa3ezkwQi/srAzbpsprQCHbxEO3twbnMDA7SyWqsAQRM7
+            mTLJWUEr4hU4P581tAca6K/vdWz/Jz43qjtzkeeQCrsX+jeHjds0eSDdYoFllvqp
+            pqQtoTELEmbB5emXVtT89XTFFBBOy+K7DMHm1HmanAZTfKQSOO2l9W5nVgKxhQm1
+            P2ZOwc+qjZuA16hYQ+/4AFkwMzPfZA5d8InBNWW/uIqLhGd97pXaLKUCEFz7vnH+
+            kmsaY5VRPCHmqMweBHhQrZZ2GV4MDUPCmvwznckPcdunx4HT2MUxWFrLh9ZZZ3DW
+            x/NKU2ERIQK7Z6/e426Mvo6VPgpLqWUb+9PAUAoEXCA4YMTg+Ci65dRtvB6KQ73j
+            tPd01f+QxN4HZ/Ld003pfpKBfieXBdHWmcqlyMtBIpkP1u9HuIhwod8saJ+aOD6y
+            JVG32d4llJT5zToumxZd2lXsI3pTyAIyHsuNFCWaI0q2SqB5Y6QDyRaSHWnDqUYf
+            l/uJxslmPq4/b4McgOHFV1yz7IQdZSGq23JZ769WxVpGXQoPTeVleREw1X4Mql/S
+            XgGYVotGdYg/jky2JgHFHSkP5Br6LVvFiO6Q89CFhvOp3S3D4QIV1umyN0NkUwFV
+            YuIDGuDQX/Em8SQ7AWr1JwH7JH64LjDtWopIlfZm8yulskuE6aCZar1/zPPVccU=
+            =2N30
+            -----END PGP MESSAGE-----
+          fp: 129994A38E40322EE2A4FA6CB59C51DA13B1BF22
+    encrypted_regex: ^(client_id|client_secret|auth_url|token_url|server|hosts|api_url|channel|username)$
+    version: 3.7.3

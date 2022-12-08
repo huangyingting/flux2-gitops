@@ -1,0 +1,71 @@
+# Default values
+# https://artifacthub.io/packages/helm/oauth2-proxy/oauth2-proxy
+config:
+    clientID: ENC[AES256_GCM,data:pBG8U8tzKI08JZQzIG8EruUQJl1Z9Rv5CQLTMOr0sHDcgHGi,iv:/1Ixo73UpO9hgfo4f+Ijq86C2Kul2indjIFNURjCe0w=,tag:LoMy+Vv3QMMzxX5vTRzNWA==,type:str]
+    clientSecret: ENC[AES256_GCM,data:4vKigUJbW9nl350tAmB1NhJW9BBSkADz0/0WPZrEvQzbuc3eJbkjPw==,iv:HThl9Kj2gH29LpXKo+OdRT4YHelVsShddgzpBT78oqI=,tag:BfXJ4znH8WqLPe5QZrfFUw==,type:str]
+    cookieSecret: ENC[AES256_GCM,data:9hNND/46LdcoUMn2WsE1n13LrbK7732Fffho0tKMbEUHmyT0hCrjJDQ7IVA=,iv:DF0kQb6mmMjgQWQIhaVif2ECiT2XAmtbGk5L4+9KU9Y=,tag:MMboATOfFJEAua4eh9DHYA==,type:str]
+image:
+    repository: quay.io/oauth2-proxy/oauth2-proxy
+    tag: v7.4.0
+extraArgs:
+    provider: azure
+    azure-tenant: ENC[AES256_GCM,data:zbAeMNbwCRnvwYwhmhlPMWYUm0YQRwjRL0/P6CvtdLGYU/1B,iv:vYB7B63jVenWwL5K5fm65fNANkOWRcXdZSl0/A2WomU=,tag:3OHamY9zEXyXsKYEFocp5Q==,type:str]
+    oidc-issuer-url: ENC[AES256_GCM,data:yKdBh6dYGG9vSzj2BuuZMu+nOrL7KCVSJEk49/9r8mV2dwQL5HgtVBqWPVkUrbLq3tqW5RT0WUvkcK4XUxRrtUxcPfDD8Zdd5WjT,iv:tSD7s0RTNCgX7x82vG0VBsglESgjgRzNKM/b3CqJyh8=,tag:uCCBjWGllJqtuFF6mCtP0Q==,type:str]
+    whitelist-domain: ENC[AES256_GCM,data:7nX3CyGMsSEExIzOGezI5A==,iv:Bk07ejxwqqjPqMouhLa12RyARc3QymfqYTlP9iH0eWg=,tag:9vq4/WZ9oy9EoyFeZdv7tA==,type:str]
+    cookie-domain: ENC[AES256_GCM,data:yuz6JPOin9+6JlWZU3vXAg==,iv:6Uuk3DjYesrz/uJXzLZbNYCmCZsHSuMifUiT9lKztU8=,tag:DepwBQcvGsTkZbbbxxb0Lg==,type:str]
+    set-xauthrequest: true
+    set-authorization-header: true
+    pass-access-token: true
+    pass-authorization-header: true
+ingress:
+    enabled: true
+    className: nginx
+    path: /
+    pathType: ImplementationSpecific
+    hosts:
+        - ENC[AES256_GCM,data:wmSCxltEAHiI8lIl84xfrB4tdaY=,iv:Hchw+1kFsaDu/vBpXSmAnA3txH1qL6VljI8neXv7SjY=,tag:wUZ/AbZeasRJDwJkHXb3Wg==,type:str]
+    annotations:
+        cert-manager.io/cluster-issuer: letsencrypt
+        nginx.ingress.kubernetes.io/proxy-buffer-size: 1m
+    tls:
+        - secretName: oauth2-proxy-tls
+          hosts:
+            - ENC[AES256_GCM,data:Cf5PFkR0PXqx/A6U0YpKHEi2SBo=,iv:fk5k0PolioLT14m/YtGBebD7mww+WGhobihDrVBib/0=,tag:pEJ6Vxxrv2MtUXn2L5voDg==,type:str]
+sessionStorage:
+    type: redis
+    redis:
+        password: ENC[AES256_GCM,data:wXSr4SkXGAU=,iv:aQ+NakS4zjYClU0ONzocAgASX2jBScw/I7gQoIePEPs=,tag:DQWG4gMd7NyPOxgP7BifPA==,type:str]
+        clientType: standalone
+        standalone:
+            connectionUrl: ENC[AES256_GCM,data:1CjsMHpxDuczUzYYbdXA1RlU1J4g+fC7eoXWLVin3w==,iv:HWBPK8B7VuUkrRo99e518lAqYoSG4nPtIwn7yBxxfGU=,tag:LIhNjVEFqJJ832sozkX6zA==,type:str]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2022-12-06T11:34:30Z"
+    mac: ENC[AES256_GCM,data:HHg62o+di//9lMfiCEzj6yBgF53XiqxSrctdwanQ5SNrlT31D2mVT+CyTMMalOOYGzQDD4T5lkIUG/xt0R8URUg8nGCSmqPxVxQx3ngPrAFArhPrx8JFjS3DfEpDs54lXk6mHYHPB/M36Q57ObhNowzee923vV8hmnekH6bLylw=,iv:HS6M0aModpzQhDfuMqtJBv3Eqh/cmmyiPFQmAoApWv8=,tag:bg3nHGYtO3J7seu8ALYfJA==,type:str]
+    pgp:
+        - created_at: "2022-12-06T11:34:28Z"
+          enc: |
+            -----BEGIN PGP MESSAGE-----
+
+            hQIMA38T7Az157GMAQ/9GqBxA0ZoTn7/Gv7F/vnLP6zKJY1162+Ie4eIP7bZ/vIv
+            xr5DZwm5n5XzW6I6BIkCcjtR0KiCd1ts1uATqorZjCYwLGokcfIbx7VczaGFbEYm
+            HDWdGhBh1P89aYhesIHMs55iezyMPAZLuwp5w7U7XysXPG4skUw5+ME/Ut5WhE/G
+            Zxq2GucaQXGqAzHvQvmdhoLGNrRyYKDyhYAedvjoQ+KlUAF5uI2qKcVlYYuve7+Y
+            beUCDAUlvqLz1Ch3tKEa+6C9F2vWQI8o6N+bcfMC/KrNi8rfRBChujtd/AEwwk0w
+            a5ACnOEsnSdfH9RVHH+2XQioBQmbnP3gfJqeC6th7kvui5W0QH2sxI9gujZpQy0M
+            5F9VgOuLN5YRnojl2JMrFYSkg+pZ6DmZVgcr1hYb9oxOEuJlGwlD4CBYgxRhZcRb
+            Yr72yXJK4BM+RYsrfygzpp5m2LUfXoFPV2aN9l1lPCE62FPiLs+Fn32J/pVHshqZ
+            hVoBCYlJcFkkwLJS0Ednz7d0CZusjeVMBF69Tl/Dhe2ROWgwQ0t/Xlgzk7AoZTX4
+            oo0cT0TFDALUgCc8uIoqtYcKEZ2h0lMxfHZksqM1EZ2HWQLI74jaOLh8yhXJ1Nb0
+            VZY+9zsW+S/rRjmbaSfKKBm+c/BgakKP1d1DOOgSUkepwPGi9LExYOSo4TxsCQnS
+            XgGBqtfZPwqjPa8eedWcnDGzFcUb9EUJ4UInIBD7YL/wDgiB85scnp037CRPxQ1/
+            27QyiRhpj0LONxzUlygTwvW3J2dBT4+A98GErOuNa7oafKLNJDyZ6cEm7lvsFw8=
+            =QLUS
+            -----END PGP MESSAGE-----
+          fp: 129994A38E40322EE2A4FA6CB59C51DA13B1BF22
+    encrypted_regex: ^(config|hosts|password|connectionUrl|azure-tenant|oidc-issuer-url|whitelist-domain|cookie-domain)$
+    version: 3.7.3

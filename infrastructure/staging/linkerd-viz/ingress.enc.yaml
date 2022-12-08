@@ -1,0 +1,59 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+    annotations:
+        cert-manager.io/cluster-issuer: letsencrypt
+        nginx.ingress.kubernetes.io/upstream-vhost: $service_name.$namespace.svc.cluster.local:8084
+        nginx.ingress.kubernetes.io/auth-url: ENC[AES256_GCM,data:VorXJBoc2japfzZ03UKv1y1Bp+HgYihAhEXKjv/u7khROLBqdf9qNw==,iv:JCvmRdhQNv5a9DGximWn1rQFPquUiuApvy30yatgrjA=,tag:qA3U0dU+Q0gjg6WVqt267g==,type:str]
+        nginx.ingress.kubernetes.io/auth-signin: ENC[AES256_GCM,data:otORrKTuiQg6YY+5yYjQK8QPEhB5HzUrUykC7BdgMBETd+oK9BqJ1Iam840LpTiShNz3TnXSJwL0wFJRGVtkCgW5sUHVtSlE,iv:PMXvRtK1QTFh8tv+KBYdrWs49TsPvifrbTBT24yeURM=,tag:oz674U7zO7rzb2qG9Gr8Dg==,type:str]
+        nginx.ingress.kubernetes.io/auth-response-headers: X-Auth-Request-User, X-Auth-Request-Email, X-Auth-Request-Groups, X-Auth-Request-Preferred-Username
+        nginx.ingress.kubernetes.io/configuration-snippet: "proxy_set_header Origin \"\";\nproxy_hide_header l5d-remote-ip;\nproxy_hide_header l5d-server-id;  \nauth_request_set $access_token $upstream_http_x_auth_request_access_token;\nproxy_set_header 'Authorization' 'Bearer $access_token';\nauth_request_set $id_token $upstream_http_authorization;\nproxy_set_header 'X-Forwarded-ID-Token' $id_token;\n"
+    name: linkerd-viz
+spec:
+    ingressClassName: nginx
+    rules:
+        - host: ENC[AES256_GCM,data:lblNKgmBVD33wWj957NWmdhPk49OQ9jxFCNW,iv:yzhNlWfV8P8MSHPLo0t0Hph+6U/XOYHkdYpj0WTrDLA=,tag:SKeUdqHMeZyyYfQXPcgQug==,type:str]
+          http:
+            paths:
+                - backend:
+                    service:
+                        name: web
+                        port:
+                            number: 8084
+                  path: /
+                  pathType: ImplementationSpecific
+    tls:
+        - hosts:
+            - ENC[AES256_GCM,data:erxj5oN1vpjDKB6jW5aLk9samHBYrvmrGIky,iv:5I7H7XBXD1f5HXPlH5/pKAI1o5Dh+vVdTAuMhYC5jrw=,tag:m0vmUKk4kSqpu3wFL+dFyg==,type:str]
+          secretName: linkerd-viz-tls
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2022-12-07T10:56:37Z"
+    mac: ENC[AES256_GCM,data:E/xS8I35tXbf0S7sOyfzGfjsnDSQd3ePIH4qKOdjAVFwPxFrXi9q6cWwckBrw3P/ayNtCXaT+REjccJC7Gh1eLfeyib1hKs9fMbLGFFgjxbw6dS/073aQ2r8QGiTXo3f7jW0FhMjUYch4Spdn+uwwucXwLkbsBuPGQWMVJYxldg=,iv:Ow+1v+I3UvTE87pJRPt4W40MS6VTc9VvltiphdJ3snY=,tag:MQ4W98x9HG5bjieiXrArxQ==,type:str]
+    pgp:
+        - created_at: "2022-12-07T10:56:35Z"
+          enc: |
+            -----BEGIN PGP MESSAGE-----
+
+            hQIMA38T7Az157GMARAAhpVuo8xPu0K9o53oFRktpjR1HdknWZsN4TFI5SJK+sJh
+            biJu5Dhdx2/4BlfakousXCh7i72Ohw5yZPByavVIWvqPTfZ/J8lqCn3hflcREvrx
+            +m48srOZ7+sNnXfHIIQnIGflzjM06W79IpNv413Xi6u3bVCpXQwwat9iTEyvVmFo
+            A0OUwRioALBHn0WDGTV/7nniZSoV/V08WvI3W1TTq//bctYOj348AmaTEj1cE1GD
+            Pr6CGohWpNV8UAYKzyDNk9d7WkljJ4ip8BNYIkGA4hsl2kUt/H7KAo5vatNWsJcH
+            mSQQBkt5c41yA9K/eR2K3KXukqT0IlfvPiaTF4IjE0DNa9YguJUnoxJHM0wf9YJY
+            3XE/+CbEV9accEuE2jShkT3okvn7wxbWBLEgI2Haq0jb4Ut+WbVwhhVBFGqNBbHZ
+            CkGA8DAL8yxO6sMVt10vNSCuEYjGWC38pi8hJr3KbKA47TDFfKsdQ1Mz24B7Qku9
+            LEbNuBwZzn3M5sAMjR6Wtn0YQreVFx332xg/UiwSSOpWdF/Vll5r5A/Z1fF+2+iT
+            4UU9ApVdwQohkvTJ+I2sqoTm1ULI6+pI4YLqDRGMiHtHrWnMJ/RS0fHzUYGa7beJ
+            KfGDMiOsFfjswRBTAEUCtbyzK4ZTWSyMw5kczNbtHgSqdPRF9Zq5uyCUUWTVcbfS
+            XgFTb84JaAvfTDH/v61vzuqALHjYVuycvJDRXyMXNB1PcWUHqRDRjyOSSzhrehiz
+            xB2NeZPwp4N/nFeE5GzbQC3CC55EBCKHmF+UaWXuXhyTAfhVYoEquetCHZrGb5I=
+            =zwGK
+            -----END PGP MESSAGE-----
+          fp: 129994A38E40322EE2A4FA6CB59C51DA13B1BF22
+    encrypted_regex: ^(host|hosts|nginx\.ingress\.kubernetes\.io\/auth-url|nginx\.ingress\.kubernetes\.io\/auth-signin)$
+    version: 3.7.3

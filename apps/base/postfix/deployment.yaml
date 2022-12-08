@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: postfix
+  labels:
+    name: postfix
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: postfix
+  template:
+    metadata:
+      labels:
+        app: postfix
+    spec:
+      restartPolicy: Always
+      containers:
+        - image: boky/postfix
+          imagePullPolicy: IfNotPresent
+          name: postfix
+          env:
+          - name: ALLOWED_SENDER_DOMAINS
+            value: example.com
