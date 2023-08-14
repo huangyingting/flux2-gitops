@@ -1,0 +1,23 @@
+apiVersion: notification.toolkit.fluxcd.io/v1beta1
+kind: Provider
+metadata:
+    name: slack
+spec:
+    type: slack
+    channel: CHANNEL
+    address: ADDRESS
+---
+apiVersion: notification.toolkit.fluxcd.io/v1beta1
+kind: Alert
+metadata:
+    name: info
+spec:
+    summary: SUMMARY
+    providerRef:
+        name: slack
+    eventSeverity: info
+    eventSources:
+        - kind: GitRepository
+          name: '*'
+        - kind: Kustomization
+          name: '*'

@@ -1,0 +1,78 @@
+# Default values
+# https://artifacthub.io/packages/helm/bitnami/redis
+architecture: standalone
+master:
+    persistence:
+        enabled: false
+metrics:
+    enabled: true
+    serviceMonitor:
+        enabled: true
+        additionalLabels:
+            release: prometheus
+    prometheusRule:
+        enabled: true
+        additionalLabels:
+            release: prometheus
+        rules:
+            - alert: RedisDown
+              expr: redis_up{service="{{ template "common.names.fullname" . }}-metrics"} == 0
+              for: 2m
+              labels:
+                severity: error
+              annotations:
+                summary: Redis&reg; instance {{ "{{ $labels.instance }}" }} down
+                description: Redis&reg; instance {{ "{{ $labels.instance }}" }} is down
+            - alert: RedisMemoryHigh
+              expr: |
+                redis_memory_used_bytes{service="{{ template "common.names.fullname" . }}-metrics"} * 100 / redis_memory_max_bytes{service="{{ template "common.names.fullname" . }}-metrics"} > 90
+              for: 2m
+              labels:
+                severity: error
+              annotations:
+                summary: Redis&reg; instance {{ "{{ $labels.instance }}" }} is using too much memory
+                description: |
+                    Redis&reg; instance {{ "{{ $labels.instance }}" }} is using {{ "{{ $value }}" }}% of its available memory.
+            - alert: RedisKeyEviction
+              expr: |
+                increase(redis_evicted_keys_total{service="{{ template "common.names.fullname" . }}-metrics"}[5m]) > 0
+              for: 1s
+              labels:
+                severity: error
+              annotations:
+                summary: Redis&reg; instance {{ "{{ $labels.instance }}" }} has evicted keys
+                description: |
+                    Redis&reg; instance {{ "{{ $labels.instance }}" }} has evicted {{ "{{ $value }}" }} keys in the last 5 minutes.
+auth:
+    password: ENC[AES256_GCM,data:pF5r+jHqZCA=,iv:0T/yCXw/zT2iidTjiYgrYLc8rvVZNENXjI3JXCaO9xA=,tag:qWZbrqiMosOm7eMP0hXEUw==,type:str]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2022-12-09T09:41:07Z"
+    mac: ENC[AES256_GCM,data:ARwTJz+dUgRoP2mDxUBsG6+iqshsMjUtvAS32g+DtAKVuAONjoAbYieKD9mSy2N7cj2wsnpjtNyD5+tLOZxracIgRz+we2BlD32INlmNgheZ3IcM/yoWGelooHuI/AQ/7+M1Btw5zj2B/2fGaBClys67JuDjQhQR9dV1HGpqgo4=,iv:RW96TcyEpXsPA8eVkK3hOKqSgnxvFfaFVVQ5kFhMJ9c=,tag:bUuiINWH7gKGLliV/rOnbw==,type:str]
+    pgp:
+        - created_at: "2022-12-09T09:41:06Z"
+          enc: |
+            -----BEGIN PGP MESSAGE-----
+
+            hQIMA38T7Az157GMAQ//eo2F0J1Rf3xyNdujUg53xF/hHeywidye+X8/5+kEWFdd
+            uXZhJMZSSMBpxrviEo/4ZPUUq29ANzCyCM4NrAcgMtk3IDxJODxwTSDhHvlFeaW3
+            M+594XLCr64xQybBqoZUnL2cOB3CJfw25vzMM39lSL15a5PSo4KIXaqh2TZBBNEg
+            n0ooJn4FSCOZYIDk4a5cMhJLilcCyJ0OIgXVhpPibWtRQ4ACxeVdiSmY1KvkcPJG
+            3NavCmtHxxsPWE/l9hP1duDAwqoB3LPLsOPXnU/27TmrJVmtJu9lhVbf6YZnCkAW
+            hgtwCdZt95gF1rbkc1d8SioIKm0ANjTtPoBzWEIzs1jkvrM6zmUseMiUoMk2BiqY
+            iKdrlWDThdpwtfbM4QhBEbnkgT013Fsi4eGSPKB8scz6zR65aNQt4YQuiexnwHr5
+            RXs/0iRvVvuOkw2YhI6iky8L0qz1wkxsjdOh+8ddyG3zUqiLNSD/f4+i+59jLLjE
+            h67zZdsUIxsYpWh0ZWARbirYu9gMof56ulMmWAQVi/blXk4+JYEe7sk7IcH05es7
+            GzGs7hMYXNSjTyE7SwnMwmYAhGAj0t3k4a+islJsZ2NXNQl+QuUqxXV2h+FY2AYd
+            ppXRUMXZxbylqjsmI/hf9GVjKWQ14K0iI/4nZZAOASvMVl1yU3GL+3AvJ1DqSgnS
+            XgEYf+tdGUHJLKSuHjHIMAwk61qZcWPcXrz2LuHlfO+lpRPoR91Jq7KXCcMjuoeG
+            c66oeXI76Hlw25KaY0Co1qC8imTgW5pyyefEJtPYWXsuSFPQihG4O1p1oLw3cfE=
+            =IujC
+            -----END PGP MESSAGE-----
+          fp: 129994A38E40322EE2A4FA6CB59C51DA13B1BF22
+    encrypted_regex: ^(auth)$
+    version: 3.7.3

@@ -1,0 +1,88 @@
+# Default values
+# https://artifacthub.io/packages/helm/vmware-tanzu/velero
+initContainers:
+    - name: velero-plugin-for-azure
+      image: velero/velero-plugin-for-microsoft-azure:v1.6.0
+      imagePullPolicy: IfNotPresent
+      volumeMounts:
+        - mountPath: /target
+          name: plugins
+resources:
+    requests:
+        cpu: 10m
+        memory: 64Mi
+    limits:
+        cpu: 100m
+        memory: 256Mi
+metrics:
+    serviceMonitor:
+        enabled: true
+        additionalLabels:
+            release: prometheus
+    prometheusRule:
+        enabled: true
+        additionalLabels:
+            release: prometheus
+        spec:
+            - alert: VeleroBackupPartialFailures
+              annotations:
+                message: Velero backup {{ $labels.schedule }} has {{ $value | humanizePercentage }} partialy failed backups.
+              expr: velero_backup_partial_failure_total{schedule!=""} / velero_backup_attempt_total{schedule!=""} > 0.25
+              for: 15m
+              labels:
+                severity: warning
+            - alert: VeleroBackupFailures
+              annotations:
+                message: Velero backup {{ $labels.schedule }} has {{ $value | humanizePercentage }} failed backups.
+              expr: velero_backup_failure_total{schedule!=""} / velero_backup_attempt_total{schedule!=""} > 0.25
+              for: 15m
+              labels:
+                severity: warning
+configuration:
+    provider: azure
+    backupStorageLocation:
+        bucket: ENC[AES256_GCM,data:fimXE8xO,iv:JxW/cRw4k+Ts6t9SMc8RB0MRVvPJqewR+Go2Dcn1SwE=,tag:i2bFAL2NP0I6N59+S3tDeA==,type:str]
+        name: default
+        config:
+            resourceGroup: ENC[AES256_GCM,data:u62YFpHC,iv:f4oHt5z2cOFedvbvdmyC14kzUbZao9wvJToGp3VwQBE=,tag:lWsPwWqWh3FLZSQXhsyCEg==,type:str]
+            storageAccount: ENC[AES256_GCM,data:6nki9asaRkI=,iv:4ml4QmSJ9PTE75FMyMIa0QMlzAmVxGsIey3Tj7yqCl8=,tag:6xX/0/llZ3Rrcs4FLPtDAg==,type:str]
+    volumeSnapshotLocation:
+        name: default
+        config:
+            resourceGroup: ENC[AES256_GCM,data:KVyj8uG4,iv:nivkkQ8L3hheKAf9nlnSrf0VMUtfM24hFGLDXRNzO2U=,tag:0NvhBNh2qic28d5QH1wg5Q==,type:str]
+credentials:
+    useSecret: true
+    name: cloud-credentials
+    secretContents:
+        cloud: ENC[AES256_GCM,data:1kj4Cs7J/20DPNjzMff4aLvIqGd9jcKMv+hur74LqiHZtOvuytywjj6FrMoAavEWOFtvkmquCq5XAEkzJPw9L35TtWyq3E35nG4S9N8oRjMRmZTsHi7zRTLB1khz74Z3W6Cz0F/fQVlLvvXf+LwlKOw8eJtIAXeFI5xNVle0pMwHbo6FWhwILEx5zqSD9nwG2B8jOJvA23S9zFwhq387JyZlNqG9wQ7xcY85c1FR1qtujoXmZh8Qu5no7pv0DOwGRrgVUQb9Jq2/AawsG1WKHDGcmd1wiOB5Cq9URProIjuZpEiGs1QcNzdkm41WtGWaKbHBuZ+ILRNc7ZZxgnMypZ/Ro2xI3f2fwOf4SwiLr4fW3g/j3G40+Jjka69AEQ==,iv:kyoJct9LzdYsUoEVYqkVssxxTrAT2HnjzixM6XpPQ+E=,tag:Rt1gpifaNcj3hELlDHhrHA==,type:str]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2022-12-11T05:46:59Z"
+    mac: ENC[AES256_GCM,data:wRvwrZ7x87zeroh4aAgrg/mIVDb0q4yUpeWuUm0iwYX2F1KQCw2TMH1GqRWn0aDiz7vKC89JaDUvur3rDUjEntI9jA35Ev9AgGp0KGFPeXlu7Dt3kY876mJqAUtDG2aCQfYzJoSnJQU4Oz0ZqZy/ikROskwz27a9nowlJlKXOns=,iv:3NmZKrS6cso/HziMmMCJHLtqEqIIf7WgXS3XjcAxeuE=,tag:DjzEShOYmWDVO28hIdzX7w==,type:str]
+    pgp:
+        - created_at: "2022-12-11T05:46:57Z"
+          enc: |
+            -----BEGIN PGP MESSAGE-----
+
+            hQIMA38T7Az157GMARAAhJVKHr2fdD42pFMerTMq+E6JCD371RCEXN4AyA0rHTmp
+            2dDsE8RayvIHNqPKk0+pSP6kD8w/EP3pS1te5ozdd5PiG0JoJdn9MG4POYt4CIl2
+            q+ApQUB2NPrMEvI+sOlbpHdZ4dZx4H28KMKdARwFTyXyTtDkV7ZH4ASL5vXz8eQN
+            19KQZmF04Qp80JX321MxyJQIs+EibWuwlzpkcQcvesqCB9j+wdLPaekzWz10x6RT
+            EXvVzItq9bs68uQwdguXYWhTK5RBDphVTR1ngu0Yfw14kR0qDycOqiGfwTzWW+wf
+            k5HSQONFSCUfk/3S8Skp3/+Xs0Xl5MVKsQgPsfV4ZH21Pb0MJF7b/PVdBwPEYxJn
+            /9r6EokSlQwgg2KC8zLMgffEHjHBFjD8SLCP811UW9USpAz9WxxRzMXA+Khc9OCe
+            CKlOSLuePscJ653R874iwIU4XuVM40JxCjJbmKrKFm5vgabMSLVPje8u3UgG+0PU
+            v3rS8zaoyFFt1mSPPYdTm1PznqywzrMDp4/VdKyGQpLVXakBD52jt/rHINchFlhw
+            TZsPhZvu+lHjqe7cWWA12zmCoPtpXtcIwp2gzkuVh1YHBDLgZtSrGptNup1t9LYh
+            oYtmPWAzjOG82OnyFTDxw6a8Q27E6tMwC9HppeR7iGH05bMgAUz3fJhRbXOl3TjS
+            XgG1BWreCEieNa4Z1Rj250JwaD7o7ZceQoZpoXe058Llk5+AADhRQ9CBSHgvQL7v
+            KrzfWtfGau3gAszAiQpXFFyEmJFNaB/DZv63e6X8CB6gJvJQLaSTTkTjgikoyiQ=
+            =DnO1
+            -----END PGP MESSAGE-----
+          fp: 129994A38E40322EE2A4FA6CB59C51DA13B1BF22
+    encrypted_regex: ^(cloud|bucket|resourceGroup|storageAccount)$
+    version: 3.7.3

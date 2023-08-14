@@ -1,0 +1,83 @@
+# Default values
+# https://github.com/grafana/tempo/tree/main/example/helm
+ingester:
+    replicas: 2
+    persistence:
+        enabled: true
+        inMemory: false
+        size: 4Gi
+        storageClass: default
+metricsGenerator:
+    enabled: true
+    replicas: 1
+    config:
+        storage:
+            remote_write:
+                - url: http://prometheus-kube-prometheus-prometheus.monitoring:9090/api/v1/write
+                  send_exemplars: true
+search:
+    enabled: true
+traces:
+    jaeger:
+        grpc:
+            enabled: true
+        thriftBinary:
+            enabled: true
+        thriftCompact:
+            enabled: true
+        thriftHttp:
+            enabled: true
+    zipkin:
+        enabled: true
+    otlp:
+        http:
+            enabled: true
+        grpc:
+            enabled: true
+    opencensus:
+        enabled: true
+storage:
+    trace:
+        trace:
+            backend: azure
+            wal:
+                path: /var/tempo/wal
+            azure:
+                storage_account_name: ENC[AES256_GCM,data:w0iCgKtc6g==,iv:4xXZzB3oUg2NfzeRDl2xd47fM0VO1t1uOo4HKyfwAtU=,tag:a0aOCPaxRAUbjOwWTDGwpA==,type:str]
+                storage_account_key: ENC[AES256_GCM,data:d9b0+KpTwE6rl+ZY4bl8DDmxtvcqdiASexfdsmKQbBIM2PNNuXR+0swkqW/XFPK5pkjAFImpImJ1ik/jl9NqhaRBbk8eyXDpRI9rBbdrpN8FAkUtyz+/hQ==,iv:XG7ScMePenZOer0VOeeCfHiVY1TsKhN4PvnIdkMhmT0=,tag:B6MDQD62qdr6fnIrjkB8bw==,type:str]
+                container_name: ENC[AES256_GCM,data:O+qlgb0=,iv:Oug9RkyeWlNuzwHWOhFDdF7FwM1ncIr5+yjKcLOVjHA=,tag:gt+qBwYI0Pgs2WkgqPPFhg==,type:str]
+            blocklist_poll_tenant_index_builders: 1
+            blocklist_poll_jitter_ms: 500
+minio:
+    enabled: false
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2023-08-14T08:18:41Z"
+    mac: ENC[AES256_GCM,data:ZhXyDM0aaONBd9YjTMuQnqc64YAPqsBd5ozBB4ReERPvDnD395v1B9eUOBPjqyrKpioAxU+uN4jxcLkONn7ztmGM3xVQVKmKItXiq8sHpWla8NtI82yu0aHM9T1LLI6D7qQiDcD7+IITIdaJmG4nzng+dSt5+XxJY/2pKSt4KBw=,iv:TaznNKIgrQD4Fo5ohVE3o0spTG8cHxq8cSRsG9DRn8o=,tag:8p4uVPLq7/k/xWWJow7cAg==,type:str]
+    pgp:
+        - created_at: "2023-08-14T08:18:40Z"
+          enc: |
+            -----BEGIN PGP MESSAGE-----
+
+            hQIMA38T7Az157GMAQ//fybVeU0xGq3zS4hcFaK9HrGsUTU6lM33QLgUoyXTluu9
+            /eeVLOkpR6jwC8bCXviEqeY1Jr5e1eSiIxthgIMj6vZOlgYTF/N6/4otnJp0QQfI
+            yK6Kh+h1biymnVu9LVQGPJQWxYVvN2BKYmKZR0INU1eWTfakwnMNop4wLb000mQE
+            StUUMGDB2O7JoGYBi7BGLfkf3jXEduA1WWvSeZThYTzcIqaCg5G6wRLbYD4U6vrQ
+            aC2uxZlmKYg7Cv1lh5u87PzsH6iBfDD4XkP+OmKmyslRePFDF+iOEaWdqORqajda
+            eNDS5BdS9VmYP3vGXormHZZld3gAXlP2EuhagA1pQ6SQkMK4s+bDodjxZmwqBwH7
+            XJc1RN0voxjTYYOCFYqu2x+Y3OTw0MDYwZtqzQiygHbCL/BADpbfjB8gvwCWgnTV
+            qc1LDwO+Cu662MA6xCHeuiYMJn2PrZZnaCOmhzR4ZFiIK92V9JBg8O0paPxvaaGC
+            CGqkk4qeE34MeAezxdB44iXb2J3c5UV3QdQ75nzNQwdX3GF+pQbhEof+74JwyVce
+            Tq0fCHo/Fl9C3gLKKeRuRE5uOsJVA3KuckwLtCAIXL5dg5NXfRuMxeJ/S1t31+JR
+            UQSJ6RWRSuUTwTY+6r1lNuwypXrE4bR2yfiARr9eBClWmNfAK+S7ZcZJhGAOQNnS
+            XgEYqJE5G6pwLCNn31DDjZP82cg7Zy2QJ/h1AaeCwb1AkeyEih/wKKqa8btHVXiC
+            dTybZFNhrD2IWtV7luUoZY39LP9/rck79ensKThKOdeMY6hj+1IZrrmnuddu2W0=
+            =h4z4
+            -----END PGP MESSAGE-----
+          fp: 129994A38E40322EE2A4FA6CB59C51DA13B1BF22
+    encrypted_regex: ^(storage_account_name|storage_account_key|container_name)$
+    version: 3.7.3

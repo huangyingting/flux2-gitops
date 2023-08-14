@@ -1,0 +1,9 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: dapr-calculator
+resources:
+  - namespace.yaml
+  - statestore.yaml
+  - appconfig.yaml
+  - deployment.yaml
+  - service.yaml

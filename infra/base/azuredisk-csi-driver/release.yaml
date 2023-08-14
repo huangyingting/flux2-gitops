@@ -1,0 +1,22 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: azuredisk-csi-driver
+  namespace: kube-system
+spec:
+  releaseName: azuredisk-csi-driver
+  chart:
+    spec:
+      chart: azuredisk-csi-driver
+      sourceRef:
+        kind: HelmRepository
+        name: azuredisk-csi-driver
+        namespace: flux-system
+      version: "v1.x"
+  interval: 1h0m0s
+  install:
+    remediation:
+      retries: 3
+  valuesFrom:
+    - kind: Secret
+      name: azuredisk-csi-driver-values   

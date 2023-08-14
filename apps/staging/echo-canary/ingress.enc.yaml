@@ -1,0 +1,69 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+    annotations:
+        cert-manager.io/cluster-issuer: letsencrypt
+        nginx.ingress.kubernetes.io/canary: "true"
+        nginx.ingress.kubernetes.io/canary-weight: "50"
+        nginx.ingress.kubernetes.io/global-rate-limit: "6"
+        nginx.ingress.kubernetes.io/global-rate-limit-window: 1m
+        nginx.ingress.kubernetes.io/global-rate-limit-key: $remote_addr
+        nginx.ingress.kubernetes.io/enable-modsecurity: "true"
+        nginx.ingress.kubernetes.io/enable-owasp-core-rules: "true"
+        nginx.ingress.kubernetes.io/auth-url: ENC[AES256_GCM,data:+OD2tjFEmgHBtFXOAAl7POd04O5kurMHZgIJF3VmAdwCPkg05P0QVA==,iv:IzNPZSYl5hV30YG001EQPQEsVGmUB7eZi6YpSxljDBA=,tag:7EN8MZwri4Npgu4hG+2raA==,type:str]
+        nginx.ingress.kubernetes.io/auth-signin: ENC[AES256_GCM,data:nd8r+Wz6ApWj/vLCpkmdETjjOKjDKkgk0glTB6eCeFIjNZaVi3Zvw4gY/OeS86ooZNAar+5ZAIyN7i+P0mmErYt2QiSUfkbT,iv:tvPo9pLG7TcZPPfL/bzXKGAZ8ClLUhbORh3J+lW5e3Q=,tag:Hlu0cKV/RsfK+HL9Kfs04g==,type:str]
+        nginx.ingress.kubernetes.io/auth-response-headers: X-Auth-Request-User, X-Auth-Request-Email, X-Auth-Request-Groups, X-Auth-Request-Preferred-Username
+        nginx.ingress.kubernetes.io/configuration-snippet: |
+            auth_request_set $access_token $upstream_http_x_auth_request_access_token;
+            proxy_set_header 'Authorization' 'Bearer $access_token';
+            auth_request_set $id_token $upstream_http_authorization;
+            proxy_set_header 'X-Forwarded-ID-Token' $id_token;
+    name: echo
+spec:
+    ingressClassName: nginx
+    rules:
+        - host: ENC[AES256_GCM,data:d9u00qSwJiUT+ZtRSCkR6iE7T+M=,iv:SyiTz/UwYzfRh10s3vzdZdmIuKolaDVsEdkk2bDELWA=,tag:ZcIGQE3qeUef8UnDJAlyjw==,type:str]
+          http:
+            paths:
+                - backend:
+                    service:
+                        name: echo
+                        port:
+                            number: 80
+                  path: /
+                  pathType: ImplementationSpecific
+    tls:
+        - hosts:
+            - ENC[AES256_GCM,data:54VhCcLqISDwkUUf3a1kLJzvnLk=,iv:qT+Y8MUFHbQNyObuJ6/bXDGpyehswym/tjbUbXcdqaA=,tag:p+SR+E1lCtk27ehzOHAwIQ==,type:str]
+          secretName: echo-tls
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2022-12-07T02:26:28Z"
+    mac: ENC[AES256_GCM,data:TIJEsv1devazVK1lvtzfOWG3WiVQ+GjmlgShxIbChSB9oM+LicxVALpKhswHOT4W+auNaROTgRPCU8x5h8Qy8DCL7oS6uDRZf9qi90bt0BkRcHnDXTJevS+zxYaX2AQsPc7SHvpkSJRixm2yqkDgOl3Xsw0zWM9Ky3RykgwQPV8=,iv:1KFRm4/jPo8jorPXkYN/NlK4eKvLXVbmGv1xbblfpjQ=,tag:V9Z7vaThBEX+A0YLyVZHxQ==,type:str]
+    pgp:
+        - created_at: "2022-12-07T02:26:27Z"
+          enc: |
+            -----BEGIN PGP MESSAGE-----
+
+            hQIMA38T7Az157GMAQ/+LCAxrmXl0+dOPiiOCYXv4dMliAt+US6xtB+T1e/QbMjM
+            W0ufXYlKTX0oznbOCnSdRnycWCRGhavQdLO1XC22M5xwCopjWTZcK7UbcIQFjjKh
+            e3sEzN/DCXjQE735UyRsqO4UuznFuLfeDL27l/GrWONAc1IHtdyW6Pfpk5rTgC7l
+            u4raK5OmflUlLm6dbL7mLe6/02pi3UL64TyzMAgiTOSXXjnh0O2zbPsvdd1B7HeU
+            hprpf1cX0dXahG96pz2JVMZMUSOd92rM42d5rocg1klt08KHi0cKi8nxZ233uhdO
+            dOVY0jtmU9TxgbMJugNzMn5PaYpqqBepxsJet5glh1NnoDOFqft9huEQpIyrByxa
+            M2hp8Y3kAkuXBxntEzLsXsWq8azZFIO+p1PnzM1yTj7tUPZMV43rO7dpLmv+Mih2
+            y/rQUWw7odBPaZmZSHq+jwm3hwfVRAIw/svgPJpTzxM0yK46YXUcD4b/p05FTPE5
+            0A4S9W96V33jEAM3h/V7ZYtGxIXVSxTytOjeqQCeWkOI2c/LQc2uQxHhs1qnxj13
+            eSddAbeXU1t2YUyA4RMOGYF1leA1g/J6fDUcIvT28QP90j0AfXoRyEI0+nnsVS59
+            dO3FzceDH6TW7RAZzdeDRhZnIUSDT14CD7oDHorFAP4IyWc5TfBxo+k6wEy6Ws7S
+            XgEqoKa1FPYXfwbn/YZ1x7Xum/yfwyCY6AtaHZvRINPXEn8kIvNXqBJ2KUr6A+Cj
+            LXNpJhA4KbtV7qPAspoXGrSKRLyg2/80xUb+LTuAf/+A3Ph4OQ1HARpKIm5wYBg=
+            =maKv
+            -----END PGP MESSAGE-----
+          fp: 129994A38E40322EE2A4FA6CB59C51DA13B1BF22
+    encrypted_regex: ^(host|hosts|nginx\.ingress\.kubernetes\.io\/auth-url|nginx\.ingress\.kubernetes\.io\/auth-signin)$
+    version: 3.7.3

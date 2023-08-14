@@ -1,0 +1,13 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: tempo
+resources:
+  - ../../base/tempo
+  - ingress.enc.yaml
+secretGenerator:
+  - name: tempo-values
+    behavior: merge
+    files:
+      - values.yaml=values.enc.yaml
+configurations:
+  - kustomizeconfig.yaml

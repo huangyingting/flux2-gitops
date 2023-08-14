@@ -1,0 +1,10 @@
+# Default values
+# https://github.com/kubernetes-sigs/azuredisk-csi-driver/blob/master/charts/README.md
+windows:
+  enabled: false
+controller:
+  replicas: 1
+snapshot:
+  enabled: true
+  snapshotController:
+    replicas: 1

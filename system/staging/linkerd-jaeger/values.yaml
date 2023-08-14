@@ -1,0 +1,34 @@
+# Default values
+# https://grafana.com/docs/loki/next/installation/helm/install-scalable/
+collector:
+  enabled: true
+  config: |
+    receivers:
+      otlp:
+        protocols:
+          grpc:
+          http:
+      opencensus:
+      zipkin:
+      jaeger:
+        protocols:
+          grpc:
+          thrift_http:
+          thrift_compact:
+          thrift_binary:
+    processors:
+      batch:
+    extensions:
+      health_check:
+    exporters:
+      otlphttp:
+        endpoint: http://tempo.tempo.svc.cluster.local:4318
+    service:
+      extensions: [health_check]
+      pipelines:
+        traces:
+          receivers: [otlp,opencensus,zipkin,jaeger]
+          processors: [batch]
+          exporters: [otlphttp]
+jaeger:
+  enabled: false

@@ -1,0 +1,56 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: rust-slight
+    namespace: rust-slight
+spec:
+    replicas: 1
+    selector:
+        matchLabels:
+            app: rust-slight
+    template:
+        metadata:
+            labels:
+                app: rust-slight
+        spec:
+            runtimeClassName: wasmtime-slight-v1
+            containers:
+                - name: rust-slight
+                  image: ghcr.io/huangyingting/rust-slight:main
+                  imagePullPolicy: IfNotPresent
+                  command:
+                    - /
+                  env:
+                    - name: REDIS_ADDRESS
+                      value: ENC[AES256_GCM,data:VR/hY8LOxT4A5RFgvwa2gLCbZvuvSpgKbAaH6kDv/KdlUJd9SxLCAjQ=,iv:ZyrU2YLGyfbxYAFuBfXTmmo7DWPs9kss1PfdPERPhGY=,tag:ba5tciJw0/3wFaovVa8mVw==,type:str]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2023-01-28T08:15:12Z"
+    mac: ENC[AES256_GCM,data:mpZVaAmTSo11eGIBRp/vPX6IIiQvfXNGQawW7bwa/pvoLOfdmd+ZZZxZv9FEWPzz46NLaW5mXRqhFio78EbTDkru82bM+htEUpd/E6z+BGt3UB04/JA+cddGFglQPilBHzSZVfPY9B24+oIpWX4a4nKoN5v8O2TV0jseFlBL6P0=,iv:NX6mR8AUi3OpjTx63mcqTOk6Rgj88LMQJFsL7UI9ct8=,tag:V8NY8LpeeIqS1ibvzkE4AA==,type:str]
+    pgp:
+        - created_at: "2023-01-28T08:15:11Z"
+          enc: |
+            -----BEGIN PGP MESSAGE-----
+
+            hQIMA38T7Az157GMAQ//dFyBXk4f1SUoC1m4ps6N8RqLqYc0WbNc5m6kqkdBx5DM
+            AwGb7XUVRQX6UXTEE+IhbcyoULhHA66VUxLRaQlT1I8D3/U5jiV2R7ZUrU+3lCp9
+            sRtCUzHemb3GF8ZZhW+0OrPCFr3izwmhA694jLvrAC+XyzO9Wz1kL6MJbbpYoKK4
+            j44YaMCMQ3i/I4s2GOOics2wmRFBIRjXNPqyxLAIal9UCnJmEW0sPrRjd1BD+p/G
+            iQFMUzWdsuBZuaJfi9sGj44dtAWb+dsF5POq5WlWSURFhF0TWEciY70XRJogjRaN
+            qt9/KdAJa9sOxBVLjmSbMkMRI4VJIXi5X29Gte2e95cQWhTUzkzVot47R1DNYKze
+            pDP9e+B105jRelYayLgjBF8FsJTBI4Va+KeFihjkhgkIc5hnO91y+Amzpz485R9v
+            YIw3cEKnA8NCJdJpF0f2JLPFXm3p5IQ0EpSIhEkdzRIEbzQnmPWH83y3UxAN4XkM
+            epNaB/Ne1EhNvU/e840bsluD8dLFWth3N3CFx5Oz9vOda2wTkvvHvNjrd+aiOGs5
+            P92nAJQn/5yvhD08rSD4nTswJBtLAxO8kYjonK/PSyWFsxV96da9Bnok1Td/S0s8
+            8EWC0BZ2Xytj8K7uohTACbxoFMs0MZbwruGpJsldfNJ6saU13M81oEstUFUGilvS
+            XgHIsN4fhgv1O8JwGAMCzCsuopSoGeHFMm8czgQ36E9/ilEBTuIu9YJuhAPsxAxD
+            IOKQ/Hj8qCtlJvjiOLp6AI/FSA2aJy4LzRQFcQXlr/218i2Xf8PolXafVyln2aw=
+            =S9j5
+            -----END PGP MESSAGE-----
+          fp: 129994A38E40322EE2A4FA6CB59C51DA13B1BF22
+    encrypted_regex: ^(host|value)$
+    version: 3.7.3

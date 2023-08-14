@@ -1,0 +1,22 @@
+apiVersion: cert-manager.io/v1
+kind: Issuer
+metadata:
+  name: letsencrypt-istio
+spec:
+  acme:
+    email: REPLACE_ME
+    privateKeySecretRef:
+      name: letsencrypt-istio
+    server: https://acme-v02.api.letsencrypt.org/directory
+    solvers:
+    - dns01:
+        azureDNS:
+          clientID: REPLACE_ME
+          clientSecretSecretRef:
+            name: azuredns-config
+            key: client-secret
+          subscriptionID: REPLACE_ME
+          tenantID: REPLACE_ME
+          resourceGroupName: REPLACE_ME
+          hostedZoneName: REPLACE_ME
+          environment: AzurePublicCloud

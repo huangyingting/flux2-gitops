@@ -1,0 +1,14 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: calculator-front-end
+  labels:
+    app: calculator-front-end
+spec:
+  selector:
+    app: calculator-front-end
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8080
+  type: ClusterIP

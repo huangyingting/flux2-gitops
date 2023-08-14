@@ -1,0 +1,222 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    labels:
+        app: mythical-server
+    name: mythical-server
+spec:
+    selector:
+        matchLabels:
+            app: mythical-server
+    replicas: 1
+    template:
+        metadata:
+            labels:
+                app: mythical-server
+        spec:
+            containers:
+                - image: huangyingting/mythical-server:latest
+                  imagePullPolicy: Always
+                  name: mythical-server
+                  ports:
+                    - containerPort: 4000
+                  env:
+                    - name: NAMESPACE
+                      value: ENC[AES256_GCM,data:Q/9oqv3Gncc=,iv:f+GL4igQ3fuKrtycLV+8Xr5On/EAluk7UKiQCDWjYi8=,tag:C7Tn9eCINk92Quu3TnSayA==,type:str]
+                    - name: LOGS_TARGET
+                      value: ENC[AES256_GCM,data:HXbbtTr6WbBVckmHaiUgb36PLq0pD7EC7GOCcKW/axVOmGRDUbY=,iv:nC1qwsHixWMMvursGdGzSKhR3udc2WbOQsEGs7tPM7I=,tag:IIFilV9Bcf9/E2XlLcp5Tw==,type:str]
+                    - name: TRACING_COLLECTOR_HOST
+                      value: ENC[AES256_GCM,data:JG465DJWvcz5/Fg=,iv:QA1dwjttNvmMRY6dRBIQjQNPQChT6bKq3FJimPzLkLY=,tag:oZG91zTv2nNHtASnraSPZw==,type:str]
+                    - name: TRACING_COLLECTOR_PORT
+                      value: ENC[AES256_GCM,data:ej0SjQ==,iv:8A7Q06tBycV9Jxd5+kJ6G1DpWliN3f5hL8r9G1eC4N4=,tag:N3Us9wM5a495wC+znfiy/g==,type:str]
+                    - name: OTEL_EXPORTER_OTLP_TRACES_INSECURE
+                      value: ENC[AES256_GCM,data:ZhEmUA==,iv:HZTS4cdjk1dQxxhpQJFfwV05t0iNHTHYK7uCgQX+YpI=,tag:qVUttIxRxB9avPpwQWqtxw==,type:str]
+                    - name: OTEL_RESOURCE_ATTRIBUTES
+                      value: ENC[AES256_GCM,data:biuVAxY4+d7QXrc5xEY=,iv:Hc0rJb/GExdB0FJRUT5GPEtcDMtUsu4Dt9pcs3OCc7Q=,tag:NCWrSGb7DBBn+S21cFdJ5w==,type:str]
+                    - name: POSTGRES_HOST
+                      value: ENC[AES256_GCM,data:lqWap2A1lXwVk2gK1xPXxRXN18tbRU8SO0eWGQ==,iv:QnsnuZqdiY8XBDmiVKiG27ZLKA3GtPyiEtaOuTs92rs=,tag:QAp7qTjhffjg+V4igsP+AQ==,type:str]
+                    - name: POSTGRES_PORT
+                      value: ENC[AES256_GCM,data:/WhQqQ==,iv:9YEs0pDUZwDNapKGfHqSQ2XXLGTbaDnTm7W0aOkBMtA=,tag:IL8zOm/TV7GfQf1iRHsYlA==,type:str]
+                    - name: POSTGRES_DATABASE
+                      value: ENC[AES256_GCM,data:zR4oynwfoqU=,iv:p6BBZENDtxY7LTt+hlJDqHFK7+DBcPW1GlqEOfU3aeg=,tag:l7ARbaCiL0L9CkVc/mmlPQ==,type:str]
+                    - name: POSTGRES_USER
+                      value: ENC[AES256_GCM,data:P8Hq5UCnDrE=,iv:u7pssFt0EuWuY6cagew4KlOJoxFgED+lSWkvW8nq/N8=,tag:G3h41Ms7A2LI0NI2lK+wWg==,type:str]
+                    - name: POSTGRES_PASSWORD
+                      value: ENC[AES256_GCM,data:57iEbcZikXg=,iv:OIb8hAAJ2A5EmCGZU1lH29Jfzbc/JTm2IXlRGl3LXPo=,tag:fiY1rLdNiWAcoUmiTPAhCg==,type:str]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2022-12-14T13:21:02Z"
+    mac: ENC[AES256_GCM,data:8Sh4Pubud6Rf9Rkxkfw5pDmdVBD6ZN+ZZu4uyFGDqDpP64kxYlnon+wKHzac39e9FhAbXXe8P2mIusQtgqk8+96Q4pR+ng0qivk+1H/pY3wH8JBZFJp4JZePlFKgtca6T0I6H8fwTJoI/TIcDn8MWxy2HFmSOzpfbZvGdYqx7SU=,iv:+7ndpyEPsw4gBklRj6WyQg2OfMd+KicIS2PZlqAmC1s=,tag:Eu+y+cn3gPaohSlx7maVQw==,type:str]
+    pgp:
+        - created_at: "2022-12-14T13:21:01Z"
+          enc: |
+            -----BEGIN PGP MESSAGE-----
+
+            hQIMA38T7Az157GMAQ//ehGMnYZfmCOaKJGG15RZov86ryVlEzzJm0RDBjT4DXBf
+            tHoJ3tNJjuwv8GzLSx13ZX9zQdNH55IOf0qbwcLf/qVN+l3L4hc0ft1Q/PsFWEzL
+            1GdXPVS4igq/vTxjsrR/6kJ9E+YDOo4g4DeF8CUJApS28pyyINXo/LfVnQONm9oB
+            uPcEWBAPfzGe1UZsu6kdAZ6ly92bQdGF5iRBupaclFsKRX5NajZvnyE8aY8C22/f
+            0kAckTMDX4uIKkXyiNF82oe5r++m/LzcBqyIu88kJvx4RMd+AqQb8Wu2y4xgXnZw
+            iI8YonBpFO/Jo477ME4hDoXIw13evT4ArhU5zbBrkpTeokTQHBDK63qWGhGTmBWy
+            yRXDE+i7T1X6/dWn5H0ghN7DNHwTP7vxbwRmU2dJLc4HxIbm62B1nQl6vCP+QsOK
+            rFs6d3/woPC4C3FZCypdzyL9+YkHrNpVjlBZUKV5+DlY8zZowZHqV8DdeW2HTCuf
+            oqY8YfUkJmXjoyK0oFtnhW7LghYFKCGqbi5gHiYrBaQgl3pBqhfS68l3oqmxxS3e
+            fLtSoRHXVfGNik7e0VNeVTeo2Of2IpkRMBBdjzYJvQMAcfGvd9jc36TS9YsR8R2M
+            Dd59u4P01DYHgb3O8fpNOJBcfdkapUp2z7V18TBunWHAHEMXG+gP8sQcevQJzxvS
+            XgHvDMGAY5kR2CZRELA/ZIhgy+2Ta9L5QD+VgwtaUqDvK6Pxg7z8wUn3RcZNNQfJ
+            XuDgsB17jJedHi28MPNvv+rIzORiHhM6t/b4VI6XnujNHcGY0IWVvGcBF6TrWfs=
+            =ZIrn
+            -----END PGP MESSAGE-----
+          fp: 129994A38E40322EE2A4FA6CB59C51DA13B1BF22
+    encrypted_regex: ^(value)$
+    version: 3.7.3
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    labels:
+        app: mythical-requester
+    name: mythical-requester
+spec:
+    selector:
+        matchLabels:
+            app: mythical-requester
+    replicas: 1
+    template:
+        metadata:
+            labels:
+                app: mythical-requester
+        spec:
+            containers:
+                - image: huangyingting/mythical-requester:latest
+                  imagePullPolicy: Always
+                  name: mythical-requester
+                  ports:
+                    - containerPort: 4001
+                  env:
+                    - name: NAMESPACE
+                      value: ENC[AES256_GCM,data:SFwu9Jjm8rw=,iv:Q3ipFCOA435gN5FSKqUZTpUVCXDEZzXJIqYmoe0inQ4=,tag:il3UanreL86E4RRs2hkveA==,type:str]
+                    - name: LOGS_TARGET
+                      value: ENC[AES256_GCM,data:NV0pwZvsoQhibTSvGb0Kpyx3gk8YzjpP595MJKI4TcpbLJnwbhg=,iv:T6RKlBUB6xZZwq8IwsIqRN1uMFJhhUsNy7FrGL0RMmQ=,tag:KcDw6zypChx4XLgqnuuTsg==,type:str]
+                    - name: TRACING_COLLECTOR_HOST
+                      value: ENC[AES256_GCM,data:NfJtoWbbsppqnyw=,iv:2qI/wIP+HqO4QKrIPpFO8Wb1ywWR20ybOCJk/FIoH8w=,tag:BOciYbZVbzyfXVYp7LckFw==,type:str]
+                    - name: TRACING_COLLECTOR_PORT
+                      value: ENC[AES256_GCM,data:n1jkOw==,iv:fFBkydRR22hvgAB1sywBPDog5saS4sHemIGhQY6Dgvg=,tag:SPmCA8V0vdP+TIxjNtp79Q==,type:str]
+                    - name: OTEL_EXPORTER_OTLP_TRACES_INSECURE
+                      value: ENC[AES256_GCM,data:+chrXg==,iv:vqSD+ZFl8ZYOOi5hD05vFeFeHOXyYKsCiTW1VpupA1A=,tag:SFa45+bfzXb+iq73luyDhw==,type:str]
+                    - name: OTEL_RESOURCE_ATTRIBUTES
+                      value: ENC[AES256_GCM,data:UvA7dZY/syvSq51gnr4=,iv:2H3AvyT5chG6tWiNBEmRCC3kSwwzt0Oa5EPjI3uX3NY=,tag:z7OE8wk7aH6iFaIJwl8Byg==,type:str]
+                    - name: RABBITMQ_HOST
+                      value: ENC[AES256_GCM,data:Qu1fgLl0HcyOHs8qiNNd3vA=,iv:rd0/4EzTD6ktVWkIB7ZzwufAPIo+tQjYJn6wlK1a06g=,tag:/kQRIGo63AR1fVyx4bFQEw==,type:str]
+                    - name: RABBITMQ_USER
+                      value: ENC[AES256_GCM,data:0JDkxFuySh8=,iv:7mKqL21cjH5j4rTN4I1uBq7fk1BIOuqyCBHDQ5lhDa0=,tag:va6mgUhr26B0nsgES87NkA==,type:str]
+                    - name: RABBITMQ_PASSWORD
+                      value: ENC[AES256_GCM,data:o7Yfr9fO88w=,iv:PU+0ZrAccZ2MP4+6ruTlr4VgpY7CSJfI9PcaUNRQXkA=,tag:W6IAcWeJP8tkgRxyyYnSKA==,type:str]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2022-12-14T13:21:02Z"
+    mac: ENC[AES256_GCM,data:8Sh4Pubud6Rf9Rkxkfw5pDmdVBD6ZN+ZZu4uyFGDqDpP64kxYlnon+wKHzac39e9FhAbXXe8P2mIusQtgqk8+96Q4pR+ng0qivk+1H/pY3wH8JBZFJp4JZePlFKgtca6T0I6H8fwTJoI/TIcDn8MWxy2HFmSOzpfbZvGdYqx7SU=,iv:+7ndpyEPsw4gBklRj6WyQg2OfMd+KicIS2PZlqAmC1s=,tag:Eu+y+cn3gPaohSlx7maVQw==,type:str]
+    pgp:
+        - created_at: "2022-12-14T13:21:01Z"
+          enc: |
+            -----BEGIN PGP MESSAGE-----
+
+            hQIMA38T7Az157GMAQ//ehGMnYZfmCOaKJGG15RZov86ryVlEzzJm0RDBjT4DXBf
+            tHoJ3tNJjuwv8GzLSx13ZX9zQdNH55IOf0qbwcLf/qVN+l3L4hc0ft1Q/PsFWEzL
+            1GdXPVS4igq/vTxjsrR/6kJ9E+YDOo4g4DeF8CUJApS28pyyINXo/LfVnQONm9oB
+            uPcEWBAPfzGe1UZsu6kdAZ6ly92bQdGF5iRBupaclFsKRX5NajZvnyE8aY8C22/f
+            0kAckTMDX4uIKkXyiNF82oe5r++m/LzcBqyIu88kJvx4RMd+AqQb8Wu2y4xgXnZw
+            iI8YonBpFO/Jo477ME4hDoXIw13evT4ArhU5zbBrkpTeokTQHBDK63qWGhGTmBWy
+            yRXDE+i7T1X6/dWn5H0ghN7DNHwTP7vxbwRmU2dJLc4HxIbm62B1nQl6vCP+QsOK
+            rFs6d3/woPC4C3FZCypdzyL9+YkHrNpVjlBZUKV5+DlY8zZowZHqV8DdeW2HTCuf
+            oqY8YfUkJmXjoyK0oFtnhW7LghYFKCGqbi5gHiYrBaQgl3pBqhfS68l3oqmxxS3e
+            fLtSoRHXVfGNik7e0VNeVTeo2Of2IpkRMBBdjzYJvQMAcfGvd9jc36TS9YsR8R2M
+            Dd59u4P01DYHgb3O8fpNOJBcfdkapUp2z7V18TBunWHAHEMXG+gP8sQcevQJzxvS
+            XgHvDMGAY5kR2CZRELA/ZIhgy+2Ta9L5QD+VgwtaUqDvK6Pxg7z8wUn3RcZNNQfJ
+            XuDgsB17jJedHi28MPNvv+rIzORiHhM6t/b4VI6XnujNHcGY0IWVvGcBF6TrWfs=
+            =ZIrn
+            -----END PGP MESSAGE-----
+          fp: 129994A38E40322EE2A4FA6CB59C51DA13B1BF22
+    encrypted_regex: ^(value)$
+    version: 3.7.3
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    labels:
+        app: mythical-recorder
+    name: mythical-recorder
+spec:
+    selector:
+        matchLabels:
+            app: mythical-recorder
+    replicas: 1
+    template:
+        metadata:
+            labels:
+                app: mythical-recorder
+        spec:
+            containers:
+                - image: huangyingting/mythical-recorder:latest
+                  imagePullPolicy: Always
+                  name: mythical-recorder
+                  ports:
+                    - containerPort: 4002
+                  env:
+                    - name: NAMESPACE
+                      value: ENC[AES256_GCM,data:v5G/8GpP6so=,iv:VnX5S/mcv8Mbg4TMOyhKIBM+TVwL7v7dOnWrlq0F/XI=,tag:Iwu7KgAsyAz9ngEfTiTHJg==,type:str]
+                    - name: LOGS_TARGET
+                      value: ENC[AES256_GCM,data:CkY1AkKByb6O4k2op7QNTrMDN3/q/fZ+UPdeX4HKFQusUtzGbMw=,iv:ZPgXN+4xyAi+I0D9/2eu+19jcrP2Jlpw+46N63Ypffk=,tag:aAGrWxg10LrU8pfgo2H1Qg==,type:str]
+                    - name: TRACING_COLLECTOR_HOST
+                      value: ENC[AES256_GCM,data:mY4CtI1Bx3GoNEU=,iv:MzRPH98jMku37ouDSsxz8A05TXqeiW0lxKCd4BJ5k84=,tag:X8Yh4RN/cdR+2HQDfT1sfw==,type:str]
+                    - name: TRACING_COLLECTOR_PORT
+                      value: ENC[AES256_GCM,data:bxsQrg==,iv:IpsC+mlPtOttlRrZDAYIMk+i0qRJ3C49WuHOKCzmiXA=,tag:nDRX3C7Ygm6dcv2Z7HhG8w==,type:str]
+                    - name: OTEL_EXPORTER_OTLP_TRACES_INSECURE
+                      value: ENC[AES256_GCM,data:Y9WXww==,iv:pE6tosny8tP1tiNoKhz9yzKNF0g6Sy4ycU/Gq/ThmBE=,tag:+ARxEhSYpIpPLXtQU8p6yQ==,type:str]
+                    - name: OTEL_RESOURCE_ATTRIBUTES
+                      value: ENC[AES256_GCM,data:40k41FhTrfNmP19HNDU=,iv:mA/P62WRAFtjU2knEzLYbzq4p6ijzW5lSpfYeR2ktMg=,tag:qtyHuFAdP0sFuxgKu0Fjbw==,type:str]
+                    - name: RABBITMQ_HOST
+                      value: ENC[AES256_GCM,data:/YWyw8WOmMj7cIYBjp4GkGM=,iv:wKN2EXQYp6mXZcdDU7NeBqozTdImIq8GDh1sZAV4Pfg=,tag:CY2kp7pgyjFW7UsGXgQdSQ==,type:str]
+                    - name: RABBITMQ_USER
+                      value: ENC[AES256_GCM,data:YxN5F7kZqRg=,iv:+KaGDQ8RcG5c/OX9/RQv+VXEsRKXxcuDSdLKKUckqbY=,tag:/HwUs039QGkMU/SFD8ZP7w==,type:str]
+                    - name: RABBITMQ_PASSWORD
+                      value: ENC[AES256_GCM,data:QcGxg3n3HFI=,iv:hfV7yCDwjY4N/CvUavd/6RHU7xxkpe9vlIK4ehoyor4=,tag:Dp4dmPuNBzw0NW5Nt+f3cg==,type:str]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2022-12-14T13:21:02Z"
+    mac: ENC[AES256_GCM,data:8Sh4Pubud6Rf9Rkxkfw5pDmdVBD6ZN+ZZu4uyFGDqDpP64kxYlnon+wKHzac39e9FhAbXXe8P2mIusQtgqk8+96Q4pR+ng0qivk+1H/pY3wH8JBZFJp4JZePlFKgtca6T0I6H8fwTJoI/TIcDn8MWxy2HFmSOzpfbZvGdYqx7SU=,iv:+7ndpyEPsw4gBklRj6WyQg2OfMd+KicIS2PZlqAmC1s=,tag:Eu+y+cn3gPaohSlx7maVQw==,type:str]
+    pgp:
+        - created_at: "2022-12-14T13:21:01Z"
+          enc: |
+            -----BEGIN PGP MESSAGE-----
+
+            hQIMA38T7Az157GMAQ//ehGMnYZfmCOaKJGG15RZov86ryVlEzzJm0RDBjT4DXBf
+            tHoJ3tNJjuwv8GzLSx13ZX9zQdNH55IOf0qbwcLf/qVN+l3L4hc0ft1Q/PsFWEzL
+            1GdXPVS4igq/vTxjsrR/6kJ9E+YDOo4g4DeF8CUJApS28pyyINXo/LfVnQONm9oB
+            uPcEWBAPfzGe1UZsu6kdAZ6ly92bQdGF5iRBupaclFsKRX5NajZvnyE8aY8C22/f
+            0kAckTMDX4uIKkXyiNF82oe5r++m/LzcBqyIu88kJvx4RMd+AqQb8Wu2y4xgXnZw
+            iI8YonBpFO/Jo477ME4hDoXIw13evT4ArhU5zbBrkpTeokTQHBDK63qWGhGTmBWy
+            yRXDE+i7T1X6/dWn5H0ghN7DNHwTP7vxbwRmU2dJLc4HxIbm62B1nQl6vCP+QsOK
+            rFs6d3/woPC4C3FZCypdzyL9+YkHrNpVjlBZUKV5+DlY8zZowZHqV8DdeW2HTCuf
+            oqY8YfUkJmXjoyK0oFtnhW7LghYFKCGqbi5gHiYrBaQgl3pBqhfS68l3oqmxxS3e
+            fLtSoRHXVfGNik7e0VNeVTeo2Of2IpkRMBBdjzYJvQMAcfGvd9jc36TS9YsR8R2M
+            Dd59u4P01DYHgb3O8fpNOJBcfdkapUp2z7V18TBunWHAHEMXG+gP8sQcevQJzxvS
+            XgHvDMGAY5kR2CZRELA/ZIhgy+2Ta9L5QD+VgwtaUqDvK6Pxg7z8wUn3RcZNNQfJ
+            XuDgsB17jJedHi28MPNvv+rIzORiHhM6t/b4VI6XnujNHcGY0IWVvGcBF6TrWfs=
+            =ZIrn
+            -----END PGP MESSAGE-----
+          fp: 129994A38E40322EE2A4FA6CB59C51DA13B1BF22
+    encrypted_regex: ^(value)$
+    version: 3.7.3

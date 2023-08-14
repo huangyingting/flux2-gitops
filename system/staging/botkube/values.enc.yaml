@@ -1,0 +1,50 @@
+# Default values
+# https://github.com/kubeshop/botkube/tree/main/helm/botkube
+communications:
+    default-group:
+        socketSlack:
+            enabled: true
+            channels:
+                default:
+                    name: ENC[AES256_GCM,data:pSWYR09wYw==,iv:2p0f3VsJRfX0jM4w10sjR6RYJmqgf5B9qsrc8qaZhFU=,tag:WyetUZYYh49uAFz9dbDTfg==,type:str]
+            appToken: ENC[AES256_GCM,data:pyHbbpzzO0INlStuR+rnJY2mQvYoy3u0X599/k42ODhHj2fkHGQ414dyhFgQuFoDtxU1G05i6rPXeAoJe/LjVTJtbseZ6HmN3/+KYGI86ALzS1fLmxEH9Kmdys7xNXsO/A==,iv:2krDj6n826T6EoHfChb+LhGDEh+2+4Hcjd9aNa4qYDY=,tag:Ks9Db5TgR8ZFqIeYMpE8KA==,type:str]
+            botToken: ENC[AES256_GCM,data:XUTeTiAEZreLLzF9Fk1NrxLyKja1wgf9H3+kk3hbyco3Efn95c8vw7bNhXKfuwc9PcL8PNsUJABS,iv:QQqEeAHzeQboolPtiTylG1TW6yRxv8y+tPk/m9NMi2A=,tag:Jj/gRAGpSG9aeP/7wEC46A==,type:str]
+settings:
+    clusterName: ENC[AES256_GCM,data:FG69Oiw=,iv:LHZja4eA/EOUqg/gyqa3PnDJ8/FniT+1+xXcM7E9ctM=,tag:ftazIZu55UYy4sGz1ZqnBg==,type:str]
+executors:
+    k8s-default-tools:
+        botkube/kubectl:
+            enabled: true
+        botkube/helm:
+            enabled: true
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2023-05-19T08:26:19Z"
+    mac: ENC[AES256_GCM,data:A/fAx2Ba991l7XabeWxNYKX6EgD7+bSPxLzq8N6GrRyFbMz342Hzw6BMIgoEbk6ziQZQ5Y29K8582AxRsv4FmN+vGEsryXpCWO7MkqQQZEz8c788J4sNXXydVkga0OXBpXxyWxmFhVjCKVvdqoDyZe84Kk3sfUTwJsvoEvea5nA=,iv:KpNOB11oLEvV34Il9aqxGLRFwb6c+B+t86DCiVPnAXM=,tag:EU2uFTzwirynEMDxAYOgEg==,type:str]
+    pgp:
+        - created_at: "2023-05-19T08:26:17Z"
+          enc: |
+            -----BEGIN PGP MESSAGE-----
+
+            hQIMA38T7Az157GMAQ//XcUz89dsxIkRGAxkzqtDjugG93OkNA+Jz56oLV/LocRo
+            /uYquTjypyt7Hupq9UeaCmPR0gsEqgYwMjT4jdG8awW1+AUO0k7vBOOWIVrADPB3
+            nC+57uTn35azHnxDHQtkM4BnvNRWL2CU/boV8/58s/V/KlpVxk3nU8bj/jJ02ur8
+            0/1NpqXI0k3aPIMSkWSsh11yII4KcCH2U1NNUp7P5JOyOl+Q8fUzAWF1aLBajSMT
+            C9i5RNPGjqfgMRVGntxT5AHczVR3Zhdxlmp1seU4GehZcnJU2PBo73a5e4fGfG8O
+            5C9bpdeGJq3RQhlzRrQbwm7xJi8Bfmj6eaPEdkeWPwvyS4szSRgygFWeVmEvDYv7
+            cU4oTa7+SM83H73NUR4CSMrbBfF/alYvY/3c5PSQjdse/wI0m6xbbWHZd+ef5h52
+            BVEi8R/6V7E0eWehrc9PggtGvCO+I4Oi84jMdpJuzrUI8CXY6OA6vt5kC0/ykYDp
+            2zcObLPJUkUXjbzK6WZ9xhSsnRDxAFr9PhNh4tWUtiNk3n5+dV+ddVftoFUN4Jhm
+            HOh8pbaINWaGRoy5x4pFiOS6IrGqu6vnyV2pR3hOQKlv/OS+LXWOYuT456pYXD3v
+            7RqTmw78UTz8jpBn6fYr/dRYgz5/lbrOVcjTDJKkgUd/zn9N5TI0qSJ9litIyYPS
+            XgGGjnu9MSf9TmLHn4jVvQo41Nu+qJwUASrhUrLhlxfCjcMbW5LiZG/yuFILrBlc
+            qSgDX1S4PMoDeDkO1JnpihqA9QnI/rgKyWkaPEKX5hebcnv3IW3Z+QDTeBUhsMM=
+            =FrZd
+            -----END PGP MESSAGE-----
+          fp: 129994A38E40322EE2A4FA6CB59C51DA13B1BF22
+    encrypted_regex: ^(name|clusterName|appToken|botToken)$
+    version: 3.7.3

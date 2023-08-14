@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: chatgpt-next-web
+  labels:
+    app: chatgpt-next-web
+spec:
+  ports:
+  - port: 80
+    targetPort: 3000
+  selector:
+    app: chatgpt-next-web

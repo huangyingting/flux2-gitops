@@ -1,0 +1,4 @@
+creation_rules:
+  - path_regex: .*.yaml
+    encrypted_regex: ^(host|hosts|client_id|client_secret|endpoint|random_secret)$
+    pgp: 129994A38E40322EE2A4FA6CB59C51DA13B1BF22

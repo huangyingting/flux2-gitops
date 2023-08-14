@@ -1,0 +1,47 @@
+apiVersion: security.istio.io/v1beta1
+kind: AuthorizationPolicy
+metadata:
+    name: ingress-auth-policy
+spec:
+    selector:
+        matchLabels:
+            istio: ingress
+    action: CUSTOM
+    provider:
+        name: oauth2-proxy
+    rules:
+        - to:
+            - operation:
+                hosts:
+                    - ENC[AES256_GCM,data:n/Z2DUDpPkkvvZkrqK4VO5o=,iv:UA7j/p6e/Ono3RlLp3+o0W2b+Sc4E8+CF7txYzIibhs=,tag:AZTDKL2SI/RTpOe+7BiDqg==,type:str]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2022-12-18T02:29:40Z"
+    mac: ENC[AES256_GCM,data:TAwuRk8JtAPeiDB5NduT/GjMxz2qH2i4/u3DywmvrGaj/lb9AueGDnpYPt2vpseXeLRAZwSlmKrsRn+lFwgNzmILFZBpN12wOcRTwR/MrZArF6tQZ+ZrOsW8yUYFlITcxZ7G2FCLOr/N6sXKyQ/mKH+PKdGXh4nGp0GXQBrtzkY=,iv:huLG/NGYwHUQfYbBii6HYvgMQWhqT8IjDPzm+UiLvUs=,tag:JmrcBdhY8MPEaiQe4AMxQw==,type:str]
+    pgp:
+        - created_at: "2022-12-18T02:29:39Z"
+          enc: |
+            -----BEGIN PGP MESSAGE-----
+
+            hQIMA38T7Az157GMAQ//RBABZrCKGndEE382WO3qRs3yMyQtdLep2Im8/JMCw9pw
+            7R2eASTi4x4cGNCfoJMOGn6rRL6fQSxY0MNFnWaS4L7X6hkbhdXeBGJ5195dg1jJ
+            enPNd8Jy+xqHeCoD+G2lTUqTsF23jc3+Z9CWJBw8ghXabt/DRZoJ7DbHGJZF6GeA
+            Q3IQimvPeK6vZNXIOwhxrL2RrC3OWBL6UevHQcyt6zbwO17ta5begzupLygx2zfi
+            QtdwT0cRl+k1XqqUlmpPs7gxVta8Rt3TVqQ+fvZ4yjms2kueACpON3wNC/JhO1dL
+            bjzEuBdKvBjRPN5P2QUVIJYcRFpqaYhH3LdBQFl2f1AWe9M9cnJflPt/evEedYgK
+            Qt3GBc/9kpx3WVyJD6zncr13ym700hG0ATr+6fyTxANsMDp3Y70Q52+eur6wb0K9
+            qSP6+CLpojHGBhJwxx0+6kDo9xOljJ+ysRqjWC2XqiPZP2MufncrQk2Lrq2NMEAh
+            MgqXWnIwnYLiBQxalxn7a5RvkNUrS4ndDt1txv0C4CT0iqpNWSWqDy6dbS+07BS8
+            j8ROQinm2HvDXU5SnaSRPZhgUspcjn3hJ962o2NjA/udBvDo+9aPxYecn9+yEkhi
+            P3AZV9dQfGsvNsqZatRBPuE9K45AYmVM0NKpyMIhlMhiYOwyES8ewsPb56pY0DjS
+            XgFcuyrg9t7mYa5KSD71+FdV6impwmA+BKhUptOS4HR538Md7Sc4ASVrKhrJo2XD
+            8HziM8rjeGUrSWuzn1s1Iwi4UHajEfUx9iEDOdYOsOA9IgCQkj3Heofct87wI8I=
+            =IwnY
+            -----END PGP MESSAGE-----
+          fp: 129994A38E40322EE2A4FA6CB59C51DA13B1BF22
+    encrypted_regex: ^(client-secret|clientID|subscriptionID|tenantID|resourceGroupName|hostedZoneName|email|commonName|dnsNames|hosts)$
+    version: 3.7.3

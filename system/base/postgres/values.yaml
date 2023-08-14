@@ -1,0 +1,7 @@
+# Default values
+# https://artifacthub.io/packages/helm/bitnami/postgresql
+global:
+  storageClass: "default"
+  postgresql:
+    auth:
+      postgresPassword: REPLACE_ME

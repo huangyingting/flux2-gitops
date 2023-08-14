@@ -1,0 +1,51 @@
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  labels:
+    release: prometheus
+  name: app
+spec:
+  endpoints:
+  - interval: 30s
+    port: app-http-metrics
+  namespaceSelector:
+    matchNames:
+    - tns
+  selector:
+    matchLabels:
+      app: app
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  labels:
+    release: prometheus
+  name: db
+spec:
+  endpoints:
+  - interval: 30s
+    port: db-http-metrics
+  namespaceSelector:
+    matchNames:
+    - tns
+  selector:
+    matchLabels:
+      app: db
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  labels:
+    release: prometheus
+  name: loadgen
+spec:
+  endpoints:
+  - interval: 30s
+    port: loadgen-http-metrics
+  namespaceSelector:
+    matchNames:
+    - tns
+  selector:
+    matchLabels:
+      app: loadgen

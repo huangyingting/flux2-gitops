@@ -1,0 +1,40 @@
+# Default values
+# https://artifacthub.io/packages/helm/oauth2-proxy/oauth2-proxy
+config:
+  clientID: "CLIENT_ID"
+  clientSecret: "CLIENT_SECRET"
+  cookieSecret: "COOKIE_SECRET"
+extraArgs: 
+  provider: "azure"
+  azure-tenant: "AZURE_TENANT"
+  oidc-issuer-url: "https://oidc.issuer.url"
+  whitelist-domain: ".example.com"
+  cookie-domain: ".example.com"
+  set-xauthrequest: true
+  set-authorization-header: true
+  pass-access-token: true
+  pass-authorization-header: true
+  upstream: "static://200"
+  cookie-expire: 24h
+  skip-provider-button: true
+ingress:
+  enabled: true
+  className: nginx
+  path: /
+  pathType: ImplementationSpecific
+  hosts:
+    - auth.example.com
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
+    nginx.ingress.kubernetes.io/proxy-buffer-size: "1m"
+  tls:
+    - secretName: oauth2-proxy-tls
+      hosts:
+        - auth.example.com
+sessionStorage:
+  type: redis
+  redis:
+    password: "PASSWORD"
+    clientType: "standalone"
+    standalone:
+      connectionUrl: "redis://redis-master.redis:6379"

@@ -1,0 +1,26 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: reddog
+bases:
+  - ../../base/reddog
+resources:
+  - ingress.enc.yaml
+patchesStrategicMerge:
+  - secret.enc.yaml
+replicas:
+- name: virtual-customers
+  count: 0
+- name: virtual-worker
+  count: 0
+- name: ui
+  count: 0
+- name: receipt-generation-service
+  count: 0
+- name: order-service
+  count: 0
+- name: make-line-service
+  count: 0
+- name: loyalty-service
+  count: 0
+- name: accounting-service
+  count: 0  

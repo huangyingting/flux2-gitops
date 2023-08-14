@@ -1,0 +1,5 @@
+# Default values
+# https://artifacthub.io/packages/helm/bitnami/rabbitmq
+auth:
+  username: REPLACE_ME
+  password: REPLACE_ME

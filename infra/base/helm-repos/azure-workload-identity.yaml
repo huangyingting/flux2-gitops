@@ -1,0 +1,7 @@
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: HelmRepository
+metadata:
+  name: azure-workload-identity
+spec:
+  interval: 24h
+  url: https://azure.github.io/azure-workload-identity/charts

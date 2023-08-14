@@ -1,0 +1,6 @@
+# Default values
+# https://artifacthub.io/packages/helm/linkerd2/linkerd-jaeger
+collector:
+  enabled: true
+jaeger:
+  enabled: true

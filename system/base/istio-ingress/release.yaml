@@ -1,0 +1,26 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: istio-ingress
+spec:
+  releaseName: istio-ingress
+  dependsOn:
+    - name: istio-base
+      namespace: istio-system
+    - name: istiod
+      namespace: istio-system      
+  chart:
+    spec:
+      chart: gateway
+      sourceRef:
+        kind: HelmRepository
+        name: istio
+        namespace: flux-system
+      version: "1.x"
+  interval: 1h0m0s
+  install:
+    remediation:
+      retries: 3
+  valuesFrom:
+    - kind: Secret
+      name: istio-ingress-values

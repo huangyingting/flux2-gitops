@@ -1,0 +1,56 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+    name: ingress-gateway
+spec:
+    selector:
+        istio: ingress
+    servers:
+        - port:
+            number: 80
+            name: http
+            protocol: HTTP
+          hosts:
+            - ENC[AES256_GCM,data:7rX3tW0QgfwRME3T3rnAdmQ=,iv:iCyPzFty8d2AymgNkPcnUCqqTZErsOn6PvFbn7q1HNg=,tag:AfRdc9FlVttI2bIrhIz/3w==,type:str]
+          tls:
+            httpsRedirect: true
+        - port:
+            number: 443
+            name: https
+            protocol: HTTPS
+          hosts:
+            - ENC[AES256_GCM,data:NWC5ARZdDwJdXn27bRSGF3o=,iv:Y6ObLLDSfpDZxsWR0BW4sgin17SHcgeInz31BHVdxBE=,tag:jc+EhnE+ySu6ACgWLS1IXg==,type:str]
+          tls:
+            mode: SIMPLE
+            credentialName: ingress-cert
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2022-12-18T00:20:00Z"
+    mac: ENC[AES256_GCM,data:3khe5EM/DW+gQn7Atv0hQHorLBeIynkyAkh1T5cETjMxkcdIgIezVF6dwiIqt++QSCJvqKw4b3FNE/5RrJEaXWepaqZ1gJn4gZ9dQZtdZ+kFsPIr9PlAIG9bdB/dP2xfVCEhJ4pSMtQ90XKWAK9CTJ0I7LS+fmD/FHL/1PrOItA=,iv:TjIr5BCJdmbDjPKjiMHbBagqWxIfUl3RqsDqwE4cgA4=,tag:xpj+aROfXVW3WtLJhXRs9w==,type:str]
+    pgp:
+        - created_at: "2022-12-18T00:19:59Z"
+          enc: |
+            -----BEGIN PGP MESSAGE-----
+
+            hQIMA38T7Az157GMAQ//eMaBF41DE/nbTl02FgrtG5oc8D/lgzuyj7q0dc51yice
+            ejM1/948+Xq79VP/lHoCgSeAmzRyeKPQhVucuFWr8rp6j9OlTN9x+94K6ZtSXyxe
+            vCfM3u5CdObSpeevQppNrLGwxsSIfH1/yQgFuGzgJamNRISk9XRlgaGzm3ZH4D16
+            pm1Xu1QNoFVFDrvGgZbdLjtltutAmAbRFKUxchcu32KJpZWOxYfIBzZPEkArfUGS
+            Ga2vQDoJ+O6yNtIcASc/ae4vX3W8hiVMovbggL0sQOLejsIUdVaI7bdyp+VpV37g
+            eaUrK1tz4jhmyn1zM8bNsRnIIwlx/St5AMh2RBnVEnC980X81urGtj1LmKkp+jcS
+            kr+m2DPaQiTNNc1uJsr6KZpgfS2dARv1fxK3y1neBUEzjEabMJ2ShkzFVB3DFw2X
+            jGE+hYM0e7hy0DQthq9YYTo/yiPzTdfvU4ohZcAvUoDO7FyGntlKLQHP6JV0Lebp
+            FWBV8CKKkIMxd8mW4Jd4O3aKO4nr6ZPjAaOMAUnQqMoFARpIwfA5pT5lKew0rwYT
+            KyNUJBmRyg85Kz4xf67dg4+6USh6HLkH6bwuB0GXx7bJ7GqfqF2UabG+loZG6zrH
+            B/Ku+3tPibRULY9SRVKLn5PAGrMg47rXm1vNxUyaXXSUPJ3G2DHf9M4D8vZDeI7S
+            XgF6LBqWjTPgqzr8JOabv2WRls7mFqpGVIVOMNIFJbqkkPHsKcFZEo5iY2s0Ep6t
+            VJxMpk2g/ONBRa7eTKyb5atHyNwtHIMbrZlGP0oEiO3hVwyQce+Gg9xOmnqOorE=
+            =hQ1g
+            -----END PGP MESSAGE-----
+          fp: 129994A38E40322EE2A4FA6CB59C51DA13B1BF22
+    encrypted_regex: ^(client-secret|clientID|subscriptionID|tenantID|resourceGroupName|hostedZoneName|email|commonName|dnsNames|hosts)$
+    version: 3.7.3

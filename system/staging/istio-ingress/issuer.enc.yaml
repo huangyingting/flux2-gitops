@@ -1,0 +1,53 @@
+apiVersion: cert-manager.io/v1
+kind: Issuer
+metadata:
+    name: letsencrypt-istio
+spec:
+    acme:
+        email: ENC[AES256_GCM,data:bU4KpY3VqnBNdyHdBQ8tywd/qDQ9,iv:n+eL3qST8nZ2f3RoWe970p2ZP0beBjvYBk034didwuc=,tag:2k2Pf1Qsub5aVgzjFQjnJg==,type:str]
+        privateKeySecretRef:
+            name: letsencrypt-istio
+        server: https://acme-v02.api.letsencrypt.org/directory
+        solvers:
+            - dns01:
+                azureDNS:
+                    clientID: ENC[AES256_GCM,data:fDtuYzQFz0WyioFD48Knj/n9U9qjr40jD16wzgHjyAYJfN4l,iv:Ic8Cx9QFtYCI0Qdj8lF3mkImia30gZ/iJzkEEt0oAGI=,tag:BxacN6Mw27VZ3DK0XgYqqA==,type:str]
+                    clientSecretSecretRef:
+                        name: azuredns-config
+                        key: client-secret
+                    subscriptionID: ENC[AES256_GCM,data:pKjd6SAtB12g6spawqdWz9aYG+MQqTNvqxa9ZmyIcO9NGeTu,iv:co/ByEaYOT0ZmCGng0fIFU8g0JoWThcTLbsswm8PDsU=,tag:GOEoL5Dxe3Fb56MVM0G3QA==,type:str]
+                    tenantID: ENC[AES256_GCM,data:v4XhQdU+o6f52r9QFxuj04//vySZUtgTyMZw+a4vHwUtgQMW,iv:fvvS3+qWWd1FKTwxayKy4bH4nEniDgCoYguDSDrNyAc=,tag:txnGWINLD/tKCYXQalVM5w==,type:str]
+                    resourceGroupName: ENC[AES256_GCM,data:mV0WwdxEph6QoQ==,iv:S5z0qaELXKZMuLQGiqFdeaxRBDXv9LJUMM9vsAEMy54=,tag:m509taOrakYHOc6eI0uMFg==,type:str]
+                    hostedZoneName: ENC[AES256_GCM,data:T7gLddLQ92rAh+2Vu2qW,iv:KxupIV4hhBxsA8j34lKZezLed+4JvttQlYkSX+TVBqc=,tag:fAlSGZNa+tvYGsfLjLaJ9g==,type:str]
+                    environment: AzurePublicCloud
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2022-12-17T14:04:15Z"
+    mac: ENC[AES256_GCM,data:Y4eF9+n2w8VZc6JIi0lG/Il7PkJNM/4m+98YG+BSsibNxHekFcSEc0dpksxP7TEC+kBZWrrgpeCCLI4W6QvhsjMy9Ad6WA4M8+CnewV9YbRn0cCzslVP0C+Qc3Mw+658vTqjZFIFYoyM/ZmQBzksa+Zx/p4ZTnu3tr279/wmTso=,iv:G88FGPKBQbrJkeHZUrd8WQ4ikUodMmmie9alzD3/gnw=,tag:TUafblQ+gYLL3ZhcbdKykQ==,type:str]
+    pgp:
+        - created_at: "2022-12-17T14:04:14Z"
+          enc: |
+            -----BEGIN PGP MESSAGE-----
+
+            hQIMA38T7Az157GMAQ/+KoUX7XmnSsHNF8Tf9/yIQwm7cWBBrLbDjKHKa/JdfSHq
+            V+zyMJQsLWDG124CIHkcgA4Vb/nVqVWtYaJWeiExl9YNHiGXnoMEBqBUqxMICXhj
+            G3r9DNbBhFHyZswS4AulRhop0HqMoz3lQ/qpECUkpEeeWKO4o+R/IHJTs4cysPmt
+            d8wsSFyoeGjqRGglN6QJF3ZYPlPMhftveMVbeuOiG6uy7uzPRnhdZToDbwrzvxq0
+            XjpWQsNtgG+gxAqXyD07JHPdo8xjBzSmg3ILDajZPHlzWCI6Q2ASMS6HsBXS2sUu
+            6kjl8atCE6pCUJeHCCwTWPlBST8Hl99CkdO2oBHrUN/AdsAfKhAYEOXVxcnqF0xr
+            XohOg+dGoC854ADhDOUHdTD06tjLzrIwHuRNP2+TA21zSjp0CKNUt26shD2CnfHo
+            cJg1rJeh/MCcYw4zJxX5P174UT4pmp4cbEJVWz4V7aX6OBFsAo+/QIy8VQSQ59gN
+            wAlhFX35V0jp3QromaXuSdreDHFx6aw32RicJsSXiwLcSmDWjYOLge+Sf0+o4xQ8
+            fJE1j2C76hju3tLMsKc2WywUWquzhRAcXzFSQSUIh7ZFnjYEArbaPNcPKqhD4+vN
+            1QvDfQ++dw+OWDap4PdTJ9tXW08nnXaJq+mHClmsZ3MnFwhZMCsnLC9hv9t6tyTS
+            XgEtkpo3Vy/QuNEtBnl0bobyQzaCsnMcN9MV87a6NdsBC8LygvsbO2sECIjqibcp
+            vqU501wDWgiljpN2yJ/wsQ23/puu81O5k1ksezgXI0LDed/0yTfFkhpSgAs0skI=
+            =qLXC
+            -----END PGP MESSAGE-----
+          fp: 129994A38E40322EE2A4FA6CB59C51DA13B1BF22
+    encrypted_regex: ^(client-secret|clientID|subscriptionID|tenantID|resourceGroupName|hostedZoneName|email)$
+    version: 3.7.3

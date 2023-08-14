@@ -1,0 +1,63 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+    name: tempo
+    annotations:
+        cert-manager.io/cluster-issuer: letsencrypt
+        nginx.ingress.kubernetes.io/proxy-buffer-size: 1m
+        nginx.ingress.kubernetes.io/auth-url: ENC[AES256_GCM,data:RwEFeh37QzdgKC+fHfxb7ZgDhxEscWCwpCR93ThHadZTiTjEFdAPTw==,iv:GEEgPIgE6ja9W2BIHN5aZVt9clZBKn31ZJar+fwXiNs=,tag:UNyrqEYZ5HoOCM1NSWpPSg==,type:str]
+        nginx.ingress.kubernetes.io/auth-signin: ENC[AES256_GCM,data:UJ3VcqeDff6VeJ3MQODSave8WjuVxtoHoLXvuKU9oTPsTbDUsJJgi68mfqd/0ThUCwKEFj5nJKZzGVCV3pZ8xocuMH4fZqn6,iv:nFDz6OPxiS+K1oaNueGRS6DBX8cHpRwrwv8imFywdq8=,tag:cQZ/+BHj539qAEALO3Ct7A==,type:str]
+        nginx.ingress.kubernetes.io/auth-response-headers: X-Auth-Request-User, X-Auth-Request-Email, X-Auth-Request-Groups, X-Auth-Request-Preferred-Username
+        nginx.ingress.kubernetes.io/configuration-snippet: |
+            auth_request_set $access_token $upstream_http_x_auth_request_access_token;
+            proxy_set_header 'Authorization' 'Bearer $access_token';
+            auth_request_set $id_token $upstream_http_authorization;
+            proxy_set_header 'X-Forwarded-ID-Token' $id_token;
+spec:
+    ingressClassName: nginx
+    rules:
+        - host: ENC[AES256_GCM,data:/q2pEPBWXuSHMlYXAad1cQEtk27a,iv:ZO9EypfBVn3QezAH4AsRzraNpxOyAxPXng+A9MR8pRY=,tag:nKhP2fbo4zglsDHA1FC4YQ==,type:str]
+          http:
+            paths:
+                - backend:
+                    service:
+                        name: tempo
+                        port:
+                            number: 16686
+                  path: /
+                  pathType: ImplementationSpecific
+    tls:
+        - hosts:
+            - ENC[AES256_GCM,data:fz9Kjuav4CWsHUZ7AXIQZGhOcr1l,iv:riiw0LJMLt2Pd70ehZnTYK7rEWXQu5Wsc3kKg9HkfbY=,tag:o8bvS+ZMQ5KLgFDqshpe5A==,type:str]
+          secretName: tempo-tls
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2023-07-13T02:29:03Z"
+    mac: ENC[AES256_GCM,data:RW/SO6T7Ig3sLMdsFvgPYaku7suRV7X9vpa3c92LxbQBKqnGqAajY2C4L41g/qP4TXCGznrPqJNWzyrf1ALfzftP2j+pWrspc72E/80kkGpVO9kzcsbnk+NzeDHKLiu/6+3eTwdfnM3QD+wIyofjTjAFXNPNhtvKdn9wA92PejQ=,iv:F7SlNp8zbOwILHkWiJ1oRIa8+12mDaXxQB46yAYCtyk=,tag:ifJnfJuxlsPNXFpzxfestw==,type:str]
+    pgp:
+        - created_at: "2023-07-13T02:29:01Z"
+          enc: |
+            -----BEGIN PGP MESSAGE-----
+
+            hQIMA38T7Az157GMARAAphTWCSBzgx+C33DRN3qNXMoq7S8r1exX+yiUWg2aLgVj
+            qDS6aOOtW5jHhDBTanUUE+FXCnK2ZtM/9skdkUjI6Hfm+W01u9GAvjkvH9uFc2Rz
+            bxYKMg/3XJrmX5JGPJfKrTPh4HOiZUbaX50C6Tr3tsi3dCfJvSRCGhf4ePg/ZNDr
+            RocG+kEkadKqy9PB67npyu8NHv2XuPkgW57s2rBFKEx6vJXdO4OMl5UA/anVCWET
+            /yBemWXdQhZYpVGiD42L3seYBRqCVxmg/uWh2vYM0L9PF6LQobNCgQWY2pCDt4I4
+            JUI04kO9oFUDwqlXkvRPHu98F6EAwSDbsXMn4bvDk83ix3LgutxT6VxLB8tBU/vV
+            BwB6O+DCyIjVJmLMT4yHnVJVkmkHIVvCr9rXuQUc4jYrrE2pmLQIauAlniSiXMd1
+            Xdz0iSHzh9e9InbHe6VAuZ+CJVbQMMxwrqhSNxLgGIwvoZ+k9+xBuVaV2w6YtCXl
+            SJVPVZLyw9FImPJyOH+GvtKcjKm1TEpmQIsderMdVeqGRb16rYGfblp3SsuHEIV+
+            yiH4nzUpgkyF7jFsH0CDDagYQ3ADkfQhFkbC6QWM1GamRxuIhbP/rmboxLe+KWRC
+            ywggRum4JWZhCrrV59ECdHzHOVDgIC2fa0/aCcJ3FAWLKzlihRpBg1lFUIwForXS
+            XgEg3Tgog8Yji/JJdBCS7NIvampBL5VJCA4zL3aUTIn/HmbVwJr2k/3iQXiq7Oa2
+            3hcH9mQooO+BHBkCG2h/nhfLBsuDdSl2iXBt/y+6ZA6/ZXUdPdb1/24fHVUgd0g=
+            =Wl8t
+            -----END PGP MESSAGE-----
+          fp: 129994A38E40322EE2A4FA6CB59C51DA13B1BF22
+    encrypted_regex: ^(host|hosts|nginx\.ingress\.kubernetes\.io\/auth-url|nginx\.ingress\.kubernetes\.io\/auth-signin|storage_account_name|storage_account_key|container_name)$
+    version: 3.7.3

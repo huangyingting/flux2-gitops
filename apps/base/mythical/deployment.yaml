@@ -1,0 +1,130 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: mythical-server
+  name: mythical-server
+spec:
+  selector:
+    matchLabels:
+      app: mythical-server
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: mythical-server
+    spec:
+      containers:
+      - image: huangyingting/mythical-server:latest
+        imagePullPolicy: Always
+        name: mythical-server
+        ports:
+        - containerPort: 4000
+        env:
+          - name: NAMESPACE
+            value: mythical
+          - name: LOGS_TARGET
+            value: http://loki.loki:3100/loki/api/v1/push
+          - name: TRACING_COLLECTOR_HOST
+            value: tempo.tempo
+          - name: TRACING_COLLECTOR_PORT
+            value: "4317"
+          - name: OTEL_EXPORTER_OTLP_TRACES_INSECURE
+            value: "true"
+          - name: OTEL_RESOURCE_ATTRIBUTES
+            value: env=kubernetes
+          - name: POSTGRES_HOST
+            value: postgres-postgresql.postgres
+          - name: POSTGRES_PORT
+            value: "5432"
+          - name: POSTGRES_DATABASE
+            value: REPLACE_ME
+          - name: POSTGRES_USER
+            value: REPLACE_ME
+          - name: POSTGRES_PASSWORD
+            value: REPLACE_ME
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: mythical-requester
+  name: mythical-requester
+spec:
+  selector:
+    matchLabels:
+      app: mythical-requester
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: mythical-requester
+    spec:
+      containers:
+      - image: huangyingting/mythical-requester:latest
+        imagePullPolicy: Always
+        name: mythical-requester
+        ports:
+        - containerPort: 4001
+        env:
+          - name: NAMESPACE
+            value: mythical
+          - name: LOGS_TARGET
+            value: http://loki.loki:3100/loki/api/v1/push
+          - name: TRACING_COLLECTOR_HOST
+            value: tempo.tempo
+          - name: TRACING_COLLECTOR_PORT
+            value: "4317"
+          - name: OTEL_EXPORTER_OTLP_TRACES_INSECURE
+            value: "true"
+          - name: OTEL_RESOURCE_ATTRIBUTES
+            value: env=kubernetes
+          - name: RABBITMQ_HOST
+            value: rabbitmq.rabbitmq
+          - name: RABBITMQ_USER
+            value: REPLACE_ME
+          - name: RABBITMQ_PASSWORD
+            value: REPLACE_ME
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: mythical-recorder
+  name: mythical-recorder
+spec:
+  selector:
+    matchLabels:
+      app: mythical-recorder
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: mythical-recorder
+    spec:
+      containers:
+      - image: huangyingting/mythical-recorder:latest
+        imagePullPolicy: Always
+        name: mythical-recorder
+        ports:
+        - containerPort: 4002
+        env:
+          - name: NAMESPACE
+            value: mythical
+          - name: LOGS_TARGET
+            value: http://loki.loki:3100/loki/api/v1/push
+          - name: TRACING_COLLECTOR_HOST
+            value: tempo.tempo
+          - name: TRACING_COLLECTOR_PORT
+            value: "4317"
+          - name: OTEL_EXPORTER_OTLP_TRACES_INSECURE
+            value: "true"
+          - name: OTEL_RESOURCE_ATTRIBUTES
+            value: env=kubernetes
+          - name: RABBITMQ_HOST
+            value: rabbitmq.rabbitmq
+          - name: RABBITMQ_USER
+            value: REPLACE_ME
+          - name: RABBITMQ_PASSWORD
+            value: REPLACE_ME

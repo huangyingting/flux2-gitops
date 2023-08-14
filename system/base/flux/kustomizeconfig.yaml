@@ -1,0 +1,6 @@
+nameReference:
+- kind: Secret
+  version: v1
+  fieldSpecs:
+  - path: spec/secretRef/name
+    kind: Receiver

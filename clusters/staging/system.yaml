@@ -1,0 +1,31 @@
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+kind: Kustomization
+metadata:
+  name: system
+  namespace: flux-system
+spec:
+  interval: 10m0s
+  dependsOn:
+    - name: infra
+  healthChecks:
+  - apiVersion: helm.toolkit.fluxcd.io/v2beta1
+    kind: HelmRelease
+    name: prometheus
+    namespace: monitoring
+  - apiVersion: helm.toolkit.fluxcd.io/v2beta1
+    kind: HelmRelease
+    name: ingress-nginx
+    namespace: ingress-nginx
+  - apiVersion: helm.toolkit.fluxcd.io/v2beta1
+    kind: HelmRelease
+    name: traefik
+    namespace: traefik
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+  path: ./system/staging
+  prune: true
+  decryption:
+    provider: sops
+    secretRef:
+      name: sops-gpg

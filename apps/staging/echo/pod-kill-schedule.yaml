@@ -1,0 +1,18 @@
+apiVersion: chaos-mesh.org/v1alpha1
+kind: Schedule
+metadata:
+  name: pod-kill-schedule
+spec:
+  schedule: '0 * * * *'
+  historyLimit: 8
+  concurrencyPolicy: 'Allow'
+  type: 'PodChaos'
+  podChaos:
+    action: pod-kill
+    mode: all
+    selector:
+      namespaces:
+        - echo
+      labelSelectors:
+        'app': 'echo'
+

@@ -1,0 +1,40 @@
+apiVersion: flagger.app/v1beta1
+kind: AlertProvider
+metadata:
+    name: slack
+spec:
+    type: slack
+    channel: ENC[AES256_GCM,data:seSbq+ochQ==,iv:t+00xOICi2/kV4JJoMx5jxZV+nI2ACwzUWIa9Yw/SFs=,tag:13mSwMzTjRKAI7QqYOWcWQ==,type:str]
+    username: ENC[AES256_GCM,data:6He1sF2E6Q==,iv:fJPiF9tq1dhapSY1K9FOKWVaQ+mwNoiG2AuBBOoyuAM=,tag:VUtdcMaxjDvGr8KbirjMuQ==,type:str]
+    address: ENC[AES256_GCM,data:6k740PaVVPeiS96LWT1mm0xFSy1nT4fLI01v2jX2ec1AR+bQvX6b6Bn5RL3dtzF3Ll5aFqlhNCkRD21YsPMk4jAwRptqSVoThR0MxnCIZ6WO,iv:xhV99KkV2rciF9to+adI5SJS/qgd6glhm3vQuToYq3Q=,tag:l3yi4fphZ7H5uMqKItPd2w==,type:str]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2022-12-07T11:56:57Z"
+    mac: ENC[AES256_GCM,data:S0Ikm1cJlnkKrMV8fcYM1SkkpYCjq1Gun6IfH1ahX6QB6fMyHKNZKn49YzsX07C1J+WPX4iTO1zA+iRSVuziM1I3eKaQlsMKpLh3URD5gtIPfVpYIPXLZ2xmI7X5xpQd+vfbZz0TA2Z1JXFaNe4lp02gBvdRea3V8V4cpA1vC2I=,iv:xCRIVC2qDJfZGHEREagkbr5zku8Z6VK/tNcEfSD11Mg=,tag:pLfGon3LikjAo54g2Zo2AA==,type:str]
+    pgp:
+        - created_at: "2022-12-07T11:56:55Z"
+          enc: |
+            -----BEGIN PGP MESSAGE-----
+
+            hQIMA38T7Az157GMAQ/8D1HprwTLGO7xDxdtoxah1QvxDC7wvvhHHAfmLZRtxvSc
+            iA9MggOyty/Do+RCnmTyDSCV+hW7Q+5C3lueT8DldV/CyUEz30Ks+pxO0YiVl+u4
+            2JO7zzGRIQKnqcT9G2mzoXpz+hF6GZm5MtGrHpMEx7T3fPLCbgiiFSkUycasgy8U
+            7eZ87oALWNhhbKAKglMBnEnxhPlV/g0ZWLjgcEt7L/mXZl7UwsImGCpro7Oph/Sq
+            Qv81WkmSW9OVrhdQqCRQHmA15lm/k2Ouj8i2f0xaFaSPQTnc8wpWVnPXbe/Gvkde
+            mDRG7zYXN0TybQ+6NoZNWGLR29IEUu737vuYTWchfyV081lfBKCsgphQrLIuCjDn
+            C2h3WCEllNl9zCIanwoyY/+/dpNL6yen+5GguBn61eXTOBLLurKMj67nZ/ejhYdl
+            /uacYGFcNasPYgZ1WQhZo60MW5y6t7wh5KgaEqOQyjRwOGqUDANKg3DvZxwWpjsc
+            5zTvlNMOigIKQgNmIUJcFackizvfUxuFEHjlHu8pluEz+f8Gya6+zaxPYeT4+2sz
+            W6NV7fU6HX8gFIPQ7a99om8Wy5N7nHjcv2bthPeduHwB0jDPvqt1/qARKdfF2b+2
+            3BRKnJqF2MT8DH+Rou8V60dMQiTIv+WXUNFTMcH2GUylNaoMtE3XGS+uWnQVNMnS
+            XAG6ojXZub6Niss820IsNc9qH5ieiqVfxcV85yFZSrqFMVB+6rgKL4n255lIceTQ
+            lSVviDkgmHW40HMxWSChjUUsG+sF/wd/yGdfG4tpMxXyU4r57Kz0BTjt6HyS
+            =5EyH
+            -----END PGP MESSAGE-----
+          fp: 129994A38E40322EE2A4FA6CB59C51DA13B1BF22
+    encrypted_regex: ^(host|hosts|address|channel|username)$
+    version: 3.7.3

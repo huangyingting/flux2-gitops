@@ -1,0 +1,14 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+- accounting.yaml
+- bootstrapper.yaml
+- loyalty.yaml
+- make-line.yaml
+- order.yaml
+- rbac.yaml
+- receipt-generation.yaml
+- service.yaml
+- ui.yaml
+- virtual-worker.yaml
+- virtual-customers.yaml

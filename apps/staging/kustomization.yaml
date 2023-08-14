@@ -1,0 +1,19 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - kspan
+  - podinfo
+  - echo
+  - echo-canary
+  - echo-mirror
+  - tns
+  - azwi
+  - mythical
+  - dapr-calculator
+  - bookinfo
+  - reddog
+  # keda + containerd-shim-slight-v1 to run a rust application with redis capability
+  # - rust-slight
+  # - postgrest
+  # - otel-demo
+  # - keycloak

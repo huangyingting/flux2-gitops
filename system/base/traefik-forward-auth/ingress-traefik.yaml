@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-traefik
+    traefik.ingress.kubernetes.io/router.middlewares: traefik-azuread@kubernetescrd
+  name: traefik-forward-auth
+spec:
+  ingressClassName: traefik
+  rules:
+  - host: REPLACE_ME
+    http:
+      paths:
+      - backend:
+          service:
+            name: traefik-forward-auth
+            port: 
+              number: 80
+        path: /
+        pathType: ImplementationSpecific
+  tls:
+  - hosts:
+    - REPLACE_ME
+    secretName: traefik-forward-auth-tls

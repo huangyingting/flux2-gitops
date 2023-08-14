@@ -1,0 +1,14 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: istio-system
+resources:
+  - namespace.yaml
+  - istio-base-release.yaml
+  - istio-istiod-release.yaml
+  - monitoring.yaml
+secretGenerator:
+  - name: istio-istiod-values
+    files:
+      - values.yaml=values.yaml
+configurations:
+  - kustomizeconfig.yaml

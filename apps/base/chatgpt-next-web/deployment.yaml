@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: chatgpt-next-web
+  labels:
+    name: chatgpt-next-web
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: chatgpt-next-web
+  template:
+    metadata:
+      labels:
+        app: chatgpt-next-web
+    spec:
+      containers:
+      - image: yidadaa/chatgpt-next-web
+        imagePullPolicy: IfNotPresent
+        name: chatgpt-next-web
+        env:
+        - name: OPENAI_API_KEY
+          value: REPLACE_ME
+        - name: BASE_URL
+          value: REPLACE_ME
+        - name: CODE
+          value: REPLACE_ME
+        - name: DISABLE_GPT4
+          value: "1"
+        - name: HIDE_BALANCE_QUERY
+          value: "1"
+        resources:
+          requests:
+            cpu: 50m
+            memory: 64Mi
+          limits:
+            cpu: 100m
+            memory: 256Mi
+        ports:
+        - containerPort: 3000
+      restartPolicy: Always

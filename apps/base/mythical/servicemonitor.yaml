@@ -1,0 +1,51 @@
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  labels:
+    release: prometheus
+  name: mythical-server
+spec:
+  endpoints:
+  - interval: 5s
+    port: http-metrics
+  namespaceSelector:
+    matchNames:
+    - mythical
+  selector:
+    matchLabels:
+      app: mythical-server
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  labels:
+    release: prometheus
+  name: mythical-requester
+spec:
+  endpoints:
+  - interval: 5s
+    port: http-metrics
+  namespaceSelector:
+    matchNames:
+    - mythical
+  selector:
+    matchLabels:
+      app: mythical-requester
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  labels:
+    release: prometheus
+  name: mythical-recorder
+spec:
+  endpoints:
+  - interval: 5s
+    port: http-metrics
+  namespaceSelector:
+    matchNames:
+    - mythical
+  selector:
+    matchLabels:
+      app: mythical-recorder

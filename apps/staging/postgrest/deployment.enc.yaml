@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: postgrest
+spec:
+    selector:
+        matchLabels:
+            app: postgrest
+    replicas: 1
+    template:
+        metadata:
+            labels:
+                app: postgrest
+        spec:
+            containers:
+                - image: postgrest/postgrest
+                  name: postgrest
+                  env:
+                    - name: PGRST_DB_URI
+                      value: ENC[AES256_GCM,data:r1ciEclZnxcQbFF+0IGNdBb4SrdUxs3qvlS2nWoFKXHwDvJSF2uvRLvIWkamwnPF08UcnqNUl63EocilbC53uqmDlxnQXUX9OIo=,iv:gWyQRIrNuybvMZ9OOXtUyUQfzhZLqsQZ/04M47dJsP0=,tag:85hJjm9xCWo163+xt5xTsg==,type:str]
+                    - name: PGRST_DB_SCHEMAS
+                      value: ENC[AES256_GCM,data:45JO,iv:mA1v7bhINGPTC26jY59niYVsrvBAsXHOa1KbroUIPCU=,tag:fsSMK7R6r92eRnBJ7t3EZQ==,type:str]
+                    - name: PGRST_DB_ANON_ROLE
+                      value: ENC[AES256_GCM,data:vuKyeQCu6KM=,iv:fUMucVXXQNEPXa3M+fw6MEV5SMKoStPKO+qRmHSGTaY=,tag:vK7RbH9NLOv2s43jG+LV5w==,type:str]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2023-02-06T12:51:21Z"
+    mac: ENC[AES256_GCM,data:Bw5sRsnsTnCkU9GlPoiB86md3ByeH9K2lPkLJ7Ec5HyY4nKcrBLWk4Vb9zQlj03CsfOwSPTEy4vwcJg5+ZHwwTTiFx91rF9l7nbO2APx1cS0H8aF//2bD8xbjvqI8DE8y3/lJ0la3xxwfZx19shWiJlM/GKhNde2YMTXJzYY0cI=,iv:C4O1LHv7EjeiLTFv+re0AaUv5zJH0lH4GhFkJaFA/ik=,tag:zOJocFZCDe9hrm7A6hQh0Q==,type:str]
+    pgp:
+        - created_at: "2023-02-06T12:51:20Z"
+          enc: |
+            -----BEGIN PGP MESSAGE-----
+
+            hQIMA38T7Az157GMAQ//W3nZQt/AimRysVKmjOQv43LRcjc7M8+22TXfUHZpfgFJ
+            TfjoYOLebrcYdtUdeQxvNs0Y7ugb6rHuM/9kxN3nBhYmRkiWzYwJVMifDNaAdSuA
+            dx98kG7DW+VqZhrzZ0IDo445uddnSh4Hu57GA9kTJVJrDFF2FTfKcJHl3aaRAIwZ
+            x+1ysyxES67/lCEmOLhx/BxZYp/xM6p0oWTDIcsBoKHB2GnL2PYi2s0pD9FNgDJp
+            vhU4yrjOLgci3t1gmIz2vL+AXkpfQR7L4bz3amHvHVzjVX4xkWCzKWX5VZRoTGFe
+            jedlb3Ujzw6zrqm1S8CttPblbYPEsSv7JImNYkln6wIWU1BOUgBtr2+Wbr4envwD
+            ASicMfZB3ymr7fz/PT2bNAevzQkGG2iWgBQbVH7fLl6gThTavuyjwFst4iJESuI8
+            xxFjDD+8RxkkGTm/E2s60PPIXUKiSLmcyGLjAJg08djy7/ZKAFE3J2GbNtyQPPWN
+            PksTVTnrImUUo40wP9TB+X9aIRT53hq8n0do5c2qx3yxRPS8OdCTYYcpa/LKxTlO
+            KDAlDfL1EJAxH/lvwG9ujRlTQH65djXxrc3++7wRXqI7a40CtwEXiI8Lf/Z/BFDa
+            Rq9Md7kvDHLuGlozHyTmTMbrD5Ja4F89XLoWNYXI1TOTO0P5zpBQhSUhbGKN6DHS
+            XgH/UCjsamKOsKODLHB63qqTYdubevtaehFESykcI/24njYDR8ka1kykyDUmVtLY
+            9DK8Ws9l/Y0mA3BC2WWEaQxiynD0IFFvL3tooD/cwo5KtE5ngwSj8Ak+ffNGipw=
+            =BVPk
+            -----END PGP MESSAGE-----
+          fp: 129994A38E40322EE2A4FA6CB59C51DA13B1BF22
+    encrypted_regex: ^(value)$
+    version: 3.7.3

@@ -1,0 +1,9 @@
+auth:
+  strategy: "anonymous"
+external_services:
+  prometheus:
+    url: "http://prometheus-kube-prometheus-prometheus.monitoring.svc.cluster.local:9090"
+  grafana:
+    enabled: true
+    in_cluster_url: 'http://prometheus-grafana.monitoring:3000/'
+    url: 'https://grafana.k8s.i-csu.com'

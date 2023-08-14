@@ -1,0 +1,39 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: emojivoto
+bases:
+  - ../../base/emojivoto
+patchesJson6902:
+- target:
+    group: apps
+    version: v1
+    kind: Deployment
+    name: web
+  path: patch.yaml
+- target:
+    group: apps
+    version: v1
+    kind: Deployment
+    name: emoji
+  path: patch.yaml
+- target:
+    group: apps
+    version: v1
+    kind: Deployment
+    name: voting
+  path: patch.yaml
+- target:
+    group: apps
+    version: v1
+    kind: Deployment
+    name: vote-bot
+  path: patch.yaml
+replicas:
+- name: emoji
+  count: 0
+- name: vote-bot
+  count: 0
+- name: voting
+  count: 0
+- name: web
+  count: 0

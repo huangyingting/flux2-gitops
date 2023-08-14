@@ -1,0 +1,12 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: traefik-forward-auth
+spec:
+  selector:
+    app: traefik-forward-auth
+  ports:
+    - name: http
+      port: 80
+      targetPort: 4181
+      protocol: TCP

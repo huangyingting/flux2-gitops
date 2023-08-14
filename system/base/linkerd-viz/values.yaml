@@ -1,0 +1,7 @@
+# Default values
+# https://artifacthub.io/packages/helm/linkerd2/linkerd-viz
+prometheusUrl: "http://prometheus-kube-prometheus-prometheus.monitoring.svc.cluster.local:9090"
+prometheus:
+  enabled: false
+grafana:
+  externalUrl: REPLACE_ME

@@ -1,0 +1,108 @@
+# Default values
+# https://github.com/grafana/tempo/tree/main/example/helm
+tempo:
+    metricsGenerator:
+        enabled: true
+        remoteWriteUrl: http://prometheus-kube-prometheus-prometheus.monitoring:9090/api/v1/write
+    storage:
+        trace:
+            backend: azure
+            wal:
+                path: /var/tempo/wal
+            azure:
+                storage_account_name: ENC[AES256_GCM,data:VIESVXdFFg==,iv:T1jyr1o8jVhMrZUztYoiKuiZChQER+LEvFCjxLfxBPw=,tag:bL4a+ax4PMF7+pz9ZnFkUg==,type:str]
+                storage_account_key: ENC[AES256_GCM,data:xQ3/7yliMlwWYJtsSqW9dXwCMe67KY+1qSma77mpt0uBSlJJDUTBpUE+xFEgIDs8Cuj0ii5Yqkk9b77zs1E6UmuJ8Di1lhslBhl5FWYan+9XitxvyXOVSg==,iv:d08yjZTy//nByUsVQavFjsAD3dz08AQRplZPZ0gDh3A=,tag:nQOoeSUcshkwkJn6U+/8pA==,type:str]
+                container_name: ENC[AES256_GCM,data:t5hCBKc=,iv:sOI1Mx9qnEE3+fTHSlpUexdcy6L6n1r7G4yV2s9mX3o=,tag:jPj+LLNHpUQCmt94VCd2wQ==,type:str]
+            blocklist_poll_tenant_index_builders: 1
+            blocklist_poll_jitter_ms: 500
+    receivers:
+        opencensus: null
+        zipkin: null
+persistence:
+    enabled: true
+    accessModes:
+        - ReadWriteOnce
+    size: 4Gi
+tempoQuery:
+    enabled: true
+serviceMonitor:
+    enabled: false
+    additionalLabels:
+        release: prometheus
+config: |-
+    multitenancy_enabled: {{ .Values.tempo.multitenancyEnabled }}
+    usage_report:
+      reporting_enabled: {{ .Values.tempo.reportingEnabled }}
+    compactor:
+      compaction:
+        block_retention: {{ .Values.tempo.retention }}
+    distributor:
+      log_received_spans:
+        enabled: false
+        include_all_attributes: true
+        filter_by_status_error: true
+      receivers:
+        {{- toYaml .Values.tempo.receivers | nindent 4 }}
+    ingester:
+      {{- toYaml .Values.tempo.ingester | nindent 2 }}
+    server:
+      {{- toYaml .Values.tempo.server | nindent 2 }}
+    storage:
+      {{- toYaml .Values.tempo.storage | nindent 2 }}
+    querier:
+      {{- toYaml .Values.tempo.querier | nindent 2 }}
+    query_frontend:
+      {{- toYaml .Values.tempo.queryFrontend | nindent 2 }}
+    overrides:
+      {{- toYaml .Values.tempo.global_overrides | nindent 2 }}
+      {{- if .Values.tempo.metricsGenerator.enabled }}
+      metrics_generator_processors:
+        - 'service-graphs'
+        - 'span-metrics'
+    metrics_generator:
+      processor:
+        span_metrics:
+          dimensions:
+            - http.method
+            - http.target
+        service_graphs:
+          dimensions:
+            - http.method
+            - http.target
+      storage:
+        path: "/var/tempo"
+        remote_write:
+          - url: {{ .Values.tempo.metricsGenerator.remoteWriteUrl }}
+            send_exemplars: true
+      {{- end }}
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2023-08-14T08:17:21Z"
+    mac: ENC[AES256_GCM,data:rfYoyD3fs643zId9JV2FRR5BDbkf9mOoGbagdvrBBvMbTEm2Upi0nHfhugCs2Yl+8btecCReQD2JuopnHbm0kK0XNEhBKVLE3A4LqJ0gWTMJTBLo+JyX6cUC0Zat7pfVvNHqTlFJjnPQuCO7ur5aNj2+WXLHsWmRdP+HFI1aoJw=,iv:45yZCOmafL4xYsbpL7vZBCChdrFImNHmvvWh42lZ0H0=,tag:R9NzN2K0dxTxyE+DeWY+DA==,type:str]
+    pgp:
+        - created_at: "2023-08-14T08:17:19Z"
+          enc: |
+            -----BEGIN PGP MESSAGE-----
+
+            hQIMA38T7Az157GMAQ/7BXiwwSxM7j7CQR+4FAvuBwsGOiiJ6J9Y3UpdR/MMiFut
+            lm9OIOVSpCWbkx6Cd1O6lDD8DebjoupbgAYh71vYIMPiybd8Ju0xAZI5utOOKdhe
+            Wo5+0RoF841GPerBcQDONojZZYOjpmyWKR7NbvoSnaGHeUqPHeyLxixSbfBdbtUg
+            1djc+Eq7z87k+0etUdrcP1GYazicHIVuBCd+FTYIfHIxLQqzzoae1K6GyBeFWZem
+            KQFQfW2OHQT79/eibKuwF8uHxCpUquLByNyqK3UZ6PuAkgLHSbeV/+6GfeTaIRL+
+            Dd2066Puhf4FU9bJkAtdfp0NjNmK6orWjGI4IGdFMU0EhFzR/R2v9cXsykgF9iNX
+            awY3hYq+dprTZPTubMZIeYhcWZApdImL411JQGS922rl7KVWpSWP0hMVK7Ojv6u9
+            n1krViIR1sPDKi5LLswWY6ZOvW3//tw4W84p6aT2kmuyKTC42sgTk8QNSirmt1Im
+            b5hWva4f5cNgCOijST4AglE6PtpYMqZ78CDjUBsDhxgw+uRCiz9K4zWtuYgkp5K5
+            v5PFC3Vqmm0l8CRg2oMKqo9ZB/cp1+g3NqX+l/KDbCQT6vQ5lUyfdCpxoL+x9K9H
+            gyaWtJpD1Nq+WqA9yi5CprBUn/+OXSDq4KCwnMxB1u4edTSSQZLrkNg0t3e02nXS
+            XgGtfvlGJUKWKGj2LEJQqJCygBRU9KhJNQ3lmbDNYmK3k915+OGrj01JjPWQZ1wV
+            fSVlv3zezg5AC30J6DMYfcFKzWTiowuFPjZpMljCdhq80OrTi/3z4pOC6X9iEYk=
+            =apkQ
+            -----END PGP MESSAGE-----
+          fp: 129994A38E40322EE2A4FA6CB59C51DA13B1BF22
+    encrypted_regex: ^(host|hosts|nginx\.ingress\.kubernetes\.io\/auth-url|nginx\.ingress\.kubernetes\.io\/auth-signin|storage_account_name|storage_account_key|container_name)$
+    version: 3.7.3

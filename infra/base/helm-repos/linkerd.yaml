@@ -1,0 +1,7 @@
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: HelmRepository
+metadata:
+  name: linkerd
+spec:
+  interval: 24h
+  url: https://helm.linkerd.io/stable

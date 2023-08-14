@@ -1,0 +1,38 @@
+# Default values
+# https://artifacthub.io/packages/helm/linkerd2/linkerd-viz
+prometheusUrl: http://prometheus-kube-prometheus-prometheus.monitoring.svc.cluster.local:9090
+prometheus:
+    enabled: false
+grafana:
+    externalUrl: ENC[AES256_GCM,data:P7MYxRp2nDa3wgnmExQi12DgXF10Di+vi4edoIgwHg==,iv:FnuIyHq/zdi7e1qPZsou8PrNCQDbDIjpcMtzOJ3LBd4=,tag:ShYIL5c2MKPCBGfuT3hebQ==,type:str]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2022-12-14T07:03:36Z"
+    mac: ENC[AES256_GCM,data:gzoYQzw640AIErZN8j3wQO8K49LF7IYhGIZGFTMdLU4X+vSR8nR2y0jcYrYH3XQlVhC9tc7qgk+Zu7HTe6c7jcanIoucPo5Q1unMga3K/ZbbVVAexRsk9quQRxwX3GzwsD4PvwkuY/RzmeoaXWpRO0E9AaoW6sEQ3KJTsNooCWI=,iv:TJ1xL3Qf0yEGoUrvcHtVAEoX6mg4jzPEB8KfLz5t5b8=,tag:ukekyKDdX0G9Uwg83kb1Pg==,type:str]
+    pgp:
+        - created_at: "2022-12-14T07:03:35Z"
+          enc: |
+            -----BEGIN PGP MESSAGE-----
+
+            hQIMA38T7Az157GMAQ//QauPjS+tcpJVEE81AGRfaHA+bStUfQac6J+RUzw6O7uI
+            1YVfPiy8Iy8CQj/M3q+6LtvDhuApXxyoHvQyw5BXZDkzWS6PbweIAyqJNkudLBPy
+            KuG1UgHxHFW/rkKPpG+/+P6Ha1ZeFdre5RrM4L7Phe4OrM6qxs8cAxHNq4++oJFc
+            V6KI46QN9vDRRmAN0Zq0c/fbC4UG6pG0b7s2NxIVlJkl0NrmLBXRMwCTkR83Vzud
+            aB3pA0vDfbvwehFe07rP8SFNp1kqXFoKbUvTnFGn5xrFNwiNMXmaZkRrq4aFCX/Z
+            WLK+AH++8JzP67BARC5FpP88nlig0yA9opczJP5ukZElfBhaqVseR9rNC5VMwI+o
+            BNvJWEbHtX1lrptD5Z/eLp0jjS9ZuBAJBnPILXQi5V7TRP3/kLz17VqZDKSg+Jb+
+            7nf1CRpgXPUK9klq1ccFpV3nIZdhainrLFy7ONmBJYe1rIKGwMk1NN2IqfLs0t7P
+            qOS5kF+7AhFs8D5nQK03a7/wQXISfo3S2jlxkWS9IvZNvnqEv6JQGcERDF9SEoxO
+            rQLs1xHI3o/osCT+hL9Lby9EZhuZouk1Jv8HCTF0LP2FNtvf5PleCqr3jnhwVY6O
+            RE/BBPBBuKyikKvO8yKBGJlZk9p+JfODvU5V/j8Y8H2IuzvSPuaX6ommNE1K0MjS
+            XgG4nJ2OGK06T6IcM+KcpiilC8VJBrd22HMLp8EWonMYD/14FRPl21167aZby4I7
+            i32b2K9TZUEVZvBf2D840iBhYnx7C8O7jHgUeDPdZdMCXSWXb1pjQeYyIz2bqWs=
+            =gnFh
+            -----END PGP MESSAGE-----
+          fp: 129994A38E40322EE2A4FA6CB59C51DA13B1BF22
+    encrypted_regex: ^(host|hosts|nginx\.ingress\.kubernetes\.io\/auth-url|nginx\.ingress\.kubernetes\.io\/auth-signin|externalUrl)$
+    version: 3.7.3

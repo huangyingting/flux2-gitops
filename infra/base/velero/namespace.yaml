@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: velero
+  labels:
+    component: velero
+    kubernetes.io/metadata.name: velero

@@ -1,0 +1,24 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: kafka
+spec:
+  releaseName: kafka
+  dependsOn:
+    - name: prometheus
+      namespace: monitoring  
+  chart:
+    spec:
+      chart: kafka
+      sourceRef:
+        kind: HelmRepository
+        name: bitnami
+        namespace: flux-system
+      version: "20.x"
+  interval: 1h0m0s
+  install:
+    remediation:
+      retries: 3
+  valuesFrom:
+    - kind: Secret
+      name: kafka-values

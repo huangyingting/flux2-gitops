@@ -1,0 +1,55 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+    annotations:
+        cert-manager.io/cluster-issuer: letsencrypt
+        nginx.ingress.kubernetes.io/backend-protocol: HTTPS
+    name: keycloak
+spec:
+    ingressClassName: nginx
+    rules:
+        - host: ENC[AES256_GCM,data:97HYyz2Md9yg33TBo6mKAf12BXBIgRZa,iv:VwmsL4Ywj7KVH0FdYX9OfM75QF8qMK8CJ4AeBRCzv/c=,tag:SFqcjPc6XP2Zws/sOsPYwA==,type:str]
+          http:
+            paths:
+                - backend:
+                    service:
+                        name: keycloak-service
+                        port:
+                            number: 8443
+                  pathType: Prefix
+                  path: /
+    tls:
+        - hosts:
+            - ENC[AES256_GCM,data:PTURnWY2u2MrB5J6ihdUheDCnSXm+8Yx,iv:uLQI/lmfBs1fJ/W78o3C2yZWv4RHKA1QS6kaZEWYvQc=,tag:x8fLNkZSn1uOMUNemJmyKg==,type:str]
+          secretName: keycloak-tls
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2023-02-14T07:13:31Z"
+    mac: ENC[AES256_GCM,data:04QllBV9SSmXW+haelN5dH+hVL2bvD8Pu5iITZ5++fsLkJW37kdzlm0dbXQ46z9Yc0BwO2GU7m5OrD0NE0JoA19IgTNv+DSSspYJQtXwsFlGY2jWGMiP/fopIsSru229uBal9REfQhETJ/MccOgYpHGdsmUQDcDYii8f/vAdZds=,iv:wV2e1DQZdjbSzL8e9X3hHqTQY8cFECmwQ7JTQOcTA6U=,tag:cjIHihHxQi6YrK3vdakPMg==,type:str]
+    pgp:
+        - created_at: "2023-02-14T07:13:29Z"
+          enc: |
+            -----BEGIN PGP MESSAGE-----
+
+            hQIMA38T7Az157GMARAAm02U3Y5Fd1cT/oZMtfbkFSClxrhLyCG/FkmlJlLWnhpb
+            MH+DXoNHjjDtFrVsE3IDxjD0io/buPZ3CweZvhMFEPooShKVxj4bi3gkDESQ4io/
+            h+q5lYPZodIoKS0oSoCFVEfqeqA011EA+PTzWNhq+IVY7vTKfeTjP+8fka5WM3W3
+            O/gGT4Vg1Jmkf/NhDRqCktQoqXkpnaoaSbstH5aSwz67gJfOy7Zc2zSmyh3eXpCJ
+            Yf2UniedTI6BHxQ9RjZqkX7t3waFqnkSdxBEllfB00le+/hVVnnuVBz0ImqElnrb
+            OuFVvQQsPDzbAJTGXGboReivzbmqeLuwnP7gZTeT9VBbQEzbSEYZS2Q53n5LDaMu
+            8tka1MB4u6X+3j9VPegthXFsRcMyrDZa5Ew8/drCsaUPdBd9IRLU2StZlhyi8OmU
+            dLGypu7jGRkqYdLxmqQeLA/B1DdvNvRNeTZY3zN3Hr7FpYiYIIGpRkVJZD3eXrwF
+            KUwebU7nKQm1KShfUMyf85NGY2NN94czPkIrOvhNoLjFDq1TKjh59ABSMw6TwgdH
+            Wu8fm1mbIRiLPI+xo5nA9VXcliv6XbUiUd0AsyG7kueGzP1R9HuvpVbzKArCGQzI
+            mZZDGFDpellX7bGRv2LqjN8HmIp8luZSglVnavgRlwKKFdwjf7yWWj70SvJaBfLS
+            XAH87408AZtvvCcnfNTKZvdkZEgqSLoPYfqfRt42hNCCPCq1ebPihpfN9SSA0f4M
+            G4sS+4pUQR2N0Kd/2ZPxeQita/vEG/pflsXBmSxwkFS8PbnRl7xeBPGt8Cus
+            =oiUl
+            -----END PGP MESSAGE-----
+          fp: 129994A38E40322EE2A4FA6CB59C51DA13B1BF22
+    encrypted_regex: ^(host|hosts|hostname|data)$
+    version: 3.7.3

@@ -1,0 +1,107 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app
+spec:
+  minReadySeconds: 10
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      name: app
+  template:
+    metadata:
+      labels:
+        name: app
+    spec:
+      containers:
+      - args:
+        - -log.level=debug
+        - http://db
+        env:
+        - name: JAEGER_AGENT_HOST
+          value: tempo.tempo.svc.cluster.local
+        - name: JAEGER_TAGS
+          value: namespace=tns
+        - name: JAEGER_SAMPLER_TYPE
+          value: const
+        - name: JAEGER_SAMPLER_PARAM
+          value: "1"
+        image: grafana/tns-app:latest
+        imagePullPolicy: IfNotPresent
+        name: app
+        ports:
+        - containerPort: 80
+          name: http-metrics
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: db
+spec:
+  minReadySeconds: 10
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      name: db
+  template:
+    metadata:
+      labels:
+        name: db
+    spec:
+      containers:
+      - args:
+        - -log.level=debug
+        env:
+        - name: JAEGER_AGENT_HOST        
+          value: tempo.tempo.svc.cluster.local
+        - name: JAEGER_TAGS
+          value: namespace=tns
+        - name: JAEGER_SAMPLER_TYPE
+          value: const
+        - name: JAEGER_SAMPLER_PARAM
+          value: "1"
+        image: grafana/tns-db:latest
+        imagePullPolicy: IfNotPresent
+        name: db
+        ports:
+        - containerPort: 80
+          name: http-metrics
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: loadgen
+spec:
+  minReadySeconds: 10
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      name: loadgen
+  template:
+    metadata:
+      labels:
+        name: loadgen
+    spec:
+      containers:
+      - args:
+        - -log.level=debug
+        - http://app
+        env:
+        - name: JAEGER_AGENT_HOST
+          value: tempo.tempo.svc.cluster.local
+        - name: JAEGER_TAGS
+          value: namespace=tns
+        - name: JAEGER_SAMPLER_TYPE
+          value: const
+        - name: JAEGER_SAMPLER_PARAM
+          value: "1"
+        image: grafana/tns-loadgen:latest
+        imagePullPolicy: IfNotPresent
+        name: loadgen
+        ports:
+        - containerPort: 80
+          name: http-metrics

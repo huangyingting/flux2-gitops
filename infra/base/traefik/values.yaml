@@ -1,0 +1,10 @@
+# Default values
+# https://github.com/traefik/traefik-helm-chart
+ingressClass:
+  isDefaultClass: false
+ports:
+  web:
+    redirectTo: websecure
+service:
+  spec: 
+    externalTrafficPolicy: Local

@@ -1,0 +1,49 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+    name: bookinfo
+spec:
+    hosts:
+        - ENC[AES256_GCM,data:BVU71I51+CJ6YiefmMqK/12FIfizEZAz,iv:KCsMcZp4XcWiLjh6IJ2K9hnOeWrBjrDmEqPEL8AtBd4=,tag:XV3AAz/lxSk5C1BmwUOjJw==,type:str]
+    gateways:
+        - istio-ingress/ingress-gateway
+    http:
+        - match:
+            - uri:
+                prefix: /
+          route:
+            - destination:
+                host: productpage.bookinfo.svc.cluster.local
+                port:
+                    number: 9080
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2022-12-24T12:04:10Z"
+    mac: ENC[AES256_GCM,data:56lytDBM4qHSCwKEnyUzxh5RD2+wRqXoIHTuODWdH5m9Ss+PwkEKdLjCgdK55RI+CC7riGFbe2vrVsEs2ko/GNDEOEcmaDOuTwso+wW9vAXjm2y+xlu6d78Yp5eJA+w2mk3jmhGW41w+wXBADcBrcO5GwGBbh0lqp/LoP4J64BU=,iv:01yJhArsP7pVuegQE/dcfQ8MTMjmF3twG9WeZbXW07U=,tag:OLcqfp2hNumrLz9iaMumUQ==,type:str]
+    pgp:
+        - created_at: "2022-12-24T12:04:09Z"
+          enc: |
+            -----BEGIN PGP MESSAGE-----
+
+            hQIMA38T7Az157GMAQ//f05v2D4ejjsO3TDcU3/IaD60LbzOmi3xK75owf+xJvDO
+            kU57WX0NqjKTwofsZMJ0FuNjU6cB+ecq+fUREyXk/6cbP5tptdS6PTXlNgDZiMzS
+            ZBvvbwcqN5i6mK3DATTlhxuKlX6u+wIuYu7fz3iunerd0nFsoRVpt9X1Tn0fssFV
+            n8WjSV0wS6VPFLhCPXvYMbzof6Apjxx/c1MnmcaY95Xmp1z4Ouc+Oj98a2H12hxH
+            Atw90jfjI5u5YZhswBtzflmXI8E5tYF3pkeoLpyNJSK7ilzZ+t1Q1LVE4+8AqCPY
+            bW4W3rsgOXt9G6sKIUBoIZIW9nAq02AlC1Tn3DRpNR+2FTXo9CHuT+CnE9qFYoAO
+            4zCKaz93G1iZToIq9RE6qwB7n8MxbXt9UwO0obSHaZ6MMqtomkQ+iUAEoRr5rtkc
+            k67X2s9qipsd8uPOm/bBQWeOhV7rwCzuf8WN7SZ58uAZDRjfmV7JoGz/6Temccbv
+            xJc2rh6H+60GyUqCbnqviCORnDwZHcDKzAsn4BOQq4l/IqxVGVUk+9rdRzkHo3u/
+            RiT/rc8S909YQkm+QwaxesInUdne1Plh2YelFYoYkuOPZ3Q1ouW7GjVDJOyWUWJR
+            NUtZqxlBJPi6a4bK9fYkVtLPjCg8tadt1TTTH9buKRpsgqCy29L16pwaIfN+zXLS
+            XAEhaEzAxAiAF5NihxUrGHhxM/Y+9EOZGbONisCKftrCkNEUY21xNOvnQ/HUjUev
+            dJY4AS9MByO34yakWiGHEB77XpYXdjKmwgC8Rb/i9pVYVDMvGZqV5XrBcUuS
+            =O6Zp
+            -----END PGP MESSAGE-----
+          fp: 129994A38E40322EE2A4FA6CB59C51DA13B1BF22
+    encrypted_regex: ^(hosts)$
+    version: 3.7.3

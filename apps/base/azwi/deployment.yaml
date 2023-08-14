@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: azwi
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: azwi
+  template:
+    metadata:
+      labels:
+        app: azwi
+    spec:
+      serviceAccountName: azwi
+      containers:
+        - image: ghcr.io/azure/azure-workload-identity/msal-go
+          name: msal-go
+          env:
+          - name: KEYVAULT_URL
+            value: REPLACE_ME
+          - name: SECRET_NAME
+            value: REPLACE_ME
+      nodeSelector:
+        kubernetes.io/os: linux

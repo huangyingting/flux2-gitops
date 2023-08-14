@@ -1,0 +1,149 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: addapp
+  labels:
+    app: add
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: add
+  template:
+    metadata:
+      labels:
+        app: add
+      annotations:
+        dapr.io/enabled: "true"
+        dapr.io/app-id: "addapp"
+        dapr.io/app-port: "6000"
+        dapr.io/config: "appconfig"
+    spec:
+      containers:
+      - name: add
+        image: ghcr.io/dapr/samples/distributed-calculator-go:latest
+        env:
+        - name: APP_PORT
+          value: "6000"
+        ports:
+        - containerPort: 6000
+        imagePullPolicy: Always
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: subtractapp
+  labels:
+    app: subtract
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: subtract
+  template:
+    metadata:
+      labels:
+        app: subtract
+      annotations:
+        dapr.io/enabled: "true"
+        dapr.io/app-id: "subtractapp"
+        dapr.io/app-port: "80"
+        dapr.io/config: "appconfig"
+    spec:
+      containers:
+      - name: subtract
+        image: ghcr.io/dapr/samples/distributed-calculator-csharp:latest
+        ports:
+        - containerPort: 80
+        imagePullPolicy: Always
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: multiplyapp
+  labels:
+    app: multiply
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: multiply
+  template:
+    metadata:
+      labels:
+        app: multiply
+      annotations:
+        dapr.io/enabled: "true"
+        dapr.io/app-id: "multiplyapp"
+        dapr.io/app-port: "5001"
+        dapr.io/config: "appconfig"
+    spec:
+      containers:
+      - name: multiply
+        image: ghcr.io/dapr/samples/distributed-calculator-slow-python:latest
+        env:
+        - name: "APP_PORT"
+          value: "5001"
+        ports:
+        - containerPort: 5001
+        imagePullPolicy: Always
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: divideapp
+  labels:
+    app: divide
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: divide
+  template:
+    metadata:
+      labels:
+        app: divide
+      annotations:
+        dapr.io/enabled: "true"
+        dapr.io/app-id: "divideapp"
+        dapr.io/app-port: "4000"
+        dapr.io/config: "appconfig"
+    spec:
+      containers:
+      - name: divide
+        image: ghcr.io/dapr/samples/distributed-calculator-node:latest
+        env:
+        - name: APP_PORT
+          value: "4000"
+        ports:
+        - containerPort: 4000
+        imagePullPolicy: Always
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: calculator-front-end
+  labels:
+    app: calculator-front-end
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: calculator-front-end
+  template:
+    metadata:
+      labels:
+        app: calculator-front-end
+      annotations:
+        dapr.io/enabled: "true"
+        dapr.io/app-id: "calculator-front-end"
+        dapr.io/app-port: "8080"
+        dapr.io/config: "appconfig"
+    spec:
+      containers:
+      - name: calculator-front-end
+        image: ghcr.io/dapr/samples/distributed-calculator-react-calculator:latest
+        ports:
+        - containerPort: 8080
+        imagePullPolicy: Always
+

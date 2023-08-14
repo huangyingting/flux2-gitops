@@ -1,0 +1,106 @@
+# Default values
+# https://artifacthub.io/packages/helm/ingress-nginx/ingress-nginx
+controller:
+    config:
+        global-rate-limit-memcached-host: memcached.memcached.svc.cluster.local
+        global-rate-limit-memcached-port: "11211"
+        log-format-escape-json: "true"
+        use-geoip: "true"
+        use-geoip2: "false"
+        # enable-opentracing: "true"
+        # zipkin-collector-host: tempo.tempo.svc.cluster.local
+        log-format-upstream: '{ "msec": "$msec", "connection": "$connection", "connection_requests": "$connection_requests", "pid": "$pid", "request_id": "$request_id", "request_length": "$request_length", "remote_addr": "$remote_addr", "remote_user": "$remote_user", "remote_port": "$remote_port", "time_local": "$time_local", "time_iso8601": "$time_iso8601", "request": "$request", "request_uri": "$request_uri", "args": "$args", "status": "$status", "body_bytes_sent": "$body_bytes_sent", "bytes_sent": "$bytes_sent", "http_referer": "$http_referer", "http_user_agent": "$http_user_agent", "http_x_forwarded_for": "$http_x_forwarded_for", "http_host": "$http_host", "server_name": "$server_name", "request_time": "$request_time", "upstream": "$upstream_addr", "upstream_connect_time": "$upstream_connect_time", "upstream_header_time": "$upstream_header_time", "upstream_response_time": "$upstream_response_time", "upstream_response_length": "$upstream_response_length", "upstream_cache_status": "$upstream_cache_status", "ssl_protocol": "$ssl_protocol", "ssl_cipher": "$ssl_cipher", "scheme": "$scheme", "request_method": "$request_method", "server_protocol": "$server_protocol", "pipe": "$pipe", "gzip_ratio": "$gzip_ratio", "http_cf_ray": "$http_cf_ray", "geoip_country_code": "$geoip_country_code", "http_cookie": "$http_cookie", "global_rate_limit_exceeding": "$global_rate_limit_exceeding" }'
+    maxmindLicenseKey: ENC[AES256_GCM,data:yzZ24inyJBNucmbYxmuNeg==,iv:z3wlBmlI+UykuxPZbNN9bojBGKyQOYxmGchWAT6haNg=,tag:VYhhsTp7LYG2+EKM8Clojg==,type:str]
+    # podAnnotations:
+    #   linkerd.io/inject: enabled
+    replicaCount: 2
+    resources:
+        requests:
+            cpu: 20m
+            memory: 100Mi
+    service:
+        externalTrafficPolicy: Local
+    extraVolumeMounts:
+        - name: modsecurity
+          mountPath: /etc/nginx/modsecurity/modsecurity.conf
+          subPath: modsecurity.conf
+          readOnly: true
+    extraVolumes:
+        - name: modsecurity
+          configMap:
+            name: modsecurity
+    metrics:
+        enabled: true
+        serviceMonitor:
+            enabled: true
+            additionalLabels:
+                release: prometheus
+        prometheusRule:
+            enabled: true
+            additionalLabels:
+                release: prometheus
+            rules:
+                # These are just examples rules, please adapt them to your needs
+                - alert: NGINXConfigFailed
+                  expr: count(nginx_ingress_controller_config_last_reload_successful == 0) > 0
+                  for: 1s
+                  labels:
+                    severity: critical
+                  annotations:
+                    description: bad ingress config - nginx config test failed
+                    summary: uninstall the latest ingress changes to allow config reloads to resume
+                - alert: NGINXCertificateExpiry
+                  expr: (avg(nginx_ingress_controller_ssl_expire_time_seconds) by (host) - time()) < 604800
+                  for: 1s
+                  labels:
+                    severity: critical
+                  annotations:
+                    description: ssl certificate(s) will expire in less then a week
+                    summary: renew expiring certificates to avoid downtime
+                - alert: NGINXTooMany500s
+                  expr: 100 * ( sum( nginx_ingress_controller_requests{status=~"5.+"} ) / sum(nginx_ingress_controller_requests) ) > 5
+                  for: 1m
+                  labels:
+                    severity: warning
+                  annotations:
+                    description: Too many 5XXs
+                    summary: More than 5% of all requests returned 5XX, this requires your attention
+                - alert: NGINXTooMany400s
+                  expr: 100 * ( sum( nginx_ingress_controller_requests{status=~"4.+"} ) / sum(nginx_ingress_controller_requests) ) > 5
+                  for: 1m
+                  labels:
+                    severity: warning
+                  annotations:
+                    description: Too many 4XXs
+                    summary: More than 5% of all requests returned 4XX, this requires your attention
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2023-02-02T05:57:37Z"
+    mac: ENC[AES256_GCM,data:yeOUuAnJDiUPcKTI6aCH8mR79mrvWkfAVzbeHwVCz0VbnOG/TJzKsA3e6mj3Mn2olvmTyvqL0ZlUZ2x1ucfHAf6dtkk+9X7Leo+RTc6S0gFgS0ExtPXTSXXejGwYnqOuAaQD30tVWqhioSzMpWRpXaikQV2ON2mbx9Wul1Gs394=,iv:I44MNpui+xqd/qlsRkaZ/2rSUEguTYlm8rTGOjracWE=,tag:Zt+VOc7t5RXdFpI0CSyYAQ==,type:str]
+    pgp:
+        - created_at: "2023-02-02T05:57:36Z"
+          enc: |
+            -----BEGIN PGP MESSAGE-----
+
+            hQIMA38T7Az157GMAQ//bR2KnTji/ELne4nbMTcNM6h9S3qRgriozsLvuaua8md2
+            cijpE6zV2bw8yDcStgmdMP6UPDRBOQFIlfxQffT0wpirt14NzB0Dx6+LWEVqLCQK
+            uHI2kDdvIgGpd1B0aFQaHxwbKdFqjgAW945qO5JiJV+PjqnFjQC163Q/Z7ptMPsn
+            OCcXdNquz10qjNZ0aQ+Uu7lhLppA3xDqV1rqkaEXFJo2cQHqQ6N1oZGC3fxLCjzP
+            FmUBsG3NxrS1nBWEe3JE8fr3j8Rty1IJuHkftfopmmZFunFSOLNDfP44cHZ31PrI
+            +LWmidMO3TTBRBmFjlQbdc7MbDHsUm+781Q51evbW4KDiumgLJhzpOtLAHijMa86
+            OEKEWq3roQFn7KqOus9wdTC1KaBEKLEYyjndjY1yn6/Py9usIMuQxhub5wapR4iJ
+            rfwT1IpW8Ti26jvVa14iu2N0kaNKnDQjblAg9xb7f/iAbinHqDcUB0CIgc9AEoM4
+            XdUjsp2jH+Wna/PTgMfRMyk45CO7d8pA+333yrR7BycDwWICb3nzgXrLOVbNzFZC
+            iQsFVIM/SXM3L7PTEXt9DTfxe9PxzPd9dWFeUQbaAqyXMA+hZNOhk5fWZLyqSjaF
+            rnuQ/+X8bw7e+WUPJDN29MFuRCJX1eZb0SzJbe7M8LRcv60FxGfBw8+mA32xp1DS
+            XAFHpnpbJmVMZMHR6b7auQY/msy6PvNrK7GRsL9ZACAISKckUZzyGFs3p4YtlBNR
+            FrnzQbZoMYiEGHa+Y+Vs5Wdoz4w8NTaQTDtlMFFG9F/DWHgpy9FlWFvEuQ0b
+            =6C1w
+            -----END PGP MESSAGE-----
+          fp: 129994A38E40322EE2A4FA6CB59C51DA13B1BF22
+    encrypted_regex: ^(maxmindLicenseKey)$
+    version: 3.7.3

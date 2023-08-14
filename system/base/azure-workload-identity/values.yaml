@@ -1,0 +1,8 @@
+# Default values
+# https://github.com/Azure/azure-workload-identity/tree/main/charts/workload-identity-webhook
+replicaCount: 1
+resources:
+  requests:
+    cpu: 10m
+    memory: 20Mi
+azureTenantID: AZURE_TENANT_ID

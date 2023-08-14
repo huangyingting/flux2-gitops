@@ -1,0 +1,70 @@
+# Default values
+# https://artifacthub.io/packages/helm/bitnami/postgresql
+global:
+    storageClass: default
+    postgresql:
+        auth:
+            postgresPassword: ENC[AES256_GCM,data:zjuEJ9T7Iao=,iv:EDW8RVyIOWBw1DZMXJDRBTobpPl67CrDWGnmgbfncIQ=,tag:1fHzE5EvBS0c0qeyX02pRA==,type:str]
+            database: ENC[AES256_GCM,data:rtnUM3KY,iv:4tLtpnJJH36gF26dWkSqijC1woCOoHaENbIRRFWA0oQ=,tag:wYRFHO17rxDrliHt3NyGhw==,type:str]
+primary:
+    resources:
+        requests:
+            memory: 256Mi
+            cpu: 50m
+    initdb:
+        scripts:
+            01-chaosmesh.sql: ENC[AES256_GCM,data:4jwM+OZ9Hp44eItWAvEWgsqk3cmOsQbRXFeRlRhsJS+I3dz1rzuLW321pxc7SUfk+fR2q408i7HvpmeHfg4XjoAhlQgxv2OYkDIRLA2G+sasIqQS69sDF++3BfF63osd/teWSiDzusUFeKebsqwzkDxkTejQ7IlffKcnv5T10E9v90pckRHO2pUY9WIYXGR2Goyw0ZjXpt/K,iv:g6peWA6mffth8ExSavX624HANoDgb6cO7Xxtu7JPx04=,tag:o3pwe3a6cpqMrRav7KOhnA==,type:str]
+            02-mythical.sql: ENC[AES256_GCM,data:WYmlph7ZGj0SdZo7oMeNODrxyXqYO4pKCgzDlsHp84G0Kcxg/iSOrVowvlG1ZYWIpqVFPnYEjibqKzqPcXqU22hVXledpr65DNdcw4/NT1bbTJetaxg1TdWxHsN4jysjjzsiaLQv00U6mK0Sj+hi2U4fgzw5WXllFNTQrMcj/37Lhjy+VPgN7thFvwVpTGNnpiDdhw==,iv:ZpdkoyvsyM6u8SGkHwvwVwftWMJR9glaO+9mMq4Mj2M=,tag:ofQvZImEO4vFaGZjeFFpRQ==,type:str]
+            03-postgrest.sql: ENC[AES256_GCM,data:nYSQ+Q2UEn5KNVEw2hSvK8bYlNr6JSJRpUIaxNJcs9InHZTgSrQcNevQgCaVWxznlh574roC7L3cDWEbLE/S3wQvshnOUt6n0hdmMxlH2FBO0pwX0Ia5RBzOdevp+sR3N5pmWcr3HfY5CTkbAzWKuQtYSZN/uwQMBsnlImXY/35cdn3Ykxp/MAvj20UWO802mhMSOXdeWCdsvg==,iv:DwPVQN5UW5jznbzsuzycOBEf51H7MLi9Wfw+/6PDZII=,tag:9aI6zwzdU2QfwreIs68zTA==,type:str]
+            04-postgrest.sh: ENC[AES256_GCM,data:KgN68RHe9endRdLfQuIF+JAKu70HM+hhgMBKUew5YNxf+LdOBw4Y2WbLMZG8Pcae14wpGY0lKf06jbcigs2CjpGE/Qu4FJPiNYGVxDF4sq5WsXVMMAy1OqoOvxNGYXdug3Z6rjC999ZT+mVn1gky1JzwDlOxCLnG9wufov2h/JS1UWfeo35bC6GTPZGK3j+hAWB9zIHW7ASGQmxpnmAh+HIm0Q7JYRMPffFu70llx6pr0JUH6mL5SIalr/AWIIVRnnvvwxqaKFGhogMEgRedv9aNJBR6i9fdNSH6jyMN4l4SU2FqBtedYVoG8yq4wbnrhAltG5ve1GeEDPTsrrdAQHWifJvqsZz0R2AKmsyoklzNnXcAoxgMQ8bhsjOwwE+3u9hfoN/ZtxCrmfbWY8gNV1smipq407K3r0ntkmwksFoTQpwzgq95pIW48ibl4FyF0Tm+66qyA/T+pjGPFZWZIf78nXqdY8Ff75LHpAPh4vRIbSI1K9VN9beoJApIRfLnqbbLBZKduz1Gwa3NVJtxTrf+NrV0IjfCQtVAi3T0NxChsz5/unKIJBngJR3rPWuIcPWQVG0DdDjvNtiUSiNfznTvGtwVY0SX+2p2Mxr/0RRFi23wyqiROSFSRMWlLt0TVhogf1mrUczmFqbevCnKlJTlHgwWw1zqU+IRSkoZ2CDHV7/wsBWRXvmKRzOqkJZGdCglr2jTyHnvkn9ynP9MUK358pg3TZ72156b9ktRuets7NwX+afImxcvG/E0yqVXTV2vdDQaJV1jSYc3b71Idy+dp0vJBfthB4toPQuQOVWMjbkbUQdhEqH+aY87R4iDAfSsE4l/I/eAfbrp3p4G6QYwF7nchO6So/5SnQ5Hel839yOcMwQYj5HfbirRfAswwUul0EijV+Xtlvb9vqoOdYflpi0WLKfvWCoNUXN7E19QGqjRiXxkS+0LWo6ItPwkSSajSmVlYTHzmtMFu2PzVOKlyvi5UZYYVun93TlBiI2mFc7ef2TjA9qesGsrz+auM7L9xeBzvmhk0U2OKGsSLBVpBymMFlKsVzetYJw1BerB516ZlTVeeFj+rcif8XmCLncqClS8dBUVK59K1RQ/0UkTYg+cUErlcp2XWOwQHZN5ApmYTfSUEMY+YA==,iv:e+3BOXWBES4CPW9aTM+FBYlemjzoCLjTF2rwm6zY5Os=,tag:zyy6KlFKF7AbfuCR9bEiWg==,type:str]
+            05-keycloak.sql: ENC[AES256_GCM,data:dN68LGft4HgXS7Rf2GILzAk8+z673C4blSvLWVhYAAy8ofX3eExKh/A4VqsE2x2sLVcchQSPymKtazcwwX/Qvc/hsFI98/RAhDJ3iH2iVbInR5Bz8mcx1qrF3LttyxPftaKzGkfnDT+/UIc8cmR5O8d/up/1d4a3DIsC+qixVtJTBtCudGnJ4cUYawhF118pmA0xjOSqoXqyQJY9,iv:MUeAXDaZpThpzwEK/BBP52fBJuZOac//fgX7XxUCyVU=,tag:R7O77NAnSKjyyjA1Ea+DnA==,type:str]
+metrics:
+    enabled: true
+    serviceMonitor:
+        enabled: true
+        labels:
+            release: prometheus
+    prometheusRule:
+        enabled: true
+        labels:
+            release: prometheus
+        rules:
+            - alert: HugeReplicationLag
+              expr: pg_replication_lag{service="{{ printf "%s-metrics" (include "common.names.fullname" .) }}"} / 3600 > 1
+              for: 1m
+              labels:
+                severity: critical
+              annotations:
+                description: replication for {{ include "common.names.fullname" . }} PostgreSQL is lagging by {{ "{{ $value }}" }} hour(s).
+                summary: PostgreSQL replication is lagging by {{ "{{ $value }}" }} hour(s).
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2023-02-14T05:50:18Z"
+    mac: ENC[AES256_GCM,data:teRBLCbeNiA6+lFGi9CAcqaYwsZTk0tlesQeKxig09aSUoy2+egqFlzWKctV7nuz/HMBLlL/EOBnkOaHRY0V5cm3FYXXOKCp1cPgYdyoLVYBq0huTQSgSvhNu+/ULeUXwEO1fRb+Km0mGvb9xuyQWhNn0Za7CdqaQ7nSTdmubPk=,iv:732ujUpX+2nhTWALKrFAJZ2kefc/OTOcE8fjx9bNRaU=,tag:cEWP47bNpnH4F1JxLYd5Fw==,type:str]
+    pgp:
+        - created_at: "2023-02-14T05:50:16Z"
+          enc: |
+            -----BEGIN PGP MESSAGE-----
+
+            hQIMA38T7Az157GMAQ/9Gp1PM5EE+uNQo6S31mInNr/3jI5yZH2JsXssoyNU1OTx
+            5MhwSaYqrJDp4A+bOLXo6d6VTHSUecxe1sCIjRo/qQdiUTxkKi99zWGbGKSIJ1+S
+            dmoGBdK/2hkBLdfCDYcMKX9leL1DIfhBxwEsF5rI3ALlhuhZT7ICWSQysWIeEmg8
+            aUrdlwTunvTMpYyzilofjP1AmLvTth+hCtn9i8DFs+qOlJa1LiJtT1S8OiyMyLza
+            65+Gb9nvgLMxY67OCdx353jgsltohqIe/kl4JynOJJciOsEKRqyojYcrsYfIaOyE
+            G2VKEsEWeVpuj8ES1iuTdkgBAeHk2FGEvD0vC0L+Bhup9E+UIoFsc1402Ic3M0tB
+            OGEWkADb49X232hs9ed0S6j0G+N/65zzW+ePUbFELGP6FH/s1h2L9eHCfHahQW/K
+            9e7bGRo9fofHvYmPVnDy88XJhX/huY3Kk+xRl8b3aaVpFuAM3sGWUrDoUDEfbKdx
+            yAxyBLaZnFONhDb/YlBjvN20YLEZPuRwUxGJS5pkOlhkh4m0rI3qJ2Rk4TXKMVo1
+            igwpGh5AyiYjK2mgP+AaXgJ9G95agCkdsM7Pc0J/a/iwzqe/vem8adPb3pmduKS3
+            FrOf64MkYy/BkPRAAJcjuXtP6JC7v7d++PP5ia4iDpjh9mnunHrdnid1G+FsFYrS
+            XgEueV+LEtcrBBFqgm4TiNDDvIJppEc+XUmaorNleEZezfVl6NSZpIFIAqFfHQMd
+            xGZQTbIkrfKcYT9WgNVqX6KJK7FLeNSHfa4Cu0Y7yfI4j+1pL6vgVCuuXv9gvaw=
+            =XGdG
+            -----END PGP MESSAGE-----
+          fp: 129994A38E40322EE2A4FA6CB59C51DA13B1BF22
+    encrypted_regex: ^(auth|scripts)$
+    version: 3.7.3

@@ -1,0 +1,4 @@
+creation_rules:
+  - path_regex: .*.yaml
+    encrypted_regex: ^(config|hosts|password|connectionUrl|azure-tenant|oidc-issuer-url|whitelist-domain|cookie-domain)$
+    pgp: 129994A38E40322EE2A4FA6CB59C51DA13B1BF22

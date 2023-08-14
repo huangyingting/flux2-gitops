@@ -1,0 +1,65 @@
+# Default values
+# https://github.com/apache/pulsar-helm-chart
+
+components:
+  autorecovery: false # disable auto recovery
+  pulsar_manager: true
+zookeeper:
+  replicaCount: 1
+  resources:
+    requests:
+      memory: 128Mi
+      cpu: 50m
+  volumes:
+    data:
+      size: 4Gi
+bookkeeper:
+  replicaCount: 1
+  resources:
+    requests:
+      memory: 256Mi
+      cpu: 100m
+  volumes:
+    journal:
+      size: 4Gi
+    ledgers:
+      size: 8Gi
+broker:
+  replicaCount: 1
+  resources:
+    requests:
+      memory: 256Mi
+      cpu: 100m
+proxy:
+  replicaCount: 1
+  resources:
+    requests:
+      memory: 64Mi
+      cpu: 25m
+  ports:
+    http: 8080
+  service:
+    type: ClusterIP            
+pulsar_manager:
+  replicaCount: 1
+  service:
+    type: ClusterIP
+    port: 9527
+    targetPort: 9527
+  admin:
+    user: REPLACE_ME
+    password: REPLACE_ME
+  resources:
+    requests:
+      memory: 128Mi
+      cpu: 50m
+kube-prometheus-stack:
+  enabled: false
+  prometheus:
+    enabled: false
+  grafana:
+    enabled: false
+  prometheus-node-exporter:
+    enabled: false
+  alertmanager:
+    enabled: false  

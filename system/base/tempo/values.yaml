@@ -1,0 +1,29 @@
+# Default values
+# https://github.com/grafana/tempo/tree/main/example/helm
+tempo:
+  searchEnabled: true
+  metricsGenerator:
+    enabled: false
+    remoteWriteUrl: "http://prometheus-kube-prometheus-prometheus.monitoring:9090/api/v1/write"
+  storage:
+    trace:
+      backend: azure
+      wal:
+        path: /var/tempo/wal
+      azure:
+        storage_account_name: STORAGE_ACCOUNT_NAME
+        storage_account_key: STORAGE_ACCOUNT_KEY
+        container_name: CONTAINER_NAME
+      blocklist_poll_tenant_index_builders: 1
+      blocklist_poll_jitter_ms: 500
+tempoQuery:
+  enabled: true
+persistence:
+  enabled: true
+  accessModes:
+    - ReadWriteOnce
+  size: 4Gi
+serviceMonitor:
+  enabled: false
+  additionalLabels:
+    release: prometheus

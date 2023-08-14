@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rust-slight
+  namespace: rust-slight
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rust-slight
+  template:
+    metadata:
+      labels:
+        app: rust-slight
+    spec:
+      runtimeClassName: wasmtime-slight-v1
+      containers:
+        - name: rust-slight
+          image: ghcr.io/huangyingting/rust-slight:main
+          imagePullPolicy: IfNotPresent
+          command: ["/"]
+          env:
+          - name: REDIS_ADDRESS
+            value: REPLACE_ME
+

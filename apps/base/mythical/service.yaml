@@ -1,0 +1,42 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mythical-server
+  labels:
+    app: mythical-server  
+spec:
+  ports:
+  - port: 4000
+    targetPort: 4000
+    name: http-metrics
+  selector:
+    app: mythical-server
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mythical-requester
+  labels:
+    app: mythical-requester  
+spec:
+  ports:
+  - port: 4001
+    targetPort: 4001
+    name: http-metrics
+  selector:
+    app: mythical-requester
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mythical-recorder
+  labels:
+    app: mythical-recorder  
+spec:
+  ports:
+  - port: 4002
+    targetPort: 4002
+    name: http-metrics
+  selector:
+    app: mythical-recorder

@@ -1,0 +1,30 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: podinfo
+  labels:
+    app: podinfo
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
+    nginx.ingress.kubernetes.io/service-upstream: "true"
+    nginx.ingress.kubernetes.io/configuration-snippet: |
+      proxy_set_header l5d-dst-override $service_name.$namespace.svc.cluster.local:9898;
+      proxy_hide_header l5d-remote-ip;
+      proxy_hide_header l5d-server-id;    
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: podinfo.example.com
+    http:
+      paths:
+      - backend:
+          service: 
+            name: podinfo
+            port: 
+              number: 9898
+        path: /
+        pathType: ImplementationSpecific
+  tls:
+  - hosts:
+    - podinfo.example.com
+    secretName: podinfo-tls

@@ -1,0 +1,46 @@
+kind: HTTPScaledObject
+apiVersion: http.keda.sh/v1alpha1
+metadata:
+    name: rust-slight
+    namespace: rust-slight
+spec:
+    host: ENC[AES256_GCM,data:n/B3WW0Bi0zjE/nUR7B8Vc+Y9BKyQwdafyXm,iv:RZ50zr+ETekFemvzBsY15czrAjyAS8e08XLTKxY8/Qs=,tag:8qESsyyNYp72mOLVRvpPSQ==,type:str]
+    targetPendingRequests: 200
+    scaleTargetRef:
+        deployment: rust-slight
+        service: rust-slight
+        port: 3000
+    replicas:
+        min: 0
+        max: 10
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2023-01-20T12:56:21Z"
+    mac: ENC[AES256_GCM,data:rMwiCD9OW8eOX70ROYPN7q93pgN8yyPj4Vs1xJ27chuobYa+mENyXDR2DQKXUcUXqaYj2GUL8dRFf6MmVtqt0ZZ/Z/SVXkcAKkxz3kAYjyTBYx3J/D9s663S7M73PyTorTCwkFQFMeMzQ6jJlulbFuExT1heSVYPirDek7aq0Dg=,iv:JTOjGfsb1mjaQW0NbLFOoplqrxZT5HMfJDT+rvGG254=,tag:WPXVp+fXrl0C6hbX/Y31ug==,type:str]
+    pgp:
+        - created_at: "2023-01-20T12:56:19Z"
+          enc: |
+            -----BEGIN PGP MESSAGE-----
+
+            hQIMA38T7Az157GMAQ/9F8yelOVsRAa3pGpPTT/B1JSFY+jKFes3eXObvc9kGogd
+            lDG1qrRAjkYVcdhMg0Hb3t2nGhuhSw5XRn817lw4QbC17vjijUsaNkrNvzsz/goW
+            PH4w6ewR9nb9UmIHvT87Vxez8KfULocnEJFuPdRBNJKnmsiWCEodrxbWBCJVJsWw
+            kh3bcjPZmAczmnqEtDPJni/J7N+PpEG2hHqVQBuKz5QaCoC/UnLjvzhurHcXXF+c
+            NK4U70K5RiAPn2lXElRBJp7xMmFYelCaihnPnFveaJ0phWYjcxGL9eIUN7kTBgb5
+            5sFM+brDSNJcwqAphhU5i6yjo+/zHB6dwEgRhlU+2K3/tKILK3KJI3+8Vf1dAAEE
+            MLtXGeSIUVWY7J1TLgjT9z1Uw1/DyD9ZAQu6wkPcJBAZ29u4huh69cDrOEr6bzPe
+            uw/xlBkeemawXUmJV2k3G/NCZv3IdNi/oRXYg6d3HnAPlluhAr7i8b9d7ZNcZb7a
+            QlENidPzbAHFS8+WB4itokTZmayDgVAS9K9d0u4Tn/U5rmExGDoBMekzBMQh/Yke
+            WNr3aYj55ko07LXfytLK/+df+ZvfNrbmfrIhbAy/PtXrIPXfvFVBw50dbyK30rOg
+            3T2SqNln5UpKA5zky6EZLU1gt/hryDinRuGLLl4en6UIgKJaI/OOPvRhNXtvDpfS
+            XgGYwLooxs7B3TEPtMzHOhM5ZBa6wMgOYNLPR1yyK2VHzC6kOfMS1OCyjfo3lE0V
+            8nIccm5tQg3lLoB6EYwunRQIt2x8dZX/jpFgTLaUorz/JIyPCneNgq95Z8uO/pQ=
+            =J1YO
+            -----END PGP MESSAGE-----
+          fp: 129994A38E40322EE2A4FA6CB59C51DA13B1BF22
+    encrypted_regex: ^(host)$
+    version: 3.7.3

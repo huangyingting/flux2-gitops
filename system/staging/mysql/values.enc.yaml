@@ -1,0 +1,46 @@
+# Default values
+# https://artifacthub.io/packages/helm/bitnami/mysql
+global:
+    storageClass: default
+auth:
+    rootPassword: ENC[AES256_GCM,data:PjE9dY1AeLc=,iv:wtVKN2L/dxYVpzuWvE01+ufZVizrBL2B2T9nsnTsB/g=,tag:Dje9nNlKhP6QrUigdcHFBw==,type:str]
+    database: ENC[AES256_GCM,data:zEZe/w==,iv:hMm2IxR0Nji/KRXwmmXISevLpo3qiUO9JSdYtfjFxvs=,tag:zoKPxrNSnXUxy2XUGyF/ow==,type:str]
+    username: ENC[AES256_GCM,data:qHJrfA==,iv:llq7uSQ6nchpGDHZmhjekA4mWoVWxWLoUWHjs1hzmUc=,tag:7fY5jFNU2fpkC6bnKDQBEw==,type:str]
+    password: ENC[AES256_GCM,data:cAG+lQDEHYQ=,iv:ryk8vtss1U0JHeAydeQTyXNcTU7lJCffDfMqSa0EGSk=,tag:0wKdfWLyqUg8149tX66m2w==,type:str]
+metrics:
+    enabled: true
+    serviceMonitor:
+        enabled: true
+        labels:
+            release: prometheus
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2023-01-06T06:12:04Z"
+    mac: ENC[AES256_GCM,data:l1f+mHGC4dYoWcmSNZCc/G/ThQh66bCSTa8H/xLHIcXKXZN0iAQS5iRUNnagUvQM2ljaxO+0ynX3X0OWrV3A+3AFZsgMIGuUORnCL+i6e/uslu+cfURYqNFxA2uyCbgVbvZpw/xLMZAc1e7hpsAZReWKS6z9lLOo9jWfmM8Dpk8=,iv:ltHY/VjqlDFKAZR/KsjGRhnpVqesYCJDaCMiz0qbVcQ=,tag:vkG26Oefet8HLZb37GOcUg==,type:str]
+    pgp:
+        - created_at: "2023-01-06T06:12:03Z"
+          enc: |
+            -----BEGIN PGP MESSAGE-----
+
+            hQIMA38T7Az157GMAQ//YQM0NPg9kLesQJXJl9KFcDJxLNUm5kwbztelMlCIGIo7
+            C111EzOw+xXArDIqAVXy/CVM+j4Bn93Xrnz/IQA6M6NuqGKPDnfEqZysS5m+++qu
+            cTfmN251Idp6KLp4C8Vaagb86w5/MD1IdrJwRur6eqQacXv5rb2rnqFJCGXUTAqH
+            z7d1OpPz0NR19vwXMZEeibfIv8OCvyUZgbDe8vfDDajFOZClRqJSEK0qL0jjlroX
+            Wu0nWBpKGSXnCo7N47QdQTsLZWq2jz3o7i/jFhr0pdIVrvtixcGUGjzzy0VR0ums
+            +J4IQYBudi3RqBVnz3KzvPsz1qhjeeVWYFv8MzYf64EerFLQuXfkeGuGNXvWVUcW
+            gRn3id0WPEsL1HmvG6rWqBv14DGU9PTwq9XVIlDWxHW1ktFticI+QLsbUlkB8jf6
+            xkHtoKJiPrzJ1h44iLsn5YDATHY8RKW4wGXpjd5Wt23B2awkrb3nY7nH4dEA0yDK
+            U9RSqR8jSNYCOOkfKUP6+VnA6GncqL33TvCLM8F7Us3IWzEdpcgtpB90rxbL56jk
+            cCQkGcLClt0JFWLBcwMSJWJlz+YMfTSD799DhxFXcI0Ey+zxt0iqkNGjuVT0GnMX
+            Lic69d2riVDLcQYxhCePiBN8FUz1b6SlW6Cqm69/WtmqmdH5J4Butn+lIGnc8bbS
+            XgGGfQF1q8Y7luajkHy1tsDR8/rX0XE/f3Mqu1JCz8fn7uClweI+D06+WMPKB+kH
+            yEyjdBFhZRi36NrXuCkbvu882C30Dbw7SwDYp8dNkHEMZ6hBHXfLzNiV7uLungY=
+            =DfjR
+            -----END PGP MESSAGE-----
+          fp: 129994A38E40322EE2A4FA6CB59C51DA13B1BF22
+    encrypted_regex: ^(auth)$
+    version: 3.7.3

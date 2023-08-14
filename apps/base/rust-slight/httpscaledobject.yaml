@@ -1,0 +1,15 @@
+kind: HTTPScaledObject
+apiVersion: http.keda.sh/v1alpha1
+metadata:
+    name: rust-slight
+    namespace: rust-slight
+spec:
+    host: REPLACE_ME
+    targetPendingRequests: 200
+    scaleTargetRef:
+        deployment: rust-slight
+        service: rust-slight
+        port: 3000
+    replicas:
+        min: 0
+        max: 10

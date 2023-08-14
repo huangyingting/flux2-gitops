@@ -1,0 +1,39 @@
+# Default values
+# https://github.com/Azure/azure-workload-identity/tree/main/charts/workload-identity-webhook
+replicaCount: 0
+resources:
+    requests:
+        cpu: 10m
+        memory: 20Mi
+azureTenantID: ENC[AES256_GCM,data:dlCvrl1ca5rASjG8ry9EgfwFOGgqqZQeJjsmuXiR36asioke,iv:8DmriGfS9tcvT9CTFZaCNtWnuCybzgrDW7H6UWtGfg4=,tag:709LMvRqqmvOfEJEiLKAXg==,type:str]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2022-12-14T03:04:47Z"
+    mac: ENC[AES256_GCM,data:hW1Dj9NPSDaLkbVpQClAj/MA90lyNsNMrTmbJUR2b3ae8WSwRiwsqwuvnDIG45AJuogwQM8NKU8iu5nzRpFhMWUREvJpMntOT+SZTOVTlXQPQlFsJ6ixWL1K5ZIvI+EVdZCvycz9Y5B4VBpXvsOaFxTccGjWXgX52v9Y6oZDF74=,iv:5eZS7QX25Ibd4fZ0PtCTZmp/DFSmSFK6bBESzBH7wb0=,tag:chqTP4S/FxqejVp+nwzSdA==,type:str]
+    pgp:
+        - created_at: "2022-12-14T03:04:46Z"
+          enc: |
+            -----BEGIN PGP MESSAGE-----
+
+            hQIMA38T7Az157GMARAAp7JXL58n09aDaMXvlCPea37jKr38sBue3SMLggVZKGPf
+            UngsjvpAUuyhTRBA3u/+jnbsaEzCgvPsOmMUlecKelcy/6iF99XrYeSvGz2fzBq3
+            16efZ41ONiB1c08J7w/lDTBgWxD+Lvbz1Tshyi65NeUz5vLzZ0HoFDxjJC70Pqrw
+            SI5A7xc2KHHqocjabyO+eN2EURztdh3ar3W8/BIsO83r1tnveL/UhowR1rbzdIwH
+            7cSM84UHOXTWOFHrJLYgMo5P+7/rWU75GNBEIjtlU9NKF1Cf7lKSL4sp3/BJ3fg/
+            MQDZ2PaHdo8CKIejb63YSAY2WOhFv3L+WqXbpCSHrU3GkbHQtRyueIW1YbPxzbRX
+            pFCPmrrR6ZCdJPEVCpaJcvswIEJngWJU/IndBurcHgq8k/mAm8CGIWFYSTzjq8pk
+            4GOIpxB4rnT9KmlbYrCoBl9FLYjthuPfi7r+eQXz2UcAZxZUwyjkWhTdkuS72qj0
+            gaisCh6IMgBqGLxH38ie4IXABPcYEGXCiAjaS24fZWCDjET8wUVqsm49JscWO6Yq
+            OqmmrM0aFx462X2tC8u/Jp6Pg4xR5NGhA5dZWEvOt4Qe5q+XbkBoGYMDFxeDPmU6
+            uem6PKyG6d4as6ja2oxNesEQGFSCPz6roYIqoZbNMfbW/RHxLCUBd9NdusGlTcXS
+            XgFk17q9AVrgkC2HTK2C6fNCetNUesrIqi6gJskOjtfJr+hTC7KYeHx4uwUfp7hF
+            1VPjfJV53OXAs7zq82yJKzjdmIPZ6ROq6YBkoWzm2kq+c5RChGr68S622sbX3Bk=
+            =BQsP
+            -----END PGP MESSAGE-----
+          fp: 129994A38E40322EE2A4FA6CB59C51DA13B1BF22
+    encrypted_regex: ^(azureTenantID)$
+    version: 3.7.3

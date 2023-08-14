@@ -1,0 +1,55 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+    name: echo-traefik
+    annotations:
+        cert-manager.io/cluster-issuer: letsencrypt-traefik
+        traefik.ingress.kubernetes.io/router.middlewares: traefik-azuread@kubernetescrd
+spec:
+    ingressClassName: traefik
+    rules:
+        - host: ENC[AES256_GCM,data:rRuhXUO35E+tKvzdNPZ7Z7B4M7mKUg==,iv:y2vLXi8kbgxxXZZqgbED9vK9rDcQlUYwqe2VvvvYRN4=,tag:3llcuoczNFqaeFnS0EhhgQ==,type:str]
+          http:
+            paths:
+                - path: /
+                  pathType: ImplementationSpecific
+                  backend:
+                    service:
+                        name: echo
+                        port:
+                            number: 80
+    tls:
+        - hosts:
+            - ENC[AES256_GCM,data:7/0yBLBMEaqYfw7Sop4wtKij9BDRGQ==,iv:jWJxVCUWTLv76VDs9uowjWX6JspRFHCyggdsUnqXuWU=,tag:4Et3jM/b/5clMWGk8k29aw==,type:str]
+          secretName: echo-traefik-tls
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2022-12-31T08:16:57Z"
+    mac: ENC[AES256_GCM,data:+xXGimDibDsFdjc1vEVFc+rSLX2fkh7a5YPSMFf02DmjAA7oD7a+hwyTrYtVrPgQGxUiYBYLT5acUIxWXfgJ1aDYyjfBGnFiQeQYzJ5hVWVI73IZWxwvkICkN+77/FmhNMQYOTlEVM00TWB821Y1SSV3RWFRdUQqSFKgUY8Z+Yk=,iv:1Urboq+dZN71Sq9pVQ0Cp7zlmHYpSkuocVVIqX6Mir0=,tag:BqqOWqdKE0qojbOcAPPpmA==,type:str]
+    pgp:
+        - created_at: "2022-12-31T08:16:55Z"
+          enc: |
+            -----BEGIN PGP MESSAGE-----
+
+            hQIMA38T7Az157GMAQ/9F7Z5Mlzr/7vS9VCUUPxqsY/Qiank1dB8pjT4Bna5aQia
+            fg7QNNW9EBYAibXxfyiZQts7hAj0oJv3WgVLwhwoi+sqsU34sVxrHBV65VQc+DyE
+            JxvVZJGKKrCHCHW/y7a87ETqdlSwDeuHXXg6U21RzoGjQO4iceN4hUGuJgApdyJQ
+            RDHnTUiYNCRz7cKBsc88dc0gXXg9Cr0gIy82TVccxRQl2l+9sv6jw0E1v0FeLSdd
+            qF6VQ3CNrpQcsH/vnZrzCZg6CJhooa5gC8sU5fxNev4gT3ne/KBFnn3Qj7SQtrok
+            rEjns/46ETV2row0Nj+5tXm4QUNG+13SLtLsXnChb5/F/evG0/eKaFwMwEh1qJWo
+            MBx38+yKquAFxQmazu7qQhSrpFpTTQMwJ+aobHr9JwJmFwI9kiq9lhmcvm5s0GEw
+            LjFfHc+QAHHQdR6ilvkIOUOPMwhpf2ulLLiFuBtPgK6gf4lCQDzNO9hQaW1ler7k
+            kxYOdF2KeHWL0kIuIPKNf9mYv0GmPO+FqFL0BEgS66bxMeiuexoPsheg2ZevePYR
+            ngLj/QR7ZZxjS/bFrl6DrtbsiHhgtIfC/29gKJ8aF28o3XQ6VlfhkuW3XNvwztSs
+            H7t1gTv0lKWIDrmoEyE/0fIFm9tK55Ln1jWcxu/fjt9Dr0LoIPgNse2FUc1efCbS
+            XgHtXQScLfS2zBdHNyT39N2HQSKRADtIHVY/obIVmTtX59xUaZ3lFXTJ/pI209xJ
+            B+VBkq8ISkEP58JJwwdrE8SNVMRUYRGqFNhPfQp4rB2Zz/jp6UjgfW4qshfa/Cs=
+            =8yX8
+            -----END PGP MESSAGE-----
+          fp: 129994A38E40322EE2A4FA6CB59C51DA13B1BF22
+    encrypted_regex: ^(host|hosts|nginx\.ingress\.kubernetes\.io\/mirror-target|nginx\.ingress\.kubernetes\.io\/mirror-host|nginx\.ingress\.kubernetes\.io\/auth-url|nginx\.ingress\.kubernetes\.io\/auth-signin)$
+    version: 3.7.3

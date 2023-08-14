@@ -1,0 +1,17 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: echo
+bases:
+  - ../../base/echo
+transformers:
+  - labels.yaml
+  - name.yaml
+patchesStrategicMerge:
+  - ingress.enc.yaml
+  - delete-ns.yaml
+resources:
+  - update-image.yaml
+images:
+  - name: ghcr.io/huangyingting/echo
+    newName: ghcr.io/huangyingting/echo # {"$imagepolicy": "echo:echo:name"}
+    newTag: 0.0.4 # {"$imagepolicy": "echo:echo:tag"}

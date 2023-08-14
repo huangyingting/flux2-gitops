@@ -1,0 +1,22 @@
+apiVersion: builtin
+kind: LabelTransformer
+metadata:
+  name: labels
+labels:
+  app: echo-canary
+fieldSpecs:
+- kind: Service
+  path: metadata/labels
+  create: true
+- kind: Service
+  path: spec/selector
+  create: true
+- kind: Deployment
+  path: metadata/labels
+  create: true
+- kind: Deployment
+  path: spec/selector/matchLabels
+  create: true
+- kind: Deployment
+  path: spec/template/metadata/labels
+  create: true

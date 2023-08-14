@@ -1,0 +1,11 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: istio-ingress
+resources:
+  - ../../base/istio-ingress
+patchesStrategicMerge:
+  - secret.enc.yaml
+  - issuer.enc.yaml
+  - certificate.enc.yaml
+  - gateway.enc.yaml
+  - authorizationpolicy.enc.yaml

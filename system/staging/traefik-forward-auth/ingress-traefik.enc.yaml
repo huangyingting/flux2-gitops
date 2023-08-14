@@ -1,0 +1,55 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+    annotations:
+        cert-manager.io/cluster-issuer: letsencrypt-traefik
+        traefik.ingress.kubernetes.io/router.middlewares: traefik-azuread@kubernetescrd
+    name: traefik-forward-auth
+spec:
+    ingressClassName: traefik
+    rules:
+        - host: ENC[AES256_GCM,data:u0USFqo47JeTeNPNJsJ2jEBlXrF6vw==,iv:4VoVQ5J7nOz0ovdb2XrQeOvWt4CFnXOoKwWZAPOSBl8=,tag:iOXYcGmpfgArsr5+DANoVw==,type:str]
+          http:
+            paths:
+                - backend:
+                    service:
+                        name: traefik-forward-auth
+                        port:
+                            number: 80
+                  path: /
+                  pathType: ImplementationSpecific
+    tls:
+        - hosts:
+            - ENC[AES256_GCM,data:MG6Wf9gfMC05hXb52/P2MFZFuJkugA==,iv:Z6AnYlxQvNZ/dvRi8PTc+//q3Uc+VH2VtAOJupWZ6ws=,tag:rdCqgYKc2lH2cCIvrtIxoQ==,type:str]
+          secretName: traefik-forward-auth-tls
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2022-12-31T08:28:55Z"
+    mac: ENC[AES256_GCM,data:hiSJfqduixCpqfsWYp+ZvVKXNaQFwYXDPGCWzDm71RHgWDFt9FMjIYmV3a8RXryL+xeWnkhwxId6DaQi2ryYq8i+JWODSPx0Gpvc/upGZfxka8kyhy7uWvv3TM7DrRhHrStpvHf+4Oi+mPloYiaWrTsD9LL+XoYj336arraHzrU=,iv:HKQXRAVVcYUPDMlUBoxgqVaYSllytb0R4WLfpNs1iwQ=,tag:BdY+SYcXil3n3bAB35neUw==,type:str]
+    pgp:
+        - created_at: "2022-12-31T08:28:54Z"
+          enc: |
+            -----BEGIN PGP MESSAGE-----
+
+            hQIMA38T7Az157GMARAArQ+ujSJjQRn/lDQYjhN8KsYqcaIeoC/TQpjpJXzlDYBo
+            fUF4v8E4jETyNLKX9J8LZbNnRePe82GZeApcTL3bpCWL2CugiNhH+0SW9GabCY4t
+            C7SBi6DjJ7WQ2oCBp/5urFlR5f9AUIaKcq41sQqhkBzz2NzQOz5ItTRt853O0XMe
+            BPaxyH+7ZrE53le+EE4QC9ZWvsBP4F5dAxNNU3J45WuhctqoBSoUd4fu7tL25JpY
+            1jLYMd/x0DZb0ybAfhUFTyrERCj2XkL3F2LLgBRQKjSBopaOk1avQGBeTJ8T9/DP
+            jTSfSj2w6fY8gGM02e8wVqHhXHekNAeCFors0Rb6Bjk/H39RSa3MbY2HhLzpyCxC
+            LWMvP5lPZK2/iGCFvUel0gribFVM04nNf6zY+q/8SmNOLJ0u+q8dyupU5c6RncYo
+            qgDwBK3cgVf3qpOr3oxJGvosJYFw1VTbnQs4RKvub9tV0gBP8WPWRIt+K4u868C3
+            9B5k1Y5I+uZHL88XAdmDYniBVC4RNo4XunK7Kcdx0X3s/Pb3sHHD8lxfBxebs9ph
+            zweJBo5Ipo3HYggFTRRprCi/vnFHTtzxoPvXbr14R+pCdf6Q+LzcVvmzHLwk9wKo
+            QexV4tyvFScjP/c9E0Q0fTSH84xuo5rXUWVbZhVLooz6Bo18l972LKY9TiNbbKbS
+            XgE6cVBFlPEvkUA7yZg2hCNXujLmynHHB9Y6iYqbZ1w4ZrHKN4JXUZtXfu/6FBGw
+            cdVNrYWwuc5ZBIGUBaV3XmhNqEY2SNN5EMlZcRyhMp3AVYgBLFYq9WhlHCi7v/8=
+            =ALpA
+            -----END PGP MESSAGE-----
+          fp: 129994A38E40322EE2A4FA6CB59C51DA13B1BF22
+    encrypted_regex: ^(host|hosts|client_id|client_secret|endpoint|random_secret)$
+    version: 3.7.3

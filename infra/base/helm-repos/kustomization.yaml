@@ -1,0 +1,25 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: flux-system
+resources:
+  - azuredisk-csi-driver.yaml
+  - bitnami.yaml
+  - istio.yaml
+  - traefik.yaml
+  - kiali.yaml
+  - linkerd.yaml
+  - linkerd-smi.yaml
+  - flagger.yaml
+  - prometheus-community.yaml
+  - ingress-nginx.yaml
+  - jetstack.yaml
+  - oauth2-proxy.yaml
+  - grafana.yaml
+  - chaos-mesh.yaml
+  - botkube.yaml
+  - vmware-tanzu.yaml
+  - azure-workload-identity.yaml
+  - dapr.yaml
+  - keda.yaml
+  - pulsar.yaml
+  - open-telemetry.yaml

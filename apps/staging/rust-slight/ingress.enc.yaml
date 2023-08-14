@@ -1,0 +1,51 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+    name: rust-slight
+    namespace: keda
+    annotations:
+        nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+    ingressClassName: nginx
+    rules:
+        - host: ENC[AES256_GCM,data:yHaG7WUdEM9IsLNPjeMh/H05bjADK80wAB4y,iv:Fr3H89D1WBHTu+OHuuRgwZRLtdg3qyWkS+poO0krExc=,tag:AqFCa4MbAgCuGVuttyF3jQ==,type:str]
+          http:
+            paths:
+                - path: /
+                  pathType: Prefix
+                  backend:
+                    service:
+                        name: keda-add-ons-http-interceptor-proxy
+                        port:
+                            number: 8080
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2023-01-20T12:56:01Z"
+    mac: ENC[AES256_GCM,data:4mCiO6Q+6wsqDCCBRXll6+MIraGmKGIld73jh0y5JqjMkfLofTr5hS5JR9fGZHNb81DMxvIa4XXeUVcpBdkB9dOQ9J/mpIs7PzrUJCuCST+iWO0tW2GFarrEVxxhQDpHRcIKUaW2dmvwEAjzrXLoQmtZz1TjRcqirnQEC1p+tD4=,iv:UOQv8gPJLDIEY8ucpGvhVJO/3vJzvmcuWJ9EttKq8QU=,tag:9CDTm4cvrOXk2yQZYX0Zvw==,type:str]
+    pgp:
+        - created_at: "2023-01-20T12:56:00Z"
+          enc: |
+            -----BEGIN PGP MESSAGE-----
+
+            hQIMA38T7Az157GMARAAluVozFRSO14HiSScSR2DvmwDFiio0+c+f/HPjAIFl1+Q
+            MIYNvTYV0rJkjHkKJSFcDteOzfoRDUReB6bPlqoWev2bRrCSttI0OZCeDMyOj/dn
+            uxvC3KK/N5T7AibVvNTzQerVDlG/Dgg7dSkNLpzMZT7xsIli9AxWSSBLGm/3Bt1G
+            h+YR4sspy6CaST6Ur7xl28ByQD5kMPqsP7UGZrY1q3tLLNt8CUHXGobj4eVuNnZn
+            wWJvhEiknC3CUFZOw/A8EGu8eF6CvpjODIJiy0sLmWa6/LiQEyIkEX7T/yJKqHBs
+            iXrKQJ0mi0jDTrmklpexvixA1Ri+6CbxTTGlO5MHmUENcCU4zzNBFDa8utYmpsyP
+            /RZEKIynGl8X4vbLgF6sZDiOvCuN+1M83IHMEtr5MdkHaERRZYWDmEK84IxCnkEG
+            cNNS33HkFdadigPwVpguvNgj6Wmqz2+9JFRz+pyX9cirzjmi4VmyvRrDYCFxklkt
+            Co8ZvigHWP52b/OcnoyDngnTyvp+Fl28VoED3Gy3FzUVBWkNyiHC5MU/qyvocmtH
+            ZKd+UwTfofpuoCG6tZNjqibF0FAG2ujzmExmFSFlPdamy03CZUiBZ1d2hRB/Ricz
+            LFxag9j6p4/hVgDq3TTmsyq8sk0rf0WLCdmST8kC4h4SvS1/YzuKCHM/8jaAXPXS
+            XgGYwHOz1LJJFPukDISBHO15PbsDKc/MEgV/e5GWkoReGww6lN175/Fuqgx5gAUZ
+            vGxeSdFo1ar4wHEdu+rHwWcUBN/Qp1dRF2gjTGJ9pkQDTqwxgxonWo5mJHks3fk=
+            =DfgF
+            -----END PGP MESSAGE-----
+          fp: 129994A38E40322EE2A4FA6CB59C51DA13B1BF22
+    encrypted_regex: ^(host)$
+    version: 3.7.3

@@ -1,0 +1,54 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+    name: reddog
+    annotations:
+        cert-manager.io/cluster-issuer: letsencrypt-traefik
+spec:
+    ingressClassName: traefik
+    rules:
+        - host: ENC[AES256_GCM,data:pYkCdN7tQ+pK6k/Jp3sW4GGM5Ws0utJZ,iv:9ihzsMAMt7acChbpiQiu7kRvszizJ/pmLe2QFMxW08o=,tag:VzNwAMS8a7Hy2TA5wyR+bw==,type:str]
+          http:
+            paths:
+                - path: /
+                  pathType: Prefix
+                  backend:
+                    service:
+                        name: ui
+                        port:
+                            number: 80
+    tls:
+        - hosts:
+            - ENC[AES256_GCM,data:f+b5NkQGMd+4LHqx92orSXgovoT7/91z,iv:fVRI8q6tu98yymWHzQHmQrq7oGSirqCMY1ivSBwj40I=,tag:Ti0UpJGfauG0MLl7/8fkJA==,type:str]
+          secretName: reddog-traefik-tls
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2022-12-30T10:23:00Z"
+    mac: ENC[AES256_GCM,data:QNGfGtognRyyUNJd+ENdmgewuCUvarrkogI/xwPnVhO7klahM0l9nD56h8q5gk4PFL3d7mug5Vcos8xED9QQDQ4TlminDzjrQyuMGruazZ/hSo3HEL2Afb1eMHVhjrx3kYMerr8kZsPyq+Ju9FMcIH8VG2C6tHRwtR7n0wf5JKU=,iv:pLBto5Cne9iYfaqyvRgzPW0gSK/626Ie2wgiAxRpNbw=,tag:fGrvPvBcdx6fv0RP6LKrkg==,type:str]
+    pgp:
+        - created_at: "2022-12-30T10:22:58Z"
+          enc: |
+            -----BEGIN PGP MESSAGE-----
+
+            hQIMA38T7Az157GMARAAgYMjh00ogu0jAjbIXt2JU1Bz5S8VA2+0aJgOY12GPBFh
+            rIGkG/W1xzAeD0HLsHgWWNpF1o4vvjhmCBb0MZ/M/yulDBrjHocw+xwf5qgQwOMm
+            WLSCrNjrg7t6nztLt2fSU4byGztPOVBhGpctV0a5CPjCrxN/m5gsOMaVaEQATTy2
+            wSW/r+9gqPVscNrMh1P9VAyRN5H20D+FFDTZmizJMtItQlYKmQvuIhfAixPxIeKq
+            f5/4bquKQ7RlYL3snIO9yazI03E2SaAIOg+aYSkuB8Q+K77fy8Ah4a1mjHM6SRki
+            yf2MYavWTeWlgBBDkgjgdFkRSFnfFw7q0e1xL1bZ0w1D8LKbPQYnb0cGijnvNR8C
+            Np//Tp76GAaqni6HVk34PsG4SrhnRcvK0k56OOOyGpLVuwWkgpOs+s8KwLbzeW/r
+            p/A2s0oS3ALEcfY4sjjX0c6rUrmlN/Qxp4Mp3VmX21wgH3w+3+Ak1w9iThHTV29V
+            9xc9evQIQ1UPUc39ur7xB4BhUUuP3h3idUGi7IzwYEPF5XjaSOBFXfbvcr4ueU3A
+            iNS/d1maaccU0K9R6t2X3GuwpzsbXlyOjhyN0+GAmMAJi3Au18nYDvjsaZwmz/UC
+            p+cFlN0xfWsq1laH5M5n7E2/B2OM6bNNoTLDoTa5p7OKIJZ5veVOvm0gboDZHnTS
+            XgG0nvDTHclkpiVSA8md3nu2GLCadoSdwD+BuQasCPOVG24s1Mth8+MoQu5KUuuJ
+            eSmX1ikdQVEDViTR2CjbAR0oD+PVgogt2aBeyIGV5SkjuESZeZWPwR1VbFw0/J4=
+            =LIKc
+            -----END PGP MESSAGE-----
+          fp: 129994A38E40322EE2A4FA6CB59C51DA13B1BF22
+    encrypted_regex: ^(data|hosts|host)$
+    version: 3.7.3

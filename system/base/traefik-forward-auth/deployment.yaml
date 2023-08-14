@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: traefik-forward-auth
+  name: traefik-forward-auth
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: traefik-forward-auth
+  template:
+    metadata:
+      labels:
+        app: traefik-forward-auth
+    spec:
+      containers:
+        - name: traefik-forward-auth
+          image: thomseddon/traefik-forward-auth:latest
+          ports:
+            - containerPort: 4181
+              protocol: TCP
+          env:
+            - name: DEFAULT_PROVIDER
+              value: "oidc"          
+            - name: PROVIDERS_OIDC_ISSUER_URL
+              valueFrom:
+                secretKeyRef:
+                  name: azuread
+                  key: endpoint
+            - name: PROVIDERS_OIDC_CLIENT_ID
+              valueFrom:
+                secretKeyRef:
+                  name: azuread
+                  key: client_id
+            - name: PROVIDERS_OIDC_CLIENT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: azuread
+                  key: client_secret
+            - name: SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: azuread
+                  key: random_secret
+            - name: COOKIE_DOMAIN
+              value: traefik.i-csu.com
+            - name: AUTH_HOST
+              value: auth.traefik.i-csu.com
+            - name: LOG_LEVEL
+              value: trace
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "100m"

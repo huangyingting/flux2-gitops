@@ -1,0 +1,65 @@
+apiVersion: flagger.app/v1beta1
+kind: Canary
+metadata:
+  name: podinfo
+spec:
+  # ingress reference
+  provider: nginx
+  ingressRef:
+    apiVersion: networking.k8s.io/v1
+    kind: Ingress
+    name: podinfo
+  targetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: podinfo
+  autoscalerRef:
+    apiVersion: autoscaling/v2
+    kind: HorizontalPodAutoscaler
+    name: podinfo
+  service:
+    # ClusterIP port number
+    port: 9898
+    # container port number or name (optional)
+    targetPort: 9898
+  analysis:
+    alerts:
+      - name: "slack"
+        severity: info
+        providerRef:
+          name: slack
+    interval: 1m
+    threshold: 10
+    iterations: 10
+    match:
+      # curl -H 'X-Canary: always' https://podinfo.example.com
+      - headers:
+          x-canary:
+            exact: "always"
+      # curl -b 'canary=always' https://podinfo.example.com
+      - headers:
+          cookie:
+            exact: "canary"
+    # Linkerd Prometheus checks
+    metrics:
+    - name: request-success-rate
+      thresholdRange:
+        min: 99
+      interval: 1m
+    - name: request-duration
+      thresholdRange:
+        max: 500
+      interval: 30s
+    webhooks:
+      - name: acceptance-test
+        type: pre-rollout
+        url: http://loadtester.flagger/
+        timeout: 30s
+        metadata:
+          type: bash
+          cmd: "curl -sd 'test' http://podinfo-canary.podinfo:9898/token | grep token"
+      - name: load-test
+        type: rollout
+        url: http://loadtester.flagger/
+        metadata:
+          cmd: "hey -z 2m -q 10 -c 2 -H 'Cookie: canary=always' https://podinfo.example.com"

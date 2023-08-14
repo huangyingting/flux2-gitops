@@ -1,0 +1,91 @@
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+    name: letsencrypt
+spec:
+    acme:
+        email: ENC[AES256_GCM,data:rJBp1DjjQdFF063S1PL2jvKj8XJJ,iv:CZcqYNjgfXZzgTzhrtvTQGQ5mQo3YDfUYEQYiMfL4l4=,tag:S2BNvjrJDjad1XYmtklZIg==,type:str]
+        privateKeySecretRef:
+            name: letsencrypt
+        server: https://acme-v02.api.letsencrypt.org/directory
+        solvers:
+            - http01:
+                ingress:
+                    class: nginx
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2022-12-30T05:41:54Z"
+    mac: ENC[AES256_GCM,data:4PatGRct1MTSL2J+66m/6zYYhFWd3VWcAKX/gV5fV2MePnuuWbykHJr5ZyJM2Sj2pQrlp9nT66h68C2KkXvUhSZiK+Q2eO6C3K3Ks1nhosjaX0Afl5eds8hm5ZtaDXMarlBKECSfD8ZqCn6IEjmNVWlWxb6VHAqyqQ+X2wQC4c0=,iv:k3BFhhrNY/xldKRnPy6hQMgx5Sy8DgU1O80q9UowfC4=,tag:NZg/DNDA86TL//b4OoTGdQ==,type:str]
+    pgp:
+        - created_at: "2022-12-30T05:41:52Z"
+          enc: |
+            -----BEGIN PGP MESSAGE-----
+
+            hQIMA38T7Az157GMAQ/+Kx6BeTmvy4gRscMECsA0VA2e6Km7xXjTnyE9gRSWlhgJ
+            6aO5OlW8ZPH8rEDqSoMpl5mLQRrae5TSUQEiZk4rLfZ4nnKaUob1nuRWRl0LpaT/
+            QH9b7Spr813cCPCzo4chaT7hm96/SREmSDKPMe08qajOz1lPuLUYA1O10RQLVdUv
+            6OEGfCP4XZkFulaJu97/p8GPmrl5Y8/fs9pCzCOy0S3LGsz32EYGt3f1jNxdvYx3
+            zo3B68FDzg7kARurrv35m4I/0x3cNMVpwmrojKXjQjp/Trn1SKqhZ7KuLXisixUZ
+            5fkKr5DObkn9fIA9oFo7CpoW5v47Z6bWmn4FbHx2YLRDwjAi969EUlP3M8Lb5SeR
+            Djq79mdfCJW2UGmQeasjXfYdjoX2wO1OHuN9pnU69xtjevcIMLmEpgTr+Z7oYlZn
+            q8a4D0lnatzAKwrscLpnUJprlB/JmonJTpF1XKUR2ZppFcLckb2ZEG240rENOVPu
+            cVA5fa27xUWhN4nchV314X/QI47Hn1aQsuRUWpHVKiPr50DHChtfzXtoUkNO9uMC
+            H1W4d9Y0NbyzBkq/jZlI1qvhdaTCHr3Hp+Ln7kZdujrnXemqWio+JAM3VN9fljsc
+            UJjCDovwuu+/q0wrEzX451IZ9qGhDrIPCkQ5hwczJ3Lm7mzk4/ZyLrcT69hdd7XS
+            XgHWH0/yK5ybhr3UDEx6m/m8csJDVaKHRKcbrmaiOFMb7tz0KJfunOdzhTb2TySB
+            gHqYPVDmFIRaZwhQRZuIMtFWxS5rhrWBE0fW5HlwR5e9uLFbnav4Y4+9hwyCm40=
+            =dP9o
+            -----END PGP MESSAGE-----
+          fp: 129994A38E40322EE2A4FA6CB59C51DA13B1BF22
+    encrypted_regex: ^(email)$
+    version: 3.7.3
+---
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+    name: letsencrypt-traefik
+spec:
+    acme:
+        email: ENC[AES256_GCM,data:XS0dBDq4PSAEhH6O6O/4FiKGQDYOwnE=,iv:CRhpiBzUkcCezDkaDWExJByoi48S0nHAdyxx6ML79hY=,tag:vfw/EK+LDmlYAkagT51vWg==,type:str]
+        privateKeySecretRef:
+            name: letsencrypt-traefik
+        server: https://acme-v02.api.letsencrypt.org/directory
+        solvers:
+            - http01:
+                ingress:
+                    class: traefik
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2022-12-30T05:41:54Z"
+    mac: ENC[AES256_GCM,data:4PatGRct1MTSL2J+66m/6zYYhFWd3VWcAKX/gV5fV2MePnuuWbykHJr5ZyJM2Sj2pQrlp9nT66h68C2KkXvUhSZiK+Q2eO6C3K3Ks1nhosjaX0Afl5eds8hm5ZtaDXMarlBKECSfD8ZqCn6IEjmNVWlWxb6VHAqyqQ+X2wQC4c0=,iv:k3BFhhrNY/xldKRnPy6hQMgx5Sy8DgU1O80q9UowfC4=,tag:NZg/DNDA86TL//b4OoTGdQ==,type:str]
+    pgp:
+        - created_at: "2022-12-30T05:41:52Z"
+          enc: |
+            -----BEGIN PGP MESSAGE-----
+
+            hQIMA38T7Az157GMAQ/+Kx6BeTmvy4gRscMECsA0VA2e6Km7xXjTnyE9gRSWlhgJ
+            6aO5OlW8ZPH8rEDqSoMpl5mLQRrae5TSUQEiZk4rLfZ4nnKaUob1nuRWRl0LpaT/
+            QH9b7Spr813cCPCzo4chaT7hm96/SREmSDKPMe08qajOz1lPuLUYA1O10RQLVdUv
+            6OEGfCP4XZkFulaJu97/p8GPmrl5Y8/fs9pCzCOy0S3LGsz32EYGt3f1jNxdvYx3
+            zo3B68FDzg7kARurrv35m4I/0x3cNMVpwmrojKXjQjp/Trn1SKqhZ7KuLXisixUZ
+            5fkKr5DObkn9fIA9oFo7CpoW5v47Z6bWmn4FbHx2YLRDwjAi969EUlP3M8Lb5SeR
+            Djq79mdfCJW2UGmQeasjXfYdjoX2wO1OHuN9pnU69xtjevcIMLmEpgTr+Z7oYlZn
+            q8a4D0lnatzAKwrscLpnUJprlB/JmonJTpF1XKUR2ZppFcLckb2ZEG240rENOVPu
+            cVA5fa27xUWhN4nchV314X/QI47Hn1aQsuRUWpHVKiPr50DHChtfzXtoUkNO9uMC
+            H1W4d9Y0NbyzBkq/jZlI1qvhdaTCHr3Hp+Ln7kZdujrnXemqWio+JAM3VN9fljsc
+            UJjCDovwuu+/q0wrEzX451IZ9qGhDrIPCkQ5hwczJ3Lm7mzk4/ZyLrcT69hdd7XS
+            XgHWH0/yK5ybhr3UDEx6m/m8csJDVaKHRKcbrmaiOFMb7tz0KJfunOdzhTb2TySB
+            gHqYPVDmFIRaZwhQRZuIMtFWxS5rhrWBE0fW5HlwR5e9uLFbnav4Y4+9hwyCm40=
+            =dP9o
+            -----END PGP MESSAGE-----
+          fp: 129994A38E40322EE2A4FA6CB59C51DA13B1BF22
+    encrypted_regex: ^(email)$
+    version: 3.7.3

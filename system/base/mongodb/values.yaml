@@ -1,0 +1,13 @@
+# Default values
+# https://artifacthub.io/packages/helm/bitnami/mongodb
+persistence:
+  storageClass: "default"
+auth:
+  rootUser: REPLACE_ME
+  rootPassword: REPLACE_ME
+metrics:
+  enabled: true
+  serviceMonitor:
+    enabled: true
+    labels:
+      release: prometheus

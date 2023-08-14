@@ -1,0 +1,24 @@
+apiVersion: dapr.io/v1alpha1
+kind: Component
+metadata:
+  name: reddog.binding.receipt
+spec:
+  type: bindings.azure.blobstorage
+  version: v1
+  metadata:
+    - name: accountName
+      secretKeyRef:
+        name: reddog-sa
+        key: account-name
+    - name: accountKey
+      secretKeyRef:
+        name: reddog-sa
+        key: account-key
+    - name: containerName
+      secretKeyRef:
+        name: reddog-sa
+        key: container-name
+scopes:
+  - receipt-generation-service
+auth:
+  secretStore: reddog.secretstore 

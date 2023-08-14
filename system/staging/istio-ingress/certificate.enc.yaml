@@ -1,0 +1,44 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+    name: ingress-cert
+spec:
+    secretName: ingress-cert
+    issuerRef:
+        name: letsencrypt-istio
+        kind: Issuer
+    commonName: ENC[AES256_GCM,data:JCPThupqLUr2pQnXNAY1rIQ=,iv:SLlMxbRl33ZqK3jVLADOPQG+ZU7nULxxomOrIJh6l/U=,tag:FKEtd6RrehLcGvLETN4TIA==,type:str]
+    dnsNames:
+        - ENC[AES256_GCM,data:XQwYoky7PNQfAjBPudWDtmI=,iv:VXeDC9OqqJfHEmCDZrtdzyvDvvTjNOsAonNpPQYa+es=,tag:TFkN6HxqoGZp1KxV0OlEKg==,type:str]
+        - ENC[AES256_GCM,data:OXCQBHF9OLzUsq1HEbaD,iv:svULBbZijUxiIQb+WENCroA2TXpvbstX+K8o+lOOElE=,tag:c5d6uW3nE9UAD2GMb6an+A==,type:str]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2022-12-17T23:55:28Z"
+    mac: ENC[AES256_GCM,data:RpPKIILRnauck+ZahKSzPPXYgBOrP/Z3zTcvYu134XKRynOLZ/t5gEFu9AkwVJVf+t0mpSj8FHxpsRvN35Q6rhhZnYd6eVyeQXpejOi6UIG7vDK4J/jxk/roO2/Xy/ANVqdaY7m2JRl6n2dq6988uPWu9/9seaD60X8qW8RqnOU=,iv:/4ER9BmYYR7KXKyUrvYmefMZurhJD8ZD0dWXK2y8S9w=,tag:ozn+GItIFU56p2F9A56v0A==,type:str]
+    pgp:
+        - created_at: "2022-12-17T23:55:17Z"
+          enc: |
+            -----BEGIN PGP MESSAGE-----
+
+            hQIMA38T7Az157GMARAAodjkSibO1e/yd6wFcgWJMl6874RXVAarVqjYofGqDCr1
+            DQlQfq3sgiWnppp1HILQiaEQ75aDjO54vJ/1gyNsRObjonSjajuLUW2IsG4Mx+KU
+            l7Sg5qY2l3rnKXtIlvqHZbdaraS0c2Z04L3+/mkkunMq/A8Ds9QzFJKyVM7UH0sQ
+            3wnIRklF+DbyS4KDKNveM5sC3Aqp2oLVM9cBwJ9pT29ljca4b+0PpSDS5xmU/rjx
+            1d/h6Mm52XynmJdiw2grcE5GXGrratKQehi2tFJ/KijMnilsTjWw7Awv27Lv6eiA
+            uhkG9Qhfx5TrRVY81PhWJkGi8Gtt/abpRoq2vWWVnsBgHkpagG9y7DZdViLFSlHa
+            DRg0eRaEhC4pznNnltNyyIvydmehiHlW1ihcpWzkcEgWAC6LEoam/sX5S+omv2Of
+            j7zMVJ4nAW5FquhnpkLjVQm/9rciZvlNvSdKapzzT4iloTKzsTQ5KKZ+CSOxUEB3
+            hBE6jFnmO8LVlqnuh5OiGCg1H910mWYceoj9A14Gy6GgBaTHcgTi4r3Tp0zbA8S5
+            467m2rB4e8VfbEgSQdoWtHr8FOz12Dg/NFR/x4kwqG/R70lLfwqoDWq9RLMvKUsT
+            3bWUQ51o9dri3msG8/8JoISoA5ZUAh0xb6XBLXRpdHqejwvlTkE/P9t94vBGTCjS
+            XAEVIdQFhVDvJl/ZpEMayTiO5dIrGBTtv4CrD76N1oiXWnDqWqRRXSSgsRFt9oJa
+            y39ikYRKCDUHAmKfLEvmDrwKkP+q8aSrFI1MrMd42IEn+FEGLShCDQD20w9y
+            =9rRU
+            -----END PGP MESSAGE-----
+          fp: 129994A38E40322EE2A4FA6CB59C51DA13B1BF22
+    encrypted_regex: ^(client-secret|clientID|subscriptionID|tenantID|resourceGroupName|hostedZoneName|email|commonName|dnsNames)$
+    version: 3.7.3

@@ -1,0 +1,49 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+    name: echo
+spec:
+    hosts:
+        - ENC[AES256_GCM,data:y8wiFJpZ8Nn3WWH0teQoQGHjEcM=,iv:R++raxcxQT6hgX186yfbnL1P7DzurnTHS8LWMGnUlAY=,tag:FYRIjpGIaDwZgPCCWDl+qQ==,type:str]
+    gateways:
+        - istio-ingress/ingress-gateway
+    http:
+        - match:
+            - uri:
+                prefix: /
+          route:
+            - destination:
+                port:
+                    number: 80
+                host: ENC[AES256_GCM,data:5hRv4kMhdpeWxMOgaenkY6aznokxwpAAfqb+,iv:ZH0S1JxUtX9dLKqRlB9BjCKnhBAtjPVGzQlkHqsit9A=,tag:n7ZmrLFUPl+bBMiKB7z4Lg==,type:str]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2022-12-18T02:26:31Z"
+    mac: ENC[AES256_GCM,data:5AIIu3tx8v0q+mYgcFhi6hYxzXkFNogT3nyUBXhjk9Ywk3If3lFsLULh5qh8ZsWOdWUU1bv/7n2OtdxwZVH2nPENrJaGLxO66lbNnN88a9d3BriCccoExIwBkbgexh57NF17h7l7oAt2bNaaoo0edkG6RaE1/Nacp3zvinedDq0=,iv:5Nv+xm5wqBGXnIL6iAh14mNOB+H0eHD7U1dO7xANCQM=,tag:rM+W5/7+qR0iuD1UlVFHWg==,type:str]
+    pgp:
+        - created_at: "2022-12-18T02:26:30Z"
+          enc: |
+            -----BEGIN PGP MESSAGE-----
+
+            hQIMA38T7Az157GMARAAnNLnQaGpzMljpMDZPnoTo0nToPJy+liFLcy1tUy/LYwz
+            CrmztIVAwdCj8Y9NNmry8GCVfZ5PiaI1rQxuTOZzdteewmsu96ZO7aFTpx8uMqHL
+            6xOQxLO0MZVxcEpP/AX9BGfrd70cWWyHOyZKL453Uoz4LED9BzX2YGtIsbiTaz5s
+            yHyDSh2/N1VqUPvAaHcNuIVHdSr4PikJ3SUtiiorsPyShHm8v+5Hsz0tsccMPgSX
+            PHnsko83q9Uwec67iZhYBXg+dgosgEUBvd1OaObMKNXUHeWxpAKb+itC+qvPeJ90
+            VZIPSHSlS4O3nFg8laCdV3iy+VtXIIqAiYqQcSo3TMGiYEsekIR7xhwR9wGxRY/y
+            IQQqO+JUkeaqA8D8S7EgabKGK+ftGfVuyflZoNenS4FfsrgnUkH6/Q5z54kiU0cO
+            gqsSdz4ybP0RS8com1bpmYaVOeFYac9+vS/WxdIcupRNx+ylMQAR0+z26bFiqGvs
+            8DM2I7gA3vVEZ+zP8y6OQbDryqiX7Z2cvkbdrNeUoCwLtOvjqXKLRF+YNfVUkgK0
+            0WDMA6AYQcS3vI9kQz/yyW5SmU/kr5CqOEICpDJBMpJPsK38deI/u5UTPdq6jQPt
+            MVogFsbpBwE12Sbnka0okQvxudj1OiKR/+MR7VgJtPybB5OOV1jKzbUREvP3niLS
+            XAHBNtNvarhF5xqMdKbRPwkM/FVM/8bHNkRgMKiW0BkBQJ65mn8fO9bu927Nbzvv
+            VMC1Qlx3Gwcrw1JLS+CXOBIB3I05oom02iX55bbfaeYZi3ncpOUDRQpqlD2/
+            =ugZj
+            -----END PGP MESSAGE-----
+          fp: 129994A38E40322EE2A4FA6CB59C51DA13B1BF22
+    encrypted_regex: ^(host|hosts|nginx\.ingress\.kubernetes\.io\/mirror-target|nginx\.ingress\.kubernetes\.io\/mirror-host|nginx\.ingress\.kubernetes\.io\/auth-url|nginx\.ingress\.kubernetes\.io\/auth-signin)$
+    version: 3.7.3

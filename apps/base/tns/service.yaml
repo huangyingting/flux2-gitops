@@ -1,0 +1,42 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: app
+  name: app
+spec:
+  ports:
+  - name: app-http-metrics
+    port: 80
+    targetPort: 80
+  selector:
+    name: app
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: db
+  name: db
+spec:
+  ports:
+  - name: db-http-metrics
+    port: 80
+    targetPort: 80
+  selector:
+    name: db
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: loadgen
+  name: loadgen
+spec:
+  ports:
+  - name: loadgen-http-metrics
+    port: 80
+    targetPort: 80
+  selector:
+    name: loadgen

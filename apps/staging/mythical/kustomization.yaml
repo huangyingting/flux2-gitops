@@ -1,0 +1,14 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: mythical
+bases:
+  - ../../base/mythical
+patchesStrategicMerge:
+  - deployment.enc.yaml
+replicas:
+- name: mythical-server
+  count: 0
+- name: mythical-requester
+  count: 0
+- name: mythical-recorder
+  count: 0

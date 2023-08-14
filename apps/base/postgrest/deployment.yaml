@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: postgrest
+spec:
+  selector:
+    matchLabels:
+      app: postgrest
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: postgrest
+    spec:
+      containers:
+      - image: postgrest/postgrest
+        name: postgrest
+        env:
+          - name: PGRST_DB_URI
+            value: "postgres://REPLACE_ME:REPLACE_ME@postgres-postgresql.postgres:5432/postgrest"
+          - name: PGRST_DB_SCHEMAS
+            value: "api"
+          - name: PGRST_DB_ANON_ROLE
+            value: "web_anon"

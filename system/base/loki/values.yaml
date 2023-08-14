@@ -1,0 +1,27 @@
+# Default values
+# https://grafana.com/docs/loki/next/installation/helm/install-scalable/
+loki:
+  persistence:
+    enabled: true
+    storageClassName: default
+    size: 4Gi
+  config:
+    compactor:
+      shared_store: azure
+    schema_config:
+      configs:
+        - from: 2022-11-01
+          store: boltdb-shipper
+          object_store: azure
+          schema: v11
+          index:
+            prefix: index_
+            period: 24h
+    storage_config:
+      azure:
+          container_name: CONTAINER_NAME
+          account_name: ACCOUNT_NAME
+          account_key: ACCOUNT_KEY
+      boltdb_shipper:
+        shared_store: azure
+

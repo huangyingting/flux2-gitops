@@ -1,0 +1,96 @@
+# Default values
+# https://github.com/apache/pulsar-helm-chart
+components:
+    # disable auto recovery
+    autorecovery: false
+    pulsar_manager: true
+zookeeper:
+    replicaCount: 1
+    resources:
+        requests:
+            memory: 128Mi
+            cpu: 50m
+    volumes:
+        data:
+            size: 4Gi
+bookkeeper:
+    replicaCount: 1
+    resources:
+        requests:
+            memory: 256Mi
+            cpu: 100m
+    volumes:
+        journal:
+            size: 4Gi
+        ledgers:
+            size: 8Gi
+broker:
+    replicaCount: 1
+    resources:
+        requests:
+            memory: 256Mi
+            cpu: 100m
+proxy:
+    replicaCount: 1
+    resources:
+        requests:
+            memory: 64Mi
+            cpu: 25m
+    ports:
+        http: 8080
+    service:
+        type: ClusterIP
+pulsar_manager:
+    replicaCount: 1
+    service:
+        type: ClusterIP
+        port: 9527
+        targetPort: 9527
+    admin:
+        user: ENC[AES256_GCM,data:f5LDm2/X,iv:6+NCmdx2zIIHtr5NQWc0JRXLAXG0zQ2PyT+YBep3VYk=,tag:TVySHD7bi3XRDVZPIFDRDQ==,type:str]
+        password: ENC[AES256_GCM,data:yzeFdPc76iE=,iv:hfmvKQiFE/Xp0VM8YH1t7Fg1BjGlzjnflH7shrw7VEs=,tag:72B/6Or40rBOTk5UE5VFoA==,type:str]
+    resources:
+        requests:
+            memory: 128Mi
+            cpu: 50m
+kube-prometheus-stack:
+    enabled: false
+    prometheus:
+        enabled: false
+    grafana:
+        enabled: false
+    prometheus-node-exporter:
+        enabled: false
+    alertmanager:
+        enabled: false
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2023-02-06T04:12:30Z"
+    mac: ENC[AES256_GCM,data:tQ1Gk4DPoYStexeALc3l/rtHhXxnymHqFkvZOAb92YKsSdrmo67Y2h7smmFzTihPhN0EsfZY2yiR6UYVtanxkD35PjYENPbtlYwexXWgNFYYqAlMO/cauxkSCmU0pbrMS1x725iGOh0ryDzkGQSJ8qGE5rHOgwoFodtNEC4HukU=,iv:2NEqu4+XBiSl1MCUfXSMjqR2LxNgZx+7titkFILi4BE=,tag:PfTt2e8vFs5QJi4jAxg5pA==,type:str]
+    pgp:
+        - created_at: "2023-02-06T04:12:29Z"
+          enc: |
+            -----BEGIN PGP MESSAGE-----
+
+            hQIMA38T7Az157GMARAAx8bw665Yhk6BmONUfs1l16Lh0pHjBgq/yiVnGQaYmiZl
+            HeZn/wodu8yQ11jbQyCuU3GVf1Se2h011wCvlf/Sa6/4ICWT0irzi+JnebsoKltA
+            a2mL5Am+X9JVxN/2RvPi2XYAR66nZzNsf1mQV5UT5wuuTNVZ75Xi5I2M0dMH4sQL
+            W8DQMG0uLFrKve2MK01WFn+8pR5LS6akTHXhFEiB2UQ2sfJabg/FhuGwsBmI1zZu
+            CzAOecalf/Ttnt1fuN8QPbsc7rOXAEzmFqoTZW1QnvpblVyLSE/vpcLYBNhdLZoT
+            n2Bg047iQJmw4z6WdMW9ZNiqUJMGzeNKAYkRlZl8gwcOuuUlQJPV813J6611c9Ty
+            wlMaEytgaoqGYXJDv1EOXmwpd1gAzIrVYMUMzpB8eSWp8lGUvwYD/wM6vgQHZ49P
+            Y93vZ/LzXqxIT9kQ5cDx0MSJop/X6EKmvDUgtYNg7HPCP9+lrcOvqbLdsvEjR81+
+            I1M5+Tym94kPJKc/MVGlnPyVvI8U+ZE7KrqkjFDPeTMXtFPiUoy1D/SipeWpytt0
+            DetMa72uvbqtgT5+L00hCPySfh0zld9C7EaYckTv8dPmBfb+84BJkmVZw2AHc9/p
+            7HHjMZ4tqpv3JMX51P4Go05Dt4zOPmLkcn7eQgD6Vz9avexmOZUHjnt/s9vfqw7S
+            XgExODvYaAJV4JxMud4pn2F30M/npqQoPi8ZsW4tTVqqNWz/B7n28fiGnl7h/fEJ
+            9yv56OvlVSy/G1B5/cEOuShKG++g1BUE2gJyR34VAMhAvGn5McS85UseWiK/4dY=
+            =1JU1
+            -----END PGP MESSAGE-----
+          fp: 129994A38E40322EE2A4FA6CB59C51DA13B1BF22
+    encrypted_regex: ^(admin)$
+    version: 3.7.3

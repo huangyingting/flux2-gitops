@@ -1,0 +1,56 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: azwi
+spec:
+    replicas: 0
+    selector:
+        matchLabels:
+            app: azwi
+    template:
+        metadata:
+            labels:
+                app: azwi
+        spec:
+            serviceAccountName: azwi
+            containers:
+                - image: ghcr.io/azure/azure-workload-identity/msal-go
+                  name: msal-go
+                  env:
+                    - name: KEYVAULT_URL
+                      value: ENC[AES256_GCM,data:yC2oz2l7m7l32zM0/guvbNipjOoDla1RlaDo/I0z63euMtzq,iv:/LUItL+Dudn2zbVAk069IlCEBMkGpv7lPp1wMUNjskQ=,tag:qQFt+xpCtwNOaSZsi8BpGg==,type:str]
+                    - name: SECRET_NAME
+                      value: ENC[AES256_GCM,data:peiMIieANarAoAo=,iv:1kRdMKRo6bmaQoUYyVsXf8NT3lugc2ZHXrKQH8HxriU=,tag:8MZka85wMIUYdFj0Hvmlkw==,type:str]
+            nodeSelector:
+                kubernetes.io/os: linux
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2022-12-12T09:01:01Z"
+    mac: ENC[AES256_GCM,data:86YbkE11Y2Q5l1lQPyGiCuEWCquHy7iUM9fqrZEOj/vA4ya42fRNH7cxhag3bpoIH21HSQpB10ZxFvJptzZQV19xLP8ZjDm4AaUbBafVhOaI5VojleipWOJ45QBO4alCwciIipBuHTpXgsqAE6qqnsBT7fA/bYrj0v60fYM+BGg=,iv:f/Vn4YcztUKFuXxbOzAvHGtiZuVjWgbs/a4W3OSR948=,tag:D8IwtrE51JbipCrlZyTzfQ==,type:str]
+    pgp:
+        - created_at: "2022-12-12T09:01:00Z"
+          enc: |
+            -----BEGIN PGP MESSAGE-----
+
+            hQIMA38T7Az157GMAQ//QUF69zKwRGyQixbomroukqjdwesGVFfrD9Y5OY8V08Vn
+            j5yiM8roZvwkggXiK+k/TJB8boVZVodWc2FNWfmiOz+lRVXlf9foDIWuhOxm/vbo
+            PCrYAns3W1kWsjjN3HDDb9NJL6NJC2j6JG34XPQsMzDyX0++axMEnhSXlDMi54KH
+            YeuYmTD1KsFy4DqitVR4Cbo+tPnpvCtQSA50FtEUYaAEthSR3UqcqTazdpFjvjUt
+            xISZhxuOLa5RF+DIc89YN3MisHa7bJip3s94hb80nP9hFHlVdnC7eJZdSRsV+EMN
+            N7ERC/NrB4kYg9oEDXG5Y49lV3wmqQQdnb3yGe7ZOOLBd5eQIEch0NDbn6CF/Ua+
+            OS6LbQRvfDA8mjADvz9E3OZXLlKK+O2MWWuRorMPWwUpfQwkEjJ+gHzx+Wgmoy0A
+            QsROrybW9AwR7TURWcYK6Gg1aJEhNxd6ZNkV2BDHz47LP3xffMWMQMZ9QN8lXKa2
+            7K9Mo/qW1tbGQbXOSreaRn9DpuuxuUr0HuoBQNdacHhwxoWy24aQ8Grwpd1GqXvA
+            8eLhu43Fyzu7SQZD+D+0BRzhpIomloTp7MgQ9nbi+ULh7kFJ/U/EeYv1jTbKusNi
+            ubCREiWr0/Qm/7C9GTN/vI6taMzl0dL55G8D//CYst4VmfQj2nGqe89+CtS8b57S
+            XgFZ8V3wLD3XKiDzWlZFQUpIMUwLkAE1VP21HG1NKoyMkFoMvfABW/5RwvZQzYum
+            r2m8fTcSQpKpeVebkNom1ipRrfFMTyAn2r4shYGFV3K7bklUlw2c2e6X8856aic=
+            =7EfV
+            -----END PGP MESSAGE-----
+          fp: 129994A38E40322EE2A4FA6CB59C51DA13B1BF22
+    encrypted_regex: ^(azure\.workload\.identity\/client-id|value)$
+    version: 3.7.3

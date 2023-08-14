@@ -1,0 +1,52 @@
+# Default values
+# https://github.com/grafana/tempo/tree/main/example/helm
+ingester:
+  replicas: 2
+  persistence:
+    enabled: true
+    inMemory: false
+    size: 4Gi
+    storageClass: default
+metricsGenerator:
+  enabled: true
+  replicas: 1
+  config:
+    storage:
+      remote_write: 
+        - url: http://prometheus-kube-prometheus-prometheus.monitoring:9090/api/v1/write
+          send_exemplars: true      
+search:
+  enabled: true
+traces:
+  jaeger:
+    grpc:
+      enabled: true
+    thriftBinary:
+      enabled: true
+    thriftCompact:
+      enabled: true
+    thriftHttp:
+      enabled: true
+  zipkin:
+    enabled: true
+  otlp:
+    http:
+      enabled: true
+    grpc:
+      enabled: true
+  opencensus:
+    enabled: true
+storage:
+  trace:
+    trace:
+      backend: azure
+      wal:
+        path: /var/tempo/wal
+      azure:
+        storage_account_name: STORAGE_ACCOUNT_NAME
+        storage_account_key: STORAGE_ACCOUNT_KEY
+        container-name: CONTAINER_NAME
+      blocklist_poll_tenant_index_builders: 1
+      blocklist_poll_jitter_ms: 500
+minio:
+  enabled: false

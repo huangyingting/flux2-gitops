@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: azure-openai-proxy
+  labels:
+    app: azure-openai-proxy
+spec:
+  ports:
+  - port: 80
+    targetPort: 8080
+  selector:
+    app: azure-openai-proxy

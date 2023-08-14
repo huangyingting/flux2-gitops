@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kspan
+  labels:
+    app: kspan 
+spec:
+  selector:
+    matchLabels:
+      app: kspan 
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: kspan
+    spec:
+      containers:
+      - command:
+        - /manager
+        args:
+        # - --otlp-addr=collector.linkerd-jaeger:4317
+        - --otlp-addr=tempo.tempo:4317
+        image: weaveworks/kspan:main-12eefbe6
+        name: kspan
+        resources:
+          limits:
+            cpu: 100m
+            memory: 30Mi
+          requests:
+            cpu: 10m
+            memory: 20Mi
+      terminationGracePeriodSeconds: 10
+      serviceAccountName: kspan
+      automountServiceAccountToken: true

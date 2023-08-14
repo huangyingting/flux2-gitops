@@ -1,0 +1,58 @@
+# Default values
+# https://artifacthub.io/packages/helm/vmware-tanzu/velero
+initContainers:
+  - name: velero-plugin-for-azure
+    image: velero/velero-plugin-for-microsoft-azure:v1.6.0
+    imagePullPolicy: IfNotPresent
+    volumeMounts:
+      - mountPath: /target
+        name: plugins
+metrics:
+  serviceMonitor:
+    enabled: true
+    additionalLabels: 
+      release: prometheus
+  prometheusRule:
+    enabled: true
+    additionalLabels: 
+      release: prometheus
+    spec:
+      - alert: VeleroBackupPartialFailures
+        annotations:
+          message: Velero backup {{ $labels.schedule }} has {{ $value | humanizePercentage }} partialy failed backups.
+        expr: |-
+          velero_backup_partial_failure_total{schedule!=""} / velero_backup_attempt_total{schedule!=""} > 0.25
+        for: 15m
+        labels:
+          severity: warning
+      - alert: VeleroBackupFailures
+        annotations:
+          message: Velero backup {{ $labels.schedule }} has {{ $value | humanizePercentage }} failed backups.
+        expr: |-
+          velero_backup_failure_total{schedule!=""} / velero_backup_attempt_total{schedule!=""} > 0.25
+        for: 15m
+        labels:
+          severity: warning
+configuration:
+  provider: azure
+  backupStorageLocation:
+    bucket: velero
+    name: default
+    config: 
+      resourceGroup: BACKUP_RESOURCE_GROUP
+      storageAccount: STORAGE_ACCOUNT
+  volumeSnapshotLocation:
+    name: default
+    config:
+      resourceGroup: BACKUP_RESOURCE_GROUP
+credentials:
+  useSecret: true
+  name: cloud-credentials
+  secretContents: 
+    cloud: |
+      AZURE_SUBSCRIPTION_ID=
+      AZURE_TENANT_ID=
+      AZURE_CLIENT_ID=
+      AZURE_CLIENT_SECRET=
+      AZURE_RESOURCE_GROUP=
+      AZURE_CLOUD_NAME=AzurePublicCloud
