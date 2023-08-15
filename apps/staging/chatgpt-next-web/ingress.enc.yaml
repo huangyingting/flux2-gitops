@@ -1,0 +1,60 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+    annotations:
+        cert-manager.io/cluster-issuer: letsencrypt
+        nginx.ingress.kubernetes.io/proxy-buffer-size: 1m
+        nginx.ingress.kubernetes.io/auth-url: ENC[AES256_GCM,data:P9mMKViqDcy/6phEO1Pmog8Zeg3LQXk2J96ojIFVuKTMy8hElGHQSw==,iv:5hjdy2PC+Jx/N0z84zi4cAvI16nWAvyspZLiF2se1P0=,tag:EhpSTBLndaVuGBH35OppiQ==,type:str]
+        nginx.ingress.kubernetes.io/auth-signin: ENC[AES256_GCM,data:eLKGoC/BkAa40q7Du5hQO9u0PhWi6LDs+HT2kAyBXuG8T6seNIu+RYvCvtpwRAU2KsnbY5jiwmsikALZxrbTvCchl38Avwpi,iv:uac8+24ZKoXk/wLMZBjvTF1TJtW+ZYDfShnrmPQkKA8=,tag:OFJDGzOX4/HiL1n3h2veGQ==,type:str]
+        nginx.ingress.kubernetes.io/auth-response-headers: X-Auth-Request-User, X-Auth-Request-Email, X-Auth-Request-Groups, X-Auth-Request-Preferred-Username
+    labels:
+        app: chatgpt-next-web
+    name: chatgpt-next-web
+spec:
+    ingressClassName: nginx
+    rules:
+        - host: ENC[AES256_GCM,data:c2qoQuzQNAIo0962VLIEG+radhoBU44=,iv:ncqW4kzPKDBjnbSW+hjcYp2J3XQWQsh4V/0cB7jaEgQ=,tag:az1EUpRwgDwjLn/EI/IiXw==,type:str]
+          http:
+            paths:
+                - backend:
+                    service:
+                        name: chatgpt-next-web
+                        port:
+                            number: 80
+                  path: /
+                  pathType: ImplementationSpecific
+    tls:
+        - hosts:
+            - ENC[AES256_GCM,data:6jYsj/DD4Ny7bzCiQi/S8A2wfszVda0=,iv:fDXObDzHOfytA8unqWtp1veQZtgmUxkpXiHoDkP+HxI=,tag:/etMrjyATG9WYuF/EvlSkg==,type:str]
+          secretName: chatgpt-next-web-tls
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2023-08-15T06:59:52Z"
+    mac: ENC[AES256_GCM,data:Kmn79rVZe+RRTTBqAaEgAUKwceeeFrV8wRY2hN53H0oNX6HoS85eEcc6JE8bNIHbcejhOR5hDs3d6WO7IK6oCj9ydISa+BiJwkZuTTnyszM/9DLXDyVIxwrW0fQFs849rSlUdxORNUg9WwOz/uCcQgx6Pr6wkdPVkEKjg5wWCuU=,iv:RqYIItAHrli35hDvE/r8RwaxPV0PoqIjtK+Ugzc9Vyg=,tag:8mEAFYHfrtw68ZMDY9u1iw==,type:str]
+    pgp:
+        - created_at: "2023-08-15T06:59:50Z"
+          enc: |
+            -----BEGIN PGP MESSAGE-----
+
+            hQIMA38T7Az157GMARAAzm6Wc+WiCfAZJYtgziUIRIyyOakbMiejL+v/R9Dn79kF
+            TLoBkqnyuuEdVsBYiAXIABT0J6fMwbO51E7C6ImN+EsvCotAVPVO+Ug1PRVt1A2+
+            QimqaCTDR+nd8EptlPK5LeZnjQ4aNxS24kCBsQGPEx3FLhuUatieDrv+MJbFS+WK
+            7E+iqf74og3/EKOByg1Ukf3OvUtOvUtI8WaSU24aJWOHcG5gRnDWsKK+GKYcmFPu
+            coU7y3/QB5vOBA5Q1p/rjX3OlUfBrlGexdKvTq/9Ne1+EYyKJmUAYJ3xLANrPWYv
+            C70atthosiHrdmy8I+7Hvw+bQjHblm365jvuQzsQ0mjnegQTGh9UJ5S8vm1V4ESD
+            hix16pKoPPIssgcc69zTy790qax9dfi/E3ydyQU5/U2ePt39/bSWd2tu9qhKCaY7
+            jXUTmFjeu9lxMbHS0NExxBteJT4lhPY7qRfaNFXd+ZGE+WMbvc6o/gJ9eL8dEhBr
+            fl7D4t5XhDI9uqUrW2LvfJQah0lPN6bUaNzqTD870wnY3O3l27H+Cf4iWbpIoVZQ
+            l/XY/zHAT59e7r+8tED5Oqt3zQ/9VK7z1rVZ7vZDeUxuP3FMAXTmF2gKNpBCFFS2
+            3FnKXVj2t9kqqx7T+blpt0qyqAYFXawQOOr37wBx8FrzzdNNjHuhzxQ0tkeCJLfS
+            XgGcfewazzDz5/m+ld/VX4M4lfghnPKMoqdjZn2VVWczW2H38a8tkCFg6VaxOT6x
+            fb7zDbbV8GK509KP7do09UxMBOyIje1Cbh/Zu/JansyL95nt07qVWk+kdwoaIYU=
+            =BcFY
+            -----END PGP MESSAGE-----
+          fp: 129994A38E40322EE2A4FA6CB59C51DA13B1BF22
+    encrypted_regex: ^(value|host|hosts|nginx\.ingress\.kubernetes\.io\/mirror-host|nginx\.ingress\.kubernetes\.io\/auth-url|nginx\.ingress\.kubernetes\.io\/auth-signin)$
+    version: 3.7.3

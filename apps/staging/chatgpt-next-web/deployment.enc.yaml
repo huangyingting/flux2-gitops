@@ -1,0 +1,72 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: chatgpt-next-web
+    labels:
+        name: chatgpt-next-web
+spec:
+    replicas: 1
+    selector:
+        matchLabels:
+            app: chatgpt-next-web
+    template:
+        metadata:
+            labels:
+                app: chatgpt-next-web
+        spec:
+            containers:
+                - image: yidadaa/chatgpt-next-web
+                  imagePullPolicy: IfNotPresent
+                  name: chatgpt-next-web
+                  env:
+                    - name: OPENAI_API_KEY
+                      value: ENC[AES256_GCM,data:0SLEhFNWcVFlUFLl/yLqF9AURR3GKRTH6q0HbBgqczM=,iv:0PAC9dRXD8vvqucDW9mrTZU1Hvr25/PIl2Hn0m/wpjw=,tag:Ol60VOppBrh3L6L07wIk0g==,type:str]
+                    - name: BASE_URL
+                      value: ENC[AES256_GCM,data:6UuU5g1b/cr5eMfA0ZMqtFjaMm1GpGKn8z6NEA3uovBRZIxy,iv:PirLT+uo1p2Hb6e1tLeQSHy75eUuGxeNHPe0r6Kj8CA=,tag:Bxy6SO0GTlCmxmtt7oFDMQ==,type:str]
+                    - name: CODE
+                      value: ENC[AES256_GCM,data:ixIU9LMeGbwVIdKND7mHq6wQCc92Sh/xEewbt8ahIUE=,iv:NjpM7KPLGPM6X61kBDnzm3ump1Qc5Hf3SdScWLCXaW8=,tag:KCEo5cE77PkPzviZEGK46w==,type:str]
+                    - name: DISABLE_GPT4
+                      value: ENC[AES256_GCM,data:9Q==,iv:axIWg0SM93vYY4h/KXy04CgWy9SlMEKOfTkXCYDIREk=,tag:ubZWyOfCgjryEtQAqvNvDw==,type:str]
+                    - name: HIDE_BALANCE_QUERY
+                      value: ENC[AES256_GCM,data:PQ==,iv:L6KJWVR32bfVAErnc8f6e/6Sx2Ipmz85Mk+U9lizP/0=,tag:zTcFFnoxn08whOk52od/ew==,type:str]
+                  resources:
+                    requests:
+                        cpu: 50m
+                        memory: 64Mi
+                    limits:
+                        cpu: 100m
+                        memory: 256Mi
+                  ports:
+                    - containerPort: 3000
+            restartPolicy: Always
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2023-08-15T06:59:42Z"
+    mac: ENC[AES256_GCM,data:jQ3vWpBNiLuU5yDMOYmjG35p7hdTo/tI5RBkfmski+uo5ht7gcLyUYk1UtJGhV7nvc7LNszWtIq89PEhFDcnp/4+SouLgobrGWllRggH8Rwj6nFYnRflOB7tD8wjrdi75QyaLnKZzO5teu+HSbDzuqe7Pevshjj4eR7EFFPslbw=,iv:M2y4zTDF9HDgDFqTBByYHRr4NtSeN18gCcyhIEodNcg=,tag:66U5n4PhW9VJF3rIxwpBCg==,type:str]
+    pgp:
+        - created_at: "2023-08-15T06:59:41Z"
+          enc: |
+            -----BEGIN PGP MESSAGE-----
+
+            hQIMA38T7Az157GMARAAj5qCK11PMPH5NBM8EviFg9F570EijtCL4IRbyvFt0kSa
+            Dn9HSOoCRqNVKnQp7IqzUCNaMMhhy8W4PV8r56FGiQfRT55vWpJJZif/CkkJM613
+            p8vD20nWs/g5eFwdtzVKxR3HpDpr9hdJjnq3DRorHVAO3czH9+jjzwmRI/c/i0uD
+            gPwtNfhJJWNCv4TTrroiVRmn6wNAkJei+pWXCDmKBj+Qji8sZfo6WMalnZIArteO
+            sduj3krcMDrqP+QqTcP+GRrUktdZA8ICYpzAGWVNT3Y5ViTWDd1z8rPrsv4pZUPs
+            6t1URHcBI/wH3b7PTAeacAUuBIlStCsEfEiPZ7Lzc+3KM1W33MQdo3y/RC3tlKgI
+            Z+osjWpuNdQlJTXtZvVmzSgwszB+QJuADdLa+VGvtzXFvMX2/2pksid9QB1wIBPP
+            XnzVeqFxnt2sToboYy9lQl/tg1yna63vkeAGh0T8OMhg4bTWYA8+FiqXiyNdBoCg
+            +H1rPm0SQQy1pfzMhBNUgA5UPbG0EJNqcWiLGihs7l8jtqDHvnBjuDr/6X7m1lNR
+            sshACZMmbrYFOGFAgxPA5wHnv9IV6OS8/tfqJwNMIxtyv+TaPbEl+iHKbKM2EqdV
+            jHMZ1VX6n1MOFcDR0eyDuJG0cr+wnQQqD3Lep4WuNpMDv3A7CnoK/W0wiNEAXZjS
+            XgHeJjUe51CaqmIcQnV3O2qimRidrue3ChqMRl9LQSMDmERowMgE60p3vvAcU9C6
+            Sz2WGKRIJT7P1qJu8Re9KiY+Y6h9MDKYNkIhZZzXVv6rsIZ7HWGichmjF5h9R98=
+            =0sZM
+            -----END PGP MESSAGE-----
+          fp: 129994A38E40322EE2A4FA6CB59C51DA13B1BF22
+    encrypted_regex: ^(value|host|hosts|nginx\.ingress\.kubernetes\.io\/mirror-host|nginx\.ingress\.kubernetes\.io\/auth-url|nginx\.ingress\.kubernetes\.io\/auth-signin)$
+    version: 3.7.3

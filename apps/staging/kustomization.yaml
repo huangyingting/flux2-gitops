@@ -13,6 +13,7 @@ resources:
   - bookinfo
   - reddog
   - azure-openai-proxy
+  - chatgpt-next-web
   # keda + containerd-shim-slight-v1 to run a rust application with redis capability
   # - rust-slight
   # - postgrest
