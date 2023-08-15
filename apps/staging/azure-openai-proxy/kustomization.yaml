@@ -5,3 +5,6 @@ resources:
   - ../../base/azure-openai-proxy
 patchesStrategicMerge:
   - deployment.enc.yaml
+replicas:
+- name: azure-openai-proxy
+  count: 0  

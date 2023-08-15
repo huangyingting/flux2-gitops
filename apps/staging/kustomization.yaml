@@ -12,6 +12,7 @@ resources:
   - dapr-calculator
   - bookinfo
   - reddog
+  # to enable, change replicas to 1 from kustomization.yaml
   - azure-openai-proxy
   - chatgpt-next-web
   # keda + containerd-shim-slight-v1 to run a rust application with redis capability
