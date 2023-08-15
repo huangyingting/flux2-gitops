@@ -1,0 +1,68 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: azure-openai-proxy
+    labels:
+        name: azure-openai-proxy
+spec:
+    replicas: 1
+    selector:
+        matchLabels:
+            app: azure-openai-proxy
+    template:
+        metadata:
+            labels:
+                app: azure-openai-proxy
+        spec:
+            containers:
+                - image: stulzq/azure-openai-proxy
+                  imagePullPolicy: IfNotPresent
+                  name: azure-openai-proxy
+                  env:
+                    - name: ENC[AES256_GCM,data:houF/MWl+RvBtdOT5wq89O8jiYDO,iv:nEawvUya4elA53hBTLOcpLJPkb92VvJbpyHRxhbibdA=,tag:Y/U4EmzBN6vh0raZ6RttuQ==,type:str]
+                      value: ENC[AES256_GCM,data:NPuYU6Ak6bsUFqjzTASzG04bKzgJlWcbWf/pJnf7qOSd,iv:kLWRqHwU8f+8s1vx44LuqffuYqOs8Ulw9WQapGOlS28=,tag:e2KM41Jb0h0wdbfl8mWaRg==,type:str]
+                    - name: ENC[AES256_GCM,data:WPuA2Zi99R/BvGvATTwzg/C7Ll52U8hArQ==,iv:v2Sm1lRxZwU8oGnlETX+X+TmWjZrQX1i/B9QBzZmF2A=,tag:K2gTIsA0qxKNyvWY7he7Zg==,type:str]
+                      value: ENC[AES256_GCM,data:YH4zdQsPLnEUHNl7PnbByKYeutQ5wUPdNAWeXuvtwHtwp1KWwessqrMYg0wwc4Yp7jZaYQf2nPiPR1fJ2wEYnRVwA0dwMvQ95IkMzWV+yVDDbD25rQYYuE6fFn1h66xCO23D3xNdOvUlpwY=,iv:vJ/c9WYHLJ0cc94IvOX4++8V7yTP84gxieOxF5xNMCs=,tag:Qhtd0voDvgxPn5NRCb10jA==,type:str]
+                    - name: ENC[AES256_GCM,data:DrBqa/YiKOy43ZQ0Von/G/Ai56Y=,iv:xrU3qQTpTRJZFpL/6z5cOgrpgqwNn3bOKvoVoikqMmc=,tag:CRgbkRgoD2G5UgA7BkAu6Q==,type:str]
+                      value: ENC[AES256_GCM,data:GAV+TEbsb4vqJQ==,iv:sk5RlqxaSb7ywQEnyZ5mJO74yMC/9nxlybmnIdsO1M8=,tag:HxCmdNMdhmZEakrZaNLj4A==,type:str]
+                  resources:
+                    requests:
+                        cpu: 50m
+                        memory: 64Mi
+                    limits:
+                        cpu: 100m
+                        memory: 128Mi
+                  ports:
+                    - containerPort: 8080
+            restartPolicy: Always
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2023-08-15T06:29:45Z"
+    mac: ENC[AES256_GCM,data:xDJTUesdOmGKj7KHomHPUcLgZ29CE5vgMlxYcI9eh9byIBe07Q6PzCS4Sy7gb0djEpBPxzyHGzffdXdCioqnwES1D5I9uR2Ulg936ECJ3lJdM47Ab8bb7Sa80PNOUQGWqD6FuXoQeDoMc6wbvpIiVjawhB+CaxoF+bn3aG8Te8Q=,iv:3uUE4pGNveM/Cs7XLVS+qTMPKpCZWp7ieRqLNQTJCHo=,tag:Zp2bVGl0uzZB9uFsssLr3w==,type:str]
+    pgp:
+        - created_at: "2023-08-15T06:29:44Z"
+          enc: |
+            -----BEGIN PGP MESSAGE-----
+
+            hQIMA38T7Az157GMAQ/+Nfjzw2eA4uyRl9hKlsq6jlkNuG8N+lZy2SjvjZ0EtSwb
+            D5k8a3Hhz2UXu8vmJ4VVeSvGqrnZO+teU8+ViRP27dE6nn/axOd3gChPQGs292e7
+            zQcTOoE/q58CuHTMCBFuUuD6m7UyfrSPvEEmYoyUSPayEuG5qRnlKtB42Q2zQRUb
+            +vhpiscGoz3seXrbWw8+AkogciNoMInL+q597TsEFu2O0NT39F28ogAq/ASfyQ5u
+            hbeMc+AZdGclfVZkmzJ1IroLlfaXZU1QKAYL+wT4MydKaA3tgSe0yaU17mWt5pNr
+            GEtxFPivh01oytxtf3EqCKvTQ/sakFR6x2BK2nRX4FOalcC6rhKop23B4Ofr68HK
+            ARr8MdReLMdA1U9h4XOPYUP34RVQtkdEgqRfB/0mtxtHkSGwl1gsFxtIErbW3el4
+            FQuwSin/GGKaqhe2gjKIXzZiZFEog362QOtNN3nPXVfbvh3V9l0Pq0MerPO5vGl1
+            JpGKer7bbgeWrdyyD5F9hI1Bv6EBHx/NlgPwWPfJKf2b+qskxMcJE6o8w/B35PdB
+            KX3rNoUTiQzd0OyqjySBQZiariyIbgLmkYpfgRKGar8efyrdgZdfX11v7yaqIA6S
+            xh5NR9Ybnqn0bIGanHfCswubB4VNj9D7T/eiLYXuAKt/ltwZvzrCMG0lZHTwtWLS
+            XgFLRXqt7SNsrOgXP5Jn76VclUGYp8Xmiu12s/hvJs3ZF0AjPZ2tSgs71JeNpXlP
+            S4hvsvJ8QMngU/75NjJnOV6sa0HE9WMcJi78A1DEatig1hdzBnhncx0toLn43dw=
+            =R0ym
+            -----END PGP MESSAGE-----
+          fp: 129994A38E40322EE2A4FA6CB59C51DA13B1BF22
+    encrypted_regex: ^(env)$
+    version: 3.7.3

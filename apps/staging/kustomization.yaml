@@ -12,6 +12,7 @@ resources:
   - dapr-calculator
   - bookinfo
   - reddog
+  - azure-openai-proxy
   # keda + containerd-shim-slight-v1 to run a rust application with redis capability
   # - rust-slight
   # - postgrest
