@@ -6,3 +6,6 @@ resources:
 patchesStrategicMerge:
   - deployment.enc.yaml
   - ingress.enc.yaml
+replicas:
+- name: chatgpt-next-web
+  count: 0
