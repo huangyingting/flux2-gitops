@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: chat-copilot-webapp
+  name: chat-copilot-webapp
+spec:
+  selector:
+    matchLabels:
+      app: chat-copilot-webapp
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: chat-copilot-webapp
+    spec:
+      containers:
+      - image: ghcr.io/huangyingting/chat-copilot-webapp-nginx:main
+        imagePullPolicy: Always
+        name: chat-copilot-webapp
+        ports:
+        - containerPort: 3000
+          name: http
+          protocol: TCP
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: chat-copilot-webapi
+  name: chat-copilot-webapi
+spec:
+  selector:
+    matchLabels:
+      app: chat-copilot-webapi
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: chat-copilot-webapi
+    spec:
+      containers:
+      - image: ghcr.io/huangyingting/chat-copilot-webapi:main
+        imagePullPolicy: Always
+        name: chat-copilot-webapi
+        ports:
+        - containerPort: 8080
+          name: http
+          protocol: TCP

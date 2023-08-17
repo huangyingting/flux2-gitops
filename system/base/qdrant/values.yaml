@@ -1,0 +1,6 @@
+# Default values
+# https://github.com/qdrant/qdrant-helm/blob/main/README.md
+persistence:
+  size: 8Gi
+
+

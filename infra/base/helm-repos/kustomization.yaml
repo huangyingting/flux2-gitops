@@ -23,3 +23,4 @@ resources:
   - keda.yaml
   - pulsar.yaml
   - open-telemetry.yaml
+  - qdrant.yaml
