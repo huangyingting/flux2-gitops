@@ -20,3 +20,4 @@ resources:
   # - postgrest
   # - otel-demo
   # - keycloak
+  - chat-copilot

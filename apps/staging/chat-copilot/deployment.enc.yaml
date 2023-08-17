@@ -1,0 +1,138 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    labels:
+        app: chat-copilot-webapp
+    name: chat-copilot-webapp
+spec:
+    selector:
+        matchLabels:
+            app: chat-copilot-webapp
+    replicas: 1
+    template:
+        metadata:
+            labels:
+                app: chat-copilot-webapp
+        spec:
+            containers:
+                - image: ghcr.io/huangyingting/chat-copilot-webapp-nginx:main
+                  imagePullPolicy: Always
+                  name: chat-copilot-webapp
+                  ports:
+                    - containerPort: 3000
+                      name: http
+                      protocol: TCP
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2023-08-17T03:12:04Z"
+    mac: ENC[AES256_GCM,data:dt4HeQWLnNrbCGHKAF8KhEBwUs6K9e2B0cvSX/RoTQrGoStGxeiTZ8rakWkB7CTlj9yNNxezjlX85NG9n36PJBNvgX67klBhYzRDAxo2sx9uwj4AXfmbSkwIntd9LHf5cv31R70h9AR4PvvAl0GAXD4XZCUgCG2sZMmng+hFeZA=,iv:f2tDAZFxaqYHSDb5UfSCskVIqUzsj3bDbn8yO7WFCIQ=,tag:8sCuOn4Sfbyarmd4dfk7uQ==,type:str]
+    pgp:
+        - created_at: "2023-08-17T03:12:02Z"
+          enc: |
+            -----BEGIN PGP MESSAGE-----
+
+            hQIMA38T7Az157GMAQ/+Mblv6gJ5gF8f5+IIyrtoaRUkTxurQ5m4/9XahcWvTXit
+            CVdaETqqgsmHVNlYna+tyaupymlRc/sjrJZA1vPs9Kwy1SYhp7tU0aScmDthckwZ
+            AOWsIt7RdXf0KkAbR8ym+7vIVTd2S2iuc3Nci46DO5BYPOXPb70lLb6jeVBwiU9w
+            MR3LtwmQNbrCQThz2BWpR9AE3MEHcUQ78CGeJ4jPJp6N2LJwf+n8QcxofWZuxV+T
+            86AdsieUu3JS00HFKqxPVvm7j7JmNiXmf4v+7hmREqaGoeUbhFN5KpHqB2cc0nci
+            qgFQkRXEYQOvphP+fCH+ydHMIwVF0hIVo+JNH5ukbRMOU7cl49PXE6KCqk/3K63a
+            EWqFDtmVciAuiMXHom8LXciz0DdwvaTmBvLFB1fUfTtvdS5Wu8c0Be7c6TWug0uz
+            8IpmCwlHjbOhJ5PByem07chSlmZju8griYHY+Y8R6l5RnAPNueEWY+42dc2d5Xoz
+            j21OJP0YFNwyzB74f/Cm7+5zRRlI2wrlPKJ5AgEGsoMOuSgKcdjSdM79fGgN+OTc
+            WOt77CJ6BQhNtiZlyN7kcZvGijkBhD5Ed0qhbGH57ecOX5No/siqLxSoRluyw62p
+            5vtwx6Xrn6WFpoxEr81Rxzj5Ie2CmY5Hia0pgf3y+qaopZti+hGSpcSK/sVnOb/S
+            XgGxXHYU3dUljxWA7vNKe//zhJ7OKpmBOokshKIQYiWW4ifSfLYvmBDxbUl90bCw
+            GloXsNEaoiZjtIs2GqtA5dOjBre+sVOyuK9v46pIdkaR3pGQkjNDLpA5gMLUDlA=
+            =VcLH
+            -----END PGP MESSAGE-----
+          fp: 129994A38E40322EE2A4FA6CB59C51DA13B1BF22
+    encrypted_regex: ^(value|host|hosts)$
+    version: 3.7.3
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    labels:
+        app: chat-copilot-webapi
+    name: chat-copilot-webapi
+spec:
+    selector:
+        matchLabels:
+            app: chat-copilot-webapi
+    replicas: 1
+    template:
+        metadata:
+            labels:
+                app: chat-copilot-webapi
+        spec:
+            containers:
+                - image: ghcr.io/huangyingting/chat-copilot-webapi:main
+                  imagePullPolicy: Always
+                  name: chat-copilot-webapi
+                  env:
+                    - name: Kestrel__Endpoints__Http__Url
+                      value: ENC[AES256_GCM,data:/17C0AwBJbDl+9P9RVc5aj9CTw==,iv:jREkzNzac/Ft+sSTq4q4MmgPqU6ygOVAlQWpOnLxzYg=,tag:cN7znYPjTEOQlWeKfafAew==,type:str]
+                    - name: AIService__Endpoint
+                      value: ENC[AES256_GCM,data:GldSNm8MH8L1jhjRdxq6+qY3eZz4eYxOy5OefW6kb7mepA==,iv:TozUUD2U62vZGlaz2MFw5wyTdcG6ABxEV3A83sGm0lw=,tag:ffoG4wzZMXY68SE8M1+dpQ==,type:str]
+                    - name: AIService__Key
+                      value: ENC[AES256_GCM,data:dICbh0e9UZExAel9JbW2jKG+aazo8YT+2bSnxH64Xjo=,iv:/lcj4kPgrcZKCpoZMdUosnaLPV8GSnbbm9hr4yG+qlo=,tag:j5cwOfgTjyInsuPWp/87lQ==,type:str]
+                    - name: Authorization__Type
+                      value: ENC[AES256_GCM,data:cisGPsNRYw==,iv:COrSPGBeaYyT1lk5DEuNtzrQFloNLG1G+ZYXpzzhy5o=,tag:JZs5hFVl77mYyEc0k8Djmw==,type:str]
+                    - name: Authorization__AzureAd__TenantId
+                      value: ENC[AES256_GCM,data:nR41v1jUFC0/j7z7WuPl0OJaHDnTOKkx9iJM1ZLTeNRAsZSa,iv:q+FTClPCebevnnthOUwilwvkzATEuXCYH/fqk+r1eQ0=,tag:r1b2c4Rk+YPfrLH1izgyzA==,type:str]
+                    - name: Authorization__AzureAd__ClientId
+                      value: ENC[AES256_GCM,data:1WhHuwZnLq40TkD+xmdSiw/ne0varl1PavoLxChiwLrM9amb,iv:uXfxTYirSaYxG3tGurNk9toIIqImlkWY/Y1k3zxvKtA=,tag:A+xIy77eK31rOgQ95HaRLg==,type:str]
+                    - name: Authorization__AzureAd__Audience
+                      value: ENC[AES256_GCM,data:25GGXOtSjLjOzg1rDl3qkV+p3KQKU+crt2zfh1Jahkm5WMWEs5mjMTuR,iv:K6sxnO4QTmyFaK9qVuvGritlOboTNzP9RS/NRhL9CdQ=,tag:dni4x3XUm6MkazXw+zuAeg==,type:str]
+                    - name: Authorization__AzureAd__Scopes
+                      value: ENC[AES256_GCM,data:3cSZtLFnHs1kNFZ0OPc=,iv:Wo0O9T3VZBQAQlUHa64d/3x5SotNdLAMNCShF+/82FA=,tag:COTY08EarL22T6BchRTWHg==,type:str]
+                    - name: MemoryStore__Type
+                      value: ENC[AES256_GCM,data:iR1Xhh3z,iv:MTsztetln/raiUB37DqFKJPdpHUsa097gzWBwGAh/YA=,tag:HJALa0JpOVUCXFC8M9cXQQ==,type:str]
+                    - name: MemoryStore__Qdrant__Host
+                      value: ENC[AES256_GCM,data:AhNsRBd2wznOzbxXvuzPH9ZApMU=,iv:kfuHr1KRM085SryGpFshdoTu+TUoIyNXYp7fjYd+TB8=,tag:sEL0hJ+ctNmx8MU2GXhoDw==,type:str]
+                    - name: AllowedOrigins__0
+                      value: ENC[AES256_GCM,data:p+GqMv51OYS2ejPfRxze8x/EhWYCy73p6MRAvwSNbxmNHaZb1efTOo40,iv:+TWUMefJWYd+6D27IMAPlkL2GE19DYX7jIPEAeMPhKI=,tag:Br5oA65DW1/7XrR2lQeRfg==,type:str]
+                    - name: AllowedOrigins__1
+                      value: ENC[AES256_GCM,data:OBdcKyDEYcr70R4VWbs+RbWTQAzD4cRzY0Htkza1lxPxiaTHYXCdYKTFNQ==,iv:w2p1XAEs0xiRCGhXHHZYeZL1CUeuCYPg5TTA3fJ01KQ=,tag:VTqNcQcHQszZS4w0kyXaCA==,type:str]
+                    - name: OcrSupport__Type
+                      value: ENC[AES256_GCM,data:ngHqc1r01Upm,iv:s4rwSBeYRbagtIRQkFRj0XMUlWvrtPxl5TQsH93IAz8=,tag:2NR8+Li/72UQXNbs1eTiRw==,type:str]
+                  ports:
+                    - containerPort: 8080
+                      name: http
+                      protocol: TCP
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2023-08-17T03:12:04Z"
+    mac: ENC[AES256_GCM,data:dt4HeQWLnNrbCGHKAF8KhEBwUs6K9e2B0cvSX/RoTQrGoStGxeiTZ8rakWkB7CTlj9yNNxezjlX85NG9n36PJBNvgX67klBhYzRDAxo2sx9uwj4AXfmbSkwIntd9LHf5cv31R70h9AR4PvvAl0GAXD4XZCUgCG2sZMmng+hFeZA=,iv:f2tDAZFxaqYHSDb5UfSCskVIqUzsj3bDbn8yO7WFCIQ=,tag:8sCuOn4Sfbyarmd4dfk7uQ==,type:str]
+    pgp:
+        - created_at: "2023-08-17T03:12:02Z"
+          enc: |
+            -----BEGIN PGP MESSAGE-----
+
+            hQIMA38T7Az157GMAQ/+Mblv6gJ5gF8f5+IIyrtoaRUkTxurQ5m4/9XahcWvTXit
+            CVdaETqqgsmHVNlYna+tyaupymlRc/sjrJZA1vPs9Kwy1SYhp7tU0aScmDthckwZ
+            AOWsIt7RdXf0KkAbR8ym+7vIVTd2S2iuc3Nci46DO5BYPOXPb70lLb6jeVBwiU9w
+            MR3LtwmQNbrCQThz2BWpR9AE3MEHcUQ78CGeJ4jPJp6N2LJwf+n8QcxofWZuxV+T
+            86AdsieUu3JS00HFKqxPVvm7j7JmNiXmf4v+7hmREqaGoeUbhFN5KpHqB2cc0nci
+            qgFQkRXEYQOvphP+fCH+ydHMIwVF0hIVo+JNH5ukbRMOU7cl49PXE6KCqk/3K63a
+            EWqFDtmVciAuiMXHom8LXciz0DdwvaTmBvLFB1fUfTtvdS5Wu8c0Be7c6TWug0uz
+            8IpmCwlHjbOhJ5PByem07chSlmZju8griYHY+Y8R6l5RnAPNueEWY+42dc2d5Xoz
+            j21OJP0YFNwyzB74f/Cm7+5zRRlI2wrlPKJ5AgEGsoMOuSgKcdjSdM79fGgN+OTc
+            WOt77CJ6BQhNtiZlyN7kcZvGijkBhD5Ed0qhbGH57ecOX5No/siqLxSoRluyw62p
+            5vtwx6Xrn6WFpoxEr81Rxzj5Ie2CmY5Hia0pgf3y+qaopZti+hGSpcSK/sVnOb/S
+            XgGxXHYU3dUljxWA7vNKe//zhJ7OKpmBOokshKIQYiWW4ifSfLYvmBDxbUl90bCw
+            GloXsNEaoiZjtIs2GqtA5dOjBre+sVOyuK9v46pIdkaR3pGQkjNDLpA5gMLUDlA=
+            =VcLH
+            -----END PGP MESSAGE-----
+          fp: 129994A38E40322EE2A4FA6CB59C51DA13B1BF22
+    encrypted_regex: ^(value|host|hosts)$
+    version: 3.7.3
