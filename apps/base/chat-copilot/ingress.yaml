@@ -14,7 +14,7 @@ spec:
           service: 
             name: chat-copilot-webapp
             port: 
-              number: 80
+              number: 3000
         path: /
         pathType: ImplementationSpecific
   tls:
@@ -38,7 +38,7 @@ spec:
           service: 
             name: chat-copilot-webapi
             port: 
-              number: 80
+              number: 8080
         path: /
         pathType: ImplementationSpecific
   tls:

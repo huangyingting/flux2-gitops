@@ -7,19 +7,19 @@ metadata:
 spec:
     ingressClassName: nginx
     rules:
-        - host: ENC[AES256_GCM,data:xX5uCt440iKPqhJJPc9Zo4HnEvzEc8kGltPkkq9RYGQutb8=,iv:Qbx4Fk8ZHW7MS5SfUfRlbs3E8OVcy6cDnMc8gtoiOdk=,tag:w+EzUods/9OLXcib8rNeGg==,type:str]
+        - host: ENC[AES256_GCM,data:KqtcnJSHWldZOKeyf4W7zkzM0C3uXoG0d5yQPzLA503+WEk=,iv:6kfasBGRxW+RiXbiya69dvrR6zcBB944eagTpS5Q4Uw=,tag:DIpQW7lLO+63d5pM0aJCug==,type:str]
           http:
             paths:
                 - backend:
                     service:
                         name: chat-copilot-webapp
                         port:
-                            number: 80
+                            number: 3000
                   path: /
                   pathType: ImplementationSpecific
     tls:
         - hosts:
-            - ENC[AES256_GCM,data:LYJP6R6+ywOaYjMLn/tWmR7ae989VS4eJNXsS5Ioew8GaZ8=,iv:z4PJfhJQ0n7AXsz96G++n1y0OMXaq0Ibrais/8b3LfA=,tag:GEIdIhG/+45lhpBSD/Xl1w==,type:str]
+            - ENC[AES256_GCM,data:8Z+qUn9WtBkqKL618Q2x9ct4UVVgghI4lGC3w3ZAHE4wwDw=,iv:CpCvha7/NpAYrGoxI0domGv35mPMAu4gSxZwjgBTUGk=,tag:AJPkBQZKdAJiPVwEtN14Mg==,type:str]
           secretName: chat-copilot-webapp-tls
 sops:
     kms: []
@@ -27,27 +27,27 @@ sops:
     azure_kv: []
     hc_vault: []
     age: []
-    lastmodified: "2023-08-17T03:11:57Z"
-    mac: ENC[AES256_GCM,data:cxnCik9UMrL+c4C4XDet4GuTHk4nIeMGh0g/Cdmi4N1vT1eTO2mwnkpPQgI9hczHNZW2w9bH9A6I99zesVwR9U1KdG6fnvVV54lYGwfUVoegS7msrroMq582kkZRU/d7Z2Im9UnfwjKXWhzzw05v8VzuzdXVfL+dPOaPC5nsy20=,iv:DXBwJhhPXvk0M/fMtnKek40gV7KvZaGUPuBmTJ2vYNA=,tag:ZI5smnCGxCQfzEXz05rLEQ==,type:str]
+    lastmodified: "2023-08-17T03:19:35Z"
+    mac: ENC[AES256_GCM,data:PiBYsrbl4yKYsxgfG9VYjoFVXHGp5WeN51wyw9A6Bxc4QnECvzmANtBXTLa2r3y1dhwy4A9pa/4baHaPeR070zuQfTcFAyuhQEZ9w3kqRAs8RDyo72uR7R6mIF0YrRSMJqc8rUYaiMOc/q49LNd56/GbcQuWJZh2EuBqcwDyiAM=,iv:q+hiWSnQlyNbMebn+/zW8js2vdPevUqEpqu8m/QFz58=,tag:/C9KJEHZoovs/4E1G3rMuw==,type:str]
     pgp:
-        - created_at: "2023-08-17T03:11:53Z"
+        - created_at: "2023-08-17T03:19:34Z"
           enc: |
             -----BEGIN PGP MESSAGE-----
 
-            hQIMA38T7Az157GMAQ/8CycxTe/YXkSV4qnlJxWN/HH5GZnm8njcae6v7VMDSKBs
-            O0X/YDbYOy+eUmMUqvJS8zd3SARaQZznHKZwwx5/LzTxCDsH0pvmOwc1ICTEIcDB
-            dxi8byJsU8h9wuadu1ELMgdnCq2Md0pTPrXpOgcPnHuAn1b+ehyN9k7xJv9jlomb
-            qM0uwBM6Ip8R4EvqVHG1hU2qvbn6VoP/TO3YDwGTQzjNtXy91OByN1ts6l4oZaut
-            WSG1UKq3J9eA+lvoxRsaEOQGjeciqlkHixjfcVolifD55+8KJods6hlUPndqnHgZ
-            653CaVCBOUkUQumbKV9Ye7f2FtjSovhZDewaL2Su6DubitS3rROaUZDfhbBGu+uT
-            tnVS+Dv+yGrqtLGZzI3mjlPmcOGDsdPTlWnl3p+8GrtE0KD34C1mJL+I1w3lE8TP
-            SvvRUk+W8RVjtCYGv0CYAMBSdGndwyYbdeKRc3eK/QUwVAXgWEu5yKCFVFt0bMN8
-            zB5FkUWzBmy7m4vbRpfYPSFrFSR8I1diq/lUhMeH0nxh1PlgOa7zExfWU8eNWssH
-            RzOnYPmIxrcJAUR9GeIXgy29H99zoWnCua4DBrE/9a9BQK6ZCcASpguzWlRdFl8W
-            oOroisEd4Z1FuLLB3kAicZ5f7/UppOQuAvqpnRJaQHq+NYDC+8jHa8w8cEZuDTzS
-            XgFfZe8xZYzw1tSILY3tY7NKnC9DmpTfRYHiUxNU/6Eje2Joi6Agk6vYJxivG4fy
-            NCuMWClyzxtVe3rOsov0O2INJQLlow6pcDj1cBLwDe3IeXodkt5z2XohYJkGPaE=
-            =XpM6
+            hQIMA38T7Az157GMAQ/5AcSEF1CNxiJLZCh2gnLflALTXmdzKr/V7TQ8mBRcFRkv
+            v77W/7ZpL03WJRbKNjsdjYfNW7AuLNnmrENfL+XsIlqITu3bvfemW1xzO/WcSfm4
+            Do0u6hb6eCSU5T4yfF4SGWDJzLpOwFF+oJbv9VkSNTYs3QuwKlDJ5tqCk0xUuxxE
+            ++crVsPwx7x0EuOVLJiunWs/LqSBc645bk3WooqbQCDBjLu66ISJ3ZFG2IPHnBt+
+            SUb2Zs1DDZJOIYN7bCeiStKVate/KbYw/ToUMkqI6TVIW2Lt38+cGtWb+E03EyKv
+            tJIB2hJcHdT3xHfk0DXFRo8YP9GL1f4j3hEEjvcSzFU3ctaIYcISNAqW6N5nL3Qh
+            jlgiXKV9PNIFr8NeW2FuvqTy3+aOhzYuvoIUTs+uRtca/TYcctVJuB/Y884sc5DC
+            6MXPX1W3fLjNhBodO9IGt5l95NrMB8p6obnLPswITH2cMoyywlu8h+jUXqqehikf
+            qF+E+nLjrjT3nCF24PmelO4vVroB/h75ML4/AkNagVmGsjUfLHF+hwLGgtaCOCPw
+            Njf0KSQZy33o4q4MAStNNzvb12VTfD1pwik1f/Esv8qsTFY8H573PqIXcItQuaaJ
+            oRzLTQC3OUfkR2iRuSckUZTAHuGAsSOpInEFUM++3dnaJ11TpMlvHMaVXa1o5MzS
+            XgHRKRHcNzfUlGodMk31/+mn8IidTpWWzIeCNBLaJZ32rsxlcEuiBCS9J6Q5vkJk
+            I0hkSwbvr5Gvv0CEPZ+KLBZFBCeK2Y2hg1hpbastZ5sBm0KmKK3FU91W7eIBu38=
+            =n3hB
             -----END PGP MESSAGE-----
           fp: 129994A38E40322EE2A4FA6CB59C51DA13B1BF22
     encrypted_regex: ^(value|host|hosts)$
@@ -62,19 +62,19 @@ metadata:
 spec:
     ingressClassName: nginx
     rules:
-        - host: ENC[AES256_GCM,data:qurLtIJjljs/NXPQ83vkraexs8e7dWoH2G9BtjMn3z51ahY=,iv:aBvJEDGG2e1VwKEUyhFsHDp8bB5EwrDnDWC1AxnqVOQ=,tag:tU93VomqjD8/NuvwV77Nnw==,type:str]
+        - host: ENC[AES256_GCM,data:HmdtNDUSpY8vCaFGS+OYkzPEsWs7mDv/Pb4W1V4ROujYV00=,iv:ITjYlcstVmG9/262f3wU8ydJF3GBtTJUgFqlS5B+27M=,tag:pR9PSCwb1AIoWPn+ReixHw==,type:str]
           http:
             paths:
                 - backend:
                     service:
                         name: chat-copilot-webapi
                         port:
-                            number: 80
+                            number: 8080
                   path: /
                   pathType: ImplementationSpecific
     tls:
         - hosts:
-            - ENC[AES256_GCM,data:eXfsA/Yi+PyrByLmiUGlmFHa3myf7l/zhKptD6VDmWlASBg=,iv:vMZyJs+IObMnEsCgGcH1LUyBYdwgeKLZtBu67rDNLzY=,tag:Oninu8QbqxG9g4bCaUEw+w==,type:str]
+            - ENC[AES256_GCM,data:L5YGhoa0VAgCcAf37e7U1inE15dxWHzjJCzIw0vCiV6YPUY=,iv:NZKbwd7qJS7bdXz7j6MKc+VGvYRdpaxD1LVsBgMsXS4=,tag:D4r/dHeFljJMv9KW6x1k3w==,type:str]
           secretName: chat-copilot-webapi-tls
 sops:
     kms: []
@@ -82,27 +82,27 @@ sops:
     azure_kv: []
     hc_vault: []
     age: []
-    lastmodified: "2023-08-17T03:11:57Z"
-    mac: ENC[AES256_GCM,data:cxnCik9UMrL+c4C4XDet4GuTHk4nIeMGh0g/Cdmi4N1vT1eTO2mwnkpPQgI9hczHNZW2w9bH9A6I99zesVwR9U1KdG6fnvVV54lYGwfUVoegS7msrroMq582kkZRU/d7Z2Im9UnfwjKXWhzzw05v8VzuzdXVfL+dPOaPC5nsy20=,iv:DXBwJhhPXvk0M/fMtnKek40gV7KvZaGUPuBmTJ2vYNA=,tag:ZI5smnCGxCQfzEXz05rLEQ==,type:str]
+    lastmodified: "2023-08-17T03:19:35Z"
+    mac: ENC[AES256_GCM,data:PiBYsrbl4yKYsxgfG9VYjoFVXHGp5WeN51wyw9A6Bxc4QnECvzmANtBXTLa2r3y1dhwy4A9pa/4baHaPeR070zuQfTcFAyuhQEZ9w3kqRAs8RDyo72uR7R6mIF0YrRSMJqc8rUYaiMOc/q49LNd56/GbcQuWJZh2EuBqcwDyiAM=,iv:q+hiWSnQlyNbMebn+/zW8js2vdPevUqEpqu8m/QFz58=,tag:/C9KJEHZoovs/4E1G3rMuw==,type:str]
     pgp:
-        - created_at: "2023-08-17T03:11:53Z"
+        - created_at: "2023-08-17T03:19:34Z"
           enc: |
             -----BEGIN PGP MESSAGE-----
 
-            hQIMA38T7Az157GMAQ/8CycxTe/YXkSV4qnlJxWN/HH5GZnm8njcae6v7VMDSKBs
-            O0X/YDbYOy+eUmMUqvJS8zd3SARaQZznHKZwwx5/LzTxCDsH0pvmOwc1ICTEIcDB
-            dxi8byJsU8h9wuadu1ELMgdnCq2Md0pTPrXpOgcPnHuAn1b+ehyN9k7xJv9jlomb
-            qM0uwBM6Ip8R4EvqVHG1hU2qvbn6VoP/TO3YDwGTQzjNtXy91OByN1ts6l4oZaut
-            WSG1UKq3J9eA+lvoxRsaEOQGjeciqlkHixjfcVolifD55+8KJods6hlUPndqnHgZ
-            653CaVCBOUkUQumbKV9Ye7f2FtjSovhZDewaL2Su6DubitS3rROaUZDfhbBGu+uT
-            tnVS+Dv+yGrqtLGZzI3mjlPmcOGDsdPTlWnl3p+8GrtE0KD34C1mJL+I1w3lE8TP
-            SvvRUk+W8RVjtCYGv0CYAMBSdGndwyYbdeKRc3eK/QUwVAXgWEu5yKCFVFt0bMN8
-            zB5FkUWzBmy7m4vbRpfYPSFrFSR8I1diq/lUhMeH0nxh1PlgOa7zExfWU8eNWssH
-            RzOnYPmIxrcJAUR9GeIXgy29H99zoWnCua4DBrE/9a9BQK6ZCcASpguzWlRdFl8W
-            oOroisEd4Z1FuLLB3kAicZ5f7/UppOQuAvqpnRJaQHq+NYDC+8jHa8w8cEZuDTzS
-            XgFfZe8xZYzw1tSILY3tY7NKnC9DmpTfRYHiUxNU/6Eje2Joi6Agk6vYJxivG4fy
-            NCuMWClyzxtVe3rOsov0O2INJQLlow6pcDj1cBLwDe3IeXodkt5z2XohYJkGPaE=
-            =XpM6
+            hQIMA38T7Az157GMAQ/5AcSEF1CNxiJLZCh2gnLflALTXmdzKr/V7TQ8mBRcFRkv
+            v77W/7ZpL03WJRbKNjsdjYfNW7AuLNnmrENfL+XsIlqITu3bvfemW1xzO/WcSfm4
+            Do0u6hb6eCSU5T4yfF4SGWDJzLpOwFF+oJbv9VkSNTYs3QuwKlDJ5tqCk0xUuxxE
+            ++crVsPwx7x0EuOVLJiunWs/LqSBc645bk3WooqbQCDBjLu66ISJ3ZFG2IPHnBt+
+            SUb2Zs1DDZJOIYN7bCeiStKVate/KbYw/ToUMkqI6TVIW2Lt38+cGtWb+E03EyKv
+            tJIB2hJcHdT3xHfk0DXFRo8YP9GL1f4j3hEEjvcSzFU3ctaIYcISNAqW6N5nL3Qh
+            jlgiXKV9PNIFr8NeW2FuvqTy3+aOhzYuvoIUTs+uRtca/TYcctVJuB/Y884sc5DC
+            6MXPX1W3fLjNhBodO9IGt5l95NrMB8p6obnLPswITH2cMoyywlu8h+jUXqqehikf
+            qF+E+nLjrjT3nCF24PmelO4vVroB/h75ML4/AkNagVmGsjUfLHF+hwLGgtaCOCPw
+            Njf0KSQZy33o4q4MAStNNzvb12VTfD1pwik1f/Esv8qsTFY8H573PqIXcItQuaaJ
+            oRzLTQC3OUfkR2iRuSckUZTAHuGAsSOpInEFUM++3dnaJ11TpMlvHMaVXa1o5MzS
+            XgHRKRHcNzfUlGodMk31/+mn8IidTpWWzIeCNBLaJZ32rsxlcEuiBCS9J6Q5vkJk
+            I0hkSwbvr5Gvv0CEPZ+KLBZFBCeK2Y2hg1hpbastZ5sBm0KmKK3FU91W7eIBu38=
+            =n3hB
             -----END PGP MESSAGE-----
           fp: 129994A38E40322EE2A4FA6CB59C51DA13B1BF22
     encrypted_regex: ^(value|host|hosts)$
