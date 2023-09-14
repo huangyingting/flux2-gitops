@@ -21,7 +21,7 @@ resources:
   # - elasticsearch
   # - kafka
   - rabbitmq
-  # - chaos-mesh
+  - chaos-mesh
   - botkube
   - flux
   - vsc
