@@ -9,9 +9,10 @@ resources:
   - istio-ingress
   # - kiali
   - linkerd
-  - linkerd-jaeger
-  - linkerd-smi
-  - linkerd-viz
+  # - linkerd-jaeger
+  # - linkerd-smi
+  # - linkerd-viz
+  # - flagger 
   - redis
   - oauth2-proxy
   - postgres
@@ -22,7 +23,6 @@ resources:
   - rabbitmq
   - chaos-mesh
   - botkube
-  - flagger
   - flux
   - vsc
   - postfix
