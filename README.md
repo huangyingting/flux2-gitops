@@ -531,3 +531,14 @@ Try using those commands to fix the issue
 flux suspend hr <helmreleae name> -n <namespace>
 flux resume hr <helmreleae name> -n <namespace>
 ```
+
+### Forcefully delete namespace
+
+When a Helm release is deleted from Flux, the associated namespace can get stuck in a terminating state indefinitely due to dependency issues, preventing the namespace from being fully cleaned up. This can cause the Kustomization deployment to remain in an unsuccessful state. To resolve this, forcefully delete the stuck namespace with the following script
+
+```bash
+NAMESPACE=
+kubectl get ns $NAMESPACE -o json | \
+  jq '.spec.finalizers=[]' | \
+  curl -X PUT http://localhost:8001/api/v1/namespaces/$NAMESPACE/finalize -H "Content-Type: application/json" --data @-
+```
