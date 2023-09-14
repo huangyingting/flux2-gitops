@@ -8,10 +8,10 @@ resources:
   - istio
   - istio-ingress
   # - kiali
-  # - linkerd
-  # - linkerd-jaeger
-  # - linkerd-smi
-  # - linkerd-viz
+  - linkerd
+  - linkerd-jaeger
+  - linkerd-smi
+  - linkerd-viz
   - redis
   - oauth2-proxy
   - postgres
