@@ -5,8 +5,8 @@ resources:
   - loki
   # - tempo-distributed
   - tempo
-  - istio
-  - istio-ingress
+  # - istio
+  # - istio-ingress
   # - kiali
   - linkerd
   # - linkerd-jaeger
@@ -21,7 +21,7 @@ resources:
   # - elasticsearch
   # - kafka
   - rabbitmq
-  - chaos-mesh
+  # - chaos-mesh
   - botkube
   - flux
   - vsc
