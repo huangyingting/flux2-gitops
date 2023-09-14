@@ -10,6 +10,9 @@ secretGenerator:
     files:
       - ca.crt
       - issuer.crt
-      - issuer.key      
+      - issuer.key
+  - name: linkerd-crds-values
+    files:
+      - values.yaml=linkerd-crds-values.yaml      
 configurations:
   - kustomizeconfig.yaml
