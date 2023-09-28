@@ -59,27 +59,27 @@ sops:
     azure_kv: []
     hc_vault: []
     age: []
-    lastmodified: "2023-09-28T05:43:27Z"
-    mac: ENC[AES256_GCM,data:+RsdiE0+D7d9hSZK8kk88KtZBH+Ry1Uj0qMfslLuuBI2bdUMKSWmrYYPLfB2MkE0jp3s+/hr5xmDTMciFzYb6NIfzrwq0UbSJyo2geWt3zr1iqC7vGl8X+1PQrajKySy49tohnjk+Klsr67SaaXqaNIwjsS40SxFoT3b9bZ2nHg=,iv:QNbcxv6OHXjQSzZR736FYk6zssidhAvAf6cFc0IUack=,tag:tOjCi9sXFlct+nHsbvnPXg==,type:str]
+    lastmodified: "2023-09-28T05:57:43Z"
+    mac: ENC[AES256_GCM,data:mDPhq9YT+ViKAGoay/A1BtEP8pRq43z1bub9NU6CU+ZjFWCVbBo2y+0VSiONXOJPQ/I7RA6pdXEAYdtgtbpR/AWIgST0qYzS3PIXhG3uOkbApFPFuFTXHO7UOVtrvgDebvscYs3IasCph36oHgYCZTyXApNuj3g2prbB/rxbs68=,iv:wdWda5Hi6UzwM8NBiSW6+zIyor+Nh404L28jW4DCi24=,tag:3dYsZF4FSNzkDbrRsUERNA==,type:str]
     pgp:
-        - created_at: "2023-09-28T05:43:26Z"
+        - created_at: "2023-09-28T05:57:41Z"
           enc: |
             -----BEGIN PGP MESSAGE-----
 
-            hQIMA38T7Az157GMARAAk+EAe803pKtS7XkVO1bqmVvr1NFtOz2RvKoXFwwlMv8w
-            DhImTofraLavqA9/rmQoayPN8GIhgiPG7cZk79zgU36LNFG2Om6Nt0cnLp0JQMFs
-            h9e2/2sa7NbALEaQQM6I+ud73xmKvXFNs4yFE/GrxyGKcu/OIhXCv8OQGdsP/SL2
-            exjqz0ZenIXKjhW1qgXenz6wAucBPp6JhL771Njiy9onrDaePzRv97CeTi5vJhaE
-            p8rl6b6uEB08XfEX8KxvlRo3hK5u5RD8sKeZOxJLR6jKjc8H3KU99qEiWijzLLnj
-            bXMLNYLn6kNW3ctwHCtS8iiTcTZ8AyL0NFJHLoYxJ9vPqWR23+5/vh8JG3pokZ5y
-            LcE9E6aNm35Q/CFT2VUiy+W3KKiI23At4As1xJM8v01EB+Shs1CB68UrRpH3qVSc
-            YBueFWBSuRK/AmBlZOfpkQg8aukngZ8Cf1j1W5QjM2CRhNBuGifaPDSuPXcHtP73
-            txPid72y/bjiwYKtsMdGeAwxfHH89WVcu9rGKtDnbAorG+XmWN63M6eXE2Ys+GCm
-            DTt8BqWR0UISjSSrVx1A4Y+j8zYnqTcMXdB5nNNg3mBb7kJAidrgnAB9WsnjtYr1
-            xlV0yiz/Xih2bZljd/kadKlyrwEl5A0AS96fhCPOXNCp5N7h819RtNDi/3EsXMbS
-            XAHdqY3TqtQX8NuaI46nWhbEf/SNDm+X0yiAPS3d+EpENvpF/9v3Y3puTXgQNU6h
-            QK0cfzrh/IoWXkalzKNxRb0HElxNVE4pDoBh0SquSSYIudnUEvx6S1wbDmSn
-            =9FxX
+            hQIMA38T7Az157GMAQ//esQ5laRml2iTsji1cr8/IMy5GnWDB8OjRGVI6eBf4/vt
+            qkA37b1fzdeVK9OnhmYpi/dnXaTyzxbiJazE6WuKLOoZjAMQZQgqawqwfGJI7JB8
+            Y5+M+oJFhYG4YqRbdcqZAR3x5Y0CyVSRP1TyKAs/waYh6DLG02vAgDo18N3Xu3c9
+            VJr+xoPhqDmgMLryZPCwB/YCmFet3TrI1N2yKJoDK7f65NqKbal0kioC8E+pVOI7
+            irwzBNoh1nDBw1JxDS+3wLIWqR4Om2hITg/Doqq+NdhsBxtxeMa28Yx4gJVhc12y
+            yESK/kuKaxhQ4taQc4TOn1L3sI/GR4lQiBYMyFm8SoHGR9Zghryfs7YUkEwDiogi
+            MVd0lTH0YXs2TWGRgFeJMtMg/g15geqr19vnZcqbr5XsNyhw1YIKWJw8pVEKBitJ
+            5hAPoiuuILtk9JAKP4mkF1b0TC+mh0FUCw6VJzP5AZ/5kRFoF0TCNQf086j9VMp+
+            ttVKTbVn6yQtCls3Iy9MqFkdAqRZvqmXgWoAb3wwRf4xb7ZjDUBx//uWvueQi1oA
+            zkX1JMumAhLudYBdYL13E6+5vQWqA2YJDGhu37VFTG9CqyvDLLq/FPobTSllI6F5
+            cs34EIhQtd9CU6ZzFOow50C0Fhitye6eFFIeTTN4INyGNOAjbegW9/XYWKgPU3fS
+            XgGvRbV4lgwdeXefxew3ifLKEBIzBYdmtItTQBWiGl9M/M21aJY29VRQuguSVrTN
+            kwvkIg929/rbBfwV/ZyG0e1EYFEAQG2Y4lWxecHOWe9B7eSfC1t1/dxP2gZsWis=
+            =fnBG
             -----END PGP MESSAGE-----
           fp: 129994A38E40322EE2A4FA6CB59C51DA13B1BF22
     encrypted_regex: ^(host|hosts|ORDER_QUEUE_USERNAME|ORDER_QUEUE_PASSWORD|AZURE_OPENAI_DEPLOYMENT_NAME|AZURE_OPENAI_ENDPOINT|OPENAI_API_KEY)$
@@ -138,27 +138,27 @@ sops:
     azure_kv: []
     hc_vault: []
     age: []
-    lastmodified: "2023-09-28T05:43:27Z"
-    mac: ENC[AES256_GCM,data:+RsdiE0+D7d9hSZK8kk88KtZBH+Ry1Uj0qMfslLuuBI2bdUMKSWmrYYPLfB2MkE0jp3s+/hr5xmDTMciFzYb6NIfzrwq0UbSJyo2geWt3zr1iqC7vGl8X+1PQrajKySy49tohnjk+Klsr67SaaXqaNIwjsS40SxFoT3b9bZ2nHg=,iv:QNbcxv6OHXjQSzZR736FYk6zssidhAvAf6cFc0IUack=,tag:tOjCi9sXFlct+nHsbvnPXg==,type:str]
+    lastmodified: "2023-09-28T05:57:43Z"
+    mac: ENC[AES256_GCM,data:mDPhq9YT+ViKAGoay/A1BtEP8pRq43z1bub9NU6CU+ZjFWCVbBo2y+0VSiONXOJPQ/I7RA6pdXEAYdtgtbpR/AWIgST0qYzS3PIXhG3uOkbApFPFuFTXHO7UOVtrvgDebvscYs3IasCph36oHgYCZTyXApNuj3g2prbB/rxbs68=,iv:wdWda5Hi6UzwM8NBiSW6+zIyor+Nh404L28jW4DCi24=,tag:3dYsZF4FSNzkDbrRsUERNA==,type:str]
     pgp:
-        - created_at: "2023-09-28T05:43:26Z"
+        - created_at: "2023-09-28T05:57:41Z"
           enc: |
             -----BEGIN PGP MESSAGE-----
 
-            hQIMA38T7Az157GMARAAk+EAe803pKtS7XkVO1bqmVvr1NFtOz2RvKoXFwwlMv8w
-            DhImTofraLavqA9/rmQoayPN8GIhgiPG7cZk79zgU36LNFG2Om6Nt0cnLp0JQMFs
-            h9e2/2sa7NbALEaQQM6I+ud73xmKvXFNs4yFE/GrxyGKcu/OIhXCv8OQGdsP/SL2
-            exjqz0ZenIXKjhW1qgXenz6wAucBPp6JhL771Njiy9onrDaePzRv97CeTi5vJhaE
-            p8rl6b6uEB08XfEX8KxvlRo3hK5u5RD8sKeZOxJLR6jKjc8H3KU99qEiWijzLLnj
-            bXMLNYLn6kNW3ctwHCtS8iiTcTZ8AyL0NFJHLoYxJ9vPqWR23+5/vh8JG3pokZ5y
-            LcE9E6aNm35Q/CFT2VUiy+W3KKiI23At4As1xJM8v01EB+Shs1CB68UrRpH3qVSc
-            YBueFWBSuRK/AmBlZOfpkQg8aukngZ8Cf1j1W5QjM2CRhNBuGifaPDSuPXcHtP73
-            txPid72y/bjiwYKtsMdGeAwxfHH89WVcu9rGKtDnbAorG+XmWN63M6eXE2Ys+GCm
-            DTt8BqWR0UISjSSrVx1A4Y+j8zYnqTcMXdB5nNNg3mBb7kJAidrgnAB9WsnjtYr1
-            xlV0yiz/Xih2bZljd/kadKlyrwEl5A0AS96fhCPOXNCp5N7h819RtNDi/3EsXMbS
-            XAHdqY3TqtQX8NuaI46nWhbEf/SNDm+X0yiAPS3d+EpENvpF/9v3Y3puTXgQNU6h
-            QK0cfzrh/IoWXkalzKNxRb0HElxNVE4pDoBh0SquSSYIudnUEvx6S1wbDmSn
-            =9FxX
+            hQIMA38T7Az157GMAQ//esQ5laRml2iTsji1cr8/IMy5GnWDB8OjRGVI6eBf4/vt
+            qkA37b1fzdeVK9OnhmYpi/dnXaTyzxbiJazE6WuKLOoZjAMQZQgqawqwfGJI7JB8
+            Y5+M+oJFhYG4YqRbdcqZAR3x5Y0CyVSRP1TyKAs/waYh6DLG02vAgDo18N3Xu3c9
+            VJr+xoPhqDmgMLryZPCwB/YCmFet3TrI1N2yKJoDK7f65NqKbal0kioC8E+pVOI7
+            irwzBNoh1nDBw1JxDS+3wLIWqR4Om2hITg/Doqq+NdhsBxtxeMa28Yx4gJVhc12y
+            yESK/kuKaxhQ4taQc4TOn1L3sI/GR4lQiBYMyFm8SoHGR9Zghryfs7YUkEwDiogi
+            MVd0lTH0YXs2TWGRgFeJMtMg/g15geqr19vnZcqbr5XsNyhw1YIKWJw8pVEKBitJ
+            5hAPoiuuILtk9JAKP4mkF1b0TC+mh0FUCw6VJzP5AZ/5kRFoF0TCNQf086j9VMp+
+            ttVKTbVn6yQtCls3Iy9MqFkdAqRZvqmXgWoAb3wwRf4xb7ZjDUBx//uWvueQi1oA
+            zkX1JMumAhLudYBdYL13E6+5vQWqA2YJDGhu37VFTG9CqyvDLLq/FPobTSllI6F5
+            cs34EIhQtd9CU6ZzFOow50C0Fhitye6eFFIeTTN4INyGNOAjbegW9/XYWKgPU3fS
+            XgGvRbV4lgwdeXefxew3ifLKEBIzBYdmtItTQBWiGl9M/M21aJY29VRQuguSVrTN
+            kwvkIg929/rbBfwV/ZyG0e1EYFEAQG2Y4lWxecHOWe9B7eSfC1t1/dxP2gZsWis=
+            =fnBG
             -----END PGP MESSAGE-----
           fp: 129994A38E40322EE2A4FA6CB59C51DA13B1BF22
     encrypted_regex: ^(host|hosts|ORDER_QUEUE_USERNAME|ORDER_QUEUE_PASSWORD|AZURE_OPENAI_DEPLOYMENT_NAME|AZURE_OPENAI_ENDPOINT|OPENAI_API_KEY)$
@@ -198,27 +198,27 @@ sops:
     azure_kv: []
     hc_vault: []
     age: []
-    lastmodified: "2023-09-28T05:43:27Z"
-    mac: ENC[AES256_GCM,data:+RsdiE0+D7d9hSZK8kk88KtZBH+Ry1Uj0qMfslLuuBI2bdUMKSWmrYYPLfB2MkE0jp3s+/hr5xmDTMciFzYb6NIfzrwq0UbSJyo2geWt3zr1iqC7vGl8X+1PQrajKySy49tohnjk+Klsr67SaaXqaNIwjsS40SxFoT3b9bZ2nHg=,iv:QNbcxv6OHXjQSzZR736FYk6zssidhAvAf6cFc0IUack=,tag:tOjCi9sXFlct+nHsbvnPXg==,type:str]
+    lastmodified: "2023-09-28T05:57:43Z"
+    mac: ENC[AES256_GCM,data:mDPhq9YT+ViKAGoay/A1BtEP8pRq43z1bub9NU6CU+ZjFWCVbBo2y+0VSiONXOJPQ/I7RA6pdXEAYdtgtbpR/AWIgST0qYzS3PIXhG3uOkbApFPFuFTXHO7UOVtrvgDebvscYs3IasCph36oHgYCZTyXApNuj3g2prbB/rxbs68=,iv:wdWda5Hi6UzwM8NBiSW6+zIyor+Nh404L28jW4DCi24=,tag:3dYsZF4FSNzkDbrRsUERNA==,type:str]
     pgp:
-        - created_at: "2023-09-28T05:43:26Z"
+        - created_at: "2023-09-28T05:57:41Z"
           enc: |
             -----BEGIN PGP MESSAGE-----
 
-            hQIMA38T7Az157GMARAAk+EAe803pKtS7XkVO1bqmVvr1NFtOz2RvKoXFwwlMv8w
-            DhImTofraLavqA9/rmQoayPN8GIhgiPG7cZk79zgU36LNFG2Om6Nt0cnLp0JQMFs
-            h9e2/2sa7NbALEaQQM6I+ud73xmKvXFNs4yFE/GrxyGKcu/OIhXCv8OQGdsP/SL2
-            exjqz0ZenIXKjhW1qgXenz6wAucBPp6JhL771Njiy9onrDaePzRv97CeTi5vJhaE
-            p8rl6b6uEB08XfEX8KxvlRo3hK5u5RD8sKeZOxJLR6jKjc8H3KU99qEiWijzLLnj
-            bXMLNYLn6kNW3ctwHCtS8iiTcTZ8AyL0NFJHLoYxJ9vPqWR23+5/vh8JG3pokZ5y
-            LcE9E6aNm35Q/CFT2VUiy+W3KKiI23At4As1xJM8v01EB+Shs1CB68UrRpH3qVSc
-            YBueFWBSuRK/AmBlZOfpkQg8aukngZ8Cf1j1W5QjM2CRhNBuGifaPDSuPXcHtP73
-            txPid72y/bjiwYKtsMdGeAwxfHH89WVcu9rGKtDnbAorG+XmWN63M6eXE2Ys+GCm
-            DTt8BqWR0UISjSSrVx1A4Y+j8zYnqTcMXdB5nNNg3mBb7kJAidrgnAB9WsnjtYr1
-            xlV0yiz/Xih2bZljd/kadKlyrwEl5A0AS96fhCPOXNCp5N7h819RtNDi/3EsXMbS
-            XAHdqY3TqtQX8NuaI46nWhbEf/SNDm+X0yiAPS3d+EpENvpF/9v3Y3puTXgQNU6h
-            QK0cfzrh/IoWXkalzKNxRb0HElxNVE4pDoBh0SquSSYIudnUEvx6S1wbDmSn
-            =9FxX
+            hQIMA38T7Az157GMAQ//esQ5laRml2iTsji1cr8/IMy5GnWDB8OjRGVI6eBf4/vt
+            qkA37b1fzdeVK9OnhmYpi/dnXaTyzxbiJazE6WuKLOoZjAMQZQgqawqwfGJI7JB8
+            Y5+M+oJFhYG4YqRbdcqZAR3x5Y0CyVSRP1TyKAs/waYh6DLG02vAgDo18N3Xu3c9
+            VJr+xoPhqDmgMLryZPCwB/YCmFet3TrI1N2yKJoDK7f65NqKbal0kioC8E+pVOI7
+            irwzBNoh1nDBw1JxDS+3wLIWqR4Om2hITg/Doqq+NdhsBxtxeMa28Yx4gJVhc12y
+            yESK/kuKaxhQ4taQc4TOn1L3sI/GR4lQiBYMyFm8SoHGR9Zghryfs7YUkEwDiogi
+            MVd0lTH0YXs2TWGRgFeJMtMg/g15geqr19vnZcqbr5XsNyhw1YIKWJw8pVEKBitJ
+            5hAPoiuuILtk9JAKP4mkF1b0TC+mh0FUCw6VJzP5AZ/5kRFoF0TCNQf086j9VMp+
+            ttVKTbVn6yQtCls3Iy9MqFkdAqRZvqmXgWoAb3wwRf4xb7ZjDUBx//uWvueQi1oA
+            zkX1JMumAhLudYBdYL13E6+5vQWqA2YJDGhu37VFTG9CqyvDLLq/FPobTSllI6F5
+            cs34EIhQtd9CU6ZzFOow50C0Fhitye6eFFIeTTN4INyGNOAjbegW9/XYWKgPU3fS
+            XgGvRbV4lgwdeXefxew3ifLKEBIzBYdmtItTQBWiGl9M/M21aJY29VRQuguSVrTN
+            kwvkIg929/rbBfwV/ZyG0e1EYFEAQG2Y4lWxecHOWe9B7eSfC1t1/dxP2gZsWis=
+            =fnBG
             -----END PGP MESSAGE-----
           fp: 129994A38E40322EE2A4FA6CB59C51DA13B1BF22
     encrypted_regex: ^(host|hosts|ORDER_QUEUE_USERNAME|ORDER_QUEUE_PASSWORD|AZURE_OPENAI_DEPLOYMENT_NAME|AZURE_OPENAI_ENDPOINT|OPENAI_API_KEY)$
@@ -243,6 +243,13 @@ spec:
             containers:
                 - name: store-front
                   image: ghcr.io/azure-samples/aks-store-demo/store-front:latest
+                  command:
+                    - npm
+                  args:
+                    - run
+                    - serve
+                    - -s
+                    - build
                   ports:
                     - containerPort: 8080
                       name: store-front
@@ -261,27 +268,27 @@ sops:
     azure_kv: []
     hc_vault: []
     age: []
-    lastmodified: "2023-09-28T05:43:27Z"
-    mac: ENC[AES256_GCM,data:+RsdiE0+D7d9hSZK8kk88KtZBH+Ry1Uj0qMfslLuuBI2bdUMKSWmrYYPLfB2MkE0jp3s+/hr5xmDTMciFzYb6NIfzrwq0UbSJyo2geWt3zr1iqC7vGl8X+1PQrajKySy49tohnjk+Klsr67SaaXqaNIwjsS40SxFoT3b9bZ2nHg=,iv:QNbcxv6OHXjQSzZR736FYk6zssidhAvAf6cFc0IUack=,tag:tOjCi9sXFlct+nHsbvnPXg==,type:str]
+    lastmodified: "2023-09-28T05:57:43Z"
+    mac: ENC[AES256_GCM,data:mDPhq9YT+ViKAGoay/A1BtEP8pRq43z1bub9NU6CU+ZjFWCVbBo2y+0VSiONXOJPQ/I7RA6pdXEAYdtgtbpR/AWIgST0qYzS3PIXhG3uOkbApFPFuFTXHO7UOVtrvgDebvscYs3IasCph36oHgYCZTyXApNuj3g2prbB/rxbs68=,iv:wdWda5Hi6UzwM8NBiSW6+zIyor+Nh404L28jW4DCi24=,tag:3dYsZF4FSNzkDbrRsUERNA==,type:str]
     pgp:
-        - created_at: "2023-09-28T05:43:26Z"
+        - created_at: "2023-09-28T05:57:41Z"
           enc: |
             -----BEGIN PGP MESSAGE-----
 
-            hQIMA38T7Az157GMARAAk+EAe803pKtS7XkVO1bqmVvr1NFtOz2RvKoXFwwlMv8w
-            DhImTofraLavqA9/rmQoayPN8GIhgiPG7cZk79zgU36LNFG2Om6Nt0cnLp0JQMFs
-            h9e2/2sa7NbALEaQQM6I+ud73xmKvXFNs4yFE/GrxyGKcu/OIhXCv8OQGdsP/SL2
-            exjqz0ZenIXKjhW1qgXenz6wAucBPp6JhL771Njiy9onrDaePzRv97CeTi5vJhaE
-            p8rl6b6uEB08XfEX8KxvlRo3hK5u5RD8sKeZOxJLR6jKjc8H3KU99qEiWijzLLnj
-            bXMLNYLn6kNW3ctwHCtS8iiTcTZ8AyL0NFJHLoYxJ9vPqWR23+5/vh8JG3pokZ5y
-            LcE9E6aNm35Q/CFT2VUiy+W3KKiI23At4As1xJM8v01EB+Shs1CB68UrRpH3qVSc
-            YBueFWBSuRK/AmBlZOfpkQg8aukngZ8Cf1j1W5QjM2CRhNBuGifaPDSuPXcHtP73
-            txPid72y/bjiwYKtsMdGeAwxfHH89WVcu9rGKtDnbAorG+XmWN63M6eXE2Ys+GCm
-            DTt8BqWR0UISjSSrVx1A4Y+j8zYnqTcMXdB5nNNg3mBb7kJAidrgnAB9WsnjtYr1
-            xlV0yiz/Xih2bZljd/kadKlyrwEl5A0AS96fhCPOXNCp5N7h819RtNDi/3EsXMbS
-            XAHdqY3TqtQX8NuaI46nWhbEf/SNDm+X0yiAPS3d+EpENvpF/9v3Y3puTXgQNU6h
-            QK0cfzrh/IoWXkalzKNxRb0HElxNVE4pDoBh0SquSSYIudnUEvx6S1wbDmSn
-            =9FxX
+            hQIMA38T7Az157GMAQ//esQ5laRml2iTsji1cr8/IMy5GnWDB8OjRGVI6eBf4/vt
+            qkA37b1fzdeVK9OnhmYpi/dnXaTyzxbiJazE6WuKLOoZjAMQZQgqawqwfGJI7JB8
+            Y5+M+oJFhYG4YqRbdcqZAR3x5Y0CyVSRP1TyKAs/waYh6DLG02vAgDo18N3Xu3c9
+            VJr+xoPhqDmgMLryZPCwB/YCmFet3TrI1N2yKJoDK7f65NqKbal0kioC8E+pVOI7
+            irwzBNoh1nDBw1JxDS+3wLIWqR4Om2hITg/Doqq+NdhsBxtxeMa28Yx4gJVhc12y
+            yESK/kuKaxhQ4taQc4TOn1L3sI/GR4lQiBYMyFm8SoHGR9Zghryfs7YUkEwDiogi
+            MVd0lTH0YXs2TWGRgFeJMtMg/g15geqr19vnZcqbr5XsNyhw1YIKWJw8pVEKBitJ
+            5hAPoiuuILtk9JAKP4mkF1b0TC+mh0FUCw6VJzP5AZ/5kRFoF0TCNQf086j9VMp+
+            ttVKTbVn6yQtCls3Iy9MqFkdAqRZvqmXgWoAb3wwRf4xb7ZjDUBx//uWvueQi1oA
+            zkX1JMumAhLudYBdYL13E6+5vQWqA2YJDGhu37VFTG9CqyvDLLq/FPobTSllI6F5
+            cs34EIhQtd9CU6ZzFOow50C0Fhitye6eFFIeTTN4INyGNOAjbegW9/XYWKgPU3fS
+            XgGvRbV4lgwdeXefxew3ifLKEBIzBYdmtItTQBWiGl9M/M21aJY29VRQuguSVrTN
+            kwvkIg929/rbBfwV/ZyG0e1EYFEAQG2Y4lWxecHOWe9B7eSfC1t1/dxP2gZsWis=
+            =fnBG
             -----END PGP MESSAGE-----
           fp: 129994A38E40322EE2A4FA6CB59C51DA13B1BF22
     encrypted_regex: ^(host|hosts|ORDER_QUEUE_USERNAME|ORDER_QUEUE_PASSWORD|AZURE_OPENAI_DEPLOYMENT_NAME|AZURE_OPENAI_ENDPOINT|OPENAI_API_KEY)$
@@ -306,6 +313,13 @@ spec:
             containers:
                 - name: store-admin
                   image: ghcr.io/azure-samples/aks-store-demo/store-admin:latest
+                  command:
+                    - npm
+                  args:
+                    - run
+                    - serve
+                    - -s
+                    - build
                   ports:
                     - containerPort: 8081
                       name: store-admin
@@ -326,27 +340,27 @@ sops:
     azure_kv: []
     hc_vault: []
     age: []
-    lastmodified: "2023-09-28T05:43:27Z"
-    mac: ENC[AES256_GCM,data:+RsdiE0+D7d9hSZK8kk88KtZBH+Ry1Uj0qMfslLuuBI2bdUMKSWmrYYPLfB2MkE0jp3s+/hr5xmDTMciFzYb6NIfzrwq0UbSJyo2geWt3zr1iqC7vGl8X+1PQrajKySy49tohnjk+Klsr67SaaXqaNIwjsS40SxFoT3b9bZ2nHg=,iv:QNbcxv6OHXjQSzZR736FYk6zssidhAvAf6cFc0IUack=,tag:tOjCi9sXFlct+nHsbvnPXg==,type:str]
+    lastmodified: "2023-09-28T05:57:43Z"
+    mac: ENC[AES256_GCM,data:mDPhq9YT+ViKAGoay/A1BtEP8pRq43z1bub9NU6CU+ZjFWCVbBo2y+0VSiONXOJPQ/I7RA6pdXEAYdtgtbpR/AWIgST0qYzS3PIXhG3uOkbApFPFuFTXHO7UOVtrvgDebvscYs3IasCph36oHgYCZTyXApNuj3g2prbB/rxbs68=,iv:wdWda5Hi6UzwM8NBiSW6+zIyor+Nh404L28jW4DCi24=,tag:3dYsZF4FSNzkDbrRsUERNA==,type:str]
     pgp:
-        - created_at: "2023-09-28T05:43:26Z"
+        - created_at: "2023-09-28T05:57:41Z"
           enc: |
             -----BEGIN PGP MESSAGE-----
 
-            hQIMA38T7Az157GMARAAk+EAe803pKtS7XkVO1bqmVvr1NFtOz2RvKoXFwwlMv8w
-            DhImTofraLavqA9/rmQoayPN8GIhgiPG7cZk79zgU36LNFG2Om6Nt0cnLp0JQMFs
-            h9e2/2sa7NbALEaQQM6I+ud73xmKvXFNs4yFE/GrxyGKcu/OIhXCv8OQGdsP/SL2
-            exjqz0ZenIXKjhW1qgXenz6wAucBPp6JhL771Njiy9onrDaePzRv97CeTi5vJhaE
-            p8rl6b6uEB08XfEX8KxvlRo3hK5u5RD8sKeZOxJLR6jKjc8H3KU99qEiWijzLLnj
-            bXMLNYLn6kNW3ctwHCtS8iiTcTZ8AyL0NFJHLoYxJ9vPqWR23+5/vh8JG3pokZ5y
-            LcE9E6aNm35Q/CFT2VUiy+W3KKiI23At4As1xJM8v01EB+Shs1CB68UrRpH3qVSc
-            YBueFWBSuRK/AmBlZOfpkQg8aukngZ8Cf1j1W5QjM2CRhNBuGifaPDSuPXcHtP73
-            txPid72y/bjiwYKtsMdGeAwxfHH89WVcu9rGKtDnbAorG+XmWN63M6eXE2Ys+GCm
-            DTt8BqWR0UISjSSrVx1A4Y+j8zYnqTcMXdB5nNNg3mBb7kJAidrgnAB9WsnjtYr1
-            xlV0yiz/Xih2bZljd/kadKlyrwEl5A0AS96fhCPOXNCp5N7h819RtNDi/3EsXMbS
-            XAHdqY3TqtQX8NuaI46nWhbEf/SNDm+X0yiAPS3d+EpENvpF/9v3Y3puTXgQNU6h
-            QK0cfzrh/IoWXkalzKNxRb0HElxNVE4pDoBh0SquSSYIudnUEvx6S1wbDmSn
-            =9FxX
+            hQIMA38T7Az157GMAQ//esQ5laRml2iTsji1cr8/IMy5GnWDB8OjRGVI6eBf4/vt
+            qkA37b1fzdeVK9OnhmYpi/dnXaTyzxbiJazE6WuKLOoZjAMQZQgqawqwfGJI7JB8
+            Y5+M+oJFhYG4YqRbdcqZAR3x5Y0CyVSRP1TyKAs/waYh6DLG02vAgDo18N3Xu3c9
+            VJr+xoPhqDmgMLryZPCwB/YCmFet3TrI1N2yKJoDK7f65NqKbal0kioC8E+pVOI7
+            irwzBNoh1nDBw1JxDS+3wLIWqR4Om2hITg/Doqq+NdhsBxtxeMa28Yx4gJVhc12y
+            yESK/kuKaxhQ4taQc4TOn1L3sI/GR4lQiBYMyFm8SoHGR9Zghryfs7YUkEwDiogi
+            MVd0lTH0YXs2TWGRgFeJMtMg/g15geqr19vnZcqbr5XsNyhw1YIKWJw8pVEKBitJ
+            5hAPoiuuILtk9JAKP4mkF1b0TC+mh0FUCw6VJzP5AZ/5kRFoF0TCNQf086j9VMp+
+            ttVKTbVn6yQtCls3Iy9MqFkdAqRZvqmXgWoAb3wwRf4xb7ZjDUBx//uWvueQi1oA
+            zkX1JMumAhLudYBdYL13E6+5vQWqA2YJDGhu37VFTG9CqyvDLLq/FPobTSllI6F5
+            cs34EIhQtd9CU6ZzFOow50C0Fhitye6eFFIeTTN4INyGNOAjbegW9/XYWKgPU3fS
+            XgGvRbV4lgwdeXefxew3ifLKEBIzBYdmtItTQBWiGl9M/M21aJY29VRQuguSVrTN
+            kwvkIg929/rbBfwV/ZyG0e1EYFEAQG2Y4lWxecHOWe9B7eSfC1t1/dxP2gZsWis=
+            =fnBG
             -----END PGP MESSAGE-----
           fp: 129994A38E40322EE2A4FA6CB59C51DA13B1BF22
     encrypted_regex: ^(host|hosts|ORDER_QUEUE_USERNAME|ORDER_QUEUE_PASSWORD|AZURE_OPENAI_DEPLOYMENT_NAME|AZURE_OPENAI_ENDPOINT|OPENAI_API_KEY)$
@@ -389,27 +403,27 @@ sops:
     azure_kv: []
     hc_vault: []
     age: []
-    lastmodified: "2023-09-28T05:43:27Z"
-    mac: ENC[AES256_GCM,data:+RsdiE0+D7d9hSZK8kk88KtZBH+Ry1Uj0qMfslLuuBI2bdUMKSWmrYYPLfB2MkE0jp3s+/hr5xmDTMciFzYb6NIfzrwq0UbSJyo2geWt3zr1iqC7vGl8X+1PQrajKySy49tohnjk+Klsr67SaaXqaNIwjsS40SxFoT3b9bZ2nHg=,iv:QNbcxv6OHXjQSzZR736FYk6zssidhAvAf6cFc0IUack=,tag:tOjCi9sXFlct+nHsbvnPXg==,type:str]
+    lastmodified: "2023-09-28T05:57:43Z"
+    mac: ENC[AES256_GCM,data:mDPhq9YT+ViKAGoay/A1BtEP8pRq43z1bub9NU6CU+ZjFWCVbBo2y+0VSiONXOJPQ/I7RA6pdXEAYdtgtbpR/AWIgST0qYzS3PIXhG3uOkbApFPFuFTXHO7UOVtrvgDebvscYs3IasCph36oHgYCZTyXApNuj3g2prbB/rxbs68=,iv:wdWda5Hi6UzwM8NBiSW6+zIyor+Nh404L28jW4DCi24=,tag:3dYsZF4FSNzkDbrRsUERNA==,type:str]
     pgp:
-        - created_at: "2023-09-28T05:43:26Z"
+        - created_at: "2023-09-28T05:57:41Z"
           enc: |
             -----BEGIN PGP MESSAGE-----
 
-            hQIMA38T7Az157GMARAAk+EAe803pKtS7XkVO1bqmVvr1NFtOz2RvKoXFwwlMv8w
-            DhImTofraLavqA9/rmQoayPN8GIhgiPG7cZk79zgU36LNFG2Om6Nt0cnLp0JQMFs
-            h9e2/2sa7NbALEaQQM6I+ud73xmKvXFNs4yFE/GrxyGKcu/OIhXCv8OQGdsP/SL2
-            exjqz0ZenIXKjhW1qgXenz6wAucBPp6JhL771Njiy9onrDaePzRv97CeTi5vJhaE
-            p8rl6b6uEB08XfEX8KxvlRo3hK5u5RD8sKeZOxJLR6jKjc8H3KU99qEiWijzLLnj
-            bXMLNYLn6kNW3ctwHCtS8iiTcTZ8AyL0NFJHLoYxJ9vPqWR23+5/vh8JG3pokZ5y
-            LcE9E6aNm35Q/CFT2VUiy+W3KKiI23At4As1xJM8v01EB+Shs1CB68UrRpH3qVSc
-            YBueFWBSuRK/AmBlZOfpkQg8aukngZ8Cf1j1W5QjM2CRhNBuGifaPDSuPXcHtP73
-            txPid72y/bjiwYKtsMdGeAwxfHH89WVcu9rGKtDnbAorG+XmWN63M6eXE2Ys+GCm
-            DTt8BqWR0UISjSSrVx1A4Y+j8zYnqTcMXdB5nNNg3mBb7kJAidrgnAB9WsnjtYr1
-            xlV0yiz/Xih2bZljd/kadKlyrwEl5A0AS96fhCPOXNCp5N7h819RtNDi/3EsXMbS
-            XAHdqY3TqtQX8NuaI46nWhbEf/SNDm+X0yiAPS3d+EpENvpF/9v3Y3puTXgQNU6h
-            QK0cfzrh/IoWXkalzKNxRb0HElxNVE4pDoBh0SquSSYIudnUEvx6S1wbDmSn
-            =9FxX
+            hQIMA38T7Az157GMAQ//esQ5laRml2iTsji1cr8/IMy5GnWDB8OjRGVI6eBf4/vt
+            qkA37b1fzdeVK9OnhmYpi/dnXaTyzxbiJazE6WuKLOoZjAMQZQgqawqwfGJI7JB8
+            Y5+M+oJFhYG4YqRbdcqZAR3x5Y0CyVSRP1TyKAs/waYh6DLG02vAgDo18N3Xu3c9
+            VJr+xoPhqDmgMLryZPCwB/YCmFet3TrI1N2yKJoDK7f65NqKbal0kioC8E+pVOI7
+            irwzBNoh1nDBw1JxDS+3wLIWqR4Om2hITg/Doqq+NdhsBxtxeMa28Yx4gJVhc12y
+            yESK/kuKaxhQ4taQc4TOn1L3sI/GR4lQiBYMyFm8SoHGR9Zghryfs7YUkEwDiogi
+            MVd0lTH0YXs2TWGRgFeJMtMg/g15geqr19vnZcqbr5XsNyhw1YIKWJw8pVEKBitJ
+            5hAPoiuuILtk9JAKP4mkF1b0TC+mh0FUCw6VJzP5AZ/5kRFoF0TCNQf086j9VMp+
+            ttVKTbVn6yQtCls3Iy9MqFkdAqRZvqmXgWoAb3wwRf4xb7ZjDUBx//uWvueQi1oA
+            zkX1JMumAhLudYBdYL13E6+5vQWqA2YJDGhu37VFTG9CqyvDLLq/FPobTSllI6F5
+            cs34EIhQtd9CU6ZzFOow50C0Fhitye6eFFIeTTN4INyGNOAjbegW9/XYWKgPU3fS
+            XgGvRbV4lgwdeXefxew3ifLKEBIzBYdmtItTQBWiGl9M/M21aJY29VRQuguSVrTN
+            kwvkIg929/rbBfwV/ZyG0e1EYFEAQG2Y4lWxecHOWe9B7eSfC1t1/dxP2gZsWis=
+            =fnBG
             -----END PGP MESSAGE-----
           fp: 129994A38E40322EE2A4FA6CB59C51DA13B1BF22
     encrypted_regex: ^(host|hosts|ORDER_QUEUE_USERNAME|ORDER_QUEUE_PASSWORD|AZURE_OPENAI_DEPLOYMENT_NAME|AZURE_OPENAI_ENDPOINT|OPENAI_API_KEY)$
@@ -452,27 +466,27 @@ sops:
     azure_kv: []
     hc_vault: []
     age: []
-    lastmodified: "2023-09-28T05:43:27Z"
-    mac: ENC[AES256_GCM,data:+RsdiE0+D7d9hSZK8kk88KtZBH+Ry1Uj0qMfslLuuBI2bdUMKSWmrYYPLfB2MkE0jp3s+/hr5xmDTMciFzYb6NIfzrwq0UbSJyo2geWt3zr1iqC7vGl8X+1PQrajKySy49tohnjk+Klsr67SaaXqaNIwjsS40SxFoT3b9bZ2nHg=,iv:QNbcxv6OHXjQSzZR736FYk6zssidhAvAf6cFc0IUack=,tag:tOjCi9sXFlct+nHsbvnPXg==,type:str]
+    lastmodified: "2023-09-28T05:57:43Z"
+    mac: ENC[AES256_GCM,data:mDPhq9YT+ViKAGoay/A1BtEP8pRq43z1bub9NU6CU+ZjFWCVbBo2y+0VSiONXOJPQ/I7RA6pdXEAYdtgtbpR/AWIgST0qYzS3PIXhG3uOkbApFPFuFTXHO7UOVtrvgDebvscYs3IasCph36oHgYCZTyXApNuj3g2prbB/rxbs68=,iv:wdWda5Hi6UzwM8NBiSW6+zIyor+Nh404L28jW4DCi24=,tag:3dYsZF4FSNzkDbrRsUERNA==,type:str]
     pgp:
-        - created_at: "2023-09-28T05:43:26Z"
+        - created_at: "2023-09-28T05:57:41Z"
           enc: |
             -----BEGIN PGP MESSAGE-----
 
-            hQIMA38T7Az157GMARAAk+EAe803pKtS7XkVO1bqmVvr1NFtOz2RvKoXFwwlMv8w
-            DhImTofraLavqA9/rmQoayPN8GIhgiPG7cZk79zgU36LNFG2Om6Nt0cnLp0JQMFs
-            h9e2/2sa7NbALEaQQM6I+ud73xmKvXFNs4yFE/GrxyGKcu/OIhXCv8OQGdsP/SL2
-            exjqz0ZenIXKjhW1qgXenz6wAucBPp6JhL771Njiy9onrDaePzRv97CeTi5vJhaE
-            p8rl6b6uEB08XfEX8KxvlRo3hK5u5RD8sKeZOxJLR6jKjc8H3KU99qEiWijzLLnj
-            bXMLNYLn6kNW3ctwHCtS8iiTcTZ8AyL0NFJHLoYxJ9vPqWR23+5/vh8JG3pokZ5y
-            LcE9E6aNm35Q/CFT2VUiy+W3KKiI23At4As1xJM8v01EB+Shs1CB68UrRpH3qVSc
-            YBueFWBSuRK/AmBlZOfpkQg8aukngZ8Cf1j1W5QjM2CRhNBuGifaPDSuPXcHtP73
-            txPid72y/bjiwYKtsMdGeAwxfHH89WVcu9rGKtDnbAorG+XmWN63M6eXE2Ys+GCm
-            DTt8BqWR0UISjSSrVx1A4Y+j8zYnqTcMXdB5nNNg3mBb7kJAidrgnAB9WsnjtYr1
-            xlV0yiz/Xih2bZljd/kadKlyrwEl5A0AS96fhCPOXNCp5N7h819RtNDi/3EsXMbS
-            XAHdqY3TqtQX8NuaI46nWhbEf/SNDm+X0yiAPS3d+EpENvpF/9v3Y3puTXgQNU6h
-            QK0cfzrh/IoWXkalzKNxRb0HElxNVE4pDoBh0SquSSYIudnUEvx6S1wbDmSn
-            =9FxX
+            hQIMA38T7Az157GMAQ//esQ5laRml2iTsji1cr8/IMy5GnWDB8OjRGVI6eBf4/vt
+            qkA37b1fzdeVK9OnhmYpi/dnXaTyzxbiJazE6WuKLOoZjAMQZQgqawqwfGJI7JB8
+            Y5+M+oJFhYG4YqRbdcqZAR3x5Y0CyVSRP1TyKAs/waYh6DLG02vAgDo18N3Xu3c9
+            VJr+xoPhqDmgMLryZPCwB/YCmFet3TrI1N2yKJoDK7f65NqKbal0kioC8E+pVOI7
+            irwzBNoh1nDBw1JxDS+3wLIWqR4Om2hITg/Doqq+NdhsBxtxeMa28Yx4gJVhc12y
+            yESK/kuKaxhQ4taQc4TOn1L3sI/GR4lQiBYMyFm8SoHGR9Zghryfs7YUkEwDiogi
+            MVd0lTH0YXs2TWGRgFeJMtMg/g15geqr19vnZcqbr5XsNyhw1YIKWJw8pVEKBitJ
+            5hAPoiuuILtk9JAKP4mkF1b0TC+mh0FUCw6VJzP5AZ/5kRFoF0TCNQf086j9VMp+
+            ttVKTbVn6yQtCls3Iy9MqFkdAqRZvqmXgWoAb3wwRf4xb7ZjDUBx//uWvueQi1oA
+            zkX1JMumAhLudYBdYL13E6+5vQWqA2YJDGhu37VFTG9CqyvDLLq/FPobTSllI6F5
+            cs34EIhQtd9CU6ZzFOow50C0Fhitye6eFFIeTTN4INyGNOAjbegW9/XYWKgPU3fS
+            XgGvRbV4lgwdeXefxew3ifLKEBIzBYdmtItTQBWiGl9M/M21aJY29VRQuguSVrTN
+            kwvkIg929/rbBfwV/ZyG0e1EYFEAQG2Y4lWxecHOWe9B7eSfC1t1/dxP2gZsWis=
+            =fnBG
             -----END PGP MESSAGE-----
           fp: 129994A38E40322EE2A4FA6CB59C51DA13B1BF22
     encrypted_regex: ^(host|hosts|ORDER_QUEUE_USERNAME|ORDER_QUEUE_PASSWORD|AZURE_OPENAI_DEPLOYMENT_NAME|AZURE_OPENAI_ENDPOINT|OPENAI_API_KEY)$
@@ -525,27 +539,27 @@ sops:
     azure_kv: []
     hc_vault: []
     age: []
-    lastmodified: "2023-09-28T05:43:27Z"
-    mac: ENC[AES256_GCM,data:+RsdiE0+D7d9hSZK8kk88KtZBH+Ry1Uj0qMfslLuuBI2bdUMKSWmrYYPLfB2MkE0jp3s+/hr5xmDTMciFzYb6NIfzrwq0UbSJyo2geWt3zr1iqC7vGl8X+1PQrajKySy49tohnjk+Klsr67SaaXqaNIwjsS40SxFoT3b9bZ2nHg=,iv:QNbcxv6OHXjQSzZR736FYk6zssidhAvAf6cFc0IUack=,tag:tOjCi9sXFlct+nHsbvnPXg==,type:str]
+    lastmodified: "2023-09-28T05:57:43Z"
+    mac: ENC[AES256_GCM,data:mDPhq9YT+ViKAGoay/A1BtEP8pRq43z1bub9NU6CU+ZjFWCVbBo2y+0VSiONXOJPQ/I7RA6pdXEAYdtgtbpR/AWIgST0qYzS3PIXhG3uOkbApFPFuFTXHO7UOVtrvgDebvscYs3IasCph36oHgYCZTyXApNuj3g2prbB/rxbs68=,iv:wdWda5Hi6UzwM8NBiSW6+zIyor+Nh404L28jW4DCi24=,tag:3dYsZF4FSNzkDbrRsUERNA==,type:str]
     pgp:
-        - created_at: "2023-09-28T05:43:26Z"
+        - created_at: "2023-09-28T05:57:41Z"
           enc: |
             -----BEGIN PGP MESSAGE-----
 
-            hQIMA38T7Az157GMARAAk+EAe803pKtS7XkVO1bqmVvr1NFtOz2RvKoXFwwlMv8w
-            DhImTofraLavqA9/rmQoayPN8GIhgiPG7cZk79zgU36LNFG2Om6Nt0cnLp0JQMFs
-            h9e2/2sa7NbALEaQQM6I+ud73xmKvXFNs4yFE/GrxyGKcu/OIhXCv8OQGdsP/SL2
-            exjqz0ZenIXKjhW1qgXenz6wAucBPp6JhL771Njiy9onrDaePzRv97CeTi5vJhaE
-            p8rl6b6uEB08XfEX8KxvlRo3hK5u5RD8sKeZOxJLR6jKjc8H3KU99qEiWijzLLnj
-            bXMLNYLn6kNW3ctwHCtS8iiTcTZ8AyL0NFJHLoYxJ9vPqWR23+5/vh8JG3pokZ5y
-            LcE9E6aNm35Q/CFT2VUiy+W3KKiI23At4As1xJM8v01EB+Shs1CB68UrRpH3qVSc
-            YBueFWBSuRK/AmBlZOfpkQg8aukngZ8Cf1j1W5QjM2CRhNBuGifaPDSuPXcHtP73
-            txPid72y/bjiwYKtsMdGeAwxfHH89WVcu9rGKtDnbAorG+XmWN63M6eXE2Ys+GCm
-            DTt8BqWR0UISjSSrVx1A4Y+j8zYnqTcMXdB5nNNg3mBb7kJAidrgnAB9WsnjtYr1
-            xlV0yiz/Xih2bZljd/kadKlyrwEl5A0AS96fhCPOXNCp5N7h819RtNDi/3EsXMbS
-            XAHdqY3TqtQX8NuaI46nWhbEf/SNDm+X0yiAPS3d+EpENvpF/9v3Y3puTXgQNU6h
-            QK0cfzrh/IoWXkalzKNxRb0HElxNVE4pDoBh0SquSSYIudnUEvx6S1wbDmSn
-            =9FxX
+            hQIMA38T7Az157GMAQ//esQ5laRml2iTsji1cr8/IMy5GnWDB8OjRGVI6eBf4/vt
+            qkA37b1fzdeVK9OnhmYpi/dnXaTyzxbiJazE6WuKLOoZjAMQZQgqawqwfGJI7JB8
+            Y5+M+oJFhYG4YqRbdcqZAR3x5Y0CyVSRP1TyKAs/waYh6DLG02vAgDo18N3Xu3c9
+            VJr+xoPhqDmgMLryZPCwB/YCmFet3TrI1N2yKJoDK7f65NqKbal0kioC8E+pVOI7
+            irwzBNoh1nDBw1JxDS+3wLIWqR4Om2hITg/Doqq+NdhsBxtxeMa28Yx4gJVhc12y
+            yESK/kuKaxhQ4taQc4TOn1L3sI/GR4lQiBYMyFm8SoHGR9Zghryfs7YUkEwDiogi
+            MVd0lTH0YXs2TWGRgFeJMtMg/g15geqr19vnZcqbr5XsNyhw1YIKWJw8pVEKBitJ
+            5hAPoiuuILtk9JAKP4mkF1b0TC+mh0FUCw6VJzP5AZ/5kRFoF0TCNQf086j9VMp+
+            ttVKTbVn6yQtCls3Iy9MqFkdAqRZvqmXgWoAb3wwRf4xb7ZjDUBx//uWvueQi1oA
+            zkX1JMumAhLudYBdYL13E6+5vQWqA2YJDGhu37VFTG9CqyvDLLq/FPobTSllI6F5
+            cs34EIhQtd9CU6ZzFOow50C0Fhitye6eFFIeTTN4INyGNOAjbegW9/XYWKgPU3fS
+            XgGvRbV4lgwdeXefxew3ifLKEBIzBYdmtItTQBWiGl9M/M21aJY29VRQuguSVrTN
+            kwvkIg929/rbBfwV/ZyG0e1EYFEAQG2Y4lWxecHOWe9B7eSfC1t1/dxP2gZsWis=
+            =fnBG
             -----END PGP MESSAGE-----
           fp: 129994A38E40322EE2A4FA6CB59C51DA13B1BF22
     encrypted_regex: ^(host|hosts|ORDER_QUEUE_USERNAME|ORDER_QUEUE_PASSWORD|AZURE_OPENAI_DEPLOYMENT_NAME|AZURE_OPENAI_ENDPOINT|OPENAI_API_KEY)$
