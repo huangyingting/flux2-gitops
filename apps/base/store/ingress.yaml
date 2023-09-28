@@ -27,7 +27,7 @@ kind: Ingress
 metadata:
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt
-  name: store-front
+  name: store-admin
 spec:
   ingressClassName: nginx
   rules:
