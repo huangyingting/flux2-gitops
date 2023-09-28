@@ -569,6 +569,8 @@ A quick solution to solve this issue will be
 When a Helm release is deleted from Flux, the associated namespace can get stuck in a terminating state indefinitely due to dependency issues, preventing the namespace from being fully cleaned up. This can cause the Kustomization deployment to remain in an unsuccessful state. To resolve this, forcefully delete the stuck namespace with the following script
 
 ```bash
+kubectl proxy --port=8001 &
+
 NAMESPACE=
 kubectl get ns $NAMESPACE -o json | \
   jq '.spec.finalizers=[]' | \
