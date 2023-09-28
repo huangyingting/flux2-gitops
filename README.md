@@ -123,6 +123,26 @@ Flux bootstrap doesn't care where the Git repository is, if the repository locat
 
 During bootstrap, Flux creates a secret named flux-system at flux-system namespace, it is used to read/write Git repository, for example, if Git repository provider is github, this secret is actually a github repository deploy key. This secret can be updated by deleting it and re-run bootstrap, this trick is useful when automate image update, as default bootstrap creates deploy key with read permission, automate image update requires write permission to commit changes, to do that, run `kubectl -n flux-system delete secret flux-system` and re-run bootstrap.  
 
+### Flux Upgrade
+Follow this [guide](https://fluxcd.io/flux/installation/upgrade/) to upgrade Flux.
+
+Brief steps are listed in below
+
+- Run `flux check --pre` will tell you if a newer Flux version is available.
+- Run `curl -s https://fluxcd.io/install.sh | sudo bash` to install the updated flux cli
+- Run below commands to update Flux components
+  ```bash
+  git clone https://<git-host>/<org>/<bootstrap-repo>
+  cd <bootstrap-repo>
+  flux install --components-extra image-reflector-controller,image-automation-controller --export > ./clusters/staging/flux-system/gotk-components.yaml
+  git add -A && git commit -m "Update $(flux -v) on staging"
+  git push
+  ```
+- Wait for Flux to detect the changes or, tell it to do the upgrade immediately with:
+  ```bash
+  flux reconcile ks flux-system --with-source
+  ```
+
 ### Manage Secrets and Sensitive Information
 Flux natively supports [Mozilla SOPS](https://github.com/mozilla/sops) to encrypted files. To store Kubernetes secret safely or protect sensitive information over a public/private Git repository, here are common steps to [Manage Kubernetes secrets with Mozilla SOPS](https://fluxcd.io/flux/guides/mozilla-sops/)
 - Install gnupg and SOPS
