@@ -17,6 +17,7 @@ spec:
       containers:
       - name: order-service
         image: ghcr.io/huangyingting/store/order-service:latest
+        imagePullPolicy: Always
         ports:
         - containerPort: 3000
         env:
@@ -70,6 +71,7 @@ spec:
       containers:
       - name: makeline-service
         image: ghcr.io/huangyingting/store/makeline-service:latest
+        imagePullPolicy: Always
         ports:
         - containerPort: 3001
         env:
@@ -118,6 +120,7 @@ spec:
       containers:
       - name: product-service
         image: ghcr.io/huangyingting/store/product-service:latest
+        imagePullPolicy: Always
         ports:
         - containerPort: 3002
         resources:
@@ -147,6 +150,7 @@ spec:
       containers:
       - name: store-front
         image: ghcr.io/huangyingting/store/store-front:latest
+        imagePullPolicy: Always
         ports:
         - containerPort: 8080
           name: store-front
@@ -163,7 +167,6 @@ spec:
             cpu: 1000m
             memory: 512Mi
 ---
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -183,6 +186,7 @@ spec:
       containers:
       - name: store-admin
         image: ghcr.io/huangyingting/store/store-admin:latest
+        imagePullPolicy: Always
         ports:
         - containerPort: 8081
           name: store-admin
@@ -220,6 +224,7 @@ spec:
       containers:
       - name: virtual-customer
         image: ghcr.io/huangyingting/store/virtual-customer:latest
+        imagePullPolicy: Always
         env:
         - name: ORDER_SERVICE_URL
           value: http://order-service:3000/
@@ -252,6 +257,7 @@ spec:
       containers:
       - name: virtual-worker
         image: ghcr.io/huangyingting/store/virtual-worker:latest
+        imagePullPolicy: Always
         env:
         - name: MAKELINE_SERVICE_URL
           value: http://makeline-service:3001
@@ -284,6 +290,7 @@ spec:
       containers:
       - name: order-service
         image: ghcr.io/huangyingting/store/ai-service:latest
+        imagePullPolicy: Always
         ports:
         - containerPort: 5001
         env:
