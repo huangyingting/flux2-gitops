@@ -532,6 +532,18 @@ flux suspend hr <helmreleae name> -n <namespace>
 flux resume hr <helmreleae name> -n <namespace>
 ```
 
+### Helm upgrade failed: another operation (install/upgrade/rollback) is in progress
+If seeing below errors when running `flux get helmreleases -A`
+
+```bash
+<helm release>                       	<namespace>                  	        	False    	False	Helm upgrade failed: another operation (install/upgrade/rollback) is in progress	
+```
+The issue is documented at this [link](https://github.com/fluxcd/helm-controller/issues/644)
+
+A quick solution to solve this issue will be
+- Remove the helmrelease from kustomization.yaml
+- Add the helmrelease back to kustomization.yaml
+
 ### Forcefully delete namespace
 
 When a Helm release is deleted from Flux, the associated namespace can get stuck in a terminating state indefinitely due to dependency issues, preventing the namespace from being fully cleaned up. This can cause the Kustomization deployment to remain in an unsuccessful state. To resolve this, forcefully delete the stuck namespace with the following script
