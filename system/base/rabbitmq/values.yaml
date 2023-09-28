@@ -3,3 +3,4 @@
 auth:
   username: REPLACE_ME
   password: REPLACE_ME
+extraPlugins: rabbitmq_amqp1_0

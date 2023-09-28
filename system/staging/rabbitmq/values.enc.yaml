@@ -1,8 +1,9 @@
 # Default values
 # https://artifacthub.io/packages/helm/bitnami/rabbitmq
 auth:
-    username: ENC[AES256_GCM,data:SpFFip2rULA=,iv:iLNz5kZGcBwjkeiBlgFPySuSfhfKVNT+l4ap0dWpBEM=,tag:7oxrNYV8orit/BRYGczhWg==,type:str]
-    password: ENC[AES256_GCM,data:h88zO7+4RJ0=,iv:9fK8QUyrtfu22qce/uDBKuqYHoxu+hkiAs4ica20dWs=,tag:CKgE/M83Ho6tFX9u/5IIgQ==,type:str]
+    username: ENC[AES256_GCM,data:M5nxGUXB4aU=,iv:8Ws8wPAZDvkU8q4f1E/lhRZ8YyZzgA/99vzraPu3m5I=,tag:+l83k7B+Pnci1igVv0tpNQ==,type:str]
+    password: ENC[AES256_GCM,data:SxiCMQtjE04=,iv:UNDRDTvCv+yZqUHYj1i0vQYhk4+p5Iua7m2jtO3XZmw=,tag:uS5DW3p1FQXow3fAqKX6jQ==,type:str]
+extraPlugins: rabbitmq_amqp1_0
 persistence:
     storageClass: default
     size: 8Gi
@@ -77,27 +78,27 @@ sops:
     azure_kv: []
     hc_vault: []
     age: []
-    lastmodified: "2023-02-07T00:54:01Z"
-    mac: ENC[AES256_GCM,data:ui/ZoLUS/8/fOl9AeH3FHgdy6ctuuuoHob+ZRbf839JN6PHc0c9F7gImsqnrUc8MOz93LO2r41jW1cVCZy4STd7vfrSmN0wrjWZ3ICD0zF2X+WkB0D1Kajj6x5XejNIf9Nywnuh22i6k/p2cX6AsRyjL9/Sl/HINIi8TsNnp1g4=,iv:3893x4wNFwPyz+rpdslhQ8VStRh4C2OvJhcWzAFShGY=,tag:vH2ickbhzKQ9m+VLd6Ol9Q==,type:str]
+    lastmodified: "2023-09-28T00:34:24Z"
+    mac: ENC[AES256_GCM,data:sDi+3OtC8UgzA6hEvROmKNySG5zJ07t2gr+DPyBBNonMlYWAY3CZIuEYb46bpMEgHXUxHR2I91kX6ZFq7UfhleYDwwu9whPVa3Nsxszo3RLIET3pNZ9A8YcAwzvGX8VYo2nmNWGJ8tj5U5xFYoXjP1EXhT/xB4hR8UJ2ZGQgx3Y=,iv:TO/TFE591PrsFcLbxM1punvsosdIV/P+ZrYMaCuQVzA=,tag:lc5bcnSBP57FZgtrylMlaw==,type:str]
     pgp:
-        - created_at: "2023-02-07T00:54:00Z"
+        - created_at: "2023-09-28T00:34:23Z"
           enc: |
             -----BEGIN PGP MESSAGE-----
 
-            hQIMA38T7Az157GMAQ/+P/tTVLz8JC6XuwKmdm+z8FFCLeM/ExZXYzDu/nPGXgOr
-            DLBVa/HwmVYJZcKGwPILYjtuU2+rs3yFUb/1Bfi4YloJwu5L5xcgG1riFKSTDjon
-            i4TzuBQSM85CT1EVAdsuavDWsWcxOCD+UOhjHKlMQzSd75SNJ+6oFtHPJsBjCBEc
-            yn/PjWmJQkZfD0aLRG5Gy99d9cVcbokEHNuofaX1wrhQXCRUUjP5EXXb//EqBeqV
-            CZNTIwHGF8s4/8O+OJaobwOTLHtTkO1plDOC2+7AWI411XEVkK0EPgBJdVU0GpNG
-            zZpBEgbGsqJbzSFP/tjlR+LXQBVCKsCVehJ+zkLKtMxYTNFAx6gpRTJFPbT4D+Dt
-            zLj769JRQ/vpVyK6dT1gbtxswOKbf2cOqGdMSPqFpiUXpm13LDjFBsbNZ0QeHWsu
-            I/I4JFsskPwo6Fd+wOrcgUAvWlkutKu7ipm9KYsstrX5TfSc+jYrbwSDC/KW319Z
-            i0pdxFyPCEMP9m4oAmau9fCGyr28y65O87sM+4Gkq6LyA7E+AoXY66klIWl8Yg4B
-            Ot6Dx/UTmeeRlnz2cn6m1vlMZuRpKzuNu+dtwklVmHqiXkNED6Qyx6quW84ysqlP
-            k+Lf80u3y/8zCX9SS0XjeHADnxUv2xLGBUHv47LxBH9Ph5P4ERI+npG9f0MnSkXS
-            XgGpcWKvUZtHKNjezODemg3LDdJOv/eyk1LUdSXuH1GMqYEb/UReKIyg6ARaH+Y7
-            6jD4dzPO7si+ZeIWQR1lOBuUBb9oRXoqsaDUpy6dCNL0awHJNTfnwdpuvZ9L+j0=
-            =akHW
+            hQIMA38T7Az157GMARAAi1RnAm78KcgAy5PGw99XSlZ+YCWI25mRROdNBMkqikLR
+            3Ej5u4Cbl/rgfgCupG1jMUcNhXpvUkGJVQMikP1LVToii/vMHX5BAsamIK8myx6o
+            OlvTFVvbPhwx3TULCpuJC5kYy+oH0vjwhuJb4R5A1+jEpkf99BmSSa1XC9/7Q7qX
+            qaQKaP0Fg5spzchjZ/1rMmk8kg22d2icLxOKD7gusjRQux2nS1xPEgN7PPTbo7Aw
+            eiS0qIeHp3Kl2vHr+8P1nQXV03q2IhLQSJLOC+TOHb9DRybXjKlySFF9VruC8qcr
+            Ften2QXl47fgCvZ9y9FCX0ESwPEQRftbTwK11GIwu60PIIjcjvRXoT7X48tdzsbn
+            0yjwEV4JLENeNxzNiaW9Tz2szGTKZrTTL5olLdMmlNq85BNa1dGtZocrx31SPdEt
+            XDySTV/2jcaOPs+FMLdVjPecFV5kdNBgSvEBKueXmCIHBSKqmitmOcv1mtMyxfGh
+            RAUZPstfT6sI+A1CbU7uFOprGlkEHsGHXyNMMNaljDstkUYD+y5qKKvll32sUb26
+            rdS0/8RggAFLH78SO24fNDUvw2Lv3w6M6uNlSFvlGry/7aV6C/XBvM7wQ3iRUamE
+            3fi90h/T+qqe/3rOX5P6Ze3aPiBvQKtorp9872ZFBHrQ2ffqcGyV+ubSVWqFjhLS
+            XgG/3QVYIzUVq48fMYR70S35ofdwjkayBuEGNDGYvywKxizlylSJp8e7S32CA8RL
+            bIu4NZ5ljPYXUnxcurWp+39Zm2qoWguZiIRbIyovD0DVl5HYaS1LU5zPYLuhi5Y=
+            =SAew
             -----END PGP MESSAGE-----
           fp: 129994A38E40322EE2A4FA6CB59C51DA13B1BF22
     encrypted_regex: ^(auth)$
