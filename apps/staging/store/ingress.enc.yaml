@@ -1,0 +1,109 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+    annotations:
+        cert-manager.io/cluster-issuer: letsencrypt
+    name: store-front
+spec:
+    ingressClassName: nginx
+    rules:
+        - host: ENC[AES256_GCM,data:IAo1nO4X+GZDlckLiR9MEOHGyk/PTmMwFFRI,iv:9FZdPOoMmrg0g8IeDB7Hfi1GLbkPbA6r1nv6CEZRfl0=,tag:Qgs6slpFg9blks14/16ubw==,type:str]
+          http:
+            paths:
+                - backend:
+                    service:
+                        name: store-front
+                        port:
+                            number: 80
+                  path: /
+                  pathType: ImplementationSpecific
+    tls:
+        - hosts:
+            - ENC[AES256_GCM,data:68P8POFY6FNEut+w2osYJUXK0wCjkiwt6/Eb,iv:L0BBkmAA/31la0DfK9P8CnmHPFFNEoPCct4t75E7ggg=,tag:1CWPEPw415hwMqQuipHn8g==,type:str]
+          secretName: store-front-tls
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2023-09-28T04:51:59Z"
+    mac: ENC[AES256_GCM,data:pGh1FkGOzEZjtM5Zckno+F+HzR9gxjzwpH4IsMt8bxRo4sYJdTbyxFMKbpzaufsIMZCipE+qH8Ly1IZRehaxOPz8Jgng4M2iHfOpW7qdMqvovz2PtW41ZzLtgBfDSMxMbTPN00zJoWUwe0Tgya9nWOM3v1Z6svJtoyDLmdelpnM=,iv:H/gKcm/97UCOMWSkXqtzy6E10o8MJfCj28gEyNUBYdM=,tag:xZHPo4HuxIY7AdYvzwfqjg==,type:str]
+    pgp:
+        - created_at: "2023-09-28T04:51:58Z"
+          enc: |
+            -----BEGIN PGP MESSAGE-----
+
+            hQIMA38T7Az157GMAQ/+OtSAc3QnnhTn1xgFbs8WOyI3CX9+O1QYI9IEZ7y1eij7
+            nc3EKWp4pIDBs3h7yXHp/qUfYfLGZoXAy9PVNJKX1BK0d2+o14vJLiOtPZR/VI/i
+            UOhndArsFFChO30eNLPt06Zdj7O8WodXiQMnyfHbLrrSHtxha5cQAX4Q7JUACgBP
+            8CXhEZ8GPqzeAhQhwZLgCCgJcd8stbXhKYTf/590KEUlzst0egSH2P9eu0V2NH/T
+            2WezJv57Z+uN+Qzhuc3UeYqC76zeOhOsJZMRLhA7jOJ2NDK8d5RNhEwDwyx4VZUy
+            cO4WRDlJSU1ZW4o7kYDpz4xeuiYiucEWi/nVSgkhnTnWcSLHfiIkTsOh8lMwwsbO
+            ius3wMhhEq58k0LuNx65BrRfzdzc7Tn6aabWS99YqgJd8prWuWTDBCINT9VXhq6Q
+            rRZILUl2mN+i9GHfeVdVn/mUqoaQtMT4qcURGIYN+vh2KOJQoRxXoak+uLEuqJPj
+            oX4I7VhnMaIBRLqjn28CbPtyyXKxBuLaA3iAQ9TWNFYdF4dg1l0gOmVcnp5VnmNu
+            6TJqZzoi2K76+W6PxDO1cnCV2VOg/e/3CMVONmAxKPpcMWi88sRyxbqhnkL5JsAv
+            CrFhwtwJeH0XRi07zeNIAzlfH/LGOwVvv7nGzDrIzjWyx7VSHZQE7hutgJa+YSDS
+            XAHQ+yowsuW3Hz1WzRQQuPRnt+vQtb11X8ux1qBR6kboBE7sgZ7kelWi5sUbSRN/
+            LeNeS7PmA6iYnRgYCAic8du9PZzflZCGYEXionxfp1IRV0b7T33lrVoO0/hl
+            =eTri
+            -----END PGP MESSAGE-----
+          fp: 129994A38E40322EE2A4FA6CB59C51DA13B1BF22
+    encrypted_regex: ^(host|hosts|ORDER_QUEUE_USERNAME|ORDER_QUEUE_PASSWORD|AZURE_OPENAI_DEPLOYMENT_NAME|AZURE_OPENAI_ENDPOINT|OPENAI_API_KEY)$
+    version: 3.7.3
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+    annotations:
+        cert-manager.io/cluster-issuer: letsencrypt
+    name: store-admin
+spec:
+    ingressClassName: nginx
+    rules:
+        - host: ENC[AES256_GCM,data:cCNNVJ8MklK+PSvkjHcHPFcdIqFiyrdZ42Aj,iv:27jsEI59LaLPpVv9hlGzf5xAb47pI18OGo9QwM3YjPA=,tag:x9hkWEwYvk6N12oivYkGQw==,type:str]
+          http:
+            paths:
+                - backend:
+                    service:
+                        name: store-admin
+                        port:
+                            number: 80
+                  path: /
+                  pathType: ImplementationSpecific
+    tls:
+        - hosts:
+            - ENC[AES256_GCM,data:TORMUMO08DTZghvFxy+oQYZYIuZAwvPMBj64,iv:oNIU00GQCPkqMroxDnK/j8sOZeusfjXbIXXtmI3keQE=,tag:E4jq/HO211hYnlCGw8/aWw==,type:str]
+          secretName: store-admin-tls
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2023-09-28T04:51:59Z"
+    mac: ENC[AES256_GCM,data:pGh1FkGOzEZjtM5Zckno+F+HzR9gxjzwpH4IsMt8bxRo4sYJdTbyxFMKbpzaufsIMZCipE+qH8Ly1IZRehaxOPz8Jgng4M2iHfOpW7qdMqvovz2PtW41ZzLtgBfDSMxMbTPN00zJoWUwe0Tgya9nWOM3v1Z6svJtoyDLmdelpnM=,iv:H/gKcm/97UCOMWSkXqtzy6E10o8MJfCj28gEyNUBYdM=,tag:xZHPo4HuxIY7AdYvzwfqjg==,type:str]
+    pgp:
+        - created_at: "2023-09-28T04:51:58Z"
+          enc: |
+            -----BEGIN PGP MESSAGE-----
+
+            hQIMA38T7Az157GMAQ/+OtSAc3QnnhTn1xgFbs8WOyI3CX9+O1QYI9IEZ7y1eij7
+            nc3EKWp4pIDBs3h7yXHp/qUfYfLGZoXAy9PVNJKX1BK0d2+o14vJLiOtPZR/VI/i
+            UOhndArsFFChO30eNLPt06Zdj7O8WodXiQMnyfHbLrrSHtxha5cQAX4Q7JUACgBP
+            8CXhEZ8GPqzeAhQhwZLgCCgJcd8stbXhKYTf/590KEUlzst0egSH2P9eu0V2NH/T
+            2WezJv57Z+uN+Qzhuc3UeYqC76zeOhOsJZMRLhA7jOJ2NDK8d5RNhEwDwyx4VZUy
+            cO4WRDlJSU1ZW4o7kYDpz4xeuiYiucEWi/nVSgkhnTnWcSLHfiIkTsOh8lMwwsbO
+            ius3wMhhEq58k0LuNx65BrRfzdzc7Tn6aabWS99YqgJd8prWuWTDBCINT9VXhq6Q
+            rRZILUl2mN+i9GHfeVdVn/mUqoaQtMT4qcURGIYN+vh2KOJQoRxXoak+uLEuqJPj
+            oX4I7VhnMaIBRLqjn28CbPtyyXKxBuLaA3iAQ9TWNFYdF4dg1l0gOmVcnp5VnmNu
+            6TJqZzoi2K76+W6PxDO1cnCV2VOg/e/3CMVONmAxKPpcMWi88sRyxbqhnkL5JsAv
+            CrFhwtwJeH0XRi07zeNIAzlfH/LGOwVvv7nGzDrIzjWyx7VSHZQE7hutgJa+YSDS
+            XAHQ+yowsuW3Hz1WzRQQuPRnt+vQtb11X8ux1qBR6kboBE7sgZ7kelWi5sUbSRN/
+            LeNeS7PmA6iYnRgYCAic8du9PZzflZCGYEXionxfp1IRV0b7T33lrVoO0/hl
+            =eTri
+            -----END PGP MESSAGE-----
+          fp: 129994A38E40322EE2A4FA6CB59C51DA13B1BF22
+    encrypted_regex: ^(host|hosts|ORDER_QUEUE_USERNAME|ORDER_QUEUE_PASSWORD|AZURE_OPENAI_DEPLOYMENT_NAME|AZURE_OPENAI_ENDPOINT|OPENAI_API_KEY)$
+    version: 3.7.3

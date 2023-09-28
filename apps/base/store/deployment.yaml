@@ -83,6 +83,10 @@ spec:
           value: "orders"
         - name: ORDER_DB_URI
           value: "mongodb://mongodb.mongodb:27017"
+        - name: ORDER_DB_USERNAME
+          value: REPLACE_ME
+        - name: ORDER_DB_PASSWORD
+          value: REPLACE_ME 
         - name: ORDER_DB_NAME
           value: "orderdb"
         - name: ORDER_DB_COLLECTION_NAME
