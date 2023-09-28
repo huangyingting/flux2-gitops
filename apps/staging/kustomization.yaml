@@ -21,3 +21,4 @@ resources:
   # - otel-demo
   # - keycloak
   - chat-copilot
+  - store
