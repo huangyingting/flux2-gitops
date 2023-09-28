@@ -288,15 +288,13 @@ spec:
         - containerPort: 5001
         env:
         - name: USE_AZURE_OPENAI # set to True for Azure OpenAI, False for Public OpenAI
-          value: True
+          value: "True"
         - name: AZURE_OPENAI_DEPLOYMENT_NAME # required if using Azure OpenAI
           value: REPLACE_ME
         - name: AZURE_OPENAI_ENDPOINT # required if using Azure OpenAI
           value: REPLACE_ME
         - name: OPENAI_API_KEY # always required
           value: REPLACE_ME
-        - name: OPENAI_ORG_ID # required if using Public OpenAI
-          value: ""
         resources:
           requests:
             cpu: 20m
