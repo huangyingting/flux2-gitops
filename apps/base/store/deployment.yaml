@@ -21,13 +21,13 @@ spec:
         - containerPort: 3000
         env:
         - name: ORDER_QUEUE_HOSTNAME
-          value: "rabbitmq"
+          value: "rabbitmq.rabbitmq"
         - name: ORDER_QUEUE_PORT
           value: "5672"
         - name: ORDER_QUEUE_USERNAME
-          value: "username"
+          value: REPLACE_ME
         - name: ORDER_QUEUE_PASSWORD
-          value: "password"
+          value: REPLACE_ME
         - name: ORDER_QUEUE_NAME
           value: "orders"
         - name: FASTIFY_ADDRESS
@@ -42,7 +42,7 @@ spec:
       initContainers:
       - name: wait-for-rabbitmq
         image: busybox
-        command: ['sh', '-c', 'until nc -zv rabbitmq 5672; do echo waiting for rabbitmq; sleep 2; done;']
+        command: ['sh', '-c', 'until nc -zv rabbitmq.rabbitmq 5672; do echo waiting for rabbitmq; sleep 2; done;']
         resources:
           requests:
             cpu: 1m
@@ -74,15 +74,15 @@ spec:
         - containerPort: 3001
         env:
         - name: ORDER_QUEUE_URI
-          value: "amqp://rabbitmq:5672"
+          value: "amqp://rabbitmq.rabbitmq:5672"
         - name: ORDER_QUEUE_USERNAME
-          value: "username"
+          value: REPLACE_ME
         - name: ORDER_QUEUE_PASSWORD
-          value: "password"
+          value: REPLACE_ME
         - name: ORDER_QUEUE_NAME
           value: "orders"
         - name: ORDER_DB_URI
-          value: "mongodb://mongodb:27017"
+          value: "mongodb://mongodb.mongodb:27017"
         - name: ORDER_DB_NAME
           value: "orderdb"
         - name: ORDER_DB_COLLECTION_NAME
@@ -260,3 +260,43 @@ spec:
           limits:
             cpu: 1m
             memory: 5Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ai-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ai-service
+  template:
+    metadata:
+      labels:
+        app: ai-service
+    spec:
+      nodeSelector:
+        "kubernetes.io/os": linux
+      containers:
+      - name: order-service
+        image: ghcr.io/azure-samples/aks-store-demo/ai-service:latest
+        ports:
+        - containerPort: 5001
+        env:
+        - name: USE_AZURE_OPENAI # set to True for Azure OpenAI, False for Public OpenAI
+          value: True
+        - name: AZURE_OPENAI_DEPLOYMENT_NAME # required if using Azure OpenAI
+          value: REPLACE_ME
+        - name: AZURE_OPENAI_ENDPOINT # required if using Azure OpenAI
+          value: REPLACE_ME
+        - name: OPENAI_API_KEY # always required
+          value: REPLACE_ME
+        - name: OPENAI_ORG_ID # required if using Public OpenAI
+          value: ""
+        resources:
+          requests:
+            cpu: 20m
+            memory: 50Mi
+          limits:
+            cpu: 30m
+            memory: 65Mi

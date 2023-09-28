@@ -61,3 +61,15 @@ spec:
     app: store-admin
   type: ClusterIP  
 ---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ai-service
+spec:
+  type: ClusterIP
+  ports:
+  - name: http
+    port: 5001
+    targetPort: 5001
+  selector:
+    app: ai-service
