@@ -17,7 +17,7 @@ resources:
   - oauth2-proxy
   - postgres
   # - mysql
-  - mongodb
+  # - mongodb
   # - elasticsearch
   # - kafka
   - rabbitmq
