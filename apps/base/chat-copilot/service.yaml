@@ -23,3 +23,16 @@ spec:
     targetPort: 8080
   selector:
     app: chat-copilot-webapi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: chat-copilot-web-searcher
+  labels:
+    app: chat-copilot-web-searcher
+spec:
+  ports:
+  - port: 80
+    targetPort: 80
+  selector:
+    app: chat-copilot-web-searcher

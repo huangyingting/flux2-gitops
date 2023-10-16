@@ -47,3 +47,28 @@ spec:
         - containerPort: 8080
           name: http
           protocol: TCP
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: chat-copilot-web-searcher
+  name: chat-copilot-web-searcher
+spec:
+  selector:
+    matchLabels:
+      app: chat-copilot-web-searcher
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: chat-copilot-web-searcher
+    spec:
+      containers:
+      - image: ghcr.io/huangyingting/chat-copilot-web-searcher:main
+        imagePullPolicy: Always
+        name: chat-copilot-web-searcher
+        ports:
+        - containerPort: 80
+          name: http
+          protocol: TCP
