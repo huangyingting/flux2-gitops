@@ -8,8 +8,8 @@ patchesStrategicMerge:
   - ingress.enc.yaml
 replicas:
 - name: chat-copilot-webapp
-  count: 1
+  count: 0
 - name: chat-copilot-webapi
-  count: 1
+  count: 0
 - name: chat-copilot-web-searcher
-  count: 1
+  count: 0
