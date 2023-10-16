@@ -27,7 +27,7 @@ resources:
   - vsc
   - postfix
   - azure-workload-identity
-  - dapr
+  # - dapr
   - keda
   - keda-http
   # - pulsar
