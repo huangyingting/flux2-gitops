@@ -28,27 +28,27 @@ sops:
     azure_kv: []
     hc_vault: []
     age: []
-    lastmodified: "2023-10-16T07:05:47Z"
-    mac: ENC[AES256_GCM,data:QyV66VN2m1imjmlYjc0pKAb673YG5QCtPJ/u+CdVDuIEyIQpjv6FNgJDW+mnLmb6cAJPg7NrojR2nkTMvd5helAyCu1Ty6YG04fC2IhLwjYpTjJhrtj978EumiPmEaXOBwqegz92M8ddTP4wAfH1iJDugZkIimJiergA+0pm0ns=,iv:61CDWls1KxTOZHwFl838SqiBsuuWPc9hkv3Q84Cfj7o=,tag:dE4aStQ9uNuwBYkTQ9mBNw==,type:str]
+    lastmodified: "2023-10-16T09:26:12Z"
+    mac: ENC[AES256_GCM,data:jpm09FEreziDgTuaxvPnPj0H9VhAKA9dgJP8ZF3rmAL0AlJ1x9GTpK5TaghcBvM5aKgPcoSdziWwbZb+HXNpTQROYAMmTxV5SbriQrFGTg7rR6XKu4k5TJvXxttbfRdxcIqpbv3ZJxCd6JSh31oM4EckngdIohaT1EwR5pd3aFA=,iv:4tOc6JcviHH1rKwhCEzRMCQeDfAQaMtmIODmqJCyevU=,tag:1Cs7wI9G21Y7V6p2o6uUeA==,type:str]
     pgp:
-        - created_at: "2023-10-16T07:05:45Z"
+        - created_at: "2023-10-16T09:26:11Z"
           enc: |
             -----BEGIN PGP MESSAGE-----
 
-            hQIMA38T7Az157GMAQ//VMCo+RSOiBdJvHmSCYtHLxlmRNK/3yhj2W6X2QeO/uMz
-            o9YJ/SCUCDfrMKxx3S2kcbEbDn71wEliEqcjpVM6ZQhHrXOeEjMM0zXiVg9UDEuD
-            G/kcMWTXzKflwLjt245f/p5T67cZthdbYdKOwBwS3ehMX7BfKpQDH3Gh3hX58jcc
-            iWoutaUvEKCGc+21YCegNuBqKleR4aOtImm8dW3Zj+xr3w7D+/XsTdssoSrbc8rA
-            /LE3F1/EljJskbXjmadpb81XO+0XU7mSOmRlDjY1sRSent7DLqjdg9G5msRLwcw4
-            RC9WHprJH1w215H20pWIr/iwYgAIx08ZHzN1H22Fes0NFkITUU/FgPC2r+G4NBas
-            cim3g+m/mn449QtJvwy50NAosJFTd9ktJd5SwK7gkrMDEwxMqujMOLf7RQyuGKZm
-            06+nFw3k5jPX6muP2iS2O0eaux59yr8v4ZikvaltS3NW+zC4Jl2qMpIFMqq34fgs
-            5Z/x1gQHv74OvIKiW/gwBzbss+PECFq97SSFMh6mFLiicqbTdmLzU1JOUhmqaRqC
-            UnQ09L0d8lBucXzPVtF+fJ2IeOjuw4G2Pe6YQEnTSHq9Q94TuDOT3Z16ZaVAIdor
-            S9v97AxPi7vkoL+yiwZJcuoQuUopaA8Zd8HkEWdrv/rxevw68qy9NNpPRuet/0vS
-            XgFfWbp/h5SvTCn2uK9os8dewcDssj3keOp+ImY4IYi7f1TRe8jrIaMK8fmFuZTe
-            ccqstDV2lJD5rqWtaCxQYabIJGWm4Ok5rYHjFA3m6pJzA4N2MgH/ytweZxCNieM=
-            =JX9D
+            hQILA38T7Az157GMAQ/3dT9K0au18G2i0XSp+VrKvTGhD9LY8Ug+Vc3KsXibgiS4
+            POk/kODlCIsitMLfTfEHRsSuumc3Zd34h+Etlo8Efm5XFq0t43O6opI1WrxaD0e6
+            Qm6eNPLm3V7bs7flHJgiV7MV33d29LMKZR22qP+4nwOF8IbbcP8jGpMOB9fd3jYY
+            OfCH61QzWJKUmm1Qvtg1Lg6vLm+Lmp8bZZHQ3rbOat2mJdjBNIO2AAZ8ya3TCN+X
+            pV/BKwC/nME0UEkIhH9QZxyU+onde5xd+7oJynqRmbkNVbLirG0J9iqCQBhvVO+A
+            kPQAk3/d6bvCv6XgLwS6CYCUYEkae3q1yoARG6payfOiuuRmFpjp5VFEuQQI14FB
+            M7qq8fdtXQLkDFKZVC0yil35W1MV1QwCfYDh2YmfwJXRthvm1nq2JznHUuDYOAyp
+            F0KoCmZDxkTMXpnpm7wcaUP1QUUd8Py1z/I1uW2FR+0dRd170RFdD1iQYwlXciBY
+            fhuI+JIOXCPFHDb/qAu0eKfNBWxOq6rzaQKP4Rz/IyDk4dwR+6JRdUvMJRGPc57b
+            HHzvTK6t5NrUoHbkMb9gG8Bm/v8Wk5fpo9QzSeDZcGqbqqtRIokNluVIFqgqgRV2
+            krJrUm+yvuQeal6EOvVw2ARRaHSoiiyv8/KKgl96tXN09uzH+b4QI4bSLLTNqNJe
+            AWyj79StJbdILcLMdltC/p2KQ+FZzY++WggnIpuQMCw8chKfPl1Hw73BR5UiSemA
+            /nWlNdVwdCN5Z6VHMcB0gT4VlhYmtUGwWd80XlCgkminYQypKXWZ6VMbjJChKQ==
+            =Qwbf
             -----END PGP MESSAGE-----
           fp: 129994A38E40322EE2A4FA6CB59C51DA13B1BF22
     encrypted_regex: ^(value|host|hosts)$
@@ -70,71 +70,79 @@ spec:
             labels:
                 app: chat-copilot-webapi
         spec:
+            initContainers:
+                - name: wait-for-web-searcher
+                  image: busybox
+                  command:
+                    - /bin/sh
+                    - -c
+                  args:
+                    - while [ $(curl -sw '%{http_code}' http://chat-copilot-web-searcher -o /dev/null) -ne 200 ]; do sleep 2; echo 'Waiting for the webserver...'; done
             containers:
                 - image: ghcr.io/huangyingting/chat-copilot-webapi:main
                   imagePullPolicy: Always
                   name: chat-copilot-webapi
                   env:
                     - name: Authentication__Type
-                      value: ENC[AES256_GCM,data:l43moodbmQ==,iv:8sMfP30w2Xzbjz30reGowiNwTc5y/oaDETmtgNyAu0M=,tag:mc4u5OjtEnFN47Owu/03Gg==,type:str]
+                      value: ENC[AES256_GCM,data:scl2hlgcTw==,iv:mKxrEhkdq1FeIJtr4FThXgvx4WHndlM5Cgmr1HSElrs=,tag:wMG4M1EoHzxQhJbhVAghCg==,type:str]
                     - name: SemanticMemory__Services__Qdrant__Endpoint
-                      value: ENC[AES256_GCM,data:NB9IrEgkQORMSKYm0XndSMQ8z+TFP+qa5w==,iv:brvLxsqfs3UXURceI5FZWG5im6gcZrB41/mZ3eyEjN4=,tag:emOn/gJSF0uzmROIe88IrQ==,type:str]
+                      value: ENC[AES256_GCM,data:QzciUFFWOmMR8rwDBHVB5xEORxzY9ulq/A==,iv:0R059XAqkb4AN8ZKV5/r6IrfRJGblp1UZ17elZY0g54=,tag:zNAkmOb3EFj67aU/TXZakA==,type:str]
                     - name: SemanticMemory__Services__RabbitMq__Host
-                      value: ENC[AES256_GCM,data:ggeN77wbQpoGsxg2Gcupz+4=,iv:ohbSyZCanByTMOvOBSaB+XUFWzP7tj/ZGU9nZ2d6MoA=,tag:hijtUqAYujoofdr+az5ePg==,type:str]
+                      value: ENC[AES256_GCM,data:UHNjivY4i9jI1jKko5CjyjE=,iv:9+v96A9d+owMSdH1rjdX8Ll65wdOVvjGJMbtspUO+a8=,tag:OL5IHEaQ58CFpdpZZSGVgA==,type:str]
                     - name: SemanticMemory__Services__RabbitMq__Port
-                      value: ENC[AES256_GCM,data:wpzqcw==,iv:NjM3JUZ81qON+rdmjjSiXHLlpNIU1WOF2rFmAt9RGI0=,tag:3RRwEzwNV4MWTgOrIY9foQ==,type:str]
+                      value: ENC[AES256_GCM,data:eYx1Sg==,iv:wA9LyKhrKrfL8k77P3Ga3gI3VJnprmDcngk6qXjkFR4=,tag:fvwa2jBYQ8P/mRlee/lLhw==,type:str]
                     - name: SemanticMemory__Services__RabbitMq__Username
-                      value: ENC[AES256_GCM,data:VRS5AP1uNjg=,iv:9r72R1ceiqy/0TXjewbMwBGq3p4/eZ4mVHZEVqdcwTo=,tag:uPbk1aAhLn+22bWi3A+WVA==,type:str]
+                      value: ENC[AES256_GCM,data:fB3PwGFpjIs=,iv:naMWn3mQi4btu2wBc7rcbqhHicp7JT79wTNUz0oA7co=,tag:M5Wg3/DalDV6ygIeK6MKlw==,type:str]
                     - name: SemanticMemory__Services__RabbitMq__Password
-                      value: ENC[AES256_GCM,data:9KUv2rMal4U=,iv:2JQncuDf5wW3F1/b59DeZWsjbXdwRs8k2pywyuV6tu8=,tag:49e7/vabP4P+gU3B+4UEAQ==,type:str]
+                      value: ENC[AES256_GCM,data:WLR4/DhniH0=,iv:1LuSK7e1d1U3DcUDc9zZisy6rgqk98LjW2v88jbwQQ8=,tag:WT2MScLL2oMlQPEIqLrQvw==,type:str]
                     - name: SemanticMemory__ContentStorageType
-                      value: ENC[AES256_GCM,data:RwpQJ+zbhAfr3B8k/Ne4+jM=,iv:zgSE41hha7d8Kt6aWp2R2doYk8vKth4IkFIZBJV8j+Q=,tag:6Wf0F6JF4f/xyvYSsESFfg==,type:str]
+                      value: ENC[AES256_GCM,data:SjWITuePQ+MXcPIEhixKEm4=,iv:7lpbPDqg3qVOcHNDDEE41nR5yYqkuXDyEs7Qhtz163I=,tag:NHIfMj5aOpZC53tjeparWQ==,type:str]
                     - name: SemanticMemory__ImageOcrType
-                      value: ENC[AES256_GCM,data:P9Ek5N6NXIzl,iv:icm2i9wsQBheKGzyy94kxc2OWGZvVmE3v0UaXZy8TIQ=,tag:5oQMZTHM2vL5SnMv4KfMnQ==,type:str]
+                      value: ENC[AES256_GCM,data:xSUIETz6ZwtR,iv:Qd4GLQOcF2F967muv++Oidlli3TDLcqbgUFDTGxK6SI=,tag:HQdTO1EyhZmtrTLnxqc8hQ==,type:str]
                     - name: SemanticMemory__TextGeneratorType
-                      value: ENC[AES256_GCM,data:6wzhKE5TyfvQBZ0=,iv:BBGklXRwvb4qQUthH4biAPDB7k5v5dr3E79jF8mlU1A=,tag:gCdqaQzSY9+KfizA7cN3LQ==,type:str]
+                      value: ENC[AES256_GCM,data:cUbo+5GR1/peW5w=,iv:wAqeUQdbUdgcnGzw7Nz8uqt/V5LY6ZlfG6g3QExunVA=,tag:Wcdd+srF13veEQFocj6e3w==,type:str]
                     - name: SemanticMemory__DataIngestion__DistributedOrchestration__QueueType
-                      value: ENC[AES256_GCM,data:cbhZb3lkCVU=,iv:p84UnSL5Tf5s88SXtvEjAke/ULb7EFpsSL/2uFGtoGo=,tag:284NPw0C/5nebAFOKLp+PA==,type:str]
+                      value: ENC[AES256_GCM,data:FbqfS/NSHOk=,iv:qjnpiOlNhpnfUAEF8axPjOacX2XFIQURswd39gmJ9IA=,tag:LCcFTqmZIYUpRQxoOdkISA==,type:str]
                     - name: SemanticMemory__DataIngestion__VectorDbTypes__0
-                      value: ENC[AES256_GCM,data:HZGZ28Z+,iv:8CgS8zZp6iJH3A+lYCIWZx6R/KAIYGsVA8iCQSHjNT4=,tag:eVSVdVR4CrIKzkElmQW5Lg==,type:str]
+                      value: ENC[AES256_GCM,data:HN7NMlF/,iv:QGANhQ+Wu8CivevPUKGLy+vyTFHZ+f9BU0QjbdIgeag=,tag:ph6+5NsVGQbpyd+neWF9Ag==,type:str]
                     - name: SemanticMemory__DataIngestion__EmbeddingGeneratorTypes__0
-                      value: ENC[AES256_GCM,data:f2u4JfPgfymgH08=,iv:f3l8cZpncTbRibzRIffk76SX9rnapX4zT0OFrPdmke8=,tag:bHFDu1VFDX+NlSpB6ffbxA==,type:str]
+                      value: ENC[AES256_GCM,data:K1NpG/ZAb8/UaZc=,iv:gpbJofukKe1Eoy09L9OReoAgnYqc64a8fQSEZCQ6CmU=,tag:+BJpzQYk7IvPT5HC36LYDQ==,type:str]
                     - name: SemanticMemory__Retrieval__EmbeddingGeneratorType
-                      value: ENC[AES256_GCM,data:0OF7YfHVC8vHoss=,iv:RwYLUkxuWzcuQN1g0bdf7JR7bpK+902KLDWVJnxHHfs=,tag:Xde3hsQi+7bdlRSwCVePoA==,type:str]
+                      value: ENC[AES256_GCM,data:e1t0VUD9KVAI9gM=,iv:pDuV5wwo3+CHoYRqQ4mtcykTRal/MjM/Wb3u7V/pRCw=,tag:HfibQpiOxLv24GsO78jfxQ==,type:str]
                     - name: SemanticMemory__Retrieval__VectorDbType
-                      value: ENC[AES256_GCM,data:AkLVcJmV,iv:084VCp0p6O/2UZNcAFgtoLzWfutPfOnmMMgosl+YLf0=,tag:pjqLlR1zWmsPnxvbkDWLVQ==,type:str]
+                      value: ENC[AES256_GCM,data:rye5Tq7T,iv:vE8D0zUMqYBucR0rzUgD8p5hISiAu4owMvv4MzBAwzs=,tag:xOz5bEfk/au5xVCgOLdwUw==,type:str]
                     - name: Plugins__1__Name
-                      value: ENC[AES256_GCM,data:zp4nZKllWhDQftg=,iv:O3dVJcflfRIYpHaoioyB73CRh2f0FBFLfS5M+weQ5fs=,tag:5Op2C5fQf8JsRNP0fX4eqw==,type:str]
+                      value: ENC[AES256_GCM,data:TcPOgerIc9CqOKE=,iv:fZ3fw3X4BUwr3IAOpDxE7VaCg6O4yq2pR6Es+Mu9h3Y=,tag:4ScfgXe9/XlUv22lFv6MDQ==,type:str]
                     - name: Plugins__1__ManifestDomain
-                      value: ENC[AES256_GCM,data:vTbt3edlvhsV4yskHdNbzutt/3aVOyf36E+PFfmzWn/9S+HVwH5dabkZixF9xs5Xtw==,iv:0MfcyLsPxqMLgk+8m3HWd+W2+8/BZkT0GBhg3HWnU5g=,tag:eVUI50Xn3NZit40ekFgTyw==,type:str]
+                      value: ENC[AES256_GCM,data:kVDQIyBwfGR227RIg1LhU1obt4bPdWcPr5CrXgztybo8NZSsnmMAFmrh0dOe16ZX5w==,iv:Ax8CjCHupSJVQlVqZBfivhybZ9guY6FM/7Dt614fLQo=,tag:zGurw0xEFeHuQ3qBpXxyYQ==,type:str]
                     - name: Plugins__1__Key
-                      value: ENC[AES256_GCM,data:cuiHiLZK61o21cIHVhHK25kWPQ9tWnJAlE65+B1PHDFUm4DibxGqSrO8miY=,iv:AAqDvyJYDM8ZQxKHBK+zPUCRWbqVyE0bIvVWGc1grY4=,tag:yAkCwiGJpObgyDUoA/05fg==,type:str]
+                      value: ENC[AES256_GCM,data:8g1ssvRH06UjSKw4zKrTMJtDZjs0//zZSo4zOg4Oe1kQ0b4rJOlQU0+u8t8=,iv:B3ufhza9SpM9NyTOLFJDJfjeVjLiNfOGshGhg55AOlY=,tag:Husn76vY5WAv3iHqdHdiCQ==,type:str]
                     - name: Authentication__AzureAd__ClientId
-                      value: ENC[AES256_GCM,data:30ylfr9CXbex5UD4lXwoI4v1Mt0NoELhPTkONad079jkZWaV,iv:hlDlmXJCjMWFSkHKxtDd5gfAHwTYFq37K/5qavXDMBI=,tag:1zIC2wKJjd9AAOQugLAZXg==,type:str]
+                      value: ENC[AES256_GCM,data:pMsQdj1RbSbAC6tbPFBWNhqKNogBxGAMcd9vTPlztMaButWw,iv:FpWi2QFwrN0mO7NWXHz+sEH97eNeS1viELxD/rDjivw=,tag:hK7UxjC5S9zP6nqjDtlTEg==,type:str]
                     - name: Authentication__AzureAd__TenantId
-                      value: ENC[AES256_GCM,data:PLD/vvEaF8UpriEnnsC8Tp6lxJ7PY8+wMSKe8u1X5qfP+JzN,iv:MI7VILI5PC/caQ+pP1FNr2FWy2ibwUW7QNZXaXpEYcM=,tag:L5mgnW2dTR5SfIkgY8ovTA==,type:str]
+                      value: ENC[AES256_GCM,data:dsdFIrFkwInCeE0PvU9cPe11JrYfJuBHdYkdYK+906AU3jaY,iv:3eWhMIvTQN1pvmSX3E63Z/0gl3ujpcP21U7ZbtLjl9o=,tag:5SssVifjNUjNI8wwaUkv4w==,type:str]
                     - name: Frontend__AadClientId
-                      value: ENC[AES256_GCM,data:9iQyBX2gr/z1fhZqESrSwF2qS7LuixCZMotz6HlfzS8n74+B,iv:qIMvGbqUfEJy7Jysbs6sqsc7OnrLwNCSom5pb/ykSQM=,tag:tOfd/kJfxgDPvRJOE1Lq5w==,type:str]
+                      value: ENC[AES256_GCM,data:IIBxwCM4DuitbDF6I8bK0IZdGMx5K/C8xpR4spnOE6kJAH6p,iv:sAfqNmaSjQ7DQDWBOckqWnJLekujUlTJbwh/H9Dg/MA=,tag:lQocp///Au2th94O4ap6/w==,type:str]
                     - name: AzureSpeech__Region
-                      value: ENC[AES256_GCM,data:xzsxD6dD34lF,iv:GcU1UvHp3HEysELD++0sPrNtLdl9Za/fMTQCDOI+awU=,tag:DMMiGVjgj7wIRnEldw5tZg==,type:str]
+                      value: ENC[AES256_GCM,data:LrAI5JUMcuXC,iv:idyCOuBnsMIOh/swBD3Krz0hwrZPdSCyg68UmkP+c90=,tag:tE6lk9ru8ZcWHdvdb198SQ==,type:str]
                     - name: AzureSpeech__Key
-                      value: ENC[AES256_GCM,data:caPuf+9YJty2iV4tqJe64nHwpU8LtB+4ltw7ESAQqG0=,iv:ke3CfcdUkjVK87ZKTfuptP1o9Wvj2rc5SzQBB+Wsj4M=,tag:roEext8Y/lueim5jnDqHJw==,type:str]
+                      value: ENC[AES256_GCM,data:r7PWGIsfTod1Ocy+/t8mh2vyfyVfEQVoC5yaVXWLWr0=,iv:7ISZ67ocjjTUAclk+6t1i8fZXbCnRP9aIijHPWXdDbs=,tag:gWFtG425fhE6aeN20GN0IQ==,type:str]
                     - name: SemanticMemory__Services__AzureOpenAIEmbedding__Deployment
-                      value: ENC[AES256_GCM,data:57jLkBzvXxQIyxCn+oCeCA21dkiKyw==,iv:GcR4KmILrbVzGuXvoh8l04tRF3YBfvTp8IscRVHbZO8=,tag:6vcFy6MhGW3kYX5+xnUHRg==,type:str]
+                      value: ENC[AES256_GCM,data:26vk12IrFlAeBKLa8kgq94HhEfGzXA==,iv:6wcm34NYN/nesAlSzyo2m3ttfndr6ByZKP8UkrbRtnc=,tag:P/52KoZxOwk074ur2dz9Vw==,type:str]
                     - name: SemanticMemory__Services__AzureOpenAIEmbedding__Endpoint
-                      value: ENC[AES256_GCM,data:urkZq2E22omo14+n7V32dHc9XvOIQWHr+SgaREdnrJ5yCQ==,iv:+bCQjZEYcYbtfyWQ+VDdSbDjo90XXVUVWpdXKAHqJ+Y=,tag:m7aGS3vIcoujLnaPM0+32w==,type:str]
+                      value: ENC[AES256_GCM,data:FmIxvJ6CPqZQb7mRWsxIXbSSRBdO0sAKmF5JSDfS5yBAxQ==,iv:Q/lYj9n8rm1Ool2RK4/OUd65bZsvlEB3RWgRG41Uwko=,tag:8csWNvluphKj48z3N0W8MQ==,type:str]
                     - name: SemanticMemory__Services__AzureOpenAIEmbedding__APIKey
-                      value: ENC[AES256_GCM,data:qeggjEt58zmvuv0f+MjU9KT6J4DI61Igm7YoEZqfQuo=,iv:v2bz2CQknfTtpZ5ucigHT1ijfxoc1U3xGFb5u3dWii8=,tag:Zs1b0S0F7oBcwTLV/NpdtA==,type:str]
+                      value: ENC[AES256_GCM,data:V+bjRnNBaf4imLmj8o5FjC+Ji0Rco8XGcDWI04+lAZE=,iv:UkG3pEtyMvvnd1SSR0sf9rbNMf34Qct0CRGdwuq8eGc=,tag:ZUr06H6C3dOUmZF4hV3DsA==,type:str]
                     - name: SemanticMemory__Services__AzureOpenAIText__Deployment
-                      value: ENC[AES256_GCM,data:5iRtLQ/+OekigyFG,iv:/yVLN4RH8KB9VD5PFtID1q9YZo0ArHXPQQSkOue1h9s=,tag:3QfSsGhJ4Odnpggzqt/lLw==,type:str]
+                      value: ENC[AES256_GCM,data:KYlqtmnwOgSjqCa5,iv:Nb6+rVeYX2A8EkUr1f3jE2gbYLMg1nPJspost/h8Ggk=,tag:14clXarLuWGEmqdwjCQUeQ==,type:str]
                     - name: SemanticMemory__Services__AzureOpenAIText__Endpoint
-                      value: ENC[AES256_GCM,data:g05olhHsxDrqBpX1Y0Yzu4R6MeSfxQDo0Km4BdgsO8KvoA==,iv:67RYhGwvWtV6aZ7V0NtrmJEAaXo/Yl+3oE7Oqj8N3ro=,tag:P//g5a6yaQLs9ZsYSRiBKw==,type:str]
+                      value: ENC[AES256_GCM,data:eYsoRflcPzMcHD9GU1N7Ms7yvXVLvy1uhcKQrs5CfNF4VA==,iv:PwJ42nFDszof62jiacWaP+i+pn7qyUP3ga1x24ig4Rg=,tag:oVZ50QeXHNGf2gzScwk4ZA==,type:str]
                     - name: SemanticMemory__Services__AzureOpenAIText__APIKey
-                      value: ENC[AES256_GCM,data:WhytibpFwU1qw5MDMKtkXPCjWCPAK+yBbqMS7aUghT4=,iv:RH0B7SJLpO/x1k5ylQTSeDoc8dFAlO7feV1ykbrxlto=,tag:Tu6OfOJdZhb5yuozra1e6g==,type:str]
+                      value: ENC[AES256_GCM,data:hz04gUkSKRcK8/n34Qjmbc/QpDD6UHfm26dM2Yrxg4g=,iv:cq7qWgqqyXeRa2FFjtg2rpdWEdBlcgaWWaRQ4JWMxEk=,tag:KVq/8UItShcw5bxRQRgdBA==,type:str]
                     - name: AllowedOrigins__0
-                      value: ENC[AES256_GCM,data:fuMNA9Yo1v4B5QG09iCqtlkdHMF9jDyLHZnUsHYUfX5jMS21ppRw1He5,iv:yd5/6Ns5AD3C1KxtXXElENH+fAh73aBcYuW2q7iAbFw=,tag:u155fRVftxV3GCPclbErSg==,type:str]
+                      value: ENC[AES256_GCM,data:Cn9bWo1Tis+rVeYreWfg4JBbee673yZqdvBuIoQOa9ToIszFYZJAa8Q2,iv:kyxoPA0wxkzWRLzU3f1kpIAAKJaU/2GZddyDmkGXfqI=,tag:2PTYyu8AnSkyB3DmC8Gy+Q==,type:str]
                     - name: AllowedOrigins__1
-                      value: ENC[AES256_GCM,data:q+RcrpxBFcDfXxja7xBHMHg9xPNcsqJmWz4fzujZUEXOvR6sTu+Gl8xtdQ==,iv:1osZWWBuKCgtTt/KgCT+M8lZdguMzyPfS4JjItSLsCs=,tag:sVSUxfUf+WA1pnKUgBvQ+A==,type:str]
+                      value: ENC[AES256_GCM,data:F3wyRillOjWASeym23Jqm8WYKzKanUKXADlag2lQ71JaN44POGT88OC3pw==,iv:AxlLnf7lAWQCK6wQB/DYnjEejq/+vgRL/VhR5Sg9mLI=,tag:pmHKaohu751D9Ped1CAxzQ==,type:str]
                   ports:
                     - containerPort: 8080
                       name: http
@@ -145,27 +153,27 @@ sops:
     azure_kv: []
     hc_vault: []
     age: []
-    lastmodified: "2023-10-16T07:05:47Z"
-    mac: ENC[AES256_GCM,data:QyV66VN2m1imjmlYjc0pKAb673YG5QCtPJ/u+CdVDuIEyIQpjv6FNgJDW+mnLmb6cAJPg7NrojR2nkTMvd5helAyCu1Ty6YG04fC2IhLwjYpTjJhrtj978EumiPmEaXOBwqegz92M8ddTP4wAfH1iJDugZkIimJiergA+0pm0ns=,iv:61CDWls1KxTOZHwFl838SqiBsuuWPc9hkv3Q84Cfj7o=,tag:dE4aStQ9uNuwBYkTQ9mBNw==,type:str]
+    lastmodified: "2023-10-16T09:26:12Z"
+    mac: ENC[AES256_GCM,data:jpm09FEreziDgTuaxvPnPj0H9VhAKA9dgJP8ZF3rmAL0AlJ1x9GTpK5TaghcBvM5aKgPcoSdziWwbZb+HXNpTQROYAMmTxV5SbriQrFGTg7rR6XKu4k5TJvXxttbfRdxcIqpbv3ZJxCd6JSh31oM4EckngdIohaT1EwR5pd3aFA=,iv:4tOc6JcviHH1rKwhCEzRMCQeDfAQaMtmIODmqJCyevU=,tag:1Cs7wI9G21Y7V6p2o6uUeA==,type:str]
     pgp:
-        - created_at: "2023-10-16T07:05:45Z"
+        - created_at: "2023-10-16T09:26:11Z"
           enc: |
             -----BEGIN PGP MESSAGE-----
 
-            hQIMA38T7Az157GMAQ//VMCo+RSOiBdJvHmSCYtHLxlmRNK/3yhj2W6X2QeO/uMz
-            o9YJ/SCUCDfrMKxx3S2kcbEbDn71wEliEqcjpVM6ZQhHrXOeEjMM0zXiVg9UDEuD
-            G/kcMWTXzKflwLjt245f/p5T67cZthdbYdKOwBwS3ehMX7BfKpQDH3Gh3hX58jcc
-            iWoutaUvEKCGc+21YCegNuBqKleR4aOtImm8dW3Zj+xr3w7D+/XsTdssoSrbc8rA
-            /LE3F1/EljJskbXjmadpb81XO+0XU7mSOmRlDjY1sRSent7DLqjdg9G5msRLwcw4
-            RC9WHprJH1w215H20pWIr/iwYgAIx08ZHzN1H22Fes0NFkITUU/FgPC2r+G4NBas
-            cim3g+m/mn449QtJvwy50NAosJFTd9ktJd5SwK7gkrMDEwxMqujMOLf7RQyuGKZm
-            06+nFw3k5jPX6muP2iS2O0eaux59yr8v4ZikvaltS3NW+zC4Jl2qMpIFMqq34fgs
-            5Z/x1gQHv74OvIKiW/gwBzbss+PECFq97SSFMh6mFLiicqbTdmLzU1JOUhmqaRqC
-            UnQ09L0d8lBucXzPVtF+fJ2IeOjuw4G2Pe6YQEnTSHq9Q94TuDOT3Z16ZaVAIdor
-            S9v97AxPi7vkoL+yiwZJcuoQuUopaA8Zd8HkEWdrv/rxevw68qy9NNpPRuet/0vS
-            XgFfWbp/h5SvTCn2uK9os8dewcDssj3keOp+ImY4IYi7f1TRe8jrIaMK8fmFuZTe
-            ccqstDV2lJD5rqWtaCxQYabIJGWm4Ok5rYHjFA3m6pJzA4N2MgH/ytweZxCNieM=
-            =JX9D
+            hQILA38T7Az157GMAQ/3dT9K0au18G2i0XSp+VrKvTGhD9LY8Ug+Vc3KsXibgiS4
+            POk/kODlCIsitMLfTfEHRsSuumc3Zd34h+Etlo8Efm5XFq0t43O6opI1WrxaD0e6
+            Qm6eNPLm3V7bs7flHJgiV7MV33d29LMKZR22qP+4nwOF8IbbcP8jGpMOB9fd3jYY
+            OfCH61QzWJKUmm1Qvtg1Lg6vLm+Lmp8bZZHQ3rbOat2mJdjBNIO2AAZ8ya3TCN+X
+            pV/BKwC/nME0UEkIhH9QZxyU+onde5xd+7oJynqRmbkNVbLirG0J9iqCQBhvVO+A
+            kPQAk3/d6bvCv6XgLwS6CYCUYEkae3q1yoARG6payfOiuuRmFpjp5VFEuQQI14FB
+            M7qq8fdtXQLkDFKZVC0yil35W1MV1QwCfYDh2YmfwJXRthvm1nq2JznHUuDYOAyp
+            F0KoCmZDxkTMXpnpm7wcaUP1QUUd8Py1z/I1uW2FR+0dRd170RFdD1iQYwlXciBY
+            fhuI+JIOXCPFHDb/qAu0eKfNBWxOq6rzaQKP4Rz/IyDk4dwR+6JRdUvMJRGPc57b
+            HHzvTK6t5NrUoHbkMb9gG8Bm/v8Wk5fpo9QzSeDZcGqbqqtRIokNluVIFqgqgRV2
+            krJrUm+yvuQeal6EOvVw2ARRaHSoiiyv8/KKgl96tXN09uzH+b4QI4bSLLTNqNJe
+            AWyj79StJbdILcLMdltC/p2KQ+FZzY++WggnIpuQMCw8chKfPl1Hw73BR5UiSemA
+            /nWlNdVwdCN5Z6VHMcB0gT4VlhYmtUGwWd80XlCgkminYQypKXWZ6VMbjJChKQ==
+            =Qwbf
             -----END PGP MESSAGE-----
           fp: 129994A38E40322EE2A4FA6CB59C51DA13B1BF22
     encrypted_regex: ^(value|host|hosts)$
@@ -193,7 +201,7 @@ spec:
                   name: chat-copilot-web-searcher
                   env:
                     - name: PluginConfig__BingApiKey
-                      value: ENC[AES256_GCM,data:uteeqWEPdHh6YGM8HH3HUA2ZPv9G1v3GK/zOfV2Aunc=,iv:N47h7cO+Q4JhzMJUo1YC3bqBTAKLQAs3uNljAwhHhIQ=,tag:GnQmg6M463/ZNRucyIHY4A==,type:str]
+                      value: ENC[AES256_GCM,data:04CSoRkEkkeruFkdvHTKR/eaXjp/MzGDS3biK8xgSYI=,iv:JECRJ716AwG/XM4C3cJARpHBboMwsTby3W04WDN04Fg=,tag:0n9Jlt3etEaXC1HcQDIwLA==,type:str]
                   ports:
                     - containerPort: 80
                       name: http
@@ -204,27 +212,27 @@ sops:
     azure_kv: []
     hc_vault: []
     age: []
-    lastmodified: "2023-10-16T07:05:47Z"
-    mac: ENC[AES256_GCM,data:QyV66VN2m1imjmlYjc0pKAb673YG5QCtPJ/u+CdVDuIEyIQpjv6FNgJDW+mnLmb6cAJPg7NrojR2nkTMvd5helAyCu1Ty6YG04fC2IhLwjYpTjJhrtj978EumiPmEaXOBwqegz92M8ddTP4wAfH1iJDugZkIimJiergA+0pm0ns=,iv:61CDWls1KxTOZHwFl838SqiBsuuWPc9hkv3Q84Cfj7o=,tag:dE4aStQ9uNuwBYkTQ9mBNw==,type:str]
+    lastmodified: "2023-10-16T09:26:12Z"
+    mac: ENC[AES256_GCM,data:jpm09FEreziDgTuaxvPnPj0H9VhAKA9dgJP8ZF3rmAL0AlJ1x9GTpK5TaghcBvM5aKgPcoSdziWwbZb+HXNpTQROYAMmTxV5SbriQrFGTg7rR6XKu4k5TJvXxttbfRdxcIqpbv3ZJxCd6JSh31oM4EckngdIohaT1EwR5pd3aFA=,iv:4tOc6JcviHH1rKwhCEzRMCQeDfAQaMtmIODmqJCyevU=,tag:1Cs7wI9G21Y7V6p2o6uUeA==,type:str]
     pgp:
-        - created_at: "2023-10-16T07:05:45Z"
+        - created_at: "2023-10-16T09:26:11Z"
           enc: |
             -----BEGIN PGP MESSAGE-----
 
-            hQIMA38T7Az157GMAQ//VMCo+RSOiBdJvHmSCYtHLxlmRNK/3yhj2W6X2QeO/uMz
-            o9YJ/SCUCDfrMKxx3S2kcbEbDn71wEliEqcjpVM6ZQhHrXOeEjMM0zXiVg9UDEuD
-            G/kcMWTXzKflwLjt245f/p5T67cZthdbYdKOwBwS3ehMX7BfKpQDH3Gh3hX58jcc
-            iWoutaUvEKCGc+21YCegNuBqKleR4aOtImm8dW3Zj+xr3w7D+/XsTdssoSrbc8rA
-            /LE3F1/EljJskbXjmadpb81XO+0XU7mSOmRlDjY1sRSent7DLqjdg9G5msRLwcw4
-            RC9WHprJH1w215H20pWIr/iwYgAIx08ZHzN1H22Fes0NFkITUU/FgPC2r+G4NBas
-            cim3g+m/mn449QtJvwy50NAosJFTd9ktJd5SwK7gkrMDEwxMqujMOLf7RQyuGKZm
-            06+nFw3k5jPX6muP2iS2O0eaux59yr8v4ZikvaltS3NW+zC4Jl2qMpIFMqq34fgs
-            5Z/x1gQHv74OvIKiW/gwBzbss+PECFq97SSFMh6mFLiicqbTdmLzU1JOUhmqaRqC
-            UnQ09L0d8lBucXzPVtF+fJ2IeOjuw4G2Pe6YQEnTSHq9Q94TuDOT3Z16ZaVAIdor
-            S9v97AxPi7vkoL+yiwZJcuoQuUopaA8Zd8HkEWdrv/rxevw68qy9NNpPRuet/0vS
-            XgFfWbp/h5SvTCn2uK9os8dewcDssj3keOp+ImY4IYi7f1TRe8jrIaMK8fmFuZTe
-            ccqstDV2lJD5rqWtaCxQYabIJGWm4Ok5rYHjFA3m6pJzA4N2MgH/ytweZxCNieM=
-            =JX9D
+            hQILA38T7Az157GMAQ/3dT9K0au18G2i0XSp+VrKvTGhD9LY8Ug+Vc3KsXibgiS4
+            POk/kODlCIsitMLfTfEHRsSuumc3Zd34h+Etlo8Efm5XFq0t43O6opI1WrxaD0e6
+            Qm6eNPLm3V7bs7flHJgiV7MV33d29LMKZR22qP+4nwOF8IbbcP8jGpMOB9fd3jYY
+            OfCH61QzWJKUmm1Qvtg1Lg6vLm+Lmp8bZZHQ3rbOat2mJdjBNIO2AAZ8ya3TCN+X
+            pV/BKwC/nME0UEkIhH9QZxyU+onde5xd+7oJynqRmbkNVbLirG0J9iqCQBhvVO+A
+            kPQAk3/d6bvCv6XgLwS6CYCUYEkae3q1yoARG6payfOiuuRmFpjp5VFEuQQI14FB
+            M7qq8fdtXQLkDFKZVC0yil35W1MV1QwCfYDh2YmfwJXRthvm1nq2JznHUuDYOAyp
+            F0KoCmZDxkTMXpnpm7wcaUP1QUUd8Py1z/I1uW2FR+0dRd170RFdD1iQYwlXciBY
+            fhuI+JIOXCPFHDb/qAu0eKfNBWxOq6rzaQKP4Rz/IyDk4dwR+6JRdUvMJRGPc57b
+            HHzvTK6t5NrUoHbkMb9gG8Bm/v8Wk5fpo9QzSeDZcGqbqqtRIokNluVIFqgqgRV2
+            krJrUm+yvuQeal6EOvVw2ARRaHSoiiyv8/KKgl96tXN09uzH+b4QI4bSLLTNqNJe
+            AWyj79StJbdILcLMdltC/p2KQ+FZzY++WggnIpuQMCw8chKfPl1Hw73BR5UiSemA
+            /nWlNdVwdCN5Z6VHMcB0gT4VlhYmtUGwWd80XlCgkminYQypKXWZ6VMbjJChKQ==
+            =Qwbf
             -----END PGP MESSAGE-----
           fp: 129994A38E40322EE2A4FA6CB59C51DA13B1BF22
     encrypted_regex: ^(value|host|hosts)$
