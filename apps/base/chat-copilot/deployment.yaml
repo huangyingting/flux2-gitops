@@ -39,6 +39,11 @@ spec:
       labels:
         app: chat-copilot-webapi
     spec:
+      initContainers:
+      - name: wait-for-web-searcher
+        image: curlimages/curl:latest
+        command: ["/bin/sh","-c"]
+        args: ["while [ $(curl -sw '%{http_code}' http://chat-copilot-web-searcher -o /dev/null) -ne 200 ]; do sleep 2; echo 'Waiting for the webserver...'; done"]
       containers:
       - image: ghcr.io/huangyingting/chat-copilot-webapi:main
         imagePullPolicy: Always
@@ -64,11 +69,6 @@ spec:
       labels:
         app: chat-copilot-web-searcher
     spec:
-      initContainers:
-      - name: wait-for-web-searcher
-        image: curlimages/curl:latest
-        command: ["/bin/sh","-c"]
-        args: ["while [ $(curl -sw '%{http_code}' http://chat-copilot-web-searcher -o /dev/null) -ne 200 ]; do sleep 2; echo 'Waiting for the webserver...'; done"]
       containers:
       - image: ghcr.io/huangyingting/chat-copilot-web-searcher:main
         imagePullPolicy: Always
