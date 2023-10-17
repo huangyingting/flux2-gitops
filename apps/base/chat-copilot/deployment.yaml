@@ -64,10 +64,40 @@ spec:
       labels:
         app: chat-copilot-web-searcher
     spec:
+      initContainers:
+      - name: wait-for-web-searcher
+        image: curlimages/curl:latest
+        command: ["/bin/sh","-c"]
+        args: ["while [ $(curl -sw '%{http_code}' http://chat-copilot-web-searcher -o /dev/null) -ne 200 ]; do sleep 2; echo 'Waiting for the webserver...'; done"]
       containers:
       - image: ghcr.io/huangyingting/chat-copilot-web-searcher:main
         imagePullPolicy: Always
         name: chat-copilot-web-searcher
+        ports:
+        - containerPort: 80
+          name: http
+          protocol: TCP
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: chat-copilot-memorypipeline
+  name: chat-copilot-memorypipeline
+spec:
+  selector:
+    matchLabels:
+      app: chat-copilot-memorypipeline
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: chat-copilot-memorypipeline
+    spec:
+      containers:
+      - image: ghcr.io/huangyingting/chat-copilot-memorypipeline:main
+        imagePullPolicy: Always
+        name: chat-copilot-memorypipeline
         ports:
         - containerPort: 80
           name: http

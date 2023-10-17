@@ -13,3 +13,5 @@ replicas:
   count: 0
 - name: chat-copilot-web-searcher
   count: 0
+- name: chat-copilot-memorypipeline
+  count: 0  
