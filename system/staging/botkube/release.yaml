@@ -11,7 +11,7 @@ spec:
         kind: HelmRepository
         name: botkube
         namespace: flux-system
-      version: "v1.4.x"
+      version: "v1.5.x"
   interval: 1h0m0s
   install:
     remediation:
