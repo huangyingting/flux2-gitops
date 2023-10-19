@@ -24,3 +24,4 @@ resources:
   - pulsar.yaml
   - open-telemetry.yaml
   - qdrant.yaml
+  - opencost.yaml
