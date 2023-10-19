@@ -11,7 +11,7 @@ spec:
         kind: HelmRepository
         name: dapr
         namespace: flux-system
-      version: "1.11.4"
+      version: "1.x"
   interval: 1h0m0s
   install:
     remediation:
