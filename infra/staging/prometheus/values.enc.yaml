@@ -8,9 +8,9 @@ alertmanager:
             - name: "null"
             - name: slack
               slack_configs:
-                - api_url: ENC[AES256_GCM,data:0dInDV5SvG7884/2nA4xLbapKEeW3CV8KjCDPOoT44z15lcjKftddpaYSzoo6f+5vKC+fUlebuChcVBgMR220Jaid50on19aDgamyKZ/pb0K,iv:7OSyfLDITlmnNUnNmMVYTEOXnQZ1COBPB+lh9gkScVE=,tag:TMkK0lfnHvAMrKW/LJJ4ZQ==,type:str]
-                  channel: ENC[AES256_GCM,data:1ozv4pd+Cw==,iv:OdJBRkBJs11nyCJKzqiAI+pf50DhqVrv9qp/zjjQN84=,tag:B3vSpuhHDLcrVC7xE7a10Q==,type:str]
-                  username: ENC[AES256_GCM,data:qoc4KH5esAyhpg==,iv:X9o9G/p4GAaIIYcYbr3HuDbOKoLC5hF5pS6bmGLQmQI=,tag:wwUuRdCxA1XfuwUTTy1g0Q==,type:str]
+                - api_url: ENC[AES256_GCM,data:AQIlwEXafAcSTh+0kB2Dvais4Di3t2Ba5qbLZezREDNXBEOkFLHu2zzdKgTy6dBcUgKvg+lRV4yXznBXA+zT9HishzJlZK7O7KZySlS1UlvC,iv:1hkmRy8uMduZtJPxCxtjrlRMCI7DC7gUUxmq8x7o040=,tag:zAGlVJLQi6kthsfAjZFwRg==,type:str]
+                  channel: ENC[AES256_GCM,data:N3RNmMWRww==,iv:RNKwYtiLJeL0Axp9ciW1MtWpL6m6zGXojHyrJTki1dM=,tag:uy1674NIAGY1I/zqEe1J1A==,type:str]
+                  username: ENC[AES256_GCM,data:oheNb12pBlDvHg==,iv:f+iaX7+Y2/uCTXAfNNuSvQe9MtEjOnQTpGKO2fOp/gU=,tag:30LTRGzR9iywB9frOVEIOg==,type:str]
                   send_resolved: true
                   title: '[{{ .Status | toUpper }}{{ if eq .Status "firing" }}:{{ .Alerts.Firing | len }}{{ end }}{{ if eq .Status "resolved" }}:{{ .Alerts.Resolved | len }}{{ end }}] Monitoring Event Notification'
                   text: "{{ range .Alerts -}}\n*Alert:* {{ .Annotations.summary }}{{ if .Labels.severity }} - `{{ .Labels.severity }}`{{ end }}\n*Description:* {{ .Annotations.description }}\n*Details:*\n{{ range .Labels.SortedPairs }} - *{{ .Name }}:* `{{ .Value }}`\n{{ end }}\n{{ end }}  "
@@ -30,16 +30,16 @@ grafana:
         annotations:
             cert-manager.io/cluster-issuer: letsencrypt
         hosts:
-            - ENC[AES256_GCM,data:XHhMde37J66X1OEArDstHHS68Qk+hrg=,iv:GBu/Uur55qpkO/CVbkWh7dTLEUGI5RdYrN35qSIIKos=,tag:l0oVkQOM26DMb8pwJXnyBQ==,type:str]
+            - ENC[AES256_GCM,data:rkf30X4Shdcqw5bWfjo9Gz4QGV0O/RI=,iv:52viOnQhDWeybKdTCVV4SgMSSP9/mj6q/218KIU04jw=,tag:F/+NB6Wqn0/BvG+8SC5btg==,type:str]
         path: /
         tls:
             - secretName: grafana-tls
               hosts:
-                - ENC[AES256_GCM,data:ynkczHwjV0kbR9IrVaaQAR9FTvWRS8w=,iv:duq1c6+SDN9hFMMy1kPO1tybkC2/QzBcfXnjbAJQ/YM=,tag:MGBLqLzTWfx7Zhe4Urd9YQ==,type:str]
+                - ENC[AES256_GCM,data:DTnjwMNI14vaTL3p/r22Q2VqzpEbosI=,iv:3bmyU9PWoD5zEpPiRFtzwxojPufaJvKdeVrpLGfVYFQ=,tag:wW1dTo/Dh1yI088KJv3M8A==,type:str]
     grafana.ini:
         server:
-            domain: ENC[AES256_GCM,data:LBmBe6+lf9jR+sbh2YA7r3GHqfqviHM=,iv:xRvl1wUrRiKrNraWUKLVXe7wzPSyiuuCFIZUXvJIAU4=,tag:NTxO9uIdtTfXecmILgvfDw==,type:str]
-            root_url: ENC[AES256_GCM,data:QVrRpVvFSfUtpeN+6WXZhhtp6JZuNcTpj6YuxRBvhrg=,iv:6AXxiPwF6FCTloRHEMnmCydziEuY1kNGI7hUD9kfH1Q=,tag:JG5NnHjxVGfy5kYDjODd0w==,type:str]
+            domain: ENC[AES256_GCM,data:8yst3pu8Fy+UaCue9jIUSIR5K9OSAXw=,iv:nKfSDfaGw7LrGEdfaThvoDv55rmj4mghOfGYK4mQ5gg=,tag:s6ChUxGlnp5wnZf5ePg3lw==,type:str]
+            root_url: ENC[AES256_GCM,data:uPca4piLEBLE+ta/PqAaSfpbHztEpPSeMRYbukgixFU=,iv:lz/9PfXaeYa4evWZ27JZY4mUSp69mfw66ED5Pgs4Jgo=,tag:YEij1aaLja8qR6BrM+hxyQ==,type:str]
         auth:
             disable_login_form: true
             oauth_auto_login: true
@@ -49,11 +49,11 @@ grafana:
             name: Azure AD
             enabled: true
             allow_sign_up: true
-            client_id: ENC[AES256_GCM,data:xAWhuebWmcZICZh0BhYqUFXBocb7/wp+Whxr/G/20IXul1u5,iv:1KgJoLczEerxE67hVIu8apW9gWb5LDSvkAIh4xzE1/s=,tag:eL+nPZX8nKeB+KgSAUQqTA==,type:str]
-            client_secret: ENC[AES256_GCM,data:Jw1W4Oi2PVwZ1HKmmf9Hp2w04ZbJq/jCwr8tNAHvF5BSfKOI0pE6Ew==,iv:IxXGx6dAVI0g9sa0be3HElf6tC+l4nIwPbTClKJhRSY=,tag:M9jec12d8//MqNrCLwf9Dg==,type:str]
+            client_id: ENC[AES256_GCM,data:WRZAQbefc+U0DXse9NxQiwfaBEQyb4eWP9HnDY8RG+QNgfAN,iv:NJFMYwNECNYI05Z+IO2cMzkfwMF500y+trmTL+FShSQ=,tag:IET91TA7Ucd3wxqXaynodg==,type:str]
+            client_secret: ENC[AES256_GCM,data:wKzI1Coc+uQcr706emPDDI+lRr5pX8A2Dfxo7bKo31fNghKKgVefGA==,iv:W+5GLy1+3dW36pU9D1UwuaHg4cwcyIiq452JqIIxSd0=,tag:PCPAfkSo5BwX30I2Ua1FYQ==,type:str]
             scopes: openid email profile
-            auth_url: ENC[AES256_GCM,data:k0IdsELBFsaMHtKCV6XeWKOgpTeJByvyCOuCNxa+GiG4IZ2ST/iyUu7hvAQ+tndGnandNQk3z8q1NwQhq+VQ17Q+8pskwYuhZMJHUkz9OocTI4wwKR9IPcEPyb8=,iv:BZ2M+z+IxRYvGFf4rIr194lCvOTuhS5YaAgwvwp4AyA=,tag:LUygKt1CqjUwwYG7zY9UjQ==,type:str]
-            token_url: ENC[AES256_GCM,data:/B2rvbY+7aMmrrEmhE2qPYiZz5rnzNuYXZRNpRn8Nklr9gnPecSA/kz8Jeu6XRFKn+G7kjNVTzTz59Hk95uym2ia9zxSF8PJj4qQrin0T7kCEr7lmTEYlA==,iv:jTY6h0fhwFVUPsyD0rj2UA+Kl+daS+ptMyMt5Qh6Z9k=,tag:YGK43d+UigTWSKF2c29Uqw==,type:str]
+            auth_url: ENC[AES256_GCM,data:EB2z/NeNnBL661QdqiaYXa16nznUh6g8yCBIgMG7iA4AnaN3+t9UcYnbks04Xof7WDuAFeqUC/8Fpa9ZTWHjVvyOxSj940hAYNgtka1QvBZ/yh1+S4qZiJvOaao=,iv:FJGdQbrsCJdbEH2e9yHqdCGpNuniCUq68X2KYzGNzgE=,tag:uvuugighnH2GccAewwrbeg==,type:str]
+            token_url: ENC[AES256_GCM,data:FKl6SjYGakzpxbWobNF9g8mmCwdZDtyEXYbHvcmiD4N+wdpeC+9qtF9whg0k+YlQWRwWXRzybI5qbrGNcLDgsm4UnA3bz8M3fdelzkFjqHmhyHue4h66QQ==,iv:H8CAk4+BeGh4KFvRzpkEicRBBCLJeWE3DHzHMPdLOGs=,tag:ryyLqFEzWaecFkIXypAXhA==,type:str]
         analytics:
             check_for_updates: true
         log:
@@ -150,6 +150,17 @@ prometheus:
                 # Copy tmp labels into real labels
                 - action: labelmap
                   regex: __tmp_pod_label_(.+)
+            - job_name: opencost
+              honor_labels: true
+              scrape_interval: 1m
+              scrape_timeout: 10s
+              metrics_path: /metrics
+              scheme: http
+              dns_sd_configs:
+                - names:
+                    - opencost.opencost
+                  type: A
+                  port: 9003
 prometheusOperator:
     prometheusConfigReloader:
         resources:
@@ -161,27 +172,27 @@ sops:
     azure_kv: []
     hc_vault: []
     age: []
-    lastmodified: "2022-12-14T01:32:18Z"
-    mac: ENC[AES256_GCM,data:VE3NCcmZ52NSukJsEtjUq88gGMCP54aqlVCbGePz2pmhEOS9E8aqbZTVYYVsIHXP2F1oUBGhuCfaYLoP3tm58idKeCNHy1nfJDmHMfir22iJBamE6P4IxTWBR8S+fGwl4tEHz9jKAkM77uTdj/uHCT5zg5H7BHsT9Nr6QAirKPc=,iv:Pw56D3pMdL1BLTQh98uALVYNE10anj/KFAqPli9TlVY=,tag:/zeIhyL0tb3T8ybZux7vKg==,type:str]
+    lastmodified: "2023-10-19T09:16:11Z"
+    mac: ENC[AES256_GCM,data:RYhM0Oii7blmJl+mg8aNJ5u9j7TcXghE5rWhiIZiunze/bxWZFpEWB5eV3Rdk/HQHKKBL+elU4pOJYce9C3fYqYiG/y3t2gMrPxTR3Z/hLuPKKpH68n4/wv6xCFQo7cKpEQz+QkXHqmRPiuE1q9l9Knjb2iT/reXwETyE85plao=,iv:N5ydV+XQaKMI18GcwiEjSPHd8n+MvzprH/xC1qgAQUs=,tag:cqH4Z/kX7fTGgGu9BoqTzA==,type:str]
     pgp:
-        - created_at: "2022-12-14T01:32:17Z"
+        - created_at: "2023-10-19T09:16:09Z"
           enc: |
             -----BEGIN PGP MESSAGE-----
 
-            hQIMA38T7Az157GMAQ/8D7de+ylwEEe1kJa5ghWlBbreW+y2xnsbCI3TuRRADgQv
-            iYBbHt1ZMtU8AjLgJZ/JgVbXMBy75DdMqr9dLww1GiK+1M8uCrFUwJCoL1d1E/VB
-            xCZLebOGEbFQi4hbDUt2yvlH6zNEk0rE11CX0uqiFx/KLyNOpcC8m15fRdcx9i4V
-            JaMIWmmJC8zihSV1hNpXyLmSs7MvHeFM+FCN9lbT8VL04Q0a2wEhy+DjU4FrKICh
-            HjNAh0Sf3YvEqvyPOiBCVvm0R7yw+ATlo6FCratC8Tn84RO6FtP5fxpuNBDxM1Y4
-            he3+DOOX+GVmJR1kkF2IuSlquTdKMh8TM1dRBy8VvgRRkgLpxEIF0i9sl5afzBnY
-            jgPg3LE3Yr+BXox25nUfLAEf9aGkfyMgPwfoebZrl9Vj0ezJ+G/GlNhABC0bWW+H
-            pCjZXXub1PAuSNGbHWMVoc+K7ea/yc2l58kRB0HXAMd5SdduK1h96vOQvuFfxAKW
-            VZgNRejoFlVdy1sEsiutrx/C3xTmxb/KSteBya6ganCyNN7333IDHzaWV8EncLJ7
-            f1g37c2nhqlKyOhtFQKVgPKO2dcIQF+tLPX4TRq2Uk74WA02SC+Ienh7pUOuoeb/
-            1hFUbfdJ7g+BHOLhTMSPAdxpmCDjNr7KqlHdLdtjdcBQk6WnQdtEYdthNKPcxJnS
-            XgG1F7BUXYPflB/gIpFYLFu7buW0iTEFcRevhrwp+YGNWu6MbhWCp/b3FQb8sxeq
-            JshX9vqEWbWZxppiZkZrvPAIXbuYip8UIiP2xkIVz4MtB7f1mWesIP0tZKftzNQ=
-            =QoY8
+            hQIMA38T7Az157GMAQ/9ELLl6ZpdIeFhNwMCvD+3ZAQIlk9SYAw3fa9aO3PHWMUi
+            O+cYGH3HU2QRiJ85RMLkDDwbWLZtM15PI3ZGzBnaBT2mxV9mMSpqYXl7yX+r/y9H
+            gN2bKchIQNMgksaQxtOvUu6TvTxJF+fU10G+Iu8DcOSSShUKIzSNCqVnqvpJzgZC
+            jMUJSfZKnVvk8vd7vz4RzA1rM7HfZP/DnGXi46oTqOllUPvjeZ4YUrOrSDYyc7e/
+            bAG/eE6RfVqGg4cujRdYPIOZ1STshTYcSNp1jWLUC3mftZlQdsqzQ1n9/RAPlAji
+            cFRBS5gYuhSjOVmi26wGwHNEMXFe+0A/ho/C4IcTXHZBZb/fLx5ZPKTpiv1Ix7wJ
+            5krqn8kxQy+mEk+GBzGVpAJgABwsXo+n/Us5z3gJul9WoC+nkgay7zF9fXRcMALK
+            G96GIyIr7vU+BWgUmX1rXxdMaiMQ0BG7ihTwcFPvDP1D1k6CYoRUyzXc3fhtW9TW
+            pBMNbSELECNPSDPuumxtdFCg3BMpkdLmMf1Fl6iT930PBLQTs8SVw7rMvdv5ZW4K
+            MuyP2SEAfZWuwXxSJ+ee7+N3sH2LW/S3PnSYr4+sbaQT1VS85Ptb4lLdoGdNtKCM
+            Fw11wcBFy1k4dHvLnnL7xZXuBxsQ0HuUCb4LzJLN1IGMNVWLBzD5iadNAUG4wTXS
+            XgFBWWY//Guafl4G+39QLG0FQ34PwG+Ca5nve3KsKsArOLiT8WuV93Q/XfdyWjh6
+            lznf3A1ik8EZcg/bd9TBG3DGBtCMxR3FPqZSkPC6Ll/CqPT/XbWVMLsnwBom+sY=
+            =XpsY
             -----END PGP MESSAGE-----
           fp: 129994A38E40322EE2A4FA6CB59C51DA13B1BF22
     encrypted_regex: ^(client_id|client_secret|auth_url|token_url|server|hosts|api_url|channel|username)$
