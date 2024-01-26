@@ -9,7 +9,7 @@ resources:
   - istio
   - istio-ingress
   # - kiali
-  - linkerd
+  # - linkerd
   # - linkerd-jaeger
   # - linkerd-smi
   # - linkerd-viz
