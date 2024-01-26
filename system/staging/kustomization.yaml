@@ -30,7 +30,7 @@ resources:
   - azure-workload-identity
   - dapr
   - keda
-  - keda-http
+  # - keda-http
   # - pulsar
   - keycloak-operator
   - qdrant
