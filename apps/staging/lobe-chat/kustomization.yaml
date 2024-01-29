@@ -8,4 +8,4 @@ patchesStrategicMerge:
   - ingress.enc.yaml
 replicas:
 - name: lobe-chat
-  count: 1
+  count: 0
