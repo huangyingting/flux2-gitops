@@ -1,0 +1,60 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+    annotations:
+        cert-manager.io/cluster-issuer: letsencrypt
+        nginx.ingress.kubernetes.io/proxy-buffer-size: 1m
+        nginx.ingress.kubernetes.io/auth-url: ENC[AES256_GCM,data:GkoxZ24IOL01nOS9Gxz+1zTmGxr0sE9ycB2iVEXGWkKlWSIiE3giKw==,iv:WQgW1hB7HuJnjeeDg4KCw0uMF4FdvSLQA8lCCAHrWYU=,tag:KUAm2c9mXt48pcJFQP49cg==,type:str]
+        nginx.ingress.kubernetes.io/auth-signin: ENC[AES256_GCM,data:sKxfRRLx391kThNkJBLXRFtlf71m2lWn9xVpAVIjbMclVl1SnkjthRmKi0+5EK0DejfT6++LbQiNKSl43FnO2u/1UztAPSex,iv:qF9AX4zgL5zzRyw0kI3K75Pby/Tfjm8iVT7yzLv+sV4=,tag:9QZIOXo6xSKppX3hC8IA1g==,type:str]
+        nginx.ingress.kubernetes.io/auth-response-headers: X-Auth-Request-User, X-Auth-Request-Email, X-Auth-Request-Groups, X-Auth-Request-Preferred-Username
+    labels:
+        app: lobe-chat
+    name: lobe-chat
+spec:
+    ingressClassName: nginx
+    rules:
+        - host: ENC[AES256_GCM,data:X4+j+4/hQ1oEDFWeqTkH8SVc1Ko=,iv:pYtFtK05WC0tcpPIHZQ9OTtFcStdpiUALIjpPtx9O4E=,tag:kUROWw19RpOYVrxPUDVeUQ==,type:str]
+          http:
+            paths:
+                - backend:
+                    service:
+                        name: lobe-chat
+                        port:
+                            number: 3210
+                  path: /
+                  pathType: ImplementationSpecific
+    tls:
+        - hosts:
+            - ENC[AES256_GCM,data:JvdNecxoA9m2Zsty3YN809RKAMg=,iv:CHmbNQvqSTO+yvNiHrVQ1DQtaCGJl8COmPoceQZNGck=,tag:L/FXQUqwNfmxHS1xhnL8qg==,type:str]
+          secretName: lobe-chat-tls
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2024-01-29T01:37:54Z"
+    mac: ENC[AES256_GCM,data:RnrCFYixACljDDCTSmzZ3CI8IwuF8is/aQbN0sZ9M1NyTz+C5U246fUowqhY/kzWv62502Qq6AE8WqARGcMkw+TCZBWEAK97Cm4YEfJTxR70XSVEwHkdXXnaVaaFkOW2Yos1IphARZB901dVFFgphfkoOKFdrSYXX+yBSRVXLLg=,iv:FGjzg9s58zI6xY+05wd5V1sIynXVGGnXkvUOppovBjY=,tag:Oo0/wGdMsbjgYSD/bSURnA==,type:str]
+    pgp:
+        - created_at: "2024-01-29T01:37:54Z"
+          enc: |
+            -----BEGIN PGP MESSAGE-----
+
+            hQIMA38T7Az157GMAQ//bIhAT7DYqwRlLsBBs6e4jcB1lpr1IbX2AWEDlMGYvfgr
+            vzMZvokHj9FE/tovle6Hw1Bp7mUVeHpd7yPbsVjBW9gOSGOcfgyWGVY/R2W9W3wk
+            DtNf2L+IoqOhc+2/ywm+bTmdMVvxITE/fdIGy8srw6PfvUX//y9kod04Ir7hD/rh
+            OR4z+xTQdAKvPVHEP/h55OZkAaBHn2YA1xP2ytJSJA18Gb5j73Cu90Apq5kO1i8C
+            jnxJDlyFgAiYPmGqNwBN2OWjg4fpIN9ixkVJGFZypw1wF5T2i3BD3r7uVTDw68dz
+            xskGMFDrPqJAxlRlSwLf3Fe7KVEfBXe0SfZEyQkw7RnAr5WDe2koV0xGR4F0iPnb
+            2YA4I9xWVkBjDIGn+z8aWCzMHt5kFY4cS50QH3CQN85mXmHpEnGB9TLSd6qT9kjp
+            TGRM1mbgh9O1JA/m16bFmkktIO3y64Zy4ocMg5ZMFtVh/MsCR/hg0xJjGiEIXMrO
+            aqYAs4oU7co6N1oF0swN2Way/00nd3SuOAf9/AgMKeJhL6etX7SpVe5P42UC/pww
+            2vxWrQJMtlC81s8Kx+AoBF2/XY32yWCOPWNYHR3OHUZ1mcnP9ypoGUDcZPOJZQy/
+            XTohloQ9EUQw8BkMxPa0nlfYJfQu/Hpf2xWRGnCIaW5gn8ggu1qJOqEon1YTjDnS
+            XgHNvx8CwevMTKfZRyQT6VRTl/Yy5Rd7xGseNyDyZ4iMyLul+4Eclvd78birIatT
+            C40Q3rfutsdsQBK2BwbHmQNtSNGI0kWvmgwVErbDofj1KXU35DzD85WYd4E/f20=
+            =5xVV
+            -----END PGP MESSAGE-----
+          fp: 129994A38E40322EE2A4FA6CB59C51DA13B1BF22
+    encrypted_regex: ^(value|host|hosts|nginx\.ingress\.kubernetes\.io\/mirror-host|nginx\.ingress\.kubernetes\.io\/auth-url|nginx\.ingress\.kubernetes\.io\/auth-signin)$
+    version: 3.7.3

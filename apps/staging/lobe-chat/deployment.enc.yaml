@@ -1,0 +1,70 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: lobe-chat
+    labels:
+        name: lobe-chat
+spec:
+    replicas: 1
+    selector:
+        matchLabels:
+            app: lobe-chat
+    template:
+        metadata:
+            labels:
+                app: lobe-chat
+        spec:
+            containers:
+                - image: lobehub/lobe-chat
+                  imagePullPolicy: IfNotPresent
+                  name: lobe-chat
+                  env:
+                    - name: USE_AZURE_OPENAI
+                      value: ENC[AES256_GCM,data:LQ==,iv:KVO9OxDkaKsIImWcsU9S5Tv2MgiDKXhqYtI7mSrAOZI=,tag:xnSpAad5SZ24Zlhu25CJrQ==,type:str]
+                    - name: AZURE_API_KEY
+                      value: ENC[AES256_GCM,data:dHfil00wZyhUynwdyhWkFi4L92pYx7KMtE3TE/5e+nU=,iv:dqvn/sQKZg/I6fmgZoBa5APrG28CPfeOpOu9UtVDBMU=,tag:k60zNGyFrm9EDg+ynuWszQ==,type:str]
+                    - name: OPENAI_PROXY_URL
+                      value: ENC[AES256_GCM,data:Kt5bvb++GJaq8ieEvutKBbicJiEfpPk5xYFOXmfINYW55g==,iv:kzOuXJqEbhgddm7wM/BrxMtzUtmEt1IOWir2idqFWhI=,tag:KIhG9Mbc0DnN7gIqFXOuww==,type:str]
+                    - name: ACCESS_CODE
+                      value: ENC[AES256_GCM,data:gjzKWtwa+QI=,iv:2kaIyDgTRCbMCsOVoq+/DMrYtwuYGCSqa4kEWP1eIhw=,tag:Yco72Ho+QrUiI6N8Ke3b3A==,type:str]
+                  resources:
+                    requests:
+                        cpu: 50m
+                        memory: 64Mi
+                    limits:
+                        cpu: 100m
+                        memory: 256Mi
+                  ports:
+                    - containerPort: 3210
+            restartPolicy: Always
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2024-01-29T01:37:46Z"
+    mac: ENC[AES256_GCM,data:bx49hPi3UyIFTdZztxWQkXFKTgCVTArc7J5v9Fu5YPSQQL3YHbsiwDsu1gHx1T6ytDD41TaNDL2ZtwzfSXOqYgdKeVQ30k9431mF824MbegaCNC4nP7ukf5tSkWWlsq/2RE3XGeR9hiOAfhfU4QNNsYHxUZ5RpOnsOykqXh27ks=,iv:QGnadjGOdB30lq/Wc2mr9h0Our031Yo77T7xoHWtSGo=,tag:qiRy6VYeHXG9EgIZCr9JFA==,type:str]
+    pgp:
+        - created_at: "2024-01-29T01:37:45Z"
+          enc: |
+            -----BEGIN PGP MESSAGE-----
+
+            hQIMA38T7Az157GMARAAub5vUAXOfZYUY1X3iHiSIeK4f0T4j0lDJ3xXMaoAjymX
+            txWoUvHOPxFLjNeRq+GKMEyOJimCwYut2YyS+z27gmATAgbboQ/LfTqcLrms9pJm
+            jH/DHs2Iqobz9FMBu+DPY4eR3uL1162AIb/+CnZ6yO8/0GVMMxQl+YkgePT+rELb
+            HQYSBXAJSVk6T6DT1dn+jNLEcENtHrLXtMC9AiB0H6TWVxEwNtS8Ib/msF/4hp+J
+            JjITIgsjtxP+AwVbBuDkJpB2Mid0rDE2nfjkhkNlDsrEYex4eB3mWSTHKcRO+pSV
+            qfPYdrqQ8+cUx4ThhnjDhkChykV+M0+yZUCvB4+5ayEXH7XIpYuJa7J6QHFGs9ID
+            HUvWUZ+t8YgNDFOtrPyCh0MyiuVDPCSZN+Hc1AKIisBjLgmor1Q7F3Jlf9EJd4uW
+            sxxeKtx8nSGkqcHlynpImkORmVnm0iUe2Kr/KEerFD8DNjAoXmWMFEWU/TL2Cv6b
+            SdfnYOXa5UtuA83oyg96K2dOEj2SPwt3ndEFqTImw4km/VtO9vTHW1Q0Iw1qHsQ0
+            evocI9QoHl5/WBAV2+/NEzJAxTlIbuuIMVJeRYCYa1vFXBuF4dfCBvA7x55fc9Qb
+            +gHUI63aeNHaPLNg9PMsyx+0S6iCsI7rri4cmbyTEFfIaUyY2+44QQL7rWhPIh/S
+            XAE/RinmyCMXCMRXA3LlohyKIDaabf/GphCYs57aQpziNlIo9+XpF01uJvOGGpWY
+            CpfvN5o9+xJPv0GmRvIQKkQ78M0afu2UGITN0pz77R1L7Snwu23ko002p+Uu
+            =tdGX
+            -----END PGP MESSAGE-----
+          fp: 129994A38E40322EE2A4FA6CB59C51DA13B1BF22
+    encrypted_regex: ^(value|host|hosts|nginx\.ingress\.kubernetes\.io\/mirror-host|nginx\.ingress\.kubernetes\.io\/auth-url|nginx\.ingress\.kubernetes\.io\/auth-signin)$
+    version: 3.7.3

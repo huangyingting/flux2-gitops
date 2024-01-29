@@ -22,3 +22,4 @@ resources:
   # - keycloak
   - chat-copilot
   - store
+  - lobe-chat

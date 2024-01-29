@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lobe-chat
+  labels:
+    name: lobe-chat
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: lobe-chat
+  template:
+    metadata:
+      labels:
+        app: lobe-chat
+    spec:
+      containers:
+      - image: lobehub/lobe-chat
+        imagePullPolicy: IfNotPresent
+        name: lobe-chat
+        env:
+        - name: USE_AZURE_OPENAI
+          value: "1"
+        - name: AZURE_API_KEY
+          value: REPLACE_ME
+        - name: OPENAI_PROXY_URL
+          value: REPLACE_ME
+        - name: ACCESS_CODE
+          value: REPLACE_ME
+        resources:
+          requests:
+            cpu: 50m
+            memory: 64Mi
+          limits:
+            cpu: 100m
+            memory: 256Mi
+        ports:
+        - containerPort: 3210
+      restartPolicy: Always
